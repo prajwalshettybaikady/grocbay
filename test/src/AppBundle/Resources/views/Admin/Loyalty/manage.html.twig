@@ -1,0 +1,129 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-13" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+      <style type="text/css">
+           html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+  
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+      footer.footer.noprint
+      {
+        display: none;
+      }
+      </style>
+     
+{# {{ dump(res) }} #}
+<!-- Modal -->
+{% for da in data %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="col-xs-12">
+                        <span class="pull-right">
+                    {#      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadCSV">Upload CSV</a> #}
+                          
+                        </span>
+                    </div>
+                    <h2>Manage Loyalty</h2>
+                    <form action="{{ path('update_loyalty') }}" class="">
+                      <div class="form-row">
+                          <div class="form-group col-4">
+    <label for="Status">Status</label>
+    <select class="form-control" id="Status" placeholder="eg : 100" name="status" >
+      <option value="0" {% if da.status == 0 %} selected {% endif %}>Enabled</option>
+      <option value="1"  {% if da.status == 1 %} selected {% endif %}>Disabled</option>
+    </select>
+  </div>
+  <div class="form-group col-4">
+    <label for="uname">Minimum Order Amount</label>
+    <input type="number" class="form-control" id="uname" placeholder="eg : 100" name="order" value="{{ da.minimum_order_amount }}" >
+  </div>
+  <div class="form-group col-4">
+    <label for="Points">Points For 1 {{ currency }}:</label>
+    <input type="number" class="form-control" id="Points" placeholder="eg : 100" name="rupee" value="{{ da.points }}"  >
+    <input type="hidden" class="form-control" id="loy" placeholder="eg : 100" name="id" value="{{ da.id }}"  >
+   
+  </div>
+</div>
+                   <div class="form-row">
+  <div class="form-group col-4">
+    <label for="type">Redeem Type</label>
+    <select class="form-control" id="type" placeholder="eg : 100" name="type" >
+           <option value="0" {% if da.type == 0 %} selected {% endif %}>Default</option>
+      <option value="1" {% if da.type == 1 %} selected {% endif %}>Percentage</option>
+    </select>
+  </div>
+  <div class="form-group col-4">
+    <label for="redeem">Percentage</label>
+    <input type="number" class="form-control" id="redeem" placeholder="eg : 100" name="value"  value="{{ da.maximum_redeem }}"  >
+  </div>
+    <div class="form-group col-4">
+    <label for="redeem">Discount Amount/Maximum Redeem value.</label>
+    <input type="number" class="form-control" id="redeem" placeholder="eg : 100" name="discount"  value="{{ da.discount }}"  >
+   
+  </div>
+</div>
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div>
+                       
+                        <hr>
+                       
+                    </div>
+                   
+                    </div>
+     
+             </div>
+           </div>
+         </div>
+         
+{% endfor %}
+{% endblock %}
+
+{% block scripts %}
+
+
+    
+{% endblock %}

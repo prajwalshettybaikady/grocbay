@@ -1,0 +1,56 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Promocode</th>
+                                    <th>Start date</th>
+                                    <th>End date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for promo in promocodes %}
+                                <tr>
+                                    <td>{{ promo.promoCode }}</td>
+                                    <td>{{ promo.startDate|date('d F Y') }}</td>
+                                    <td>{{ promo.endDate|date('d F Y') }}</td>
+                                    <td>
+                                        {% if promo.isActive %}
+                                            <a href="javascript:;" class="badge badge-success">active</a>
+                                        {% else %}
+                                            <a href="javascript:;" class="badge badge-danger">inactive</a>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('add_new_promocode',{'edid':promo.id})}}" title="Edit" class="badge badge-primary">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

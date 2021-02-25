@@ -1,0 +1,59 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+            <div class="layout-px-spacing">
+
+                
+                <div class="row layout-top-spacing" id="cancel-row">
+                
+                    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                        <div class="widget-content widget-content-area br-6">
+                            <div class="table-responsive mb-4 mt-4">
+                              <a href="" class="badge badge-success" style="float:right">Export To CSV</a>
+                                <table id="myTable" class="table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Customer Name</th>
+                                    <th>Email Id</th>
+                                    <th>Mobile Number</th>
+                                   <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            
+                           
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $(document).ready(function() {
+      $('#myTable').DataTable({   
+         
+      'processing': true,
+      'serverSide': true,
+      'serverMethod': 'post',
+      "aaSorting": [[0, 'desc']],
+      'ajax': {
+          'url':"{{ path('customer_page')}}",
+          'type': "post",
+      },
+      'columns': [
+         { data: 'id'},
+         { data: 'username' },
+         { data: 'email' },
+         { data: 'mobileNo' },
+         { data: 'isActive' },
+         { data: 'actionid' },
+      ],
+   });
+    });
+</script>
+{% endblock %}

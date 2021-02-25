@@ -1,0 +1,84 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+
+<!-- Modal -->
+<div id="uploadCSV" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Upload Menu Items</h4>
+      </div>
+      <div class="modal-body">
+        <p><form>
+        <input type="file" class="form-control">
+        </form></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="col-xs-12">
+                                                <h3>Purchase Returns</h3>
+
+                        <span class="pull-right">
+                    {#      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadCSV">Upload CSV</a> #}
+                            <a href="{{ path('manage_restaurant_purchase_return') }}" class="btn btn-primary btn-sm"> Purchase Return</a>
+                        </span>
+                    </div>
+                    <div class="table-responsive m-t-10">
+                                              <table id="myTable" class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Details</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 {% set id = 1 %}
+                                {% for product in menuItems %}
+
+                                <tr>
+                                     <td>{{ id }}</td>
+                                    <td>{{ product.date }}</td>
+                                    <td>{{ product.description }}</td>
+                                    <td>
+                                        <a href="{{ path('manage_restaurant_stock_detail',{'id':product.ref})}}" title="Manage item" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                      
+                                    </td>
+                                </tr>
+                                 {% set id = id + 1 %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+   
+</script>
+{% endblock %}

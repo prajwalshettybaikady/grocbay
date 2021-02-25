@@ -1,0 +1,199 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+{% block styles %}
+
+<link href="/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+ 
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker1" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+   $( "#datepicker2" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-body collapse show">
+                    <h6>Profit Report</h6>
+                    <hr>
+                    <form method="post" action="{{ path('filter_profit')}}">
+                    <div class="row">
+                        <div class="col-md-6">
+                                <label for="">From</label>
+                            <input type="text" name="fromDate" id="datepicker1"  class="form-control" autocomplete="off"  value="{{ from }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">To</label>
+                            <input type="text" name="toDate" id="datepicker2" class="form-control"  autocomplete="off" value="{{ to }}">
+                        </div>
+                    </div>
+                    <div class="row m-t-20">
+                    <div class="col-md-12">
+                            <label for="">Report Type</label>
+                            <select id="type" class="form-control" name="type">
+                            <option value="0" {% if type == 0 %} selected {% endif %}>Item</option>
+                            <option value="1" {% if type == 1 %} selected {% endif %}>Sales</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row m-t-20 toggle">
+                        <div class="col-md-12">
+                            <label for="">Items</label>
+                            <select name="item" id="grocbay" class="form-control">
+                                <option value="0">All</option>
+                                {% for item in items%}
+                                <option value="{{ item.id }}" {% if itemid == item.id %} selected {% endif %}>{{ item.itemName }} - ({{ item.variationName }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row m-t-20">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" type="submit" name="filter">Generate Report</button>
+                       
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 toggle">
+          {% if type == 0 %}
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Profit Report 
+                    </h4>
+                    <table class="table table-hovered" id="myTable">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>Item Name</td>
+                                <td>Quantity</td>
+                                <td>Total</td>
+                                <td>Profit</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set count = 1 %}
+                            {% set sales = 0 %}
+                            {% set profit = 0 %}
+                            {% for da in data %}
+                            <tr>
+                                <td>{{ count }}</td>
+                                <td>{{ da.itemName }} - {{ da.priceVariavtion }}</td>
+                                <td>{{ da.quantity }}</td>
+                                <td>{% if numberFormat == 0 %}{{ da.price|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ da.price|number_format(2, '.', '') }}{% endif %}</td>
+                                <td>{% if numberFormat == 0 %}{{ da.cost|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ da.cost|number_format(2, '.', '') }}{% endif %}</td>
+                                <td><a href="{{ path('view_item_sale',{'id':da.itemId}) }}">view</a></td>
+
+                                    
+                                </tr>
+                {% set count = count + 1 %}
+                {% set sales = sales + da.price %}
+                {% set profit = profit + da.cost %}
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <hr>
+                  <b style="color:red;font-weight:400">  Sales : {% if numberFormat == 0 %}{{ sales|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ sales|number_format(2, '.', '') }}{% endif %} |  Profit : {% if numberFormat == 0 %}{{ profit|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ profit|number_format(2, '.', '') }}{% endif %}</b>
+
+                </div>
+                <div class="card-body collapse show">
+                    
+                </div>
+            </div>
+        </div>
+        {% else %}
+                <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Order Reports
+                        <p class="text-muted pull-right"></p>
+                    </h4>
+                    <table class="table table-hovered" id="myTable">
+                        <thead>
+                            <tr>
+                                <td>Order ID</td>
+                                <td>Order Date</td>
+                                <td>Order amount</td>
+                                <td>Payment Type</td>
+                                <td>Order Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set sum = 0 %}
+                            {% set profit = 0 %}
+                        
+                            {% for item in data %}
+                            <tr >
+                                <td><a href="{{ path('restaurant_orders_panel_update',{'id':item.id}) }}" title="Edit" style="font-weight:600;">{{ item.id }}</a></td>
+                                <td>{{ item.orderDate }}</td>
+                                <td>{% if numberFormat == 0 %}{{ item.orderAmount|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ item.orderAmount|number_format(2, '.', '') }}{% endif %}</td>
+                                <td>{{ item.paymentType }}</td>
+                                <td>{{ item.orderStatus }}</td>
+                        
+                            </tr>
+                               {% set sum = sum + item.orderAmount %}
+                               {% set profit = profit + item.cost %}
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <hr>
+                    <b style="color:red;font-size:17px;font-weight:bold;"> Total Sale : {% if numberFormat == 0 %}{{ sum|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ sum|number_format(2, '.', '') }}{% endif %} </b> |    <b style="color:red;font-size:17px;font-weight:bold;"> Profit : {% if numberFormat == 0 %}{{ profit|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ profit|number_format(2, '.', '') }}{% endif %} </b>
+                </div>
+                <div class="card-body collapse show">
+                    
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js
+"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js
+"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script>
+
+$('#grocbay').select2({
+  selectOnClose: true
+});
+
+$(document).ready(function() {
+$('#myTable').DataTable( {   
+});
+});
+  $('#type').change(function(){
+    $('.toggle').toggle();
+  });
+
+         </script>
+
+{% endblock %}

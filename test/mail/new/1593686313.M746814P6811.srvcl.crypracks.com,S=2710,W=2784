@@ -1,0 +1,74 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id 6FAGKim5/V6bGgAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Thu, 02 Jul 2020 06:38:33 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Thu, 02 Jul 2020 06:38:33 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1jqwbx-0001sJ-HB
+	for grocbayc@srvcl.crypracks.com; Thu, 02 Jul 2020 06:38:33 -0400
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1jpr1D-0006VU-Do@srvcl.crypracks.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1593686313-eximdsn-1396728999
+MIME-Version: 1.0
+Subject: Warning: message 1jpr1D-0006VU-Do delayed 72 hours
+Message-Id: <E1jqwbx-0001sJ-HB@srvcl.crypracks.com>
+Date: Thu, 02 Jul 2020 06:38:33 -0400
+
+--1593686313-eximdsn-1396728999
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+A message that you sent has not yet been delivered to one or more of its
+recipients after more than 72 hours on the queue on srvcl.crypracks.com.
+
+The message identifier is:     1jpr1D-0006VU-Do
+The subject of the message is: Thank you for ordering with Grocbay
+The date of the message is:    Mon, 29 Jun 2020 06:28:07 -0400
+
+The address to which the message has not yet been delivered is:
+
+  usuusus@bb.com
+
+No action is required on your part. Delivery attempts will continue for
+some time, and this warning may be repeated at intervals if the message
+remains undelivered. Eventually the mail delivery software will give up,
+and when that happens, the message will be returned to you.
+
+--1593686313-eximdsn-1396728999
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; srvcl.crypracks.com
+
+Action: delayed
+Final-Recipient: rfc822;usuusus@bb.com
+Status: 4.0.0
+
+--1593686313-eximdsn-1396728999
+Content-type: text/rfc822-headers
+
+Return-path: <grocbayc@srvcl.crypracks.com>
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.93)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1jpr1D-0006VU-Do
+	for usuusus@bb.com; Mon, 29 Jun 2020 06:28:07 -0400
+To: usuusus@bb.com
+Subject: Thank you for ordering with Grocbay
+X-PHP-Script: admin.grocbay.com/web/app.php for 223.228.9.105
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: info@appinsight.tech
+Reply-To: info@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1jpr1D-0006VU-Do@srvcl.crypracks.com>
+Date: Mon, 29 Jun 2020 06:28:07 -0400
+
+
+--1593686313-eximdsn-1396728999--

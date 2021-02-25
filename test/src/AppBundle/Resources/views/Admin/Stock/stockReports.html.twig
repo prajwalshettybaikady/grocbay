@@ -1,0 +1,84 @@
+{% extends "@AppBundle/"~ myExtend ~"/base.html.twig" %}
+{% block styles %}
+
+<link href="/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+
+
+    
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Stock Reports
+                       
+                    </h4>
+                    {# {{ dump(stock) }} #}
+                </div>
+                    <table class="table table-hovered" id="myTable">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>Name </td>
+                                    <td>Variation </td>
+                                <td>Current Stock</td>
+                                <td>status</td>
+                                
+                            </tr>
+                        </thead>
+                        {% for st in menu %}
+                               
+                                <tr>
+                                 <td>{{ st.id }}</td>
+                                 <td>
+                                     
+                                            <a href="{{ path('restaurant_edit_menu_item',{'id':st.id})}}">{{ st.itemName }}</a>
+                                      
+                                     
+                                    </td>
+                                       <td>
+                                     
+                                            <a href="{{ path('restaurant_edit_menu_item',{'id':st.id})}}">{{ st.variationName }}</a>
+                                      
+                                     
+                                    </td>
+                                    <td>{{ st.stock }}</td>
+                                    <td>
+                                       {% if st.stock <= st.alert %}
+                                        <b style="color:red;">Stock Getting Low</b>
+                                         {% else %}
+                                        <b style="color:red;">In Stock</b>
+                                       {% endif %}
+
+                                    </td>
+                                </tr>
+                          
+                            {% endfor %}</tbody>
+
+                    </table>
+                </div>
+                <div class="card-body collapse show">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/plugins/moment/moment.js"></script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/assets/plugins/iCheck/icheck.min.js"></script>
+<script>
+    $(document).ready(function() {
+ $('#myTable').DataTable();
+    });     
+    </script>
+{% endblock %}

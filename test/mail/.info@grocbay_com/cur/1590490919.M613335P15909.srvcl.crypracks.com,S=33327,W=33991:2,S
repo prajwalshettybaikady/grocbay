@@ -1,0 +1,664 @@
+Return-Path: <bounces+14119736-4358-info=grocbay.com@fwid.freshworks.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id jDMUJCf3zF4lPgAAYUfyRA
+	(envelope-from <bounces+14119736-4358-info=grocbay.com@fwid.freshworks.com>)
+	for <info@grocbay.com>; Tue, 26 May 2020 07:01:59 -0400
+Return-path: <bounces+14119736-4358-info=grocbay.com@fwid.freshworks.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Tue, 26 May 2020 07:01:59 -0400
+Received: from o28.email.freshdesk.com ([198.37.146.40]:39908)
+	by srvcl.crypracks.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounces+14119736-4358-info=grocbay.com@fwid.freshworks.com>)
+	id 1jdXLI-00043l-JL
+	for info@grocbay.com; Tue, 26 May 2020 07:01:59 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freshworks.com;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:to;
+	s=fid; bh=VLmfSBMZ81M0j40dphgCYSZbvtE7B3Ehe1/pZAaNMtM=;
+	b=dIv2EKclqX0qdpGS+btd5XahxUi3U9+ihjygX/BCQI/QUGQ+dUIrLzDSrzJCgelEYmPE
+	kqg/IGOtS3hFlTnRLTfsBhiKoK4592/sy1BGa1n54SRPioAiLbFPyHHX/4RIGhoY/zAE+D
+	OJzjZVBBlFNFOSjgp+9VyB1Q//G7gNrPc=
+Received: by filterdrecv-p3mdw1-6dbfd75bfd-s4r2z with SMTP id filterdrecv-p3mdw1-6dbfd75bfd-s4r2z-18-5ECCF6FA-27
+        2020-05-26 11:01:14.184244113 +0000 UTC m=+5306030.396005046
+Received: from MTQxMTk3MzY (unknown)
+	by ismtpd0005p1iad1.sendgrid.net (SG)
+	with HTTP
+	id 2fSo5UCUSlicMsBhuHeNLA
+	Tue, 26 May 2020 11:01:14.143 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=iso-8859-1
+Date: Tue, 26 May 2020 11:01:14 +0000 (UTC)
+From: Freshworks Support <support@freshworks.com>
+Mime-Version: 1.0
+Message-ID: <b08cd209-e0a0-4a5a-a8ae-6ac969a08fb3.outgoing-consumers16@email.freshid.com>
+Subject: Activate your freshworks account.
+X-SG-EID: 
+ =?us-ascii?Q?DsmDTSgVhRsSMm496d6A4sqe9EhEKlj0GjDWVSqM1HUpsEDKTVIDXBWN+FMcjJ?=
+ =?us-ascii?Q?W07ysIsDSLCv8syba8C3xbV+0LycN2EEwyaYeaj?=
+ =?us-ascii?Q?8jPytlxAoiRDKMuzT67ozd4IOC+WiNTAKj1NsiC?=
+ =?us-ascii?Q?pZ4+3SeE1VoRTirKcb=2FazerqH4das643TIGzVcy?=
+ =?us-ascii?Q?pnlHSK2KqXVFstl4f1BvaTnqvUG+7vJ7IjhENFB?=
+ =?us-ascii?Q?q8EQ=2Fcavo0Lz=2F6Kmx2eU51dgolE2na0IC1vp9kI?=
+ =?us-ascii?Q?+PjCUyI3gQWHXwikfP3kg=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FKbJUjJhQ4oydDexbqSpY?=
+ =?us-ascii?Q?bJrr2juzGd8Q6B8Yj2ES9TLUyyCP77YkvSi0hVU?=
+ =?us-ascii?Q?t9awEBQveL+1gJBaNNDCXJzaPXrnlEuriz=2FtOKJ?=
+ =?us-ascii?Q?MaNECn3SktIFeNLhrKRRS8lJTJSfJiR50KP+XIA?=
+ =?us-ascii?Q?XPszuW8k5+B7LrlCglSGyQ4qAoLRqTGjMjsXbIu?=
+ =?us-ascii?Q?yJnBI1FwP21eYoFZj05y3zVa1b9++tgl8=2F8TigQ?=
+ =?us-ascii?Q?BnqfAxswfVtmmZuL4AqqJXGnJHe7NnTukypMIzc?= =?us-ascii?Q?dss=3D?=
+To: info@grocbay.com
+X-Spam-Status: No, score=-0.1
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Here it is: Your Freshworks account! Hello Sumanth! Welcome
+    to Freshworks! Thanks for signing up with Freshchat, by Freshworks. Your
+   Account 
+ Content analysis details:   (-0.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshworks.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [198.37.146.40 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+<!doctype html>
+<html xmlns=3D'http://www.w3.org/1999/xhtml' xmlns:v=3D'urn:schemas-microso=
+ft-com:vml'
+      xmlns:o=3D'urn:schemas-microsoft-com:office:office'>
+<head><title>Here it is: Your Freshworks account!</title>  <!--[if !mso]><!=
+-- -->
+    <meta http-equiv=3D'X-UA-Compatible' content=3D'IE=3Dedge'>  <!--<![end=
+if]-->
+    <meta http-equiv=3D'Content-Type' content=3D'text/html; charset=3DUTF-8=
+'>
+    <meta name=3D'viewport' content=3D'width=3Ddevice-width, initial-scale=
+=3D1.0'>
+    <style type=3D'text/css'>  #outlook a {
+            padding: 0;
+        }
+
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        .ExternalClass * {
+            line-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table, td {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        p {
+            display: block;
+            margin: 13px 0;
+        }</style><!--[if !mso]><!-->
+    <style type=3D'text/css'>  @media only screen and (max-width: 480px) {
+            @-ms-viewport {
+                width: 320px;
+            }    @viewport {
+                width: 320px;
+            }
+        }</style><!--<![endif]--><!--[if mso]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml><![endif]--><!--[if lte mso 11]>
+    <style type=3D'text/css'>  .outlook-group-fix {
+        width: 100% !important;
+    }</style><![endif]-->
+    <style type=3D'text/css'>  @media only screen and (min-width: 480px) {
+            .mj-column-per-100 {
+                width: 100% !important;
+            }
+        }</style>
+</head>
+<body style=3D'background: #EFF2F7;'>
+<div class=3D'mj-container' style=3D'background-color:#EFF2F7;'><!--[if mso=
+  IE]>
+    <table role=3D'presentation' border=3D'0' cellpadding=3D'0' cellspacing=
+=3D'0' width=3D'600' align=3D'center'
+           style=3D'width:600px;'>
+        <tr>
+            <td style=3D'line-height:0px;font-size:0px;mso-line-height-rule=
+:exactly;' class=3D'section-outlook'>
+    <![endif]-->
+    <div style=3D'width: 90%; margin: 0px auto; max-width: 472px;' class=3D=
+'section'>
+        <table role=3D'presentation' cellpadding=3D'0' cellspacing=3D'0' st=
+yle=3D'font-size:0px;width:100%;' align=3D'center'
+               border=3D'0'>
+            <tbody>
+            <tr>
+                <td style=3D'text-align:center;vertical-align:top;direction=
+:ltr;font-size:0px;padding:22px;'>
+                    <!--[if mso  IE]>
+                    <table role=3D'presentation' border=3D'0' cellpadding=
+=3D'0' cellspacing=3D'0'>
+                        <tr>
+                            <td style=3D'vertical-align:top;width:600px;'> =
+     <![endif]-->
+                    <div class=3D'mj-column-per-100 outlook-group-fix'
+                         style=3D'vertical-align:top;display:inline-block;d=
+irection:ltr;font-size:13px;text-align:left;width:100%;'>
+                        <table role=3D'presentation' cellpadding=3D'0' cell=
+spacing=3D'0' width=3D'100%' border=3D'0'>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <!--[if mso  IE]>      </td></tr></table>      <![endif=
+]--></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--[if mso  IE]>      </td></tr></table>      <![endif]-->      <!--[i=
+f mso  IE]>
+    <table role=3D'presentation' border=3D'0' cellpadding=3D'0' cellspacing=
+=3D'0' width=3D'600' align=3D'center'
+           style=3D'width:600px;' class=3D'head-wrapper-outlook top-border-=
+outlook'>
+        <tr>
+            <td style=3D'line-height:0px;font-size:0px;mso-line-height-rule=
+:exactly;'>      <![endif]-->
+    <div style=3D'border-top: 2px solid #3973E6; border-top-left-radius: 4p=
+x; border-top-right-radius: 4px; width: 90%; background-color: #FFFFFF; mar=
+gin: 0px auto; max-width: 568px;'
+         class=3D'head-wrapper top-border'>
+        <table role=3D'presentation' cellpadding=3D'0' cellspacing=3D'0' st=
+yle=3D'font-size:0px;width:100%;' align=3D'center'
+               border=3D'0'>
+            <tbody>
+            <tr>
+                <td style=3D'text-align:center;vertical-align:top;direction=
+:ltr;font-size:0px;padding:0px;'>
+                    <!--[if mso  IE]>
+                    <table role=3D'presentation' border=3D'0' cellpadding=
+=3D'0' cellspacing=3D'0'>
+                        <tr>
+                            <td style=3D'width:600px;' class=3D'section-out=
+look'>      <![endif]-->
+                    <div style=3D'width: 90%; margin: 0px auto; max-width: =
+472px;' class=3D'section'>
+                        <table role=3D'presentation' cellpadding=3D'0' cell=
+spacing=3D'0' style=3D'font-size:0px;width:100%;'
+                               align=3D'center' border=3D'0'>
+                            <tbody>
+                            <tr>
+                                <td style=3D'text-align:center;vertical-ali=
+gn:top;direction:ltr;font-size:0px;padding:0px;'>
+                                    <!--[if mso  IE]>
+                                    <table role=3D'presentation' border=3D'=
+0' cellpadding=3D'0' cellspacing=3D'0'>
+                                        <tr>
+                                            <td style=3D'vertical-align:top=
+;width:600px;'>      <![endif]-->
+                                    <div class=3D'mj-column-per-100 outlook=
+-group-fix'
+                                         style=3D'vertical-align:top;displa=
+y:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;'>
+                                        <table role=3D'presentation' cellpa=
+dding=3D'0' cellspacing=3D'0' width=3D'100%'
+                                               border=3D'0'>
+                                            <tbody>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:24px 0px;'
+                                                    align=3D'left'>
+                                                    <table role=3D'presenta=
+tion' cellpadding=3D'0' cellspacing=3D'0'
+                                                           style=3D'border-=
+collapse:collapse;border-spacing:0px;'
+                                                           align=3D'left' b=
+order=3D'0'>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td style=3D'wi=
+dth:135px;'><img alt=3D'Freshworks' height=3D'auto'
+                                                                           =
+               src=3D'https://dash.freshworks.com/assets/images/Fw-logo.png=
+'
+                                                                           =
+               style=3D'border:none;border-radius:0px;display:block;font-si=
+ze:13px;outline:none;text-decoration:none;width:100%;height:auto;'
+                                                                           =
+               width=3D'135'></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--[if mso  IE]>      </td></tr></tabl=
+e>      <![endif]--></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--[if mso  IE]>        </td>      </tr>
+                    <tr>
+                        <td style=3D'width:600px;'>      <![endif]-->
+                    <div style=3D'margin:0px auto;max-width:600px;'>
+                        <table role=3D'presentation' cellpadding=3D'0' cell=
+spacing=3D'0' style=3D'font-size:0px;width:100%;'
+                               align=3D'center' border=3D'0'>
+                            <tbody>
+                            <tr>
+                                <td style=3D'text-align:center;vertical-ali=
+gn:top;direction:ltr;font-size:0px;padding:0px;'>
+                                    <!--[if mso  IE]>
+                                    <table role=3D'presentation' border=3D'=
+0' cellpadding=3D'0' cellspacing=3D'0'>
+                                        <tr>
+                                            <td style=3D'vertical-align:top=
+;width:600px;'>      <![endif]-->
+                                    <div class=3D'mj-column-per-100 outlook=
+-group-fix'
+                                         style=3D'vertical-align:top;displa=
+y:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;'>
+                                        <table role=3D'presentation' cellpa=
+dding=3D'0' cellspacing=3D'0' width=3D'100%'
+                                               border=3D'0'>
+                                            <tbody>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:24px 0px;padding-top:0px;'>
+                                                    <p style=3D'font-size:1=
+px;margin:0px auto;border-top:1px solid #E2E5E7;width:100%;'></p>
+                                                    <!--[if mso  IE]>
+                                                    <table role=3D'presenta=
+tion' align=3D'center' border=3D'0' cellpadding=3D'0'
+                                                           cellspacing=3D'0=
+'
+                                                           style=3D'font-si=
+ze:1px;margin:0px auto;border-top:1px solid #E2E5E7;width:100%;'
+                                                           width=3D'600'>
+                                                        <tr>
+                                                            <td style=3D'he=
+ight:0;line-height:0;'>=A0</td>
+                                                        </tr>
+                                                    </table><![endif]--></t=
+d>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--[if mso  IE]>      </td></tr></tabl=
+e>      <![endif]--></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--[if mso  IE]>          </td>        </tr>      </ta=
+ble>      <![endif]--></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--[if mso  IE]>      </td></tr></table>      <![endif]-->      <!--[i=
+f mso  IE]>
+    <table role=3D'presentation' border=3D'0' cellpadding=3D'0' cellspacing=
+=3D'0' width=3D'600' align=3D'center'
+           style=3D'width:600px;' class=3D'body-wrapper-outlook bottom-bord=
+er-outlook'>
+        <tr>
+            <td style=3D'line-height:0px;font-size:0px;mso-line-height-rule=
+:exactly;'>      <![endif]-->
+    <div style=3D'border-bottom-left-radius: 4px; border-bottom-right-radiu=
+s: 4px; width: 90%; background-color: #FFFFFF; margin: 0px auto; max-width:=
+ 568px;'
+         class=3D'body-wrapper bottom-border'>
+        <table role=3D'presentation' cellpadding=3D'0' cellspacing=3D'0' st=
+yle=3D'font-size:0px;width:100%;' align=3D'center'
+               border=3D'0'>
+            <tbody>
+            <tr>
+                <td style=3D'text-align:center;vertical-align:top;direction=
+:ltr;font-size:0px;padding:0px;'>
+                    <!--[if mso  IE]>
+                    <table role=3D'presentation' border=3D'0' cellpadding=
+=3D'0' cellspacing=3D'0'>
+                        <tr>
+                            <td style=3D'width:600px;' class=3D'section-out=
+look'>      <![endif]-->
+                    <div style=3D'width: 90%; margin: 0px auto; max-width: =
+472px;' class=3D'section'>
+                        <table role=3D'presentation' cellpadding=3D'0' cell=
+spacing=3D'0' style=3D'font-size:0px;width:100%;'
+                               align=3D'center' border=3D'0'>
+                            <tbody>
+                            <tr>
+                                <td style=3D'text-align:center;vertical-ali=
+gn:top;direction:ltr;font-size:0px;padding:0px;padding-bottom:0px;'>
+                                    <!--[if mso  IE]>
+                                    <table role=3D'presentation' border=3D'=
+0' cellpadding=3D'0' cellspacing=3D'0'>
+                                        <tr>
+                                            <td style=3D'vertical-align:top=
+;width:600px;' class=3D'panel-outlook'>
+                                    <![endif]-->
+                                    <div class=3D'mj-column-per-100 outlook=
+-group-fix panel'
+                                         style=3D'border: 1px solid #E2E5E7=
+; background: #f3f4f7b3; border-radius: 4px; vertical-align: top; display: =
+inline-block; direction: ltr; font-size: 13px; text-align: left; width: 100=
+%;'>
+                                        <table role=3D'presentation' cellpa=
+dding=3D'0' cellspacing=3D'0'
+                                               style=3D'border-radius:4px;'=
+ width=3D'100%' border=3D'0'>
+                                            <tbody>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:20px 24px;padding-bottom:0px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#12344D;font-family:Helvetica Neue, Helvetica, Arial;font-size:14p=
+x;font-weight:400;line-height:20px;text-align:left;'>Hello Sumanth! Welcome=
+ to Freshworks!              Thanks for signing up with Freshchat, by Fresh=
+works.</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:12px 24px;'><p
+                                                            style=3D'font-s=
+ize:1px;margin:0px auto;border-top:1px solid #E2E5E7;width:100%;'></p>
+                                                    <!--[if mso  IE]>
+                                                    <table role=3D'presenta=
+tion' align=3D'center' border=3D'0' cellpadding=3D'0'
+                                                           cellspacing=3D'0=
+'
+                                                           style=3D'font-si=
+ze:1px;margin:0px auto;border-top:1px solid #E2E5E7;width:100%;'
+                                                           width=3D'600'>
+                                                        <tr>
+                                                            <td style=3D'he=
+ight:0;line-height:0;'>=A0</td>
+                                                        </tr>
+                                                    </table><![endif]--></t=
+d>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:0px 24px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#475867;font-family:Helvetica Neue, Helvetica, Arial;font-size:12p=
+x;font-weight:400;line-height:20px;text-align:left;'>
+                                                        Your Account
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:24px;padding-top:0px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#12344D;font-family:Helvetica Neue, Helvetica, Arial;font-size:14p=
+x;font-weight:400;line-height:20px;text-align:left;'>
+                                                        <span style=3D'font=
+-weight:600'>appinsighttechnologies.freshworks.com</span></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:20px 24px;padding-top:0px;'
+                                                    align=3D'left'>
+                                                    <table role=3D'presenta=
+tion' cellpadding=3D'0' cellspacing=3D'0'
+                                                           style=3D'border-=
+collapse:separate;' align=3D'left' border=3D'0'>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td style=3D'bo=
+rder:none;border-radius:4px;color:#ffffff;cursor:auto;padding:10px 25px;'
+                                                                align=3D'ce=
+nter' valign=3D'middle' bgcolor=3D'#3973E6'><a
+                                                                        hre=
+f=3D'https://appinsighttechnologies.freshworks.com/invite/8aea73bb-b70f-434=
+0-b71e-55b8e8f3ff72'
+                                                                        sty=
+le=3D'text-decoration: none; background: #3973E6; color: #ffffff; font-fami=
+ly: Helvetica; font-size: 14px; font-weight: bold; line-height: 20px; text-=
+transform: none; margin: 0px;'
+                                                                        tar=
+get=3D'_blank'>Activate account</a></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--[if mso  IE]>      </td></tr></tabl=
+e>      <![endif]--></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--[if mso  IE]>        </td>      </tr>
+                    <tr>
+                        <td style=3D'width:600px;' class=3D'section-outlook=
+'>      <![endif]-->
+                    <div style=3D'width: 90%; margin: 0px auto; max-width: =
+472px;' class=3D'section'>
+                        <table role=3D'presentation' cellpadding=3D'0' cell=
+spacing=3D'0' style=3D'font-size:0px;width:100%;'
+                               align=3D'center' border=3D'0'>
+                            <tbody>
+                            <tr>
+                                <td style=3D'text-align:center;vertical-ali=
+gn:top;direction:ltr;font-size:0px;padding:0px;'>
+                                    <!--[if mso  IE]>
+                                    <table role=3D'presentation' border=3D'=
+0' cellpadding=3D'0' cellspacing=3D'0'>
+                                        <tr>
+                                            <td style=3D'vertical-align:top=
+;width:600px;'>      <![endif]-->
+                                    <div class=3D'mj-column-per-100 outlook=
+-group-fix'
+                                         style=3D'vertical-align:top;displa=
+y:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;'>
+                                        <table role=3D'presentation' cellpa=
+dding=3D'0' cellspacing=3D'0' width=3D'100%'
+                                               border=3D'0'>
+                                            <tbody>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:0px;padding-top:24px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#12344D;font-family:Helvetica Neue, Helvetica, Arial;font-size:12p=
+x;font-weight:400;line-height:20px;text-align:left;'>
+                                                        Once you activate y=
+our account, you can customize your
+                                                        Freshworks Account,=
+ configure your security settings, invite
+                                                        your team members a=
+nd access all Freshworks accounts seamlessly.
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:0px;padding-top:16px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#12344D;font-family:Helvetica Neue, Helvetica, Arial;font-size:12p=
+x;font-weight:400;line-height:20px;text-align:left;'>
+                                                        If you have any que=
+stions, feel free to reach out to us at <a
+                                                                href=3D"mai=
+lto:support@freshworks.com"
+                                                                style=3D"co=
+lor: #2E6ED8">support@freshworks.com</a> or reply to
+                                                        this email.
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:16px 0px;'><p
+                                                            style=3D'font-s=
+ize:1px;margin:0px auto;border-top:1px solid #E2E5E7;width:100%;'></p>
+                                                    <!--[if mso  IE]>
+                                                    <table role=3D'presenta=
+tion' align=3D'center' border=3D'0' cellpadding=3D'0'
+                                                           cellspacing=3D'0=
+'
+                                                           style=3D'font-si=
+ze:1px;margin:0px auto;border-top:1px solid #E2E5E7;width:100%;'
+                                                           width=3D'600'>
+                                                        <tr>
+                                                            <td style=3D'he=
+ight:0;line-height:0;'>=A0</td>
+                                                        </tr>
+                                                    </table><![endif]--></t=
+d>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:0px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#12344D;font-family:Helvetica Neue, Helvetica, Arial;font-size:12p=
+x;font-weight:600;line-height:20px;text-align:left;'>
+                                                        <a href=3D'https://=
+www.freshworks.com' color=3D'#2E6ED8 !important'
+                                                           style=3D'color: =
+#2E6ED8;'>                Freshworks Inc.              </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:0px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#12344D;font-family:Helvetica Neue, Helvetica, Arial;font-size:12p=
+x;font-weight:400;line-height:20px;text-align:left;'>2950 S. Delaware Stree=
+t, Suite 201, San Mateo CA 94403</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style=3D'word-wrap:brea=
+k-word;font-size:0px;padding:0px;padding-bottom:32px;'
+                                                    align=3D'left'>
+                                                    <div style=3D'cursor:au=
+to;color:#12344D;font-family:Helvetica Neue, Helvetica, Arial;font-size:12p=
+x;font-weight:400;line-height:20px;text-align:left;'>
+                                                        Copyright 2020 &#16=
+9; Freshworks Inc. All Rights
+                                                        Reserved.
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--[if mso  IE]>      </td></tr></tabl=
+e>      <![endif]--></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--[if mso  IE]>          </td>        </tr>      </ta=
+ble>      <![endif]--></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--[if mso  IE]>      </td></tr></table>      <![endif]-->      <!--[i=
+f mso  IE]>
+    <table role=3D'presentation' border=3D'0' cellpadding=3D'0' cellspacing=
+=3D'0' width=3D'600' align=3D'center'
+           style=3D'width:600px;'>
+        <tr>
+            <td style=3D'line-height:0px;font-size:0px;mso-line-height-rule=
+:exactly;'>      <![endif]-->
+    <div style=3D'margin:0px auto;max-width:600px;'>
+        <table role=3D'presentation' cellpadding=3D'0' cellspacing=3D'0' st=
+yle=3D'font-size:0px;width:100%;' align=3D'center'
+               border=3D'0'>
+            <tbody>
+            <tr>
+                <td style=3D'text-align:center;vertical-align:top;direction=
+:ltr;font-size:0px;padding:15px;'>
+                    <!--[if mso  IE]>
+                    <table role=3D'presentation' border=3D'0' cellpadding=
+=3D'0' cellspacing=3D'0'>
+                        <tr>
+                            <td style=3D'vertical-align:top;width:600px;'> =
+     <![endif]-->
+                    <div class=3D'mj-column-per-100 outlook-group-fix'
+                         style=3D'vertical-align:top;display:inline-block;d=
+irection:ltr;font-size:13px;text-align:left;width:100%;'>
+                        <table role=3D'presentation' cellpadding=3D'0' cell=
+spacing=3D'0' width=3D'100%' border=3D'0'>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <!--[if mso  IE]>      </td></tr></table>      <![endif=
+]--></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--[if mso  IE]>      </td></tr></table>      <![endif]--></div>
+</body>
+</html>

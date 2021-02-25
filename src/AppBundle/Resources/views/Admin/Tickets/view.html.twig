@@ -1,0 +1,84 @@
+    {% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+    {% for da in data %}
+
+        <div id="success"></div>
+<div class="layout-px-spacing">
+<div class="row layout-top-spacing">
+    <div class="col-12">
+        <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 pl-4 pt-4"><a href="javascript:;" class="text-warning">#{{ da.ref }}</a></h4>
+                </div>
+
+                <div class="card-body">
+                  {#   {{ form_start(form) }}
+                    {% form_theme form '@AppBundle/Themes/widget.html.twig' %} #}
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>From,<br>
+                                        <small>
+                                           <a href="{{ path('customer_view',{'id':da.raisedBy}) }}"> {{ da.username }}</a><br>
+                                            Mobile : {{ da.mobileNo }}<br>
+                                            Email : {{ da.email }}
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+<div class="row m-t-20">
+<div class="col-md-12">
+ <small>
+ <b>  
+ Ticket Status : <span style="background:red;padding:5px;color:#fff">{{ da.ticketStatus }}</span> |
+<b>    Call Back Request:     {% if da.callback == 0 %}<span style="background:red;padding:5px;color:#fff"> No </span>{% else %} <span style="background:green;padding:5px;color:#fff">Yes </span>{% endif %}</b>
+<br>
+
+    Subject: {{ da.subject }}<br>
+    Message :  {{ da.message }}<br>
+    {% if da.attachment_type == 0 %}
+    Attachment : <a href="/uploads/{{ da.attachment }}" target="_BLANK">{{ da.attachment }}</a><br>
+    {% else %} Attachment : <br>
+    {% for file in attachment %}
+       <a href="/uploads/ticket/{{ file.file }}" target="_BLANK">{{ file.file }}</a><br>
+        {% endfor %}
+    }
+{% endif %}
+    Raised Time :  {{ da.raisingDate }} <br>
+
+                                </div>
+                                
+                          
+                </b>
+              </small>
+            </div>
+          </div>
+                  <div class="col-md-4">
+
+
+                    <form method="post" action="{{ path('update_ticket')}}">
+                    Message / Remarks 
+<textarea class="form-control form-control-sm" rows="5" name="remarks">{{ da.remarks}}</textarea>
+Status
+<select type="text" class="form-control form-control-sm" name="status">
+<option {% if da.ticketStatus == 'Open' %} selected {% endif %}>Open</option>
+<option {% if da.ticketStatus == 'Closed' %} selected {% endif %}>Closed</option>
+</select>
+<div>&nbsp;</div>
+<input type="hidden" name="id" value="{{ da.ref }}">
+<button class="btn btn-primary" type="submit">Update</button>
+ <a href="{{ path('create_order') }}?ref={{ da.ref }}&user={{ da.raisedBy }}" class="btn btn-primary">Create Order</a>
+</form>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>                
+{% endfor %}
+{% endblock %}

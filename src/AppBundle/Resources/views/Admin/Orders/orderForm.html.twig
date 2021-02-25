@@ -1,0 +1,1579 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+{% block body %}
+<style type="text/css">
+thead.ban td {
+    padding: 5px !important;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.pr
+   {
+    font-size: 10px;
+    text-transform: uppercase;
+   }
+   @media print{
+   .noprint{
+   display:none;
+   }
+
+ 
+      .print-area
+   {
+    display: block !important;
+    background: #fff !important;
+   }
+   }
+      .print-area
+   {
+    display: none;
+   }
+   .edit-order
+   {
+   float: right;
+   font-weight: bolder;
+   text-transform: uppercase;
+   font-size: 11px;
+   }
+   .borderless tr {
+    border: none;
+}
+ @media print
+      {
+         @page {
+           margin-top: 0;
+           margin-bottom: 0;
+         }
+         body  {
+           padding-top: 72px;
+           padding-bottom: 72px ;
+         }
+         *
+         {
+          background: #fff !important;
+         }
+      } 
+
+.x td, .x th {
+    border-color: #f3f1f1;
+    padding: 0px;
+    font-weight: 500;
+    font-size: 11px;
+}
+.xx td, .xx th {
+    border-color: #f3f1f1;
+    padding: 0px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+      .ss
+      {
+        background: #fff0;
+    color: #000 !important;
+    border: none;
+    box-shadow: none;
+    }
+    .select1{
+       padding: 7px 16px;
+    }
+    .card-header{
+        background-color: #fff;
+        border-color: #fff;
+    }
+    .card-header section > div.collapsed {
+        color: #000;
+       }
+
+     select.info {
+
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;      
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+ 
+ .form-control.form-control-sm {
+    padding: 6px 16px;
+ }
+      
+select.classic {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #000 50%),
+    linear-gradient(135deg, #000 50%, transparent 50%),
+    linear-gradient(to right, #c7c7c7, #c7c7c7);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+select.classic:focus {
+  background-image:
+    linear-gradient(45deg, #000 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #000 50%),
+    linear-gradient(to right, #c7c7c7, #c7c7c7);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+.right-sidebar-option {
+      background: #f1f2f3;
+}
+
+.card-header section > div:not(.collapsed) {
+    color: #000;
+}
+.right-sidebar-card {
+  margin-bottom:0;
+  border-radius:0;
+}
+
+.select2-container .select2-selection--single{
+  height: 100% !important;
+}
+
+select.form-control.form-control-sm.fa.fa-angle-down {
+    background: #E2A03F;
+    color: #fff !important;
+}
+
+input.submit-btn.submit-btn.btn-block {
+    background: #2F4ACA;
+    border: none;
+    height: 33px;
+    color: #ffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.otype {
+   font-weight:700;
+}
+.importantRule{
+   color:#fff !important;
+}
+</style>
+<div class="noprint">
+<!-- new invoice start -->
+
+
+  {{ form_start(form) }}
+            {% form_theme form '@AppBundle/Themes/widget.html.twig' %}  
+<div class="layout-px-spacing">
+    <div class="row layout-top-spacing">
+    <div class="col-md-12">
+      <div class="card">
+         <div class="p-2">
+                <h4 class=""><span class="badge badge-primary">#{{ order.id }}</span> 
+                 {% if order.orderStatus == 'dispatched' %}
+                    <span class="badge" style="background: #ff5722;text-transform: capitalize !important;color: #fff;">Assigned To Delivey Boy</span>
+                      {% elseif order.orderStatus == 'onway' %}
+                    <span class="badge" style="background: #ff5722;text-transform: capitalize !important;color: #fff;">Out For Delivery</span>
+                        {% elseif order.orderStatus == 'ready' %} 
+                    <span class="badge" style="background: #4caf50;text-transform: capitalize !important;color: #fff;">Order Ready</span>
+                   {% elseif order.orderStatus == 'received' %} 
+                    <span class="badge" style="background: #3f51b5;text-transform: capitalize !important;color: #fff;">Received</span>
+                     {% elseif order.orderStatus == 'processing' %} 
+                    <span class="badge" style="background: #009688;text-transform: capitalize !important;color: #fff;">Processing</span>
+                     {% elseif order.orderStatus == 'processing' %} 
+                    <span class="badge" style="background: #009688;text-transform: capitalize !important;color: #fff;">Processing</span>
+                     {% elseif order.orderStatus == 'delivered' %} 
+                    <span class="badge" style="background: #4caf50;text-transform: capitalize !important;color: #fff;">delivered</span>
+                     {% elseif order.orderStatus == 'delivered' %} 
+                    <span class="badge" style="background: #4caf50;text-transform: capitalize !important;color: #fff;">delivered</span>
+                   {% else %}
+                 <span class="badge" style="background: #4caf50;text-transform: capitalize !important;color: #fff;">{{ order.orderStatus }} </span>
+               {% endif %}
+               {% if order.orderType == 'Delivery' or order.orderType == 'delivery'  or order.orderType == 'delivery' %}<span class="badge badge-success">Home Delivery </span>{% elseif order.orderType == 'pickup' %} <span class="badge badge-warning">Pickup From Store</span> {% else %} <span class="badge badge-danger">Express Delivery</span> {% endif %}
+               {% if order.membership == '0' or order.membership == '2'  %}<span class="badge badge-default">Normal Order</span>{% else %}<span class="badge badge-danger">Membership Applied</span>
+               {% endif %}
+               {% if order.isMerged == '0' and order.ref == 0 %}{% else %} <a href="{{ path('restaurant_orders_panel_update',{'id':order.ref}) }}" title="Edit"> <span class="badge badge-warning">Merged Order ({{ order.ref }})</span> </a>{% endif %} 
+               <span class="badge badge-danger" style="text-transform:capitalize;">{{ order.paymentStatus }}</span>
+                <span style="float:right;">
+                 <a href="#kot" onclick="frames['prints'].print()" value="printletter" style="width:100%"  data-placement="bottom" title="KOT Print">
+                  <img src="/assets/images/KOT.png" style="width:24px;"></a>
+                  {% if order.ref == 0 %}
+                  <a href="#download" onclick="window.print()" style="width:100%;margin-top:5px;"   data-placement="bottom" title="A4 Print">
+                      <img src="/assets/images/A4.png" style="width:24px;"></a>
+{% endif %}                
+     <a href="#thermal"  onclick="frames['frame'].print()" value="printletter"  style="width:100%;margin-top:5px;"   data-placement="bottom" title="Thermal Print">
+                      <img src="/assets/images/thermal.png" style="width:24px;"></a>
+                    </span>
+                     </h4>
+         </div>
+      </div>
+    </div>
+      <!--col-md-9-->
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="row form-row">
+                <div class="col-md-12 form-group">
+                 <div class="card-header">
+                         <!--a href="#" style="background: #3F51B5;color:#fff;font-size: 12px;padding: 6px;">{{ order.orderType|upper }}</a-->
+          </h4>
+        </div>
+                  <div id="user">
+                     <div class="col-md-12 form-group">
+                  <div class="card-body">
+                    <!--address-->
+                    <h5 class="mb-4">Customer Details</h5>
+                    <div class="">
+                        <p> {{ order.customerName }}</p>
+                        <p>{{ order.customer.email }}</p>
+                     </div>
+                     <hr>
+                     <div class="">
+                      <p><b>Delivery Area </b>: {{  order.area }}</p>
+                          <p> {{ order.address }}</p>
+                          <p> {{ order.landmark }}</p>
+                          <p> Gst No : {{ order.customer.gst }}</p>
+                          <p> Mobile : {{ order.customer.mobileNumber }}</p>
+                        
+                     </div>
+                  </div>
+
+                  <!--end-->
+                </div>
+                  
+                     </div>
+                  </div>
+                 
+
+               
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="form-group col-md-12">
+ <div class="card-body">
+                    <!--address-->
+                    <h5 class="mb-4">Payment Details</h5>
+                    <div class="row form-row">
+                        <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{{ order.paymentType }}" readonly>
+                        </div>
+                          <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{% if order.orderType == 'Delivery' or order.orderType == 'delivery' %} Home Delivery {% elseif order.orderType == 'pickup' %} Pickup From Store {% else %} Express Delivery {% endif %} " readonly>
+                        </div>
+                         <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{{  order.orderDate.date|date("d-m-Y") }} at {{  order.orderDate.date|date("h-i A") }}" readonly>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{{ order.fixDate }} around {{ order.fixtime }}" readonly>
+                        </div>
+                    </div>
+                    
+             
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-12 mb-4">        
+          <div class="card">
+           <div class="card-body">
+             <h5 class="mb-4">Order Items</h5>
+
+                   <!--div class="col-md-12 text-right">
+                      <a href="#" class="btn btn-primary btn-sm mb-4"  data-toggle="modal" data-target="#uploadCSV">Add Items</a> 
+                    </div-->
+              
+                    <div class="col-md-12">
+                      <div class="table-responsive m-t-10 row table-show" style="display:block;">
+                       <table class="table table-hovered">
+                              <thead class="bg-primary text-white" style="color:#fff;">
+                                 <tr>
+                                    <th style="color:#fff;">Item name</th>
+                                    <th style="color:#fff;">price variation</th>
+                                    <th style="color:#fff;">Barcode</th>
+                                    <th style="color:#fff;">price</th>
+                                    <th style="color:#fff;">quantity</th>
+                                  <th style="color:#fff;">Discount</th>
+
+                                    {% if currency == 'AED' %}
+                                   <th style="color:#fff;">VAT</th>
+                                    {% else %}
+                                    <th style="color:#fff;">Tax</th>
+                                    {% endif %}     
+
+                               <th style="color:#fff;">Sub total</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                {% set tax= 0 %} 
+                                 {% for item in order.customerOrderItems %}
+                                 <tr style="font-size:10px;">
+                                    <td>{% if item.isTray == '0' or item.isTray == '' %} <span style="color:#2196f3;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                   
+    {% if item.isTray == '3'%} <span style="color:#e91e63;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                       {% if item.isTray == '1' %} <span style="color:#F44337;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                       {% if item.isTray == '2' %} <span style="color:#014c0a;font-weight:400;">{{ item.itemName }}</span> {% endif %}<br>
+                                         {% if item.edited == 1 %} Edited | Reason : {{ item.reason }}{% endif %}
+                                    </td>
+                                    <td>{{ item.priceVariavtion }}</td>
+                                    <td>{{ item.barcode }}</td>
+                                    <td>
+
+                                      {% if item.discount != 0 %}
+{% set discount = item.discount %}
+{% set quantity = item.quantity %}
+{% set priceO = discount/quantity %}
+{% set price = item.price + priceO %}
+                                      {% else %}
+                                      {% set price = item.price %}
+                                      {% endif %}
+                                      {% set x= 100+item.tax %}
+
+                                     {% set pr=price*100/x %} 
+                                     {# {{ pr|number_format(2, '.', '') }} #}
+
+                                     {% if numberFormat == 1 %}
+                                       {{ pr|number_format(2, '.', '') }}
+                                     {% elseif numberFormat == 0 %}
+                                       {{ pr|number_format(2, '.', '') }}
+                                     {% endif %}
+
+                                   </td>
+                                    <td>{{ item.quantity }}  {% if item.isTray == '1' %} <span style="color:#F44337;font-weight:400;">({{ item.trayQty }})</span> {% endif %} {% if item.trayQty > item.quantity %} <span style="color:green;font-weight:400;">({{ item.trayQty-item.quantity }})</span> {% endif %}</td>
+                                    {% set st = item.price*item.tax/100 * item.quantity %}
+                                      <td class=""> 
+{{ item.discount }}</td>
+   
+                                       <td class="text-right">
+{% if currency == 'AED' %}
+{% if numberFormat == 1 %}
+ {% set f=price-pr|number_format(2, '.', '') %} {% set ft=f*item.quantity %} 
+
+{% elseif numberFormat == 0 %}
+{% set f=price-pr|number_format(2, '.', '') %} 
+{% endif %}
+{% set ft=f*item.quantity %} 
+
+ {# {{ ft|number_format(2, '.', '') }} #}
+      {% if numberFormat == 1 %}
+         {{ ft|number_format(2, '.', '') }}
+      {% elseif numberFormat == 0 %}
+         {{ ft|number_format(2, '.', '') }}
+      {% endif %}
+ {% else %}
+<div class="tax" style="display:flex;">
+  <div class=""style="border-right: 1px solid;padding: 3px;font-size: 7px;">CGST <br> {{ item.tax/2 }}%  {% set f=price-pr %} <br> ({% set ft=f*item.quantity%} 
+  {% if numberFormat == 1 %}{{ ft|number_format(2, '.', '')/2 }}{% elseif numberFormat == 0 %}{{ ft|number_format(2, '.', '')/2 }}{% endif %})
+
+  </div>
+    <div style="padding: 3px;font-size: 7px;">SGST <br>{{ item.tax/2 }}% <br> ({% set ft=f*item.quantity%} {% if numberFormat == 1 %}{{ ft|number_format(2, '.', '')/2 }}{% elseif numberFormat == 0 %}{{ ft|number_format(2, '.', '')/2 }}{% endif %})</div>
+</div>
+
+ {% endif %}
+
+                                       </td>
+
+                                                                      <td class="text-right"> 
+                                      {% if numberFormat == 1 %}
+                                      {% set subTotals = pr|number_format(2, '.', '') * item.quantity %} 
+                                       {% elseif numberFormat == 0 %}
+                                      {% set subTotals = pr|number_format(2, '.', '') * item.quantity %} 
+                                    {% endif %}
+                                    {% if numberFormat == 1 %}
+                                       {{ subTotals - item.discount|number_format(2, '.', '') }}
+                                    {% elseif numberFormat == 0 %}
+                                       {{ subTotals - item.discount|number_format(2, '.', '') }}
+                                    {% endif %}
+                                    </td>
+                                    {% set tax = tax+ft %}
+                                 </tr>
+                                 {% endfor %}
+                                
+                              </tbody>
+                                  <tfoot>
+                                    <tr>
+                                <th class="text-left">Online/Cash : {% if numberFormat == 1 %}{{ order.orderAmount|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ order.orderAmount|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">Total</th>
+                              <th> <span class="sums">
+                                 {# {{ order.actualAmount|number_format(2, '.', '')-tax|number_format(2, '.', '') }} #}
+                                    {% if numberFormat == 1 %}
+                                       {{ order.actualAmount|number_format(2, '.', '')-tax|number_format(2, '.', '') }}
+                                    {% elseif numberFormat == 0 %}
+                                       {{ order.actualAmount|number_format(2, '.', '')-tax|number_format(2, '.', '') }}
+                                    {% endif %}
+                                    </span></th>
+                            </tr>
+
+                            <tr>
+                               <th class="text-left">Loyalty :  {% if numberFormat == 0 %}{{ order.loyalty|number_format(2, '.', '') }}{% elseif numberFormat == 1 %}{{ order.loyalty|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">{% if currency == 'AED' %}
+                              Vat
+                              {% else %}
+                              Tax
+                             {% endif %}  </th>
+                              <th>{% if numberFormat == 1 %}{{ tax|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ tax|number_format(2, '.', '') }}{% endif %}</th>
+                            </tr>
+                            <tr>
+                               <th class="text-left">Wallet : {% if numberFormat == 1 %}{{ order.wallet|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ order.wallet|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">Discount</th>
+                              <th>{{ order.totalDiscount }}</th>
+                            </tr>
+                            <tr>
+                               <th class="text-left">Total : {% set totals = order.wallet + order.loyalty + order.orderAmount  %} {% if numberFormat == 1 %}{{ totals|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ totals|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">Delivery Charge</th>
+                              <th> <span class="delivery">{{ order.deliveryCharge|number_format(2, '.', '') }}</span></th>
+                            </tr>
+                           
+                            <tr>
+                              <th colspan="7" class="text-right">Grand Total</th>
+                              <th> <span class="sums"> {% if order.paymentType == 'wallet' %} {% set total = order.actualAmount + order.deliveryCharge - order.totalDiscount %} {% if numberFormat == 1 %}{{ total|round }}{% elseif numberFormat == 0 %}{{ total|number_format(2, '.', '') }}{% endif %} {% else %}{% set total = order.orderAmount  %}{% if numberFormat == 1 %}{{ total|round }}{% elseif numberFormat == 0 %}{{ total|number_format(2, '.', '') }}{% endif %}{% endif %}</span></th>
+                            </tr>
+                          </tfoot>
+                           </table>
+  {% if order.orderStatus == "received" or order.orderStatus == "processing" or order.orderStatus == "ready" or order.orderStatus == "pick" %} 
+                           <a href="#" class="noprint edit-order" data-toggle="modal" data-target="#edit-order">edit order</a>
+{% endif %}
+
+                      </div>
+                    </div>
+          {% set allsum = total %}
+ {% for order in merged_main_order %}
+
+<center>Merged Order</center>
+
+
+             <div class="col-md-12">
+                      <div class="table-responsive m-t-10 row table-show" style="display:block;">
+                       <table class="table table-hovered">
+                              <thead class="bg-primary text-white" style="color:#fff;">
+                                 <tr>
+                                    <th style="color:#fff;">Item name</th>
+                                    <th style="color:#fff;">price variation</th>
+                                    <th style="color:#fff;">Barcode</th>
+                                    <th style="color:#fff;">price</th>
+                                    <th style="color:#fff;">quantity</th>
+                                  <th style="color:#fff;">Discount</th>
+
+                                    {% if currency == 'AED' %}
+                                   <th style="color:#fff;">VAT</th>
+                                    {% else %}
+                                    <th style="color:#fff;">Tax</th>
+                                    {% endif %}     
+
+                               <th style="color:#fff;">Sub total</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                {% set taxs= 0 %} 
+                                 {% for item in merged_order %}
+                                 <tr style="font-size:10px;">
+                                    <td>{% if item.isTray == '0' or item.isTray == '' %} <span style="color:#2196f3;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                   
+    {% if item.isTray == '3'%} <span style="color:#e91e63;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                       {% if item.isTray == '1' %} <span style="color:#F44337;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                       {% if item.isTray == '2' %} <span style="color:#014c0a;font-weight:400;">{{ item.itemName }}</span> {% endif %}<br>
+                                         {% if item.edited == 1 %} Edited | Reason : {{ item.reason }}{% endif %}
+                                    </td>
+                                    <td>{{ item.priceVariavtion }}</td>
+                                    <td>{{ item.barcode }}</td>
+                                    <td>
+
+                                      {% if item.discount != 0 %}
+{% set discount = item.discount %}
+{% set quantity = item.quantity %}
+{% set priceO = discount/quantity %}
+{% set price = item.price + priceO %}
+                                      {% else %}
+                                      {% set price = item.price %}
+                                      {% endif %}
+                                      {% set x= 100+item.tax %}
+
+                                     {% set pr=price*100/x %} 
+                                     {# {{ pr|number_format(2, '.', '') }} #}
+
+                                     {% if numberFormat == 1 %}
+                                       {{ pr|number_format(2, '.', '') }}
+                                     {% elseif numberFormat == 0 %}
+                                       {{ pr|number_format(2, '.', '') }}
+                                     {% endif %}
+
+                                   </td>
+                                    <td>{{ item.quantity }}  {% if item.isTray == '1' %} <span style="color:#F44337;font-weight:400;">({{ item.trayQty }})</span> {% endif %} {% if item.trayQty > item.quantity %} <span style="color:green;font-weight:400;">({{ item.trayQty-item.quantity }})</span> {% endif %}</td>
+                                    {% set st = item.price*item.tax/100 * item.quantity %}
+                                      <td class=""> 
+{{ item.discount }}</td>
+   
+                                       <td class="text-right">
+{% if currency == 'AED' %}
+{% if numberFormat == 1 %}
+ {% set f=price-pr|number_format(2, '.', '') %} {% set ft=f*item.quantity %} 
+
+{% elseif numberFormat == 0 %}
+{% set f=price-pr|number_format(2, '.', '') %} 
+{% endif %}
+{% set ft=f*item.quantity %} 
+
+ {# {{ ft|number_format(2, '.', '') }} #}
+      {% if numberFormat == 1 %}
+         {{ ft|number_format(2, '.', '') }}
+      {% elseif numberFormat == 0 %}
+         {{ ft|number_format(2, '.', '') }}
+      {% endif %}
+ {% else %}
+<div class="tax" style="display:flex;">
+  <div class=""style="border-right: 1px solid;padding: 3px;font-size: 7px;">CGST <br> {{ item.tax/2 }}%  {% set f=price-pr %} <br> ({% set ft=f*item.quantity%} 
+  {% if numberFormat == 1 %}{{ ft|number_format(2, '.', '')/2 }}{% elseif numberFormat == 0 %}{{ ft|number_format(2, '.', '')/2 }}{% endif %})
+
+  </div>
+    <div style="padding: 3px;font-size: 7px;">SGST <br>{{ item.tax/2 }}% <br> ({% set ft=f*item.quantity%} {% if numberFormat == 1 %}{{ ft|number_format(2, '.', '')/2 }}{% elseif numberFormat == 0 %}{{ ft|number_format(2, '.', '')/2 }}{% endif %})</div>
+</div>
+
+ {% endif %}
+
+                                       </td>
+
+                                                                      <td class="text-right"> 
+                                      {% if numberFormat == 1 %}
+                                      {% set subTotals = pr|number_format(2, '.', '') * item.quantity %} 
+                                       {% elseif numberFormat == 0 %}
+                                      {% set subTotals = pr|number_format(2, '.', '') * item.quantity %} 
+                                    {% endif %}
+                                    {% if numberFormat == 1 %}
+                                       {{ subTotals - item.discount|number_format(2, '.', '') }}
+                                    {% elseif numberFormat == 0 %}
+                                       {{ subTotals - item.discount|number_format(2, '.', '') }}
+                                    {% endif %}
+                                    </td>
+                                    {% set taxs = taxs+ft %}
+                                 </tr>
+                                 {% endfor %}
+                                
+                              </tbody>
+                                  <tfoot>
+                                    <tr>
+                                <th class="text-left">Online/Cash : {% if numberFormat == 1 %}{{ order.orderAmount|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ order.orderAmount|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">Total</th>
+                              <th> <span class="sums">
+                                 {# {{ order.actualAmount|number_format(2, '.', '')-tax|number_format(2, '.', '') }} #}
+                                    {% if numberFormat == 1 %}
+                                       {{ order.actualAmount|number_format(2, '.', '')-taxs|number_format(2, '.', '') }}
+                                    {% elseif numberFormat == 0 %}
+                                       {{ order.actualAmount|number_format(2, '.', '')-tax|number_format(2, '.', '') }}
+                                    {% endif %}
+                                    </span></th>
+                            </tr>
+
+                            <tr>
+                               <th class="text-left">Loyalty :  {% if numberFormat == 0 %}{{ order.loyalty|number_format(2, '.', '') }}{% elseif numberFormat == 1 %}{{ order.loyalty|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">{% if currency == 'AED' %}
+                              Vat
+                              {% else %}
+                              Tax
+                             {% endif %}  </th>
+                              <th>{% if numberFormat == 1 %}{{ taxs|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ taxs|number_format(2, '.', '') }}{% endif %}</th>
+                            </tr>
+                            <tr>
+                               <th class="text-left">Wallet : {% if numberFormat == 1 %}{{ order.wallet|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ order.wallet|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">Discount</th>
+                              <th>{{ order.totalDiscount }}</th>
+                            </tr>
+                            <tr>
+                               <th class="text-left">Total : {% set totals = order.wallet + order.loyalty + order.orderAmount  %} {% if numberFormat == 1 %}{{ totals|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ totals|number_format(2, '.', '') }}{% endif %}</span></th>
+                              <th colspan="6" class="text-right">Delivery Charge</th>
+                              <th> <span class="delivery">{{ order.deliveryCharge|number_format(2, '.', '') }}</span></th>
+                            </tr>
+                           
+                            <tr>
+                              <th colspan="7" class="text-right">Grand Total</th>
+                              <th> <span class="sums"> {% if order.paymentType == 'wallet' %} {% set total = order.actualAmount + order.deliveryCharge - order.totalDiscount %} {% if numberFormat == 1 %}{{ total|round }}{% elseif numberFormat == 0 %}{{ total|number_format(2, '.', '') }}{% endif %} {% else %}{% set total = order.orderAmount  %}{% if numberFormat == 1 %}{{ total|round }}{% elseif numberFormat == 0 %}{{ total|number_format(2, '.', '') }}{% endif %}{% endif %}</span></th>
+                            </tr>
+                          </tfoot>
+                           </table>
+  {% if order.orderStatus == "received" or order.orderStatus == "processing" or order.orderStatus == "ready" or order.orderStatus == "pick" %} 
+{% endif %}
+
+                      </div>
+                    </div>
+          {% set allsum = allsum + total %}
+
+{% endfor %}
+
+
+
+
+
+{% if order.ref != 0 %}
+ <b> <center>-------------------------------------------------------
+    <br>
+Total Amount :  {{ allsum|number_format(2, '.', '') }} 
+  </center></b>
+ 
+{% endif %}
+
+
+
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+           <div class="h-100">
+            <div id="toggleAccordion">
+              
+              <div class="card right-sidebar-card">
+                <div class="card-header" id="headingOne1">
+                  <section class="mb-0 mt-0">
+
+                    <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionOne" aria-expanded="true" aria-controls="defaultAccordionOne">
+                      Order Info <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                  </section>
+                </div>
+                <div id="defaultAccordionOne" class="collapse show" aria-labelledby="headingOne1" data-parent="#toggleAccordion">
+                  <div class="card-body right-sidebar-option">
+                    <div class="">
+                      <p style=""><b>Ordered on</b></p>
+                      <p>{{  order.orderDate.date|date("d-m-Y") }} at {{  order.orderDate.date|date("h-i A") }}</p>
+                    </div>
+                    <div>
+                     <p style=""><b>Device</b></p>
+                     <p>{{  order.channel }}</p>
+                   </div>
+                
+                    {% if dname == '' %}
+                    {% else %}
+                   <div>
+                     <p style=""><b>Delivery Boy</b></p>
+                     <p>{{ dname }}-({{ dmobile }})</p>
+                   </div>
+                   {% endif %}
+                   {% if pname == '' %}
+                           {% else %}
+                      <div>
+                     <p style=""><b>Picker Name</b></p>
+                     <p>{{ pname }}-({{ pmobile }})</p>
+                   </div>
+                                              {% endif %}          
+                   {% if order.note == ''%}
+                   {% else %}                    <div>
+                     <p style=""><b>Note</b></p>
+                     <p>{{ order.note }}</p>
+                   </div>
+                   {% endif %}
+                   <div>
+                     <p style=""><b>Tray Number</b></p>
+                     <p>{% if order.tray == ''  or order.tray == '0' or order.tray is null %} <i style="color:red;">not created </i>{% else %} {{ order.tray }}{% endif %}  
+
+                      (<a href="#ssss"  data-toggle="modal" data-target="#myModal">edit</a>)</p>
+                   </div>
+
+                      <div>
+                     <p style=""><b>Tray Status</b></p>
+                     <p> {% if order.tray == ''  or order.tray == '0'  or order.tray is null %} <i style="color:red;">Tray number not assigned</i>{% else %} in Tray {% endif %}   (<a href="#ssss"  data-toggle="modal" data-target="#trayStatus">edit</a>)</p>
+                   </div>
+                    {% if order.deliveryTime == ''%}
+                   {% else %}                    <div>
+                     <p style=""><b>Delivery Time</b></p>
+                     <p>{{  order.deliveryTime.date|date("d-m-Y") }} at {{  order.deliveryTime.date|date("h-i A") }}</p>
+                   </div>
+                   {% endif %}
+                   {% if order.slotReason == ''%}
+                   {% else %}
+                   <div>
+                     <p style=""><b>Reason For Reschedule</b></p>
+                     <p>{{ order.slotReason }}</p>
+                   </div>
+                   {% endif %}
+
+                    {% if order.promocode == ''%}
+                   {% else %}                    <div>
+                     <p style=""><b>Promocode</b></p>
+                     <p>{{  order.promocode }}</p>
+                   </div>
+                   {% endif %}
+
+                         <div>
+                          {% if order.paymentStatus == 'paid' %}
+                  <div class="form-group">
+                     <p style="cursor:pointer;"><b>Payment Status</b></p>
+                     <div class="form-group " >
+                     <span  class="badge badge-success">Paid</span>
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% if order.paymentStatus == 'pending'  or order.paymentStatus == '' or order.paymentStatus == 'cancelled' or order.paymentStatus == 'failed' %}
+                  <div class="form-group">
+                     <p style="cursor:pointer;"><b>Payment Status</b></p>
+                     <div class="form-group " >
+                      <span id="payment_status"  data-toggle="modal" data-target="#edit-payment-status" class="badge badge-danger">Mark As Paid </span>
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+
+
+</div>
+<p style=""><b>Version</b></p>
+<p>{{  order.version }}</p>
+{% if order.transactionId == '' or  order.transactionId == ' '  %}
+{% else %}
+<p style=""><b>Transction Id</b></p>
+<p>{{  order.transactionId }}</p>
+{% endif %}
+
+                              </div>
+                            </div>
+
+
+                          </div>
+                          <div class="card right-sidebar-card">
+                            <div class="card-header" id="headingTwo1">
+                              <section class="mb-0 mt-0">
+                                <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionTwo" aria-expanded="true" aria-controls="defaultAccordionTwo">
+                                  Order Status<div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                </div>
+                              </section>
+                            </div>
+                            <div id="defaultAccordionTwo" class="collapse show" aria-labelledby="headingTwo1" data-parent="#toggleAccordion">
+                              <div class="card-body right-sidebar-option">
+                                  {% if order.orderStatus != "completed" and order.orderStatus != "cancelled" %} 
+               <div class="form-group">
+                     {{ form_row(form.orderStatus,{'attr':{'class':'form-control otype'}}) }}
+                  </div>
+                  <div id="dboy">
+                  </div>
+<input type="hidden" name="fixtime" id="fixtime">
+<input type="hidden" name="fixdate" id="fixdate">
+
+{% if order.orderStatus == 'reschedule' %}
+<div class="slot-time">
+  {% else %}
+<div class="slot-time" style="display:none;">
+  {% endif %}
+                   <div class="row form-row">
+                    <div class="col-md-12 form-group">
+                     <select class="form-control form-control-sm classic info" name="area" id="locationName">
+                      <option value="">Select Area</option>
+                      {% for loc in location %}
+                      <option value="{{ loc.id }}" data-name="{{ loc.title }}">{{ loc.title }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                  <div class="row form-row">
+                  <div class="col-md-12 form-group">
+                    <select class="form-control form-control-sm classic info" name="slot" id="locationSlot">
+                      <option value="">Slots</option>
+                      
+                    </select>
+                  </div>
+                </div>
+</div>
+                   <div class="form-group">
+                     <button type="submit" class="btn btn-primary pr" style="width:100% !important;margin-bottom:5px;">Update order</button>
+                            
+                          </div>
+           
+                      </div>
+                    </div>
+                  </div>
+
+                      
+                           {% else %} 
+                      
+               {% endif %}
+                </div>
+                
+              </div>
+
+
+
+
+<!-- new invoice end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="col-12">
+     
+              
+            </div>
+            {{ form_widget(form._token) }}
+            {{ form_end(form,{'render_rest':false}) }}
+         </div>
+
+ </div>
+ </div>
+</div>
+</div>
+<iframe src="{{ path('thermal_print',{'id':order.id}) }}" style="display:none;" name="frame"></iframe>
+<iframe src="{{ path('normal_print',{'id':order.id}) }}" style="display:none;" name="prints"></iframe>
+</div>
+<!-- starty of  card -->
+<div class="print-area" style="display:none">
+  <div class="container">
+<div class="row">
+  <div class="col-12">
+<center><span>O  R  I  G  I  N  A  L     T  A  X     I  N  V  O  I  C  E</span></center>
+</div>
+</div>
+<div class="row">
+  <div class="col-6">
+      <p>Bill to/Ship to:<br>
+                           <small>
+                           {{ order.customerName }}<br>
+                           {{ order.address }}<br>
+                           {{ order.landmark }}
+                           Mobile : {{ order.customer.mobileNumber }}<br>
+                           Email : {{ order.customer.email }}<br>
+                           Gst No: {{ order.customer.gst }}
+
+                           </small>
+                        </p>
+                         <table class="table xx table-bordered">
+                                 <tr>
+                                  <td>Order Id</td>
+                                   <td>{{ order.id }}</td> 
+                                 </tr>
+                                 <tr>
+                                  <td>Order Date</td>
+                                   <td>{{  order.orderDate.date|date("d-m-Y") }} at {{  order.orderDate.date|date("h-i A") }}</td> 
+                                 </tr>
+                                  <tr>
+                                  <td>Slot</td>
+                                   <td>{{ order.fixtime }} - {{ order.fixDate}}</td> 
+                                 </tr>
+                                 
+                                  <tr>
+                                  <td>Order Type</td>
+                                   <td>{{ order.paymentType|upper }}</td> 
+                                 </tr>
+                                 <tr>
+                                  <td>Delivery Area</td>
+                                   <td>{{ order.area|upper }}</td> 
+                                 </tr>
+                            </table>
+</div>
+  <div class="col-6">
+    {% for res in restaurant %}
+          <p style="float:right"><img src="/uploads/restaurant/icons/{{ res.iconImage }}" style="height:50px;"><br>
+                           <small>
+                           {{ res.restaurantName }}<br>
+                           {{ res.restaurantAddress }}<br>
+                           {{ res.restaurantLocation }}<br>
+                            Gst No:{{ res.gst }}<br>
+
+                           Mobile : {{ res.primaryMobile }}<br>
+                           Email : {{ res.primaryEmail }} 
+                           </small>
+
+                        </p>
+                                   
+                        {% endfor %}
+                    
+</div>
+</div>
+
+<div class="table-responsive">
+                           <table class="table x table-bordered">
+                              <thead class="ban">
+                                 <tr>
+                                  <td>#</th>
+                                    <td>Item name</td>
+                                  {% if currency == 'AED' %}
+                                  {% else %}
+                                      <td>Hsn</td>
+                                      {% endif %}
+
+                                    <td>Price</td>
+                                     <td>Quantity</td>
+                                         <td>Discount</td>
+                                  {% if currency == 'AED' %}
+                                   <th style="color:#fff;">VAT</th>
+                                    {% else %}
+                                    <th style="color:#fff;">Tax</th>
+                                    {% endif %}                                     <td> Total Value</td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                {% set count= 1 %}
+                                 {% for item in order.customerOrderItems %}
+                                 <tr>
+                                  <td>{{ count }}</td>
+                                           
+
+                                    <td>{{ item.itemName }} - {{ item.priceVariavtion }}
+                                   
+                                    </td>
+                                    {% if currency == 'AED' %}
+                                    {% else %}
+                                  <td>{{ item.hsn }}</td>
+                                  {% endif %}
+                                    <td>{% set x= 100+item.tax %}
+                                     {% set pr=item.price*100/x %} 
+                                       {% if numberFormat == 1 %}
+                                          {{ pr|number_format(2, '.', '') }}
+                                       {% elseif numberFormat == 0 %}
+                                          {{ pr|number_format(2, '.', '') }}
+                                       {% endif %}
+                                    </td>
+                                    <td>{{ item.quantity }}</td>
+                                     <td>{{ item.discount }}</td>
+                                    <td>
+
+                                      {% if currency == 'AED' %}
+ {% set f=item.price-pr %} {% set ft=f*item.quantity %} {% if numberFormat == 1 %}{{ ft|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ ft|number_format(2, '.', '') }}{% endif %}
+ {% else %}
+<div class="tax" style="display:flex;">
+  <div class=""style="border-right: 1px solid;padding: 3px;font-size: 7px;">CGST <br> {{ item.tax/2 }}%  {% set f=item.price-pr %} <br> ({% set ft=f*item.quantity%} {% if numberFormat == 1 %}{{ ft|number_format(2, '.', '')/2 }}{% elseif numberFormat == 0 %}{{ ft|number_format(2, '.', '')/2 }}{% endif %} )</div>
+    <div style="padding: 3px;font-size: 7px;">SGST <br>{{ item.tax/2 }}% <br> ({% set ft=f*item.quantity%} {% if numberFormat == 1 %}{{ ft|number_format(2, '.', '')/2 }}{% elseif numberFormat == 0 %}{{ ft|number_format(2, '.', '')/2 }}{% endif %})</div>
+</div>
+
+ {% endif %}
+
+
+</td>
+                                    <td class="text-right">{% if numberFormat == 1 %}{{ item.subTotal|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ item.subTotal|number_format(2, '.', '') }}{% endif %}</td>
+                                 </tr>
+                                                                 {% set count= count+1 %}
+
+                                 {% endfor %}
+
+
+                                   <tr>
+                                  <th colspan="6"></th>
+                               
+
+                                    <th>Total</th>
+                                  <th>{% set m=order.actualAmount-tax %}{% if numberFormat == 0 %}{{ m|number_format(2, '.', '') }}{% elseif numberFormat == 1 %}{{ m|number_format(2, '.', '') }}{% endif %}</th>
+                                 </tr>
+                                  <tr>
+                                       <th colspan="6"></th>                                         
+                                    <th>  {% if currency == 'AED' %}
+                       Vat
+                        {% else %}
+                          Tax
+                        {% endif %}    </th>
+                                  <th>{% if numberFormat == 1 %}{{ tax|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ tax|number_format(2, '.', '') }}{% endif %}</th>
+                                 </tr>
+                                  <tr>
+                                   <tr>
+                                       <th colspan="6"></th>                                         
+                                    <th>Delivery Charge</th>
+                                  <th>{% if numberFormat == 1 %}{{ order.deliveryCharge|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ order.deliveryCharge|number_format(2, '.', '') }}{% endif %}</th>
+                                 </tr>
+                                  <tr>
+                                   <th colspan="6"></th>                               
+                                    <th>Discount</th>
+                                  <th>{% if numberFormat == 1 %}{{ order.totalDiscount|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{{ order.totalDiscount|number_format(2, '.', '') }}{% endif %}</th>
+                                 </tr>
+                                 <tr>
+                                    <th colspan="6"></th>                              
+                                    <th>Grand Total</th>
+                                  <th>{% if order.paymentType == 'wallet' %} {% set total = order.actualAmount + order.deliveryCharge - order.totalDiscount %} {% if numberFormat == 1 %}{{ total|number_format(2, '.', '') }}{% elseif numberFormat == 0 %}{% endif %}{{ total|number_format(2, '.', '') }} {% else %}{{ order.orderAmount }}{% endif %}</th>
+                                 </tr>
+                              </tbody>
+                           </table>
+</div>
+
+
+</div>
+</div>
+<!-- end of card -->
+
+<!-- Modal
+for payment approval -->
+<div id="edit-payment-status" class="modal" role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Payment Status | {{ order.paymentStatus|upper }}</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <div class="col-12">
+                  <form method="post" action="{{ path('update_payment') }}">
+                     <div class="form-group" >
+                  <label class="label" style="color:#000;margin-left: -9px;">Payment Mode</label>
+                  <select class="form-control" name="mode" id="payment_statuss">
+                  <option value="Online">Online Payment</option>
+                       <option value="cash">Cash</option>
+                     </select>
+                   </div>
+                   <div class="ons">
+                 <div class="form-group">
+                  <label class="label" style="color:#000;margin-left: -9px;">Transaction Id</label>
+                  <input type="tex" name="transactionId" class="form-control" value=" {{ order.transactionId}}">
+                 </div>
+                  </div>
+  <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                 <div class="form-group">
+                  <label class="label" style="color:#000;margin-left: -9px;">Date / Payment Through / Note</label>
+                  <textarea class="form-control" rows="3"  name="note">
+                     {{ order.note}}
+                  </textarea>
+               </div>
+                     <button class="btn btn-success" type="submit">Mark as Paid</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<!-- end of modal -->
+
+<!-- Modal 
+incase of payment caancelling and all-->
+<div id="payment_status_remain" class="modal" role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Payment Status  | {{ order.paymentStatus|upper }}</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <div class="col-12">
+                  <form method="post" action="{{ path('update_payment_pending') }}">
+                   
+                 
+  <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                 <div class="form-group">
+                  <label class="label" style="color:#000;">Reason for changing payment status</label>
+                  <textarea class="form-control" rows="3"  name="note">
+                    {{ order.note}}
+                  </textarea>
+               </div>
+                     <button class="btn btn-success" type="submit">Mark As Pending</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div> 
+</div>
+</div>
+<!-- end of modal -->
+<!-- Modal -->
+<div id="edit-order" class="modal " role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Edit Orders</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <div class="col-12">
+                  <form method="post" action="{{ path('update_order') }}">
+                     <div class="table-responsive">
+                        <table class="table table-hovered">
+                           <thead class="bg-primary text-white">
+                              <tr>
+                                 <th style="color:#fff;">Item</th>
+                                 <th style="color:#fff;">Qty</th>
+                              </tr>
+                           </thead>
+                           <input type="hidden" value="{{ order.id }}" name="order">
+                           {% for item in order.customerOrderItems %}
+                           <tr>
+                              <td><input type="hidden" value="{{ item.price }}" name="price[]">
+<input type="hidden" value="{{ item.quantity }}" name="oqty[]">
+<input type="hidden" value="{{ item.loyalty }}" name="loyalty[]">
+<input type="hidden" value="{{ item.id }}" name="id[]">{{ item.itemName }} - {{ item.priceVariavtion }}</td>
+                              <td>
+                                <select class="form-control" name="qty[]">
+{% for i in item.quantity..0 %}
+    <option>{{ i }}</option>
+{% endfor %}
+                                </select>
+<textarea name="reason[]" class="form-control" style="display:block;width:100%">{{ item.reason }}</textarea>
+                              </td>
+                           </tr>
+                           {% endfor %} 
+                            {% if order.promocode != '' %} 
+                           <tr id="promo-a">
+                            <td>
+                              <br>
+                           <b>Promocode : {{ order.promocode }} <br>
+                           Discount : {{ order.totalDiscount }}</b></td>
+                            <td> <label for="promos" id="trashs"> <input type="checkbox" name="promocheck" id="promos" class="form-control" style="display:none;"> <i class="fa fa-trash" style="cursor:pointer;" id="trash"> </i> </label></td>                              
+                            </tr> 
+                             {% endif %} 
+                        </table>
+                       
+                     
+                      
+                       
+                     </div>
+                     <button class="btn btn-success" type="submit">Save</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<!-- end of modal -->
+<script type="text/javascript">
+$('#trash').click(function(){
+$('#promo-a').hide();
+// $('#promos').prop('checked', true);
+
+});
+$('#trashs').click(function(){
+$('#promo-a').hide();
+
+});
+</script>
+<!-- Modal -->
+<div id="myModal" class="modal " role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Confirm Tray Items</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row m-t-20">
+               <form method="post" action="{{ path('create_tray_number') }}">
+
+
+                  <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Update Tray Number</label> 
+                        <input type="text" name="traynumber" class="form-control" required="" value="{{ order.tray }}">
+                        <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                     </div>
+                     <button class="btn btn-primary" type="submit">update Tray Number</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end of modal -->
+<!-- tray status -->
+<div id="trayStatus" class="modal " role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Confirm Tray Items</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row m-t-20">
+               <form method="post" action="{{ path('update_tray_quantity') }}" class="col-12">
+                  <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Item Id</label> 
+                        <input type="text" id="barcode" class="form-control" placeholder="scan barcode here">
+                     </div>
+                     <div class="form-group">
+                        <label>Select Item</label> 
+                        <select name="traynumber" class="form-control" id="sels">
+                           {% for item in order.customerOrderItems %}
+                           <option value="{{ item.id }}" data-name="{{ item.itemName }}  - {{ item.priceVariavtion }}" data-qty="{{ item.quantity }}">{{ item.itemName }}  - {{ item.priceVariavtion }}</option>
+                           {% endfor %}
+                        </select>
+                        <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                     </div>
+                     <div class="form-group">
+                        <label>Enter Quantity</label> 
+                        <input type="number" id="quantity" class="form-control" >
+                     </div>
+                     <button class="btn btn-primary btn-sm" type="button" id="sel">Add</button>
+                  </div>
+                  <br>
+                  <div class="table-responsive">
+                     <table class="table table-hovered" id="myTable">
+                        <thead class="bg-primary text-white">
+                           <tr>
+                              <th>Item</th>
+                              <th>Qty</th>
+                              <th>Action</th>
+                           </tr>
+                        </thead>
+                        {% for item in order.customerOrderItems %}
+                        {% if item.isTray == '0' or item.isTray == ''  %} 
+                        {% else %}
+                        <tr>
+                           <td><input type="hidden" value="{{ item.quantity }}" name="oqty[]"><input type="hidden" value="{{ item.id }}" name="id[]">{{ item.itemName }} - {{ item.priceVariavtion }}</td>
+                           <td><input type="hidden" value="{{ item.trayQty }}" name="qty[]">{{ item.trayQty }}</td>
+                           <td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                     </table>
+                  </div>
+                  <div class="form-group">
+                     <button class="btn btn-success" type="submit">Save</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- end of tray status -->
+<script type="text/javascript">
+$( document ).ready(function() {
+changeBackgroundColor();
+});
+   function changeBackgroundColor() {
+
+      var select = $('.otype');
+      var selectedVal = $('.otype').val();
+
+      if(selectedVal == 'processing') {
+
+         $('.otype').addClass('importantRule');
+         $('.otype').css('background-color', '#009688');
+         $('.otype option').css('color', '#ffffff');
+
+      } else if(selectedVal == 'ready') {
+
+         $('.otype').addClass('importantRule');
+         $('.otype').css('background-color', '#4caf50');
+         $('.otype option').css('color', '#ffffff');
+
+      } else if(selectedVal == 'dispatched') {
+
+         $('.otype').addClass('importantRule');
+         $('.otype').css('background-color', '#ff5722');
+         $('.otype option').css('color', '#ffffff');
+
+      } else if(selectedVal == 'delivered') {
+         $('.otype').addClass('importantRule');
+         $('.otype').css('background-color', '#4caf50');
+         $('.otype option').css('color', '#ffffff');
+         
+      } else if(selectedVal == 'cancelled') {
+
+         $('.otype').addClass('importantRule');
+         $('.otype').css('background-color', '#e2a03f');
+         $('.otype option').css('color', '#ffffff');
+         
+      } else if(selectedVal == 'completed') {
+
+         $('.otype').addClass('importantRule');
+         $('.otype').css('background-color', '#8dbf42');
+         $('.otype option').css('color', '#ffffff');
+
+      } else if(selectedVal == 'received') {
+
+         $('.otype').addClass('importantRule');
+         $('.otype').css('background-color', '#3f51b5');
+         $('.otype option').css('color', '#ffffff');
+         
+      }
+   }
+   $('.otype').change(function(){
+  
+   changeBackgroundColor();
+
+   var value=this.value;
+   var val=$('.otype').find('option:selected').text();
+
+   // alert(val);
+   if(val=='Assign To Delivery Boy' || val=='Reassign Order')
+   {
+    $('.slot-time').hide();
+    $('#dboy').show();
+       $('#dboy').html('<div class="form-group"><label for="appbundle_customerorder_orderBoy" class="required">Assign Task To</label><select class="form-control db" name="delivery_boy"></select></div>');
+       getDelivery();
+   }
+   else if(val=='Reassign Picker' || val=='Assign To Picker')
+   {
+    $('.slot-time').hide();
+    $('#dboy').show();
+       $('#dboy').html('<div class="form-group"><label for="appbundle_customerorder_orderBoy" class="required">Assign Task To</label><select class="form-control db" name="picker"></select></div>');
+       getPicker();
+   }
+      else if(val=='Reschedule Order')
+   {
+    // alert('delivery boy names come here!');
+      $('#dboy').hide();   
+  $('.slot-time').show();
+   }
+
+   else
+   {
+    $('.slot-time').hide();
+    $('#dboy').hide();   
+   }
+   });
+   
+      function getPicker()
+   {
+   var out ={'branch':{{ app.user.branch }}};                      // alert(x);
+   $.ajax({
+       type: "POST",
+       url: "/restaurant-manager/get-picker",
+       data: out,
+       success: function (res, dataType) {
+    // console.log('{{ path('manage_restaurant_get_cat') }}');
+   send(res);
+             
+   // console.log(datas);
+   
+       },
+       error: function (XMLHttpRequest, textStatus, errorThrown) {
+           alert('Error : ' + errorThrown);
+       }
+   });
+}
+   function getDelivery()
+   {
+   var out ={'branch':{{ app.user.branch }}};                      // alert(x);
+   $.ajax({
+       type: "POST",
+       url: "/restaurant-manager/get-del",
+       data: out,
+       success: function (res, dataType) {
+    // console.log('{{ path('manage_restaurant_get_cat') }}');
+   send(res);
+             
+   // console.log(datas);
+   
+       },
+       error: function (XMLHttpRequest, textStatus, errorThrown) {
+           alert('Error : ' + errorThrown);
+       }
+   });
+}
+   function send(myObjects)
+   {
+   $('.subcat').html('');
+   $.each(myObjects, function () {
+       $('.db').append('<option value="'+this.id+'">'+this.value+'</option>');
+         
+       });            
+      }
+       function removeVariant(obj){
+   // $(this).attr("data-usr" , '');
+   
+           $(obj).parent().parent().remove();
+   
+       }
+    $('#sel').click(function () {
+    var id=$('#sels').val();
+    var name = $('#sels option:selected').attr('data-name');
+    var qty=$('#quantity').val();
+    var barcode=$('#barcode').val();
+    if(barcode=='' || barcode == '0')
+    {
+    var oqty= $('#sels option:selected').attr('data-qty');
+    // alert(oqty);
+   if(qty > oqty)
+   {
+       qty=qty;
+   }
+   // alert(qty);
+    var output = $('input[name="qty[]"]').val();
+   // if(typeof(output)=='undefined')
+   // {
+   // $('#myTable').append('<tr><td><input type="hidden" value="'+id+'" name="id[]">'+name+'</td><td><input type="hidden" value="'+qty+'" name="qty[]">'+qty+'</td><td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td></tr>'); 
+   // }   
+     $('#myTable').append('<tr><td><input type="hidden" value="'+oqty+'" name="oqty[]"><input type="hidden" value="'+id+'" name="id[]">'+name+'</td><td><input type="hidden" value="'+qty+'" name="qty[]">'+qty+'</td><td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td></tr>'); 
+        $('#quantity').val(0);
+//      $('input[name="id[]"]').each(function() {
+//       var comp= $(this).val(); 
+//       console.log(comp);
+//    if(id == comp)
+//    {
+//    // alert('item already in tray!');
+//    $(this).parent().parent().remove();
+
+
+// } else
+//   {
+
+  
+
+//  }
+//  });
+          
+   }
+   else
+   {
+   
+   }
+   
+   // }
+     // });
+     
+   
+   
+    });
+    $('#barcode').on('input propertychange paste', function() {
+    var id=$('#barcode').val();
+     var inputlength = $('#barcode').val().length;
+       if (inputlength>4) {
+   var out ={'order':{{ order.id }},'barcode':id};                      // alert(x);
+   
+   $.ajax({
+       type: "POST",
+       url: "{{ path('api_get_item_by_barcode')}}",
+       data: out,
+       success: function (res, dataType) {
+    // console.log('{{ path('manage_restaurant_get_cat') }}');
+   // send(res);
+   addbar(res);
+             
+   // console.log(datas);
+   
+       },
+       error: function (XMLHttpRequest, textStatus, errorThrown) {
+           alert('Error : ' + errorThrown);
+       }
+   });
+   
+             return false;
+       }
+     
+   
+   });
+ 
+    function addbar(x)
+    {
+     var txt;
+     if(x.status=='0')
+     {
+       $('#barcode').val(0);
+   alert('barcode is invalid!!');
+     }
+     else
+     {
+        var person = prompt("Please enter Quantity:", x.quantity);
+     if (person == null || person == "") {
+       txt = "User cancelled the prompt.";
+     } else {
+       if(person > x.quantity)
+   {
+       person=x.quantity;
+   }
+             $('#myTable').append('<tr><td><input type="hidden" value="'+x.quantity+'" name="oqty[]"><input type="hidden" value="'+x.id+'" name="id[]">'+x.name+'('+x.variation+')</td><td><input type="hidden" value="'+person+'" name="qty[]">'+person+'</td><td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td></tr>'); 
+        $('#quantity').val(0);
+     } 
+     }
+   
+   }
+   
+
+                  $('#payment_statuss').change(function(){
+                    var status=$('#payment_statuss').val();
+                    // alert(status);
+                    if(status=='cash')
+                    {
+                      $('.ons').hide();
+                    }
+                    else
+                    {
+                       $('.ons').show();
+                    }
+
+                  });
+$('#locationSlot').change(function(){
+      var id=$('#locationSlot').val();
+    var date=$('#locationSlot option:selected').attr('data-date');
+    var time=$('#locationSlot option:selected').attr('data-time');
+        $('#fixdate').val(date);
+        $('#fixtime').val(time);
+
+});
+  $('#locationName').change(function(){
+    var id=$('#locationName').val();
+        var area=$('#locationName option:selected').attr('data-name');
+        $('#area').val(area);
+
+    // alert(id);
+var out ={'id':id};                      // alert(x);
+$.ajax({
+  type: "POST",
+  url: "{{ path('get_slot_by_id') }}",
+  data: out,
+  success: function (res, dataType) {
+  $('#locationSlot').html('<option>Select Slot</option>');
+              $.each(res,function () {
+                $('#locationSlot').append('<option value="'+this.time+'"  data-time="'+this.time+'"  data-date="'+this.date+'" >'+this.time+' on '+this.date+'</option>');   
+                }); 
+},
+error: function (XMLHttpRequest, textStatus, errorThrown) {
+  alert('Error : ' + errorThrown);
+}
+});
+});
+
+                  </script>
+{% endblock %}

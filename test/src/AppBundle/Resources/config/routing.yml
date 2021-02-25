@@ -1,0 +1,24 @@
+app_manager:
+    resource: "@AppBundle/Resources/config/routing/manager.yml"
+    prefix:   /app-manager
+
+restaurant_manager:
+    resource: "@AppBundle/Resources/config/routing/restmanager.yml"
+    prefix:   /restaurant-manager
+
+app_user:
+    resource: "@AppBundle/Resources/config/routing/user.yml"
+    prefix:   /app-manager
+
+app_others:
+    resource: "@AppBundle/Resources/config/routing/other.yml"
+    prefix:   /app-manager
+
+app_api:
+    resource: "@AppBundle/Resources/config/routing/api.yml"
+    prefix:   /api/app-manager/get-functionality
+
+web_api:
+    resource: "@AppBundle/Resources/config/routing/webapi.yml"
+    prefix:   /api/app-manager/get-functionality
+

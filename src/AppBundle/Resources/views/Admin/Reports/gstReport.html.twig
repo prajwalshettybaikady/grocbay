@@ -1,0 +1,171 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+
+    <div class="row container-fluid">
+
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-body collapse show">
+                    <h6>GST Report</h6>
+                    <hr>
+                    <form method="post" action="{{ path('filter_gst_report')}}">
+                    <div class="row">
+                        <div class="col-md-6">
+                                <label for="">From</label>
+                            <input type="text" name="fromDate" id="fromDate"  class="form-control" value="{{ fromDate }}" autocomplete="off">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">To</label>
+                            <input type="text" name="toDate" id="toDate" class="form-control" value="{{ toDate }}"  autocomplete="off">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row m-t-20">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" type="submit" name="filter">Filter</button>
+                        
+                            <button class="btn btn-primary" type="submit"  name="export">Export</button>
+                       
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">GST Reports
+                        <p class="text-muted pull-right"></p>
+                    </h4>
+                    <table class="table table-hovered table-responsive" id="myTable">
+                        <thead>
+                            <tr>
+                                {# <td>Sl.No</td> #}
+                                <td>Invoice No</td>
+                                <td>Date</td>
+                                <td>Customer</td>
+                                <td>GST No</td>
+                                {# <td>GST Details</td> #}
+                                {# <td>GST 0%</td> #}
+                                <td width="20%">GST 5%</td>
+                                <td width="20%">GST 12%</td>
+                                <td width="20%">GST 18%</td>
+                                <td>Invoice Amount</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set sl = 1 %}
+                            {% set sum = 0 %}
+                            {% set profit = 0 %}
+                        
+                            {% for item in data %} 
+                            <tr >
+                                {# <td>{{ sl }}</td> #}
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.orderDate.date|date("d-m-Y") }}</td>
+                                <td>{{ item.customerName }}</td> 
+                                <td>{{ item.customer.gst }}</td>
+                                {# <td>
+                                    <div class="tax" style="display:flex;">
+                                        <div class=""style="border-right: 1px solid;padding: 3px;font-size: 10px;">Amount <br>  
+                                        ({% if numberFormat == 0 %}{{ item.orderAmount|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ item.orderAmount|number_format(2, '.', '') }}{% endif %})
+
+                                        </div>
+                                        <div style="border-right: 1px solid;padding: 3px;font-size: 10px;">CGST <br> ({% if numberFormat == 0 %}{{ item.totalTax/2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ item.totalTax/2|number_format(2, '.', '') }}{% endif %})</div>
+                                        <div style="padding: 3px;font-size: 10px;">SGST <br> ({% if numberFormat == 0 %}{{ item.totalTax/2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ item.totalTax/2|number_format(2, '.', '') }}{% endif %})</div>
+                                    </div>
+                                </td> #}
+                                {# <td>
+                                    <div class="tax" style="display:flex;">
+                                        {% set v1 = item.orderAmount  %}
+                                        <div class=""style="border-right: 1px solid;padding: 3px;font-size: 10px;">Amount <br>  
+                                        ({% if numberFormat == 0 %}{{ v1|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1|number_format(2, '.', '') }}{% endif %})
+
+                                        </div>
+                                        <div style="border-right: 1px solid;padding: 3px;font-size: 10px;">CGST <br> (0)</div>
+                                        <div style="padding: 3px;font-size: 10px;">SGST <br> (0)</div>
+                                    </div>
+                                </td> #}
+                                 <td width="20%">
+                                    <div class="tax" style="display:flex;">
+                                        {% set v1 = item.orderAmount * 0.05  %}
+                                        <div class=""style="border-right: 1px solid;padding: 3px;font-size: 10px;">Amount <br>  
+                                        ({% if numberFormat == 0 %}{{ v1|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1|number_format(2, '.', '') }}{% endif %})
+
+                                        </div>
+                                        <div style="border-right: 1px solid;padding: 3px;font-size: 10px;">CGST <br> ({% if numberFormat == 0 %}{{ v1 / 2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1 / 2|number_format(2, '.', '') }}{% endif %})</div>
+                                        <div style="padding: 3px;font-size: 10px;">SGST <br> ({% if numberFormat == 0 %}{{ v1 / 2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1 / 2|number_format(2, '.', '') }}{% endif %})</div>
+                                    </div>
+                                </td>
+                                <td width="20%">
+                                    <div class="tax" style="display:flex;">
+                                        {% set v1 = item.orderAmount * 0.12  %}
+                                        <div class=""style="border-right: 1px solid;padding: 3px;font-size: 10px;">Amount <br>  
+                                        ({% if numberFormat == 0 %}{{ v1|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1|number_format(2, '.', '') }}{% endif %})
+
+                                        </div>
+                                        <div style="border-right: 1px solid;padding: 3px;font-size: 10px;">CGST <br> ({% if numberFormat == 0 %}{{ v1 / 2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1 / 2|number_format(2, '.', '') }}{% endif %})</div>
+                                        <div style="padding: 3px;font-size: 10px;">SGST <br> ({% if numberFormat == 0 %}{{ v1 / 2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1 / 2|number_format(2, '.', '') }}{% endif %})</div>
+                                    </div>
+                                </td>
+                                <td width="20%">
+                                    <div class="tax" style="display:flex;">
+                                        {% set v1 = item.orderAmount * 0.18  %}
+                                        <div class=""style="border-right: 1px solid;padding: 3px;font-size: 10px;">Amount <br>  
+                                        ({% if numberFormat == 0 %}{{ v1|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1|number_format(2, '.', '') }}{% endif %})
+
+                                        </div>
+                                        <div style="border-right: 1px solid;padding: 3px;font-size: 10px;">CGST <br> ({% if numberFormat == 0 %}{{ v1 / 2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1 / 2|number_format(2, '.', '') }}{% endif %})</div>
+                                        <div style="padding: 3px;font-size: 10px;">SGST <br> ({% if numberFormat == 0 %}{{ v1 / 2|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ v1 / 2|number_format(2, '.', '') }}{% endif %})</div>
+                                    </div>
+                                </td>
+                                <td>{{ item.orderAmount }}</td>
+                        
+                            </tr>
+                               {% set sl = sl + 1 %}
+                               {% set sum = sum + item.orderAmount %}
+                               {% set profit = profit + item.cost %}
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <hr>
+                    <b style="color:red;font-size:17px;font-weight:bold;"> Total Sale : {{ sum|round }} </b> |    <b style="color:red;font-size:17px;font-weight:bold;"> Profit : {{ profit|round }} </b>
+                </div>
+                <div class="card-body collapse show">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    $(function() {
+            $( "#fromDate" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+        });
+    $(function() {
+            $( "#toDate" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+        });
+</script>
+{% endblock %}

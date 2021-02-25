@@ -1,0 +1,353 @@
+Return-Path: <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id Na6tN2Qa0F53NgAAYUfyRA
+	(envelope-from <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>)
+	for <info@grocbay.com>; Thu, 28 May 2020 16:09:08 -0400
+Return-path: <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Thu, 28 May 2020 16:09:08 -0400
+Received: from o81.email.fmsend.net ([192.254.127.57]:63363)
+	by srvcl.crypracks.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>)
+	id 1jeOpt-0003Zr-Tn
+	for info@grocbay.com; Thu, 28 May 2020 16:09:08 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshchat.com; 
+	h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; 
+	s=cd6qgs3; bh=Y8r+1mjILkyimUK4nFi7odvxpOwN2+WBjleq5Kx/VoM=; b=pr
+	cIV3izDHpmwkwk+5dDKy1kJvqgP43xNPmtuwHAbrRLDWUqqKMHjnsxfaO4oMTaRU
+	XzR6LCVNfYm+VH1rM1At/icsCKlvxJtwdKJA2+fVlFol2QOjKvBzJ0a8usc5VYMP
+	4XnCcBDWAVYJWqzc8R7/SiA9KghrPtWv1QXFtpd8U=
+Received: by filter0350p1iad2.sendgrid.net with SMTP id filter0350p1iad2-29898-5ED01A36-33
+        2020-05-28 20:08:22.653972447 +0000 UTC m=+1110135.235652586
+Received: from OTk1MDcwNQ (unknown)
+	by ismtpd0072p1mdw1.sendgrid.net (SG) with HTTP id uaMFHRTsSLe6G8VBsu9Oqw
+	Thu, 28 May 2020 20:08:22.567 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=9bfd6af0d81171914770395cac60bfe8820351986c43de6c2be64e0dcec1
+Date: Thu, 28 May 2020 20:08:22 +0000 (UTC)
+From: "Team Freshchat from Freshworks" <support@freshchat.com>
+Mime-Version: 1.0
+Reply-to: "Team Freshchat from Freshworks" <support@freshchat.com>
+To: Sumanth Shetty <info@grocbay.com>
+Message-ID: <ff387ca1-81ff-4fbb-9af2-549458a42cc1.campaign-consumer3@email.freshmarketer.com>
+Subject: How most successful Freshchat customers got started 
+X-IP-POOL: premium
+List-unsubscribe: <https://freshworks.freshmarketer.com/mas/api/v1/subscription-preferences?fm_digest=FACE0C22FBF697675D0F05B1A32179A1F346B32D885FB119AEC684391983818A9A970FF7B9BC43D07F2DA484D24731EA0EF9E0D8E2A4BAF57AA65C0397F3108B38C4329E4F06DED11CF3DD4DA66B19B1FD690E306EA81639030E4A805FDFB371>
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON5akp3seG9vTcklt0MRZS68RTfA8COoi9FoBB
+ AtRkqN3wFhLV3ULTHMnEVWejyHUaxksdm6TJxAyQsN566ulphSsCX1ptlDQ7pi+9jAOZoqN4e59dC8
+ kcL8URl8FgcRphNMlrtJpDD2v42DKdrR6leNFwLU/BZIhqZ/RBXZIrWRFuc+tOkkI/kW4W0kwsgzYZ
+ crhduF+jWJVwO6hF/UDNlR
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7KD1LCX8ItwDkdWKOXkCmP/mKeOmiJjf+ZlTY2PmwmTli+e/55WzR3ilRD
+ 3fc92o9fgJQN+utgM0KlRxR19foV3Q3hpeb/1VnB2Wq/xND32vP0xdVMGvXDfnWhONI9Z0TyrePutj
+ Ou36Kz9p+D2zoPGEH82Yy5gzHkzHf/gpkCRr7Wp9fIgcJEXiDDEqM540vE8PcCip8aBfjAz1dp0yDs
+ Xn3ymljl/I1H2cCQF2tFBQa/g5vxvn5mDh5128abetiwkOkIRXqQngS2cgePNo5xg8+X6ZD1mEg9Bf
+ V3zeMoP8ZlIqyX/DJkV8xm6jEfLTEFv8awMdSPccxUqGtqUKK48Irm59v4aSKAv+4Cm0l/Mc+P3yHL
+ vdlRz+idXfYSj3B8XXxxPDdo1WpprTqaoD0F54EyMKgR7Q5VdDAu+SbCEVjSUmp3ds3UU0ifkIKQgB
+ e0TnP94tQ6h5ndJOdqSZoMFUdUKipbA8hH7lh5T/Sw5tXUIfsUPwhMw2vRmSmZzDsT2C01DZA7QDMO
+ UJuxnGIPghbfLrZALNLsmqQO7a1+c4DFjzJ13w9nPZ/4qXav5wunKmKVniOnGsdjjQl7f+h5Y=
+X-Spam-Status: No, score=0.9
+X-Spam-Score: 9
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hello there, How is your Freshchat trial going? We wanted
+   to make sure you’re set up for success and have everything you need to sell,
+    engage, and support with Freshchat. Our most successful custome [...] 
+ Content analysis details:   (0.9 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshworks.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [192.254.127.57 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 T_KAM_HTML_FONT_INVALID BODY: Test for Invalidly Named or
+                             Formatted Colors in HTML
+  1.1 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+--9bfd6af0d81171914770395cac60bfe8820351986c43de6c2be64e0dcec1
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+Hello there, How is your Freshchat trial going? We wanted to make sure you=
+=E2=80=99re set up for success and have everything you need to sell, engage=
+, and support with Freshchat. Our most successful customers checked off the=
+ following from their list when they got started =E2=80=94 Hope this is of =
+value to you and your team too. =E2=9C=94 Getting Freshchat up on the websi=
+te, product, mobile app, or anywhere else prospects and customers are =E2=
+=9C=94 Inviting one's tribe on Freshchat to sell, engage, and support at sc=
+ale =E2=9C=94 Going proactive. Engaging before visitors and customers exit =
+=E2=9C=94 Connecting leads and users to the right person in the team Each o=
+f this will only take a few minutes but will lead to expanded sales net and=
+ better resolution rates. We=E2=80=99re always happy to chat, in case you=
+=E2=80=99ve any questions.Cheers, Your friends at Freshchat A product from =
+Freshworks Inc. Message sent by Freshworks Inc. at Block C, 1st Floor, Glob=
+al Infocity, #40 MGR Salai, Perungudi, Chennai =E2=80=93 600096,Chennai, Ta=
+mil Nadu, India. Unsubscribe from this list | Unsubscribe from all emails P=
+owered by Freshmarketer=
+
+--9bfd6af0d81171914770395cac60bfe8820351986c43de6c2be64e0dcec1
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<html>
+ <head>
+  <title></title>=20
+  <title></title>=20
+ </head>
+ <body>
+  <div style=3D"display:none"></div>
+  <div>
+   <p dir=3D"ltr">Hello there,&nbsp;</p>
+   <p dir=3D"ltr">How is your Freshchat trial going? We wanted to make sure=
+ you=E2=80=99re set up for success and have everything you need to sell, en=
+gage, and support with Freshchat.&nbsp;</p>
+   <p dir=3D"ltr">Our most successful customers checked off the following f=
+rom their list when they got started&nbsp;=E2=80=94&nbsp;Hope this is of va=
+lue to you and your team too.&nbsp;</p>
+   <p dir=3D"ltr">=E2=9C=94 Getting Freshchat up on the<strong> </strong><s=
+pan style=3D"color: rgb(69, 164, 236);"><a fr-original-style=3D"" href=3D"h=
+ttp://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ItmZ5hFABx=
+g-2FJl8H5WvpmHw47J24D-2FfovzW5pWaRNRpUGP7TazLmLf-2BNspr3Se1ltHjAY5SksN4oKHq=
+FAvOK48-3DWxW-_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l=
+9BnAwbhUVPY1TklX370X38AwoF-2Bprm15M6cUhuDGVxLaD8rj5F9YXyYnDH0RdIW3R-2BHmIpA=
+Ma1Gpe-2FZvyKhwaykM00fOZ-2FOiLew-2FkHVxUuUfml-2BljRZ1h0oruN8b0pZZ2gUwErwmX2=
+Rs0KCQ-2F6gSyQcLGWTy6frEhGXyf9Dgqtbwlqh1MC8rQ4TCxsvJXY-2FhIBWkPfRJKjowoVM-2=
+FZMfJ3GbaSbIc1DbvDmIZjEEmA6QTlggd5iPniKZVCY3NHXGbPu1ij-2BDgJTLVRrNcEZ0tmF8d=
+yuUFZLCuf1C6xklLVt3QCFFODvQKoTfQ-2Fa2SsgFzYXpztMKJzotNqzi00JE-2Bxxxqm-2FBOb=
+fGwBoOnBWfHXskvfpyOyTWUZWniRcmiQFBvekSyoi2Hj1-2FNUGkcKCpWtJfxTFk4Vk2segWBUR=
+4ylNeAq3PSuDDReJpDeY-2FVkMng3WcgOb-2B0EYWHP-2B5VjnXOVcusT8yCCNnnReEk33Yw1Nm=
+nSGNg4MHFrdd4Lf6bWqq6Tz9-2BVhHh-2BP-2FIU-2ByslFmvg9ZDyDUh107jWof89SvE4ezJX4=
+GqJJ7f2ieCSoV4O-2BqzubdWZI3feMBOOIbZK65yGscf-2FQaguxijNTOsBC9NAd8MnCn2ho-2F=
+Q1wEegv7cH8rgCt9BqhYBdXdLQMt1r61KKAB77PdS121hfuq7rfEwdDFskHrrmmpoc2eiCS0Arg=
+l3OO5XCe3y9zJVIqqJB1-2FLMpFwMKqHS6iEp00cgsn3G-2B3mfQAIN0DrC988N4o7yhLMsl-2B=
+0P4" rel=3D"noopener noreferrer" style=3D"color: inherit;" target=3D"_blank=
+">website</a></span>, <span style=3D"color: rgb(69, 164, 236);"><a fr-origi=
+nal-style=3D"" href=3D"http://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXK=
+faeCJvxAAADlH3ItmZ5hFABxg-2FJl8H5WvpmHw47J24D-2FfovzW5pWaRNRpUGP7TazLmLf-2B=
+Nspr3Se1ltHjAY5SksN4oKHqFAvOK48-3D523c_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0f=
+ZbS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVPY1TklX370X38AwoF-2Bprm15M6cUhuDGVxLaD8rj5=
+F9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZvyKhwaykM00fOZ-2FOiLew-2FkHVxUuUfml-2BljR=
+Z1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6gSyQcLGWTy6frEhGXyf9Dgqtbwlqh1MC8rQ4TCxsv=
+JXY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaSbIc1DbvDmIZjEEmA6QTlggd5iPniKZVCY3NHXGbPu=
+1ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1C6xklLVt3QCFFODvQKoTfQ-2Fa2SsgFzYXpztMKJz=
+otNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWfHXskvfpyOyTWUZWniRcmiQFBvekSyoi2Hj1-2FNUG=
+kcKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PSuDDReJpDeY-2FVkMng3WcgOb-2B0EYWHP-2B5VjnX=
+OVcusT8yCCNnnReEk33Yw1NmnSGNg4MHFrdd4Lf6bWqq6Tz9-2BVhHh-2BP-2FIU-2ByslFmvg9=
+ZDyDUh107jWof89SvE4ezJX4GqJJ7f2ieCSoV4O-2BqzubdWZI3feMBOOIbZK65yGscf-2FQagF=
+HeEoJHUpxXQBiHlsOJ-2BJ4VHgm-2BF2j-2FQI5GIn7VaGTe3jl-2FjTyYHVPaLnroB31dqWFEr=
+-2FsMPMSzTvGgxIp80rU5K9VKeGWaRHQiZtOXKwLFkxytT1GlIwRK906PaBkDBVAJv-2B3HpBD3=
+3J8ZwA7a1DazM-2FzCowYi8lbzQceus7C" rel=3D"noopener noreferrer" style=3D"col=
+or: inherit;" target=3D"_blank">product</a></span>, <span style=3D"color: r=
+gb(69, 164, 236);"><a fr-original-style=3D"" href=3D"http://fmtrack1.freshc=
+hat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ItmZ5hFABxg-2FJl8H5WvpmHw47J24D=
+-2FfovzW5pWaRNRpo0-2BznlluU-2F9nhBAdLPSpidDh5yqRi3ucaLJayoZ1gCA-3D4eMG_RYEe=
+g99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVPY1TklX370=
+X38AwoF-2Bprm15M6cUhuDGVxLaD8rj5F9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZvyKhwaykM=
+00fOZ-2FOiLew-2FkHVxUuUfml-2BljRZ1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6gSyQcLGWT=
+y6frEhGXyf9Dgqtbwlqh1MC8rQ4TCxsvJXY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaSbIc1DbvDm=
+IZjEEmA6QTlggd5iPniKZVCY3NHXGbPu1ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1C6xklLVt3=
+QCFFODvQKoTfQ-2Fa2SsgFzYXpztMKJzotNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWfHXskvfpyO=
+yTWUZWniRcmiQFBvekSyoi2Hj1-2FNUGkcKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PSuDDReJpDe=
+Y-2FVkMng3WcgOb-2B0EYWHP-2B5VjnXOVcusT8yCCNnnReEk33Yw1NmnSGNg4MHFrdd4Lf6bWq=
+q6Tz9-2BVhHh-2BP-2FIU-2ByslFmvg9ZDyDUh107jWof89SvE4ezJX4GqJJ7f2ieCSoV4O-2Bq=
+zubdWZI3feMBOOIbZK65yGscf-2FQapurnpfFnB4pGLEsFnqcjtYEOWJE-2BphH-2BtZ-2FupHw=
+LMOV5yqiX1qVq9R7vh9RFLX-2B1HJxsdGZw2BTtWHPMoys7Sg1JnsuC8byyjz7SxLAmZ-2FXic-=
+2B9cE1-2FEbLRxN16iFKvi7-2BXfwCs9XVDKXSS1SgXTE4qINMYwnPFW-2FMeSCsRCfm0" rel=
+=3D"noopener noreferrer" style=3D"color: inherit;" target=3D"_blank">mobile=
+ app</a></span>, or<span style=3D"color: rgb(44, 130, 201);"><a fr-original=
+-style=3D"" href=3D"http://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfae=
+CJvxAAADlH3ItmZ5hFABxg-2FJl8H5WvpmHw47J24D-2FfovzW5pWaRNRpdqhTUq-2Buaa-2BMs=
+Bfae2s3SBANLUUWScis6r9c95UMz6A-3D6oBZ_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZ=
+bS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVPY1TklX370X38AwoF-2Bprm15M6cUhuDGVxLaD8rj5F=
+9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZvyKhwaykM00fOZ-2FOiLew-2FkHVxUuUfml-2BljRZ=
+1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6gSyQcLGWTy6frEhGXyf9Dgqtbwlqh1MC8rQ4TCxsvJ=
+XY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaSbIc1DbvDmIZjEEmA6QTlggd5iPniKZVCY3NHXGbPu1=
+ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1C6xklLVt3QCFFODvQKoTfQ-2Fa2SsgFzYXpztMKJzo=
+tNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWfHXskvfpyOyTWUZWniRcmiQFBvekSyoi2Hj1-2FNUGk=
+cKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PSuDDReJpDeY-2FVkMng3WcgOb-2B0EYWHP-2B5VjnXO=
+VcusT8yCCNnnReEk33Yw1NmnSGNg4MHFrdd4Lf6bWqq6Tz9-2BVhHh-2BP-2FIU-2ByslFmvg9Z=
+DyDUh107jWof89SvE4ezJX4GqJJ7f2ieCSoV4O-2BqzubdWZI3feMBOOIbZK65yGscf-2FQaqnH=
+vz3RpY196G6TzsLXUj2QShNcAOlJ2PPXUiua6kB57-2BVv0zCk-2BBr43mcKN2MhS9LtIZUj8jE=
+tV7R26qLoo4NT5hgAnBp01hvgVqDlskrWYAt-2FBLzyJHH1SSITU3VkUhzkc06POznYmtvlqRZe=
+oIozlTIHfpMVhyzmSOdhCm20" rel=3D"noopener noreferrer" style=3D"color: inher=
+it;" target=3D"_blank"> </a></span><span style=3D"color: rgb(69, 164, 236);=
+"><a fr-original-style=3D"" href=3D"http://fmtrack1.freshchat.com/ls/click?=
+upn=3DChgKqXKfaeCJvxAAADlH3ItmZ5hFABxg-2FJl8H5WvpmHw47J24D-2FfovzW5pWaRNRpd=
+qhTUq-2Buaa-2BMsBfae2s3SBANLUUWScis6r9c95UMz6A-3Dox3P_RYEeg99Ap79leT7lYKY4e=
+Vge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVPY1TklX370X38AwoF-2Bprm15M6=
+cUhuDGVxLaD8rj5F9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZvyKhwaykM00fOZ-2FOiLew-2Fk=
+HVxUuUfml-2BljRZ1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6gSyQcLGWTy6frEhGXyf9Dgqtbw=
+lqh1MC8rQ4TCxsvJXY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaSbIc1DbvDmIZjEEmA6QTlggd5iP=
+niKZVCY3NHXGbPu1ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1C6xklLVt3QCFFODvQKoTfQ-2Fa=
+2SsgFzYXpztMKJzotNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWfHXskvfpyOyTWUZWniRcmiQFBve=
+kSyoi2Hj1-2FNUGkcKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PSuDDReJpDeY-2FVkMng3WcgOb-2=
+B0EYWHP-2B5VjnXOVcusT8yCCNnnReEk33Yw1NmnSGNg4MHFrdd4Lf6bWqq6Tz9-2BVhHh-2BP-=
+2FIU-2ByslFmvg9ZDyDUh107jWof89SvE4ezJX4GqJJ7f2ieCSoV4O-2BqzubdWZI3feMBOOIbZ=
+K65yGscf-2FQalFGvhb6C8Xj2kLmN-2FbDBU5jdwcmhYCqaft-2FYjaLB6vzz3zQffBvXiM5Pmd=
+WDrmso2n8yp-2FvD1b6dwKHTgO46iSzuw-2FGI2qq0gdXvI4DFcmUrv-2Bs4wp22GLuAtpmcsPE=
+nVbJE4r72iOgDyT2zA1c1EKZa0yC3fYNaOi8LToHUfr-2F" rel=3D"noopener noreferrer"=
+ style=3D"color: inherit;" target=3D"_blank">anywhere else</a> </span>prosp=
+ects and customers are&nbsp;<br>=E2=9C=94<strong>&nbsp;</strong><span style=
+=3D"color: rgb(69, 164, 236);"><a fr-original-style=3D"" href=3D"http://fmt=
+rack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ItmZ5hFABxg-2FJl8H5=
+WvpmHw47J24D-2FfovzW5pWaRNRplgkd1yFgVghByQOwz27qRWbuE5gTqvANKFE85zEB2R8-3DO=
+mbt_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVPY=
+1TklX370X38AwoF-2Bprm15M6cUhuDGVxLaD8rj5F9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZv=
+yKhwaykM00fOZ-2FOiLew-2FkHVxUuUfml-2BljRZ1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6g=
+SyQcLGWTy6frEhGXyf9Dgqtbwlqh1MC8rQ4TCxsvJXY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaSb=
+Ic1DbvDmIZjEEmA6QTlggd5iPniKZVCY3NHXGbPu1ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1C=
+6xklLVt3QCFFODvQKoTfQ-2Fa2SsgFzYXpztMKJzotNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWfH=
+XskvfpyOyTWUZWniRcmiQFBvekSyoi2Hj1-2FNUGkcKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PSu=
+DDReJpDeY-2FVkMng3WcgOb-2B0EYWHP-2B5VjnXOVcusT8yCCNnnReEk33Yw1NmnSGNg4MHFrd=
+d4Lf6bWqq6Tz9-2BVhHh-2BP-2FIU-2ByslFmvg9ZDyDUh107jWof89SvE4ezJX4GqJJ7f2ieCS=
+oV4O-2BqzubdWZI3feMBOOIbZK65yGscf-2FQatmIUqh60QSFtsyQnFhij1ilqSHRYkPmpyeLOK=
+JaAOQGeHyulYOEEIBtW-2F-2FiBUQM96VvTQbyjTqZqa-2Bq9Oycm6ZmFr7-2BFHQphxdrzGWcS=
+1f98BTm-2FiC6Ihef02-2BNf6AKFHkY20hUJ7-2Bl3-2B1Qv35kTVotDR01nLeVYof3-2FImO24=
+Z-2B" rel=3D"noopener noreferrer" style=3D"color: inherit;" target=3D"_blan=
+k">Inviting one's tribe on Freshchat</a></span> to sell, engage, and suppor=
+t at scale&nbsp;<br>=E2=9C=94<span style=3D"color: rgb(69, 164, 236);">&nbs=
+p;<a fr-original-style=3D"" href=3D"http://fmtrack1.freshchat.com/ls/click?=
+upn=3DChgKqXKfaeCJvxAAADlH3ItmZ5hFABxg-2FJl8H5WvpmHw47J24D-2FfovzW5pWaRNRpf=
+Bzr3yf5IrBjChxL5bHaysmxKIBBi9VThetJSTRAFUk-3DbKAd_RYEeg99Ap79leT7lYKY4eVge8=
+RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVPY1TklX370X38AwoF-2Bprm15M6cUhu=
+DGVxLaD8rj5F9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZvyKhwaykM00fOZ-2FOiLew-2FkHVxU=
+uUfml-2BljRZ1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6gSyQcLGWTy6frEhGXyf9Dgqtbwlqh1=
+MC8rQ4TCxsvJXY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaSbIc1DbvDmIZjEEmA6QTlggd5iPniKZ=
+VCY3NHXGbPu1ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1C6xklLVt3QCFFODvQKoTfQ-2Fa2Ssg=
+FzYXpztMKJzotNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWfHXskvfpyOyTWUZWniRcmiQFBvekSyo=
+i2Hj1-2FNUGkcKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PSuDDReJpDeY-2FVkMng3WcgOb-2B0EY=
+WHP-2B5VjnXOVcusT8yCCNnnReEk33Yw1NmnSGNg4MHFrdd4Lf6bWqq6Tz9-2BVhHh-2BP-2FIU=
+-2ByslFmvg9ZDyDUh107jWof89SvE4ezJX4GqJJ7f2ieCSoV4O-2BqzubdWZI3feMBOOIbZK65y=
+Gscf-2FQaqKeJ-2BgudZyuBFdNh-2Fckoc4Nz1QMLlHbNLrT9gUZwIXEfJZOwS5DP4wJ9F0KsXJ=
+WuWd3byXerAGe7c73t6LDm2IaGbfkdIqwxm5zel51L3PcoSmuntz10bIjDdRcv-2Bg87hSQPmk-=
+2B4wM6EHLJRpo3LgHdi0Vp55h5Q-2BGogabRDfbe" rel=3D"noopener noreferrer" style=
+=3D"color: inherit;" target=3D"_blank">Going proactive</a></span>. Engaging=
+ before visitors and customers exit<br>=E2=9C=94&nbsp;<span style=3D"color:=
+ rgb(69, 164, 236);"><a fr-original-style=3D"" href=3D"http://fmtrack1.fres=
+hchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ItmZ5hFABxg-2FJl8H5WvpmHw47J2=
+4D-2FfovzW5pWaRNRpUKtHSrLiuqYYPJ5p1wZzps40YKo9b70LkjWqBIHFEAk-3Dtgoh_RYEeg9=
+9Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVPY1TklX370X3=
+8AwoF-2Bprm15M6cUhuDGVxLaD8rj5F9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZvyKhwaykM00=
+fOZ-2FOiLew-2FkHVxUuUfml-2BljRZ1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6gSyQcLGWTy6=
+frEhGXyf9Dgqtbwlqh1MC8rQ4TCxsvJXY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaSbIc1DbvDmIZ=
+jEEmA6QTlggd5iPniKZVCY3NHXGbPu1ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1C6xklLVt3QC=
+FFODvQKoTfQ-2Fa2SsgFzYXpztMKJzotNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWfHXskvfpyOyT=
+WUZWniRcmiQFBvekSyoi2Hj1-2FNUGkcKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PSuDDReJpDeY-=
+2FVkMng3WcgOb-2B0EYWHP-2B5VjnXOVcusT8yCCNnnReEk33Yw1NmnSGNg4MHFrdd4Lf6bWqq6=
+Tz9-2BVhHh-2BP-2FIU-2ByslFmvg9ZDyDUh107jWof89SvE4ezJX4GqJJ7f2ieCSoV4O-2Bqzu=
+bdWZI3feMBOOIbZK65yGscf-2FQap7lPkguNKGavTirUkVxSGOjcysEiGT9XcW8bfB8EbvJOzpt=
+PXd6iOKFwr27F0H4Q5qrurXHxgKtrBHZWIXY-2FQlvcGUyfaivB5Naks-2BsTNdR9xqeL7we1rg=
+dmApnQYLmr905-2FXw-2FhNlrl8g1G3TBO6nozh6mwwnAEyuYjvlPbSHT" rel=3D"noopener =
+noreferrer" style=3D"color: inherit;" target=3D"_blank">Connecting leads an=
+d users to the right person</a></span> in the team&nbsp;</p>
+   <p dir=3D"ltr">Each of this will only take a few minutes but will lead t=
+o expanded sales net and better resolution rates. <a fr-original-style=3D""=
+ href=3D"http://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3=
+ItmZ5hFABxg-2FJl8H5WvpmHw47J24D-2FfovzW5pWaRNRpndtNL6y31LreB18GtAVL9Q-3D-3D=
+0zt5_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbhUVP=
+Y1TklX370X38AwoF-2Bprm15M6cUhuDGVxLaD8rj5F9YXyYnDH0RdIW3R-2BHmIpAMa1Gpe-2FZ=
+vyKhwaykM00fOZ-2FOiLew-2FkHVxUuUfml-2BljRZ1h0oruN8b0pZZ2gUwErwmX2Rs0KCQ-2F6=
+gSyQcLGWTy6frEhGXyf9Dgqtbwlqh1MC8rQ4TCxsvJXY-2FhIBWkPfRJKjowoVM-2FZMfJ3GbaS=
+bIc1DbvDmIZjEEmA6QTlggd5iPniKZVCY3NHXGbPu1ij-2BDgJTLVRrNcEZ0tmF8dyuUFZLCuf1=
+C6xklLVt3QCFFODvQKoTfQ-2Fa2SsgFzYXpztMKJzotNqzi00JE-2Bxxxqm-2FBObfGwBoOnBWf=
+HXskvfpyOyTWUZWniRcmiQFBvekSyoi2Hj1-2FNUGkcKCpWtJfxTFk4Vk2segWBUR4ylNeAq3PS=
+uDDReJpDeY-2FVkMng3WcgOb-2B0EYWHP-2B5VjnXOVcusT8yCCNnnReEk33Yw1NmnSGNg4MHFr=
+dd4Lf6bWqq6Tz9-2BVhHh-2BP-2FIU-2ByslFmvg9ZDyDUh107jWof89SvE4ezJX4GqJJ7f2ieC=
+SoV4O-2BqzubdWZI3feMBOOIbZK65yGscf-2FQaoqGA-2FHycKWrXFUvdWwqGRs14OAXaDt4sav=
+R-2BukYL5RXL3dvYfEZfuir0D3BtMVTR9VEyT2NF5nVIxyV7YTHDCojztrkxBFQLkb4znWI-2Bb=
+Rb3JDT-2BYhVcmsFd0R-2FJjzRjy7z4zolnDoLKVCjEvz8zY9-2F9lh8rJGfVlJU-2FE6jOr7v"=
+ rel=3D"noopener noreferrer" style=3D"color: inherit;" target=3D"_blank">We=
+=E2=80=99re always happy to chat</a>, in case you=E2=80=99ve any questions.=
+</p>Cheers,
+   <br>
+   <br>Your friends at Freshchat
+   <br>A product from Freshworks Inc.&nbsp;
+   <br>
+   <br>
+   <br>
+  </div>=20
+  <div style=3D"text-align:center;">=20
+   <div>=20
+    <span style=3D"font-size: 12px;">Message sent by Freshworks Inc.  at Bl=
+ock C, 1st Floor, Global Infocity,
+#40 MGR Salai, Perungudi,
+Chennai =E2=80=93 600096,Chennai, Tamil Nadu, India. </span>
+   </div>
+   <span style=3D"font-size: 12px;"> </span>
+   <div>
+    <span style=3D"font-size: 12px;"> <a fr-original-style=3D"text-decorati=
+on: underline; color: #333333;" href=3D"https://freshworks.freshmarketer.co=
+m/mas/api/v1/subscription-preferences?fm_digest=3D936E02C9FC45AD59CBAE40F75=
+405D0321E61B34CD0A9EA8B841B50F8BC8E228FA7747E3E8AE9199882593CB5CF5C1FA53897=
+53660DB0C66B11ACBA2F2BE2624654E02402F5323740670BC18AABF238BD9773944F7804E93=
+E3EE422CC01DF36FFE0F0E016EE3DF461E7227A14C1B3C23A1C4983EFB5713988E4A3381E0B=
+633DB260A5F50DE07B572A89C7FEED7105B55DB2A85B13B4447AC55AE07DB0103532FFCB75A=
+A5049B00891A563F5F211F72A31296CBF6349A7C79EA806DEC0D20397EEEF5BD162BA061502=
+6F03EE028D9084CE" rel=3D"noopener" style=3D"text-decoration: underline; col=
+or: #333333;" target=3D"_blank" clicktracking=3D"off">Unsubscribe from this=
+ list</a> | </span>
+    <a fr-original-style=3D"color:#333333;text-decoration: underline;" href=
+=3D"https://freshworks.freshmarketer.com/mas/api/v1/subscription-preference=
+s?fm_digest=3D936E02C9FC45AD59CBAE40F75405D0321E61B34CD0A9EA8B841B50F8BC8E2=
+28FA7747E3E8AE9199882593CB5CF5C1FA5389753660DB0C66B11ACBA2F2BE2624654E02402=
+F5323740670BC18AABF238BD9773944F7804E93E3EE422CC01DF36FFE0F0E016EE3DF461E72=
+27A14C1B3C23A1C4983EFB5713988E4A3381E0B633DB24CFE13715D2A0BF9BBEABFFDF101AD=
+CAB6F01EAB2069BD164C077B58EAA9471D244B47DC59EAC7E7948E29AAE339D0D3" rel=3D"=
+noopener" style=3D"color:#333333;text-decoration: underline;" target=3D"_bl=
+ank" clicktracking=3D"off"><span style=3D"font-size: 12px;">Unsubscribe fro=
+m all emails</span></a>=20
+   </div>=20
+  </div>=20
+  <div style=3D"text-align:center;font-size:13px;margin:10px 0;">=20
+   <a clicktracking=3D"off" href=3D"https://www.freshworks.com/marketing-au=
+tomation/?utm_source=3DFreshworks Inc. &amp;utm_medium=3Demail&amp;utm_camp=
+aign=3Dpoweredbyfm&amp;utm_content=3Dfooterlink" style=3D"text-decoration:n=
+one;color:#adadad;">Powered by Freshmarketer</a>=20
+  </div>=20
+=20
+<img src=3D"http://fmtrack1.freshchat.com/wf/open?upn=3DQFWB4BCTtzCIRKos7Yr=
+rfN6kkY1TVGiaF4XIkvq4n6x33fI5eS4USrpI2aDUeWN1vxdJ7nHz8lvfT0omYOTUrLgkRDzNIS=
+z7KJsN5fNU3-2B3mPJ1krKUD4QJPVTzJLiuWkWmD-2B5SbR0bu2nfQyDoNYPwobUHAgbfVoCA9q=
+FSAImgLHxaOc0-2FPc2s4fKv1HqX29lghRAcBrds-2FP5AtnRAN0ytt8Qp3dHtGs5By4RPtNdFD=
+1mLIqCwHx-2Fsy6Mi1oP-2BVeajEAhcM9APYPl2ASTdWYCKWhTeqgWo-2Fu-2FE77dZ10JnStPd=
+Hk5DT9geTpLkv7m9sMwKCO8oKn-2BHIR5F7G68HAqjLMc7EWmg8gZ58P5-2BI6F9T8IOZqMTS5L=
+Y1BACLAat7TNUxKxQBJFz3ThfjTRydvMSV3LlxKv-2BMiycBfKfE4zY9dlBSlwYx-2Fa-2BkC3x=
+TvNCTyn1uXgqYd-2BYlu6l7gD-2FfPnXOx-2BN1SZ3LP64vxZH7noiKmQT3ep1AKE1jAr1w6E2-=
+2F-2FK1FqEJz0kW7aBk6pEPfL6jPGtJmxVd9xF3nPNeHezqKLqCjd94uss9NVYVEqcMMRAxnM-2=
+FtdDS3Ygonsmd3YJidCUV0xYusron3UgFLroEBNPYosS-2F53n3PeQ1BfHvMtQsOFc35nhyRFNF=
+AO-2FCGqB7DCwLcAg7mz7-2FhjJFkXDFl2n-2BjjjUGCw6J-2FypGkCDxaqqqMIu5A8gQ-2FwXk=
+uxr5Y-2FafGtoHnUzsVj9Wk0nOj9zWZ-2B4bEy-2BVWI9P2pl8EYXlR3JR5vjOu48MUPERKc6eB=
+QbnJdd2-2BASy0VakQ3RS50T0CjqlyNGKcfkG77STmYxCO" alt=3D"" width=3D"1" height=
+=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;bor=
+der-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;m=
+argin-right:0 !important;margin-left:0 !important;padding-top:0 !important;=
+padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !impo=
+rtant;"/>
+</body>
+</html>
+
+--9bfd6af0d81171914770395cac60bfe8820351986c43de6c2be64e0dcec1--

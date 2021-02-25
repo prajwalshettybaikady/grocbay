@@ -1,0 +1,132 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+
+    <div class="row container-fluid">
+
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-body collapse show">
+                    <h6>Order report filter</h6>
+                    <hr>
+                    <form method="post" action="{{ path('filter_order')}}">
+                    <div class="row">
+                        <div class="col-md-6">
+                                <label for="">From</label>
+                            <input type="text" name="fromDate" id="fromDate"  class="form-control" value="{{ fromDate }}" autocomplete="off">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">To</label>
+                            <input type="text" name="toDate" id="toDate" class="form-control" value="{{ toDate }}"  autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row m-t-20">
+                        <div class="col-md-12">
+                            <label for="">Order Status</label>
+                            <select name="status" class="form-control">
+                                <option value="all" {% if status == 'all' %}selected {% endif %}>All</option>
+                                <option value="completed"  {% if status == 'completed' %}selected {% endif %}>Completed</option>
+                                <option value="cancelled"  {% if status == 'cancelled' %}selected {% endif %}>Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row m-t-20">
+                        <div class="col-md-12">
+                            <label for="">Customer</label>
+                            <select name="customer" id="" class="form-control">
+                                <option value="" {% if customerdata == 'all' %}selected {% endif %}>All</option>
+                                {% for cus in customer%}
+                                <option value="{{ cus.id }}" {% if customerdata == cus.id %}selected {% endif %}>{{ cus.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row m-t-20">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" type="submit" name="filter">Filter</button>
+                       
+                            <button class="btn btn-primary" type="submit" name="print">Print</button>
+                        
+                            <button class="btn btn-primary" type="submit"  name="packing">Export Packing List</button>
+                       
+                            <button class="btn btn-primary"  type="submit"  name="order">Export Order List</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Order Reports
+                        <p class="text-muted pull-right"></p>
+                    </h4>
+                    <table class="table table-hovered" id="myTable">
+                        <thead>
+                            <tr>
+                                <td>Order ID</td>
+                                <td>Order Date</td>
+                                <td>Order amount</td>
+                                <td>Payment Type</td>
+                                <td>Order Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set sum = 0 %}
+                            {% set profit = 0 %}
+                        
+                            {% for item in data %}
+                            <tr >
+                                <td><a href="{{ path('restaurant_orders_panel_update',{'id':item.id}) }}" title="Edit" style="font-weight:600;">{{ item.id }}</a></td>
+                                <td>{{ item.orderDate.date|date("d-m-Y") }}</td>
+                                <td>{% if numberFormat == 1 %}{{ item.orderAmount|round(2, 'floor')}}{% elseif numberFormat == 0 %}{{ item.orderAmount|number_format(2, '.', '') }}{% endif %}</td>
+                                <td>{{ item.paymentType }}</td>
+                                <td>{{ item.orderStatus }}</td>
+                        
+                            </tr>
+                               {% set sum = sum + item.orderAmount %}
+                               {% set profit = profit + item.cost %}
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <hr>
+                    <b style="color:red;font-size:17px;font-weight:bold;"> Total Sale : {% if numberFormat == 1 %}{{ sum|round(2, 'floor')}}{% elseif numberFormat == 0 %}{{ sum|number_format(2, '.', '') }}{% endif %} </b> |    <b style="color:red;font-size:17px;font-weight:bold;"> Profit : {% if numberFormat == 1 %}{{ profit|round(2, 'floor')}}{% elseif numberFormat == 0 %}{{ profit|number_format(2, '.', '') }}{% endif %} </b>
+                </div>
+                <div class="card-body collapse show">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+    $(function() {
+            $( "#fromDate" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+        });
+    $(function() {
+            $( "#toDate" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+        });
+</script>
+{% endblock %}

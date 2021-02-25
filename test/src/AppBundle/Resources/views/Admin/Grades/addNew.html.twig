@@ -1,0 +1,1402 @@
+{% extends "@AppBundle/"~ myExtend ~"/base.html.twig" %}
+
+{% block styles %}
+
+
+<link href="/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+<style type="text/css">
+table#priceVar th {
+  font-size:10px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+  [type=checkbox]:checked, [type=checkbox]:not(:checked){
+      position: relative;
+      left: auto;
+      opacity: 1;
+  }
+   .fstElement { font-size: 9px; }
+          .fstToggleBtn { min-width: 16.5em; }
+
+          .submitBtn { display: none; }
+
+          .fstMultipleMode { display: block; }
+          .fstMultipleMode .fstControls { width: 100%; }
+          .right-sidebar-option {
+      background: #F1F2F3;
+}
+.margin-bottom{
+  margin-bottom: 0px !important;
+}
+.cat-name{
+  font-size: 14px !important;
+  font-weight: 800;
+}
+
+.img-close{
+    position: absolute;
+    top: -10px;
+    background: #fb1e1e;
+    padding: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 1;
+    right: 61px;
+    color: #fff;
+  }
+
+  .savefont{
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+</style>
+{% endblock %}
+
+{% block body %}
+  <!-- ============================================================== -->
+  <!-- Start Page Content -->
+  <!-- ============================================================== -->
+  <!-- Row -->
+{{ form_start(form) }}
+<div class="">
+<div class="layout-px-spacing">
+  <div class="row layout-top-spacing">
+      <div class="col-md-9">
+        <div class="row"><div class="col-md-12">
+        <div class="card card-outline-info">
+          <div class="card-header">
+            <div class="row mt-4 mb-4">
+              <div class="col-md-6">
+                <h4 class="pl-4">Item Update Panel </h4>
+              </div>
+              <div class="col-md-6 pr-4">
+              </div>
+            </div>
+          </div>
+        
+        <div class="card-body">
+          {# {{ form_start(form) }} #}
+            <div class="form-body">
+              <div class="row p-t-20">
+                <!--START-->
+                {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        {{ form_label(form.itemName, "Item Name") }}
+                        {{ form_row(form.itemName,{'attr':{'class':'form-control form-control-sm','placeholder':'Item Name'}}) }}
+                      </div>
+                    </div>
+                  </div>
+                  {% set arr= menuItem.category|split(',') %}  
+                  <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    {{ form_label(form.type, "Stock Type") }}
+                    {{ form_row(form.type,{'attr':{'class':'form-control form-control-sm'}}) }}
+                  </div>  
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    {{ form_label(form.delivery, "Delivery Duration") }}
+                    {{ form_row(form.delivery,{'attr':{'class':'form-control form-control-sm'}}) }}
+                  </div>
+                </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      {{ form_label(form.vegType, "Product Type") }}
+                      {{ form_row(form.vegType,{'attr':{'class':'form-control form-control-sm'}}) }}
+                    </div>  
+                  </div>
+                </div>
+                <div class="row">
+                  
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      {{ form_label(form.alert, "Stock Notify") }}
+                      {{ form_row(form.alert,{'attr':{'class':'form-control form-control-sm','placeholder':'Stock Notify','value':'10',}}) }}
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      {{ form_label(form.duration, "Return Duration") }}
+                      {{ form_row(form.duration,{'attr':{'class':'form-control form-control-sm'}}) }}
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    {{ form_label(form.salesTax, "Gst") }}
+                    {{ form_row(form.salesTax,{'attr':{'class':'form-control form-control-sm','placeholder':'Tax'}}) }}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    {{ form_label(form.itemDescription, "Item description") }}
+                    {{ form_row(form.itemDescription,{'attr':{'class':'form-control form-control-sm','placeholder':'Doe'}}) }}
+                  </div>
+                  <div class="col-md-6">
+                    {{ form_label(form.itemShortDescription, "Manufacturer description") }}
+                    {{ form_row(form.itemShortDescription,{'attr':{'class':'form-control form-control-sm','placeholder':'Doe'}}) }}
+                  </div>
+                  
+                </div>  
+                    <div class="row">
+
+                      <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_label(form.itemPriority, "Item Priority") }}
+                        {{ form_row(form.itemPriority,{'attr':{'class':'form-control form-control-sm'}}) }}
+                    </div>
+                  </div>
+
+                    <div class="col-md-4">
+                        <label class="d-block">Item Active Status</label>
+                        <label class="switch s-success mr-2 mt-2"> 
+                            <input type="checkbox" {% if isActive == 1 %}checked {% endif %} class="form-control form-control-sm" name="isActive"  value="{{ isActive }}">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                      {% if form.type.vars.value == '1' %}
+                      <div class="col-md-4 fishprice" style="display:block">
+                        {% else %}
+                        <div class="col-md-4 fishprice" style="display:none">
+                          {% endif %}
+                          <label for="pricess" class="required">Price - 1 KG</label>
+                          <div  class="form-group "><input type="text" id="pricess" name="fishprice" class="form-control form-control-sm" placeholder="Price" value="{{ menuItem.salePrice }}">
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                       <!--end-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end col-md-9 card-->
+          </div>
+           <div class="col-lg-12">
+      <div class="card card-outline-info">
+        <div class="card-header">
+          <div class="row mt-4 mb-4">
+           
+          </div>
+        </div>
+        <div class="card-body">
+          {# {{ form_start(form) }} #}
+            <div class="form-body">           
+
+                
+                <div class="">
+                  <h3 class="card-title">Price variation
+                    <span class="pull-right">
+                      <a href="javascript:;" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#variation">Add new variant</a>
+                    </span>
+                  </h3>
+                  <hr>
+                  <div class="table-responsive">
+                    <table class="table table-hovered "  id="priceVar">
+                      <thead>
+                        <tr>
+                          {# <th>Image</th>  #}
+                          <th>Variation Name </th>
+                          <th>SKU</th>
+                          <th>Barcode</th>
+                          <th>MRP</th>
+                          <th>Dis. Price</th>
+                          <th>Membership. Price</th>
+                          <th>Priority</th>
+                          <th>Status</th> 
+                          <th>Grades</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody id="priceVariationTable">
+                        {% set count = 1 %}
+                        {% for res in variation %}
+                        <tr>
+                        
+                         
+                          {# <td>
+                            <div class="dropzone">
+                              <div class="fallback">
+                                <input type="file" name="image[]" multiple>
+                              </div>
+                            </div> <!--  <a href="#view"  data-toggle="modal" data-target="#edit{{count}}">View </a> -->
+                          </td> #}
+                          <td>
+                            <input type="hidden" name="id[]" value="{{ res.id }}" class="0{{count}}"><input type="hidden" name="variation[]" value="{{ res.variationName }}" class="1{{count}}">
+                            <span class="var{{count}}">{{ res.variationName }}</span> 
+                          </td>
+                          <td>
+                            <input type="hidden" name="sku[]" value="{{ res.sku }}" class="2{{count}}"><span class="sku{{count}}">{{ res.sku }}</span>
+                          </td>
+                          <td>
+                            <input type="hidden" name="weight[]" value="{{ res.weight }}"  class="w{{count}}">
+                            <input type="hidden" name="barcode[]" value="{{ res.barcode }}"  class="3{{count}}"><span class="barcode{{count}}">{{ res.barcode }}</span>
+                          </td>
+                          <td>
+                            <input type="hidden" name="mrp[]" value="{{ res.mrp }}"  class="4{{count}}">
+                            <span class="mrp{{count}}">{% if form.type.vars.value == '1' %} {% set x= res.mrp * menuItem.salePrice / 100 %} {% set xx = x + menuItem.salePrice %} {% if numberFormat == 0 %}{{ xx|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ xx|number_format(2, '.', '') }}{% endif %} {% else %} {% set xx = res.mrp %} {{ xx }} {% endif %}
+                            </span>
+                          </td>
+                          <td>
+                            <input type="hidden" name="price[]" value="{{ res.price }}"  class="5{{count}}">
+                            <span class="price{{count}}">
+                              {% if form.type.vars.value == '1' %} {% set resp= res.price * xx / 100 %} {% set xs= res.price * resp / 100 %} {% set r = -(resp - xx) %} {% if numberFormat == 0 %}{{ r|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ r|number_format(2, '.', '') }}{% endif %} {% else %}{% set r = res.price %}  {{ r }} {% endif %}
+                            </span>
+                          </td>
+                          <td>
+                            <input type="hidden" name="membership[]" value="{{ res.membership_price }}"  class="6{{count}}"><span class="membership{{count}}">  {% if form.type.vars.value == '1' %} {% set resp= res.membership_price * xx / 100 %} {% set xs= res.membership_price * resp / 100 %} {% set member = -(resp - xx) %} {% if numberFormat == 0 %}{{ member|round(2, 'floor')}}{% elseif numberFormat == 1 %}{{ member|number_format(2, '.', '') }}{% endif %}{% else %}{% set member = res.membership_price %}  {{ member }} {% endif %}</span>
+                          </td>
+                          <td>
+                            <input type="hidden" name="priority[]" value="{{ res.priority }}"  class="7{{count}}"><span class="priority{{count}}">{{ res.priority }}</span><input type="hidden" name="min[]" value="{{ res.minItem }}"  class="8{{count}}"><input type="hidden" name="max[]" value="{{ res.maxItem }}"  class="9{{count}}"><input type="hidden" name="hsn[]" value="{{ res.hsn }}"  class="10{{count}}"><input type="hidden" name="loyalty[]" value="{{ res.loyalty }}"  class="l{{count}}">
+                            <input type="hidden" name="cost[]" value="{{ res.cost }}"  class="cost{{count}}">
+                          </td>
+                          <td> 
+                            <span class="stn{{ count }}"> {% if res.status == '0' %} Active {% else %} Inactive {% endif %}</span><input type="hidden" name="status[]" value="{{ res.status }}"  class="11{{count}}">
+                          </td>
+                           <td><a href="#" data-toggle="modal" data-target="#edits{{ res.id }}"><i class="fa fa-edit"></i> edit</a></td>
+                          <td>
+                            <button type="button"  class="btn btn-danger btn-sm" data-toggle="modal" data-target="#edit{{count}}"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" onclick="removeVariant(this)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                          </td>
+
+    <div class="modal fade grademodel" id="edits{{ res.id }}" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Manage Grades For {{ res.variationName }} <span style="font-size:1rem;margin-left:10px">Price : {{ res.mrp }}</span></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+          {# <form method="post" id="gradeform"> #}
+          {# <input type="hidden" name="gradesubmit" id="gradesubmit" class="form-control" value=""> #}
+        <div class="modal-body">
+          
+        {% if form.type.vars.value == '1' %}
+
+          <div class="form-group">
+              {% for da in gradesData %}
+               {% set mrp = 0 %}
+                {% for key,daf in da.refprice %}
+                  {% if res.id == key %}
+                    {% set mrp = daf %}
+                  {% endif %}
+                {% endfor %}
+                  Price For {{ da.name }} in %
+                  <input type="text" name="amount[]" class="form-control" value="{{ mrp }}" placeholder="%" form="gradeform{{res.id}}"><br>
+                    <input type="hidden" class="form-control" placeholder="%" name="grade[]" value="{{ da.id }}" form="gradeform{{res.id}}">
+              {% endfor %} 
+
+                <input type="hidden" class="form-control" placeholder="A" name="id" id="gradeid" value="{{ res.id }}" form="gradeform{{res.id}}">
+                <input type="hidden" class="form-control" placeholder="A" name="menu" value="{{ res.menu_item_id }}" form="gradeform{{res.id}}">
+                <input type="hidden" class="form-control" placeholder="A" name="type" value="{{ form.type.vars.value }}" form="gradeform{{res.id}}">
+                <input type="hidden" class="form-control" placeholder="A" name="mrp" value="{{ res.mrp }}" form="gradeform{{res.id}}">
+          </div>
+
+        {% else %}
+         
+          <div class="form-group">
+              {% for da in gradesData %}
+                Price For {{ da.name }} 
+                {% set mrp = 0 %}
+                {% for key,daf in da.refprice %}
+                  {% if res.id == key %}
+                    {% set mrp = daf %}
+                  {% endif %}
+                {% endfor %}
+                 <input type="text" name="amount[]" class="form-control" value="{{ mrp }}" form="gradeform{{res.id}}"><br>
+                
+                <input type="hidden" class="form-control" placeholder="A" name="grade[]" value="{{ da.id }}" form="gradeform{{res.id}}">
+              {% endfor %} 
+
+              <input type="hidden" class="form-control" placeholder="A" name="id" id="gradeid" value="{{ res.id }}" form="gradeform{{res.id}}">
+              <input type="hidden" class="form-control" placeholder="A" name="menu" value="{{ res.menu_item_id }}" form="gradeform{{res.id}}">
+          </div>
+          
+        {% endif %}
+
+          
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" onclick="submitGrades({{ res.id }})" class="btn btn-primary">Save</button>
+          {# <button type="button" class="btn btn-primary" onclick="submitGrades()">Save</button> #}
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+        {# </form> #}
+
+      </div>
+      
+    </div>
+  </div>
+
+                          <div id="edit{{count}}" class="modal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                  {# <form> #}
+                      <div class="form-group" >
+  
+ 
+     <label for="variation_name">Variation Name *</label>
+  <input type="text" class="form-control" id="variation_names{{ count}}" placeholder="1 Kg" value="{{ res.variationName }}"> 
+</div>
+
+
+  <div class=""><br>
+  <div class="form-row">
+
+  <div class="form-group col-4">
+    <label for="priority">Priority</label>
+    <input type="number" class="form-control" id="priority{{ count}}" placeholder="priority"  value="{{ res.priority }}">
+  </div>
+      <div class="form-group col-4">
+    <label for="priority">SKU </label>
+    <input type="text" class="form-control" id="sku{{ count}}" placeholder="SKU"  value="{{ res.sku }}">
+  </div>
+    <div class="form-group col-4">
+    <label for="priority">HSN </label>
+    <input type="text" class="form-control" id="hsn{{ count}}" placeholder="HSN"  value="{{ res.hsn }}">
+  </div>
+  </div>
+</div>
+  <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="barcode">barcode </label>
+    <input type="text" class="form-control" id="barcode{{ count}}" placeholder="barcode"  value="{{ res.barcode }}">
+  </div>
+    <div class="form-group col-md-4">
+    <label for="loyalty">Loyalty </label>
+    <input type="text" class="form-control" id="loyalty{{ count}}" placeholder="Loyalty Points"  value="{{ res.loyalty }}">
+  </div>
+   <div class="form-group col-md-4">
+    <label for="barcode">Weight (in Kg) </label>
+    <input type="number" class="form-control" id="weight{{ count}}" placeholder="weight"  value="{{ res.weight }}">
+  </div>
+</div>
+  <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="min">Minimum Order Quantity </label>
+    <input type="text" class="form-control" id="min{{ count}}" placeholder="minimum order Quantity" value="{{res.minItem}}">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="priority">Maximum Order Quantity</label>
+    <input type="number" class="form-control" id="max{{ count}}" placeholder="Maximum Order Quantity" value="{{res.maxItem}}">
+  </div>
+   <div class="form-group col-md-4">
+    <label for="priority">status</label>
+    <select class="form-control" id="status{{ count}}">
+      <option value='0' {% if res.status == '0' %}selected {% endif %}>Active</option>
+      <option value="2" {% if res.status == '2' %}selected {% endif %}>Inactive</option>
+    </select>
+  </div>
+</div>
+{% if form.type.vars.value == '1' %}
+
+  <div class="form-row" style="display:none;">
+    {% else %}
+      <div class="form-row sa">
+{% endif %}  <div class="form-group col-md-4">
+    <label for="mrp">MRP *</label>
+    <input type="text" class="form-control" id="mrp{{ count}}" placeholder="mrp"  value="{{ res.mrp }}">
+  </div>
+  <div class="form-group col-md-4" style="display:none;">
+    <label for="price">Discounted Price *</label>
+    <input type="number" class="form-control" id="price{{ count}}" placeholder="price"  value="{{ res.price }}">
+  </div>
+    <div class="form-group col-md-4">
+    <label for="price">Cost Per Item</label>
+    <input type="number" class="form-control" id="costprice{{ count}}" placeholder="Cost Per Price"  value="{{ res.cost }}">
+    {# {% if r != 0 %}
+          <small class="text"><b>Margin : <span class="margin{{ count }}">{% set margin=(r-res.cost)/r*100 %} {% if numberFormat == 0 %}{{ margin|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ margin|number_format(2, '.', '') }}{% endif %} </span>% | Profit : <span class="profit{{ count }}">{% set profit=r-res.cost %} {{ profit|round(2, 'floor') }}</span></b></small>
+    {% else %}
+          <small class="text"><b>Margin : <span class="margin{{ count }}">0</span>% | Profit : <span class="profit{{ count }}">0</span></b></small>
+    {% endif %} #}
+         
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-12" style="display:none;">
+    <label for="price">Membership Price *</label>
+    <input type="number" class="form-control" id="membership{{ count}}" placeholder="price"  value="{{ res.membership_price }}">
+  </div>
+
+</div>
+      </div>
+
+{% if form.type.vars.value == '1' %}
+
+   <div class="form-row fishprice">
+    {% else %}
+   <div class="form-row fishprice" style="display:none;">
+
+    {% endif %}  
+      <div class="form-group col-md-6">
+    <label for="price">MRP in Percentage (eg 40%) *</label>
+    <input type="number" class="form-control" id="mrps{{ count}}" placeholder="price"  value="{{ res.mrp }}">
+  </div>
+   <div class="form-group col-md-6">
+    <label for="price">MRP </label>
+    <input type="number" class="form-control" id="prs{{ count}}" placeholder="price"  value="{% if numberFormat == 0 %}{{ xx|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ xx|number_format(2, '.', '') }}{% endif %}">
+  </div>
+
+       <div class="form-group col-md-6" style="display:none;">
+    <label for="price">Discounted Price in Percentage (eg 40%) *</label>
+    <input type="number" class="form-control" id="dprice{{ count}}" placeholder="price"  value="{{ res.price }}">
+  </div>
+   <div class="form-group col-md-6" style="display:none;">
+    <label for="price">Discounted Price</label>
+    <input type="number" class="form-control" id="dpr{{ count}}" placeholder="price"  value="{% if numberFormat == 0 %}{{ r|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ r|number_format(2, '.', '') }}{% endif %}">
+  </div>
+   <div class="form-group col-md-12">
+    <label for="price">Cost Per Item</label>
+    <input type="number" class="form-control" id="costpriceO{{ count}}" placeholder="Cost Per Price"  value="{{ res.cost }}">
+         {# {% if r != 0 %}
+          <small class="text"><b>Margin : <span class="margin{{ count }}">{% set margin=(r-res.cost)/r*100 %} {% if numberFormat == 0 %}{{ margin|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ margin|number_format(2, '.', '') }}{% endif %}</span>% | Profit : <span class="profit{{ count }}">{% set profit=r-res.cost %} {% if numberFormat == 0 %}{{ profit|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ profit|number_format(2, '.', '') }}{% endif %}</span></b></small>
+    {% else %}
+          <small class="text"><b>Margin : <span class="margin{{ count }}">0</span>% | Profit : <span class="profit{{ count }}">0</span></b></small>
+    {% endif %} #}
+  </div>
+         <div class="form-group col-md-6" style="display:none;">
+    <label for="price">Membership Price in Percentage (eg 40%) *</label>
+    <input type="number" class="form-control" id="dmprice{{ count}}" placeholder="Membership Price"  value="{{ res.membership_price }}">
+  </div>
+   <div class="form-group col-md-6" style="display:none;">
+    <label for="price">Membership Price</label>
+    <input type="number" class="form-control" id="dmpr{{ count}}" placeholder="Membership Price"  value="{% if numberFormat == 0 %}{{ member|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ member|number_format(2, '.', '') }}{% endif %}">
+  </div>
+</div>
+
+<div class="form-group">
+    <label for="vimg">Variation Image </label>
+    <input type="file" class="dropify" name="image[]" multiple>
+  </div>
+  
+              {% if variation_images is empty %}
+                  {% else %}
+                  <div class="row">
+
+                  {% for varimg in variation_images %}
+
+                  {% if varimg is empty %}
+                  {% else %}
+
+                    {% for img in varimg %}
+
+                     {% if img is empty %}
+                      {% else %}
+                  
+                      {% if res.id == img.ref %}
+                        <div class="col-md-3 mb-2" id="imgsec{{img.id}}">
+                          <img src="{{img.image}}" class="img-responsive" width="100" height="100">
+                          <span class="img-close" onclick="deleteimg({{img.id}})"><i class="fa fa-close"></i></span>
+                        </div>
+                      {% endif %}
+
+                      {% endif %}
+
+                     {% endfor %}
+
+                    {% endif %}
+                    
+                  {% endfor %}
+
+                  {# {% for varimg in variation_images %}
+                     {% if varimg.image is defined %} 
+                       {% if res.id == varimg.ref %}
+                      <div class="col-md-3 mb-2" id="imgsec{{varimg.id}}">
+                        <img src="{{varimg.image}}" class="img-responsive" width="100" height="100">
+                        <span class="img-close" onclick="deleteimg({{varimg.id}})"><i class="fa fa-close"></i></span>
+                      </div>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %} #}
+                  </div>
+                {% endif %}
+
+
+
+<button type="button" class="btn btn-primary" id="addvar{{ count}}">Save</button>
+{# </form>  #}
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+
+</div>
+</div>
+<script type="text/javascript">
+$('#costprice{{count}}').keyup(function(){
+var price =$('#costprice{{count}}').val();
+var mrp =$('#mrp{{count}}').val();
+var discount =$('#price{{count}}').val();
+var margin=(discount-price)/discount*100;
+// var margin =marg
+var profit=discount-price;
+$('.margin{{count}}').html(Math.round(margin,2));
+$('.profit{{count}}').html(Math.round(profit,2));
+});
+$('#price{{count}}').keyup(function(){
+var price =$('#costprice{{count}}').val();
+var mrp =$('#mrp{{count}}').val();
+var discount =$('#price{{count}}').val();
+var margin=(discount-price)/discount*100;
+// var margin =marg
+var profit=discount-price;
+$('.margin{{count}}').html(Math.round(margin,2));
+$('.profit{{count}}').html(Math.round(profit,2));
+});
+$('#costpriceO{{count}}').keyup(function(){
+var price =$('#costpriceO{{count}}').val();
+var mrp =$('#mrp{{count}}').val();
+var discount =$('#dpr{{count}}').val();
+var margin=(discount-price)/discount*100;
+// var margin =marg
+var profit=discount-price;
+$('.margin{{count}}').html(Math.round(margin,2));
+$('.profit{{count}}').html(Math.round(profit,2));
+});
+$('#mrps{{ count }}').keyup(function(){
+var x=$('#pricess').val();
+var price=$('#mrps{{ count }}').val();
+var res=eval(price) * eval(x) / 100;
+
+var fin=eval(x) + eval(res);
+$('#prs{{ count }}').val(fin);
+
+});
+$('#dprice{{ count }}').keyup(function(){
+var x=$('#prs{{ count }}').val();
+var price=$('#dprice{{ count }}').val();
+var res=eval(price) * eval(x) / 100;
+
+var fin=eval(x) - eval(res);
+$('#dpr{{ count }}').val(fin);
+//start cost per price code
+var prices =$('#costpriceO{{count}}').val();
+var mrp =$('#mrp{{count}}').val();
+var discount =$('#dpr{{count}}').val();
+var margin=(discount-prices)/discount*100;
+// var margin =marg
+var profit=discount-prices;
+$('.margin{{count}}').html(Math.round(margin,2));
+$('.profit{{count}}').html(Math.round(profit,2));
+});
+$('#dmprice{{ count }}').keyup(function(){
+var x=$('#prs{{ count }}').val();
+var price=$('#dmprice{{ count }}').val();
+var res=eval(price) * eval(x) / 100;
+
+var fin=eval(x) - eval(res);
+$('#dmpr{{ count }}').val(fin);
+});
+$('#dpr{{ count }}').keyup(function(){
+var x=$('#prs{{ count }}').val();
+var price=$('#dpr{{ count }}').val();
+var res=eval(x) - eval(price);
+var fin = res/eval(x)*100;
+$('#dprice{{ count }}').val(fin);
+
+
+//start cost per price code
+var prices =$('#costpriceO{{count}}').val();
+var mrp =$('#mrp{{count}}').val();
+var discount =$('#dpr{{count}}').val();
+var margin=(discount-prices)/discount*100;
+// var margin =marg
+var profit=discount-prices;
+$('.margin{{count}}').html(Math.round(margin,2));
+$('.profit{{count}}').html(Math.round(profit,2));
+});
+$('#dmpr{{ count }}').keyup(function(){
+var x=$('#prs{{ count }}').val();
+var price=$('#dmpr{{ count }}').val();
+var res=eval(x) - eval(price);
+var fin = res/eval(x)*100;
+
+$('#dmprice{{ count }}').val(fin);
+});
+$('#prs{{ count }}').keyup(function(){
+var x=$('#pricess').val();
+var price=$('#prs{{ count }}').val();
+var res=-(eval(x) - eval(price));
+var fin = res/eval(x)*100;
+$('#mrps{{ count }}').val(fin);
+});
+$('#addvar{{ count}}').click(function(){
+var image=$('#image');
+var x=$('#appbundle_menuitem_type').val();
+
+if(x=='1')
+{
+var variation=$('#variation_names{{ count}}').val();
+var mrp=$('#mrps{{ count}}').val();
+var price=$('#dprice{{ count}}').val();
+var membership=$('#dmprice{{ count}}').val();
+  var mrp1=$('#prs{{ count}}').val();
+var price1=$('#dpr{{ count}}').val();
+var cost=$('#costpriceO{{ count}}').val();
+}
+else
+{
+  var variation=$('#variation_names{{ count}}').val();
+  var mrp=$('#mrp{{ count}}').val();
+var price=$('#price{{ count}}').val();
+var membership=$('#membership{{ count}}').val();
+  var mrp1=$('#mrp{{ count}}').val();
+var price1=$('#price{{ count}}').val();
+var cost=$('#costprice{{ count}}').val();
+
+}
+var priority=$('#priority{{ count}}').val();
+var barcode=$('#barcode{{ count}}').val();
+var min=$('#min{{ count}}').val();
+var max=$('#max{{ count}}').val();
+// var membership=$('#membership{{ count}}').val();
+var sku=$('#sku{{ count}}').val();
+var hsn=$('#hsn{{ count}}').val();
+var weight=$('#weight{{ count}}').val();
+var status=$('#status{{ count}}').val();
+var loyalty=$('#loyalty{{ count}}').val();
+
+if(variation=='' || mrp == '' || cost == '')
+{
+  alert('please enter variation name or valid price!');
+  return false;
+}
+var x=$('#pricess').val();
+if(status=='0')
+{
+  var statusd='Active';
+
+}
+else
+{
+    var statusd='Inactive';
+
+}
+$('.var{{count}}').html(variation);
+$('.priority{{count}}').html(priority);
+$('.barcode{{count}}').html(barcode);
+$('.min{{count}}').html(min);
+$('.max{{count}}').html(max);
+$('.mrp{{count}}').html(mrp1);
+$('.price{{count}}').html(price1);
+$('.membership{{count}}').html(membership);
+$('.sku{{count}}').html(sku);
+$('.hsn{{count}}').html(hsn);
+$('.stn{{count}}').html(statusd);
+
+$('.1{{count}}').val(variation);
+$('.cost{{count}}').val(cost);
+$('.2{{count}}').val(sku);
+$('.3{{count}}').val(barcode);
+$('.4{{count}}').val(mrp);
+$('.5{{count}}').val(price);
+$('.6{{count}}').val(membership);
+$('.7{{count}}').val(priority);
+$('.8{{count}}').val(min);
+$('.9{{count}}').val(max);
+$('.10{{count}}').val(hsn);
+$('.11{{count}}').val(status);
+$('.w{{count}}').val(weight);
+$('.l{{count}}').val(loyalty);
+
+$('#edit{{count}}').fadeOut();
+
+$('.modal-backdrop').fadeOut();
+
+$('.modal-open').css({'overflow': 'visible'});
+});
+</script>
+                                          {% set count = count +1 %}
+                                      </tr>
+                                      {# </form> #}
+                                       {% endfor %}
+                                      </tbody>
+                                  </table>
+                              
+                          </div>
+
+</div>
+
+
+
+
+                          {# <div class="form-actions">
+                              <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                              <button type="button" class="btn btn-inverse">Cancel</button>
+                          </div>
+                      {{ form_widget(form._token) }}
+                      {{ form_end(form,{'render_rest':false}) }} #}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Row -->
+      <!-- Modal -->
+<div id="variation" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+     {# <form> #}
+
+  <div class="form-row">
+
+   <div class="form-group col-12" >
+
+     <label for="variation_name ">Variation Name *</label>
+    
+   <input type="text" class="form-control" id="variation_names" placeholder="1 Kg"> 
+</div>
+
+    
+</div>
+  <div class=""><br>
+  <div class="form-row">
+
+  <div class="form-group col-4">
+    <label for="priority">Priority</label>
+    <input type="number" class="form-control" id="priority" placeholder="priority" value="0">
+  </div>
+      <div class="form-group col-4">
+    <label for="priority">SKU </label>
+    <input type="text" class="form-control" id="sku" placeholder="SKU">
+  </div>
+     <div class="form-group col-4">
+    <label for="priority">HSN </label>
+    <input type="text" class="form-control" id="hsn" placeholder="HSN"  value="0">
+  </div>
+  </div>
+</div>
+
+  <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="barcode">barcode </label>
+    <input type="text" class="form-control" id="barcode" placeholder="barcode"  value="0">
+  </div>
+   <div class="form-group col-md-4">
+    <label for="weight">Loyalty Points</label>
+    <input type="number" class="form-control" id="loyalty" placeholder="Loyalty Points"  value="0">
+  </div>
+   <div class="form-group col-md-4">
+    <label for="weight">Weight (in Kg) </label>
+    <input type="number" class="form-control" id="weight" placeholder="weight"  value="0">
+  </div>
+</div>
+  <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="min">Minimum Order Quantity </label>
+    <input type="text" class="form-control" id="min" placeholder="minimum order Quantity" value="1">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="priority">Maximum Order Quantity *</label>
+    <input type="number" class="form-control" id="max" placeholder="Maximum Order Quantity" value="10">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="priority">status</label>
+    <select class="form-control" id="status">
+      <option value='0'>Active</option>
+      <option value="2">Inactive</option>
+    </select>
+  </div>
+</div>
+{% if form.type.vars.value == '1' %}
+
+  <div class="form-row" style="display:none;">
+    {% else %}
+      <div class="form-row sa">
+{% endif %}
+  <div class="form-group col-md-4">
+    <label for="mrp">MRP *</label>
+    <input type="text" class="form-control " id="mrp" placeholder="MRP" value="0">
+  </div>
+  <div class="form-group col-md-4" style="display:none;">
+    <label for="price">Discounted Price *</label>
+    <input type="number" class="form-control " id="price" placeholder="price" value="0">
+  </div>
+         <div class="form-group col-md-4">
+    <label for="price">Cost Per Item</label>
+    <input type="number" class="form-control" id="costprice" placeholder="Cost Per Price"  value="0">
+          {# <small class="text"><b>Margin : <span class="margin"></span>% | Profit : <span class="profit">10</span></b></small> #}
+  </div>
+      <div class="row"> 
+  <div class="form-group col-md-12" style="display:none;">
+    <label for="price">Membership Price *</label>
+    <input type="number" class="form-control " id="membership" placeholder="price" value="0"> 
+  </div>
+</div>
+
+</div>
+
+{% if form.type.vars.value == '1' %}
+
+   <div class="form-row fishprice">
+    {% else %}
+   <div class="form-row fishprice" style="display:none;">
+
+    {% endif %}
+  <div class="form-group col-md-6">
+    <label for="mrp">MRP in Percentage (eg : 40%)</label>
+    <input type="number" class="form-control" id="mrps" placeholder="">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="mrp">MRP  </label>
+    <input type="number" class="form-control" id="prs" placeholder="">
+  </div>
+  <div class="form-group col-md-6" style="display:none;">
+    <label for="mrp">Discounted Price in Percentage (eg : 40%)</label>
+    <input type="number" class="form-control" id="dprice" placeholder="">
+  </div>
+  <div class="form-group col-md-6" style="display:none;">
+    <label for="mrp">Discounted Price  </label>
+    <input type="number" class="form-control" id="dpr" placeholder="">
+  </div>
+     <div class="form-group col-md-12">
+    <label for="price">Cost Per Item</label>
+    <input type="number" class="form-control" id="costpriceO" placeholder="Cost Per Price"  value="0">
+          {# <small class="text"><b>Margin : <span class="margin"></span>% | Profit : <span class="profit">10</span></b></small> #}
+  </div>
+  <div class="form-group col-md-6" style="display:none;">
+    <label for="mrp">Membership Price in Percentage (eg : 40%)</label>
+    <input type="number" class="form-control" id="dmprice" placeholder="Membership price in %">
+  </div>
+  <div class="form-group col-md-6" style="display:none;">
+    <label for="mrp">Membership Price  </label>
+    <input type="number" class="form-control" id="dmpr" placeholder="membership price">
+  </div>
+</div>
+<div class="form-group">
+    <label for="vimg">Variation Image </label>
+    <input type="file" class="dropify" name="image[]" multiple>
+  </div>
+<button type="button" class="btn btn-primary" id="addvar">Add</button>
+{# </form>  #}
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Upload (Allow Multiple)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="custom-file-container" data-upload-id="mySecondImage">
+    <label class="custom-file-container__image-clear" > </label>
+    <label class="custom-file-container__custom-file" >
+        <input type="file" class="custom-file-container__custom-file__custom-file-input" multiple>
+        <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+        <span class="custom-file-container__custom-file__custom-file-control"></span>
+    </label>
+    <div class="custom-file-container__image-preview"></div>
+</div> </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <!--col-md-12 end-->
+
+            <div class="col-md-3 mb-4">
+           <div class="h-100">
+                <div id="toggleAccordion">
+                     
+                    
+                  <div class="card right-sidebar-card">
+                      <div class="card-header" id="headingOne1">
+                          <section class="mb-0 mt-0">
+                              <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionOne" aria-expanded="true" aria-controls="defaultAccordionOne">
+                                  Category <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                              </div>
+                          </section>
+                      </div>
+                      <div id="defaultAccordionOne" class="collapse show" aria-labelledby="headingOne1" data-parent="#toggleAccordion">
+                          <div class="card-body right-sidebar-option">
+                            <div class="form-group">
+                        
+                        <div id="toggleAccordion">
+                          <div style="Height:250px;overflow-x:auto">
+                            <div id="accordion">
+                              <div class=" card-width">
+                              {% for ca in category %}
+                              
+                                <div class="card-header">
+                                  <section class="mb-0 mt-0">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#a{{ ca.id }}"> <p class="mb-2 cat-name">{{ ca.category_name }}</p></a>
+                                  </section>
+                                </div>
+                                <div id="a{{ ca.id }}" class="panel-collapse show">
+                                  <div class="">
+                                    {% for sub in ca.SubCategory %}
+                                    {% if sub.nested != 0 %}
+                                    <div>
+                                      <b style="background: whitesmoke;padding:2px;width: 100% !important;color: #000;"> {{ sub.categoryName }}</b>
+                                    </div>
+                                    {% for sub in sub.nested %}
+                                    <div >
+                                      <label class="checkbox"><input type="checkbox" value="{{ sub.id }}" name="category[]" {% if sub.id in arr %} checked {% endif %}
+                                        /> {{ sub.categoryName }}
+                                      </label>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    <div >
+                                      <label class="checkbox"><input type="checkbox" value="{{ sub.id }}" name="category[]" {% if sub.id in arr %} checked {% endif %}
+                                        /> {{ sub.categoryName }}
+                                      </label>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                  </div>
+                                </div>
+                              
+                              {% endfor %}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                              <!-- <select class="form-control form-control-sm" name="payment">
+                                  <option value="cod">Cash On Delivery</option>
+                                  <option value="sod">Swipe On Delivery</option>
+                                  <option value="online">online Payment</option>
+                              </select> -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card right-sidebar-card">
+                      <div class="card-header" id="headingTwo1">
+                          <section class="mb-0 mt-0">
+                              <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionTwo" aria-expanded="true" aria-controls="defaultAccordionTwo">
+                                  Featued Image<div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                              </div>
+                          </section>
+                      </div>
+                      <div id="defaultAccordionTwo" class="collapse show" aria-labelledby="headingTwo1" data-parent="#toggleAccordion">
+                          <div class="card-body right-sidebar-option">
+                                  <div class="row">
+                    {% form_theme form '@AppBundle/Themes/file.html.twig' %}
+                    <div class="form-group margin-bottom">
+                      <!-- {{ form_label(form.itemFeaturedImageFile, "Featured image",{'label_attr':{'class':'m-l-20'}}) }} -->
+                      {% set menuItemPic = "" %}
+                      {% if menuItem.itemFeaturedImage != null %}
+                      {% set menuItemPic = '/uploads/items/images/'~ menuItem.itemFeaturedImage %}
+                      {% endif %}
+                      {{ form_row(form.itemFeaturedImageFile,{'attr':{'data-default-file':menuItemPic}}) }}
+                    </div>
+                  </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card right-sidebar-card">
+                      <div class="card-header" id="headingThree1">
+                          <section class="mb-0 mt-0">
+                          <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionThree" aria-expanded="false" aria-controls="defaultAccordionThree">
+                              Select Brand<div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                          </div>
+                          </section>
+                      </div>
+
+                     
+                      <div id="defaultAccordionThree" class="collapse show" aria-labelledby="headingThree1" data-parent="#toggleAccordion">
+                          <div class="card-body right-sidebar-option">
+                             <div class="row form-row">
+                      <div class="col-md-12 form-group margin-bottom">
+                          <div class="form-group">
+                      
+                      <select class="form-control form-control-sm select" id="appbundle_menuitem_brand" name="appbundle_menuitem[brand]" required="required">
+                        {% for res in brands  %}
+                        <option value="{{ res.id }}" {% if res.id == form.vars.value.brand  %} selected {% endif %}>{{ res.categoryName }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                      </div>
+                    </div>
+                          </div>
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-sm btn-block mb-2 savefont"> <i class="fa fa-check"></i> Save</button>
+                  
+                </div>
+            </div>
+        </div>
+          
+                  </div>
+      </div>
+    </div>
+                  {# <div class="layout-px-spacing">
+                  <div class="col-md-12">
+                    <div class="card card-outline-info">
+                      <div class="card-body">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                            <button type="button" onclick="window.history.back();" class="btn btn-inverse">Back</button>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                      {{ form_widget(form._token) }}
+                      {{ form_end(form,{'render_rest':false}) }} #}
+
+                       {{ form_widget(form._token) }}
+                      {{ form_end(form,{'render_rest':false}) }}
+                      {% for res in variation %}
+                        <form method="post" action="{{ path('save_variation_grades') }}" name="gardfrm" id="gradeform{{res.id}}"></form>
+                      {% endfor %}
+
+    
+   {% endblock %}
+
+
+{% block scripts %}
+
+<script src="/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="/assets/plugins/moment/moment.js"></script>
+<script src="/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script src="/assets/js/colorpicker.js"></script>
+
+<script>
+$('#appbundle_menuitem_type').change(function(){
+var x=$('#appbundle_menuitem_type').val();
+if(x=='1')
+{
+  $('.hides').hide();
+    $('.fishprice').show();
+$('.sa').hide();
+}
+else
+{
+    $('.hides').show();
+    $('.fishprice').hide();
+$('.sa').show();
+
+}
+});
+$('#costpriceO').keyup(function(){
+var price =$('#costpriceO').val();
+var mrp =$('#mrp').val();
+var discount =$('#dpr').val();
+var margin=(discount-price)/discount*100;
+// var margin =marg
+var profit=discount-price;
+$('.margin').html(Math.round(margin,2));
+$('.profit').html(Math.round(profit,2));
+});
+$('#costprice').keyup(function(){
+var price =$('#costprice').val();
+var mrp =$('#mrp').val();
+var discount =$('#price').val();
+var margin=(discount-price)/discount*100;
+// var margin =marg
+var profit=discount-price;
+$('.margin').html(Math.round(margin,2));
+$('.profit').html(Math.round(profit,2));
+});
+$('#price').keyup(function(){
+var price =$('#costprice').val();
+var mrp =$('#mrp').val();
+var discount =$('#price').val();
+var margin=(discount-price)/discount*100;
+// var margin =marg
+var profit=discount-price;
+$('.margin').html(Math.round(margin,2));
+$('.profit').html(Math.round(profit,2));
+});
+$('#mrps').keyup(function(){
+var x=$('#pricess').val();
+var price=$('#mrps').val();
+var res=eval(price) * eval(x) / 100;
+
+var fin=eval(x) + eval(res);
+$('#prs').val(fin);
+});
+$('#prs').keyup(function(){
+var x=$('#pricess').val();
+var price=$('#prs').val();
+var res=-(eval(x) - eval(price));
+var fin = res/eval(x)*100;
+
+$('#mrps').val(fin);
+});
+$('#dprice').keyup(function(){
+var x=$('#prs').val();
+var price=$('#dprice').val();
+var res=eval(price) * eval(x) / 100;
+
+var fin=eval(x) - eval(res);
+
+$('#dpr').val(fin);
+
+//start cost per price code
+var prices =$('#costpriceO').val();
+var mrp =$('#mrp').val();
+var discount =$('#dpr').val();
+var margin=(discount-prices)/discount*100;
+// var margin =marg
+var profit=discount-prices;
+$('.margin').html(Math.round(margin,2));
+$('.profit').html(Math.round(profit,2));
+
+});
+$('#dpr').keyup(function(){
+var x=$('#prs').val();
+var price=$('#dpr').val();
+var res=eval(x) - eval(price);
+var fin = res/eval(x)*100;
+
+$('#dprice').val(fin);
+
+//start cost per price code
+var prices =$('#costpriceO').val();
+var mrp =$('#mrp').val();
+var discount =$('#dpr').val();
+var margin=(discount-prices)/discount*100;
+// var margin =marg
+var profit=discount-prices;
+$('.margin').html(Math.round(margin,2));
+$('.profit').html(Math.round(profit,2));
+});
+$('#dmprice').keyup(function(){
+var x=$('#prs').val();
+var price=$('#dmprice').val();
+var res=eval(price) * eval(x) / 100;
+
+var fin=eval(x) - eval(res);
+
+$('#dmpr').val(fin);
+
+});
+$('#dmpr').keyup(function(){
+var x=$('#prs').val();
+var price=$('#dmpr').val();
+var res=eval(x) - eval(price);
+var fin = res/eval(x)*100;
+
+$('#dmprice').val(fin);
+});
+$('#addvar').click(function(){
+
+var image=$('#image');
+var x=$('#appbundle_menuitem_type').val();
+if(x=='1')
+{
+var variation=$('#variation_names').val();
+var mrp=$('#mrps').val();
+var price=$('#dprice').val();
+var membership=$('#dmprice').val();
+  var mrp1=$('#prs').val();
+var price1=$('#dpr').val();
+var cost =$('#costpriceO').val();
+
+}
+else
+{
+  var variation=$('#variation_names').val();
+  var mrp=$('#mrp').val();
+var price=$('#price').val();
+  var mrp1=$('#prs').val();
+var price1=$('#dpr').val();
+var membership=$('#membership').val();
+var cost =$('#costprice').val();
+
+}
+var priority=$('#priority').val();
+var barcode=$('#barcode').val();
+var weight=$('#weight').val();
+var min=$('#min').val();
+var max=$('#max').val();
+
+var sku=$('#sku').val();
+var hsn=$('#hsn').val();
+var status=$('#status').val();
+var loyalty=$('#loyalty').val();
+
+if(status=='0')
+{
+  var statusd='Active';
+
+}
+else
+{
+    var statusd='Inactive';
+
+}
+if(variation=='' || mrp == '' || cost == '')
+{
+  alert('please enter variation name or valid price!');
+  return false;
+}
+// var x = $("#image");
+//      y = x.clone();
+//  x.attr("id", "fileOld");
+//  y.insertAfter(".n");
+// priceVariationTable
+var x=$('#pricess').val();
+// var price=$('#mrps').val();
+// var res=eval(price) * eval(x) / 100;
+
+// var fin=eval(x) + eval(res);
+$('#priceVariationTable').append('<tr><td><input type="hidden" name="variation[]" value="'+variation+'">'+variation+'</td><td><input type="hidden" name="hsn[]" value="'+hsn+'"><input type="hidden" name="sku[]" value="'+sku+'">'+sku+'</td><td><input type="hidden" name="barcode[]" value="'+barcode+'"><input type="hidden" name="weight[]" value="'+weight+'">'+barcode+'</td><td><input type="hidden" name="mrp[]" value="'+mrp+'">'+mrp1+'</td><td><input type="hidden" name="price[]" value="'+price+'">'+price1+'</td><td><input type="hidden" name="membership[]" value="'+membership+'">'+membership+'</td><td><input type="hidden" name="priority[]" value="'+priority+'">'+priority+'<input type="hidden" name="min[]" value="'+min+'"><input type="hidden" name="max[]" value="'+max+'"></td><td><input type="hidden" name="loyalty[]" value="'+loyalty+'"><input type="hidden" name="cost[]" value="'+cost+'"><input type="hidden" name="status[]" value="'+status+'">'+statusd+'</td><td><button type="button" onclick="removeVariant(this)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td></tr>');
+var variation=$('#variation_name').val('');
+var priority=$('#priority').val('0');
+var barcode=$('#barcode').val('');
+
+var mrp=$('#mrp').val(0);
+var price=$('#price').val(0);
+var membership=$('#membership').val(0);
+var sku=$('#sku').val('');
+});
+      $indexMesure=1;
+      $(".c").bootstrapSwitch();
+      $(document).ready(function() {
+
+
+
+          $collectionHolder = $('#priceVariationTable');
+  
+          // count the current form inputs we have (e.g. 2), use that as the new
+          // index when inserting a new item (e.g. 2)
+          $indexMesure = $collectionHolder.find(':input').length;
+          // Basic
+          $('.dropify').dropify();
+          // Translated
+          $('.dropify-fr').dropify({
+              messages: {
+                  default: 'Glissez-déposez un fichier ici ou cliquez',
+                  replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                  remove: 'Supprimer',
+                  error: 'Désolé, le fichier trop volumineux'
+              }
+          });
+  
+          // Used events
+          var drEvent = $('#input-file-events').dropify();
+  
+          drEvent.on('dropify.beforeClear', function(event, element) {
+              return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+          });
+  
+          drEvent.on('dropify.afterClear', function(event, element) {
+              alert('File deleted');
+          });
+  
+          drEvent.on('dropify.errors', function(event, element) {
+              console.log('Has Errors');
+          });
+  
+          var drDestroy = $('#input-file-to-destroy').dropify();
+          drDestroy = drDestroy.data('dropify')
+          $('#toggleDropify').on('click', function(e) {
+              e.preventDefault();
+              if (drDestroy.isDropified()) {
+                  drDestroy.destroy();
+              } else {
+                  drDestroy.init();
+              }
+          })
+      });
+
+  function addNewPriceVeriation(){
+      $('#priceVar').attr('style','');
+          // Get the ul that holds the collection of tags
+      $collectionHolder = $('#priceVariationTable');
+
+      var $newFormLi="";
+      var $holder=$('div.prototype');
+      // Get the data-prototype explained earlier
+      var prototype = $holder.data('prototype');
+
+      // get the new index
+      var index = $indexMesure;
+      $indexMesure= $indexMesure + 1;
+
+      // Replace '__name__' in the prototype's HTML to
+      // instead be a number based on how many items we have
+      var newForm = prototype.replace(/__name__/g, index);
+
+      // increase the index with one for the next item
+      $collectionHolder.data('index', index + 1);
+      
+      // Display the form in the page in an li, before the "Add a tag" link li
+      $newFormLi = $('#priceVariationTable').prepend(newForm);
+
+  }
+
+  function removeVariant(obj){
+      $(obj).parent().parent().remove();
+  }
+
+    function deleteimg(id){
+    var out ={'id':id}; 
+
+    var r = confirm("Do you really want to delete this image?");
+    if (r == true) {
+
+      $.ajax({
+          type: "POST",
+          url: "/api/app-manager/get-functionality/delete-variation-images/"+id,
+          data: out,
+          success: function (res, dataType) {
+            $('#imgsec'+id).hide();
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert('Error : ' + errorThrown);
+          }
+      });
+     
+    } else {
+      
+    }
+
+  }
+</script>
+
+<script>
+  
+      $(document).ready(function() {
+        $('.multipleSelect').fastselect();
+      });
+
+      function submitGrades(id){
+       
+        //$("#gradesubmit").val(1);
+        //$('.grademodel').modal('hide');
+        console.log(id);
+        $("#gradeform"+id).submit();
+      }
+
+      </script>
+{% endblock %}

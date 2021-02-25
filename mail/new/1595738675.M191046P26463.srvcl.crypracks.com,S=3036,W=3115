@@ -1,0 +1,79 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id EEj3CjMKHV9fZwAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Sun, 26 Jul 2020 00:44:35 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Sun, 26 Jul 2020 00:44:35 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1jzBLx-0003GU-Dh
+	for grocbayc@srvcl.crypracks.com; Sat, 25 Jul 2020 00:00:05 -0400
+X-Failed-Recipients: grocbayc@srvcl.crypracks.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1jzBLx-0003Dp-7X@srvcl.crypracks.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1595649605-eximdsn-267539332
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1jzBLx-0003GU-Dh@srvcl.crypracks.com>
+Date: Sat, 25 Jul 2020 00:00:05 -0400
+
+--1595649605-eximdsn-267539332
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  grocbayc@srvcl.crypracks.com
+    LMTP error after RCPT TO:<grocbayc@srvcl.crypracks.com>:
+    550 5.1.1 <grocbayc@srvcl.crypracks.com> User doesn't exist:
+    grocbayc@srvcl.crypracks.com
+
+--1595649605-eximdsn-267539332
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; srvcl.crypracks.com
+
+Action: failed
+Final-Recipient: rfc822;grocbayc@srvcl.crypracks.com
+Status: 5.0.0
+
+--1595649605-eximdsn-267539332
+Content-type: message/rfc822
+
+Return-path: <grocbayc@srvcl.crypracks.com>
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.93)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1jzBLx-0003Dp-7X
+	for grocbayc@srvcl.crypracks.com; Sat, 25 Jul 2020 00:00:05 -0400
+From: "(Cron Daemon)" <grocbayc@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+Subject: Cron <grocbayc@srvcl> curl http://backup.grocbay.com/index.php
+Content-Type: text/plain; charset=UTF-8
+Auto-Submitted: auto-generated
+Precedence: bulk
+X-Cron-Env: <XDG_SESSION_ID=148>
+X-Cron-Env: <XDG_RUNTIME_DIR=/run/user/1511>
+X-Cron-Env: <LANG=en_US.UTF-8>
+X-Cron-Env: <SHELL=/usr/local/cpanel/bin/jailshell>
+X-Cron-Env: <HOME=/home/grocbayc>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=grocbayc>
+X-Cron-Env: <USER=grocbayc>
+Message-Id: <E1jzBLx-0003Dp-7X@srvcl.crypracks.com>
+Date: Sat, 25 Jul 2020 00:00:05 -0400
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+
+--1595649605-eximdsn-267539332--

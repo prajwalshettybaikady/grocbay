@@ -1,0 +1,88 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+  
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker1" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+   $( "#datepicker2" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Sales Report
+                    </h4>
+                    <table class="table table-hovered" id="myTable">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>Item Name</td>
+                                                                <td>Total</td>
+
+                                <td>Quantity</td>
+                                                                <td>actualAmount</td>
+
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set count = 1 %}
+                            {% for da in data %}
+                            <tr>
+                                <td>{{ count }}</td>
+                                <td>{{ da.itemName }} - {{ da.priceVariavtion }}</td>
+                                <td>{% if numberFormat == 1 %}{{ da.price|round(2, 'floor')}}{% elseif numberFormat == 0 %}{{ da.price|number_format(2, '.', '') }}{% endif %}</td>
+                                <td>{{ da.quantity }}</td>
+                                <td>{% if numberFormat == 1 %}{{ da.actualAmount|round(2, 'floor')}}{% elseif numberFormat == 0 %}{{ da.actualAmount|number_format(2, '.', '') }}{% endif %}</td>
+
+                                <td><a href="{{ path('restaurant_orders_panel_update',{'id':da.order_d}) }}">view</a></td>
+
+                                    
+                                </tr>
+                {% set count = count + 1 %}
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-body collapse show">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+
+<script>
+  $(document).ready(function() {
+         $('#myTable').DataTable( {
+         
+    });
+     });
+         </script>
+
+{% endblock %}

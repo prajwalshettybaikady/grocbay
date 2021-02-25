@@ -1,0 +1,89 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id 6POVH75udF8EXQAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Wed, 30 Sep 2020 07:40:46 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Wed, 30 Sep 2020 07:40:46 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1kNaTW-0006M2-CS
+	for grocbayc@srvcl.crypracks.com; Wed, 30 Sep 2020 07:40:46 -0400
+X-Failed-Recipients: app@appinsight.tech
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1kNaTV-0006Lr-GD@srvcl.crypracks.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1601466046-eximdsn-1304007660
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1kNaTW-0006M2-CS@srvcl.crypracks.com>
+Date: Wed, 30 Sep 2020 07:40:46 -0400
+
+--1601466046-eximdsn-1304007660
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  app@appinsight.tech
+    host mx.yandex.net [87.250.250.89]
+    SMTP error from remote mail server after RCPT TO:<app@appinsight.tech>:
+    550 5.7.1 No such user!
+
+--1601466046-eximdsn-1304007660
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; srvcl.crypracks.com
+
+Action: failed
+Final-Recipient: rfc822;app@appinsight.tech
+Status: 5.0.0
+Remote-MTA: dns; mx.yandex.net
+Diagnostic-Code: smtp; 550 5.7.1 No such user!
+
+--1601466046-eximdsn-1304007660
+Content-type: message/rfc822
+
+Return-path: <grocbayc@srvcl.crypracks.com>
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.93)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1kNaTV-0006Lr-GD
+	for app@appinsight.tech; Wed, 30 Sep 2020 07:40:45 -0400
+To: app@appinsight.tech
+Subject: You have new order(#10230)
+X-PHP-Script: admin.grocbay.com/web/app.php for 42.106.181.27
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: mail@appinsight.tech
+Reply-To: mail@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1kNaTV-0006Lr-GD@srvcl.crypracks.com>
+Date: Wed, 30 Sep 2020 07:40:45 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ </head><body>Grocbay<br>
+   ----------------------------------------<br>
+  #order : 10230<br>
+Customer Name : Anarks Communication <br>
+ Address : 4, temple, Thazhakara<br>
+ Delivery Area   : IND + UAE<br>
+----------------------------------------<br>Order Details:<br>1X  Kanwal Mix Vegetable Pickle(1 kg)<br>----------------------------------------<br>
+Subtotal: ₹ 160<br>
+Delivery Charges: ₹ 0<br>
+Promo Code: -- ₹ <br>
+Grand Total: ₹160<br>
+----------------------------------------<br>
+Payment Type: cod<br>
+Delivery Time: 12:00 PM - 3:00 PM<br></body></html>
+
+--1601466046-eximdsn-1304007660--

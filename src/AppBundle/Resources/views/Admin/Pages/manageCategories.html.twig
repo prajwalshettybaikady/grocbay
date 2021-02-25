@@ -1,0 +1,629 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block body %}
+<div class="main-content">
+    <div class="layout-px-spacing">
+        <div class="row scrumboard" id="cancel-row">
+            <div class="col-lg-12 layout-spacing">
+                <!--add main category-->
+                <div class="task-list-section">
+                    <div data-section="s-new" class="task-list-container">
+                        <div class="connect-sorting">
+                            <div class="task-container-header">
+                                <h6 class="s-heading" data-listTitle="In Progress">Main Categories</h6>
+                                <a href="{{ path('export_category') }}" class="badge outline-badge-danger pull-right">Export to CSV</a>
+                            </div>
+                            <form data-2 method="post" action="{{ path('bulk_action_category')}}">
+                                <div class="row order-info mt-3 mb-3 pl-3" >
+                                    <input class="" type="checkbox" id="gridCheck" name="category">
+                                    <div class="col-lg-8 col-md-8 col-12 mb-3 ">
+                                        <select class="form-control form-control-sm" name="type">
+                                          <option value="0">Activate</option>
+                                          <option value="1">Deactivate</option>
+                                          <option value="2">Delete</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-12 mb-3  align-self-end">
+                                        <input type="submit" class="btn btn-sm btn-primary" value="Update">
+                                    </div>
+                                </div>
+                                <div class="connect-sorting-content" >
+                                {% for main in category%}
+                                <a href="{{ path('manage_category_get',{'id': main.id }) }}">
+                                    <div  class="card main-category-list simple-title-task {% if main.id == mainid %} active {% endif %}">
+                                        <div class="card-body">
+                                            <div class="task-header background-white main-category">
+                                                <!--task header start-->
+                                                <div class="row ">
+                                                    <div class="col-md-4">
+                                                        <div class="row h-100">
+                                                            <div class="col-md-12 align-self-center">
+                                                                <div class="category-img-wrapper">
+                                                                    <img class="img-fluid img-responsive" src='/uploads/sub-category/icons/{{ main.iconImage }}'>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="bg-inner">
+                                                            <div class="row h-100 p-3">
+                                                                <div class="col-md-12 mb-3 text-left" >
+                                                                    <input type="checkbox" name="all[]" class="category" value="{{ main.id }}">
+                                                                    <span class="text-right" style="font-size:16px; font-weight:700;float:right;">#{{ main.id }}</span>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <h4 class="text-left mb-3" data-taskTitle="{{ main.categoryName }}">{{ main.categoryName }}</h4>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <i class="fa"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 s-task-edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"   data-toggle="modal" data-target="#category{{ main.id }}"></path></svg></i>
+                                                                    {% if main.featured == 0 %}
+                                                                    <i class="fa fa-eye"></i>
+                                                                    {% else %}
+                                                                    <i class="fa fa-eye-slash"></i>
+                                                                    {% endif %}
+                                                                    {% if main.status == 1 %}
+                                                                    <i class="fa fa-circle" style="color:red;"></i> 
+                                                                    {% else %}
+                                                                    <i class="fa fa-circle" style="color:green;"></i>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--task header ends-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endfor %}
+                            </form>
+                             <!-- add category -->
+                            {% for main in category%}
+                            <div class="modal fade" id="category{{main.id}}" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="compose-box">
+                                                <div class="compose-content" id="addTaskModalTitle">
+                                                    <h5 class="add-task-title">Edit Category</h5>
+
+                                                    <form data-3 method="post"  enctype="multipart/form-data" action="{{ path('update_category')}}">
+                                                        <div class="form-group mb-4">
+                                                            <label for="name">Category Name</label>
+                                                            <input type="text" id="name" class="form-control form-control-sm" name="name" placeholder="Category  Name*" required="" autocomplete="off" value="{{ main.categoryName }}">
+                                                            <input type="hidden" name="id" placeholder="Category  Name*" required=""  value="{{ main.id }}">
+                                                        </div>
+
+                                                        <div class="form-row mb-4">
+                                                            <div class="form-group col-md-8">
+                                                                <label for="Priority">Priority</label>
+                                                                <input type="number" class="form-control form-control-sm" id="Priority" placeholder="Priority" autocomplete="off" name="priority" value="{{ main.priority }}">
+                                                            </div>
+                                                            <input type="hidden" id="parent" class="form-control form-control-sm" name="parent" value="0">
+                                                            <input type="hidden" id="nested" class="form-control form-control-sm" name="nested" value="0">
+                                                            <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="0">
+
+                                                            <div class="form-group col-md-2 align-self-end text-right">
+                                                                <label>Status</label>
+                                                                <label class="switch s-success mr-2"> 
+                                                                    <input type="checkbox" {% if main.status == 0 %}checked{% endif %} class="form-control form-control-sm" name="status"  value="{{ main.status }}">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-group col-md-2 align-self-end text-right">
+                                                                <label>Visiblity</label>
+                                                                <label class="switch s-danger mr-2"> 
+                                                                    <input type="checkbox"  {% if main.featured == 0 %}checked{% endif %} class="form-control form-control-sm" name="visiblity"  value="{{ main.featured }}">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <label for="Status">Icon </label>
+                                                            <input type="file" name="image"  class="dropify" id="icon" data-default-file="/uploads/sub-category/icons/{{ main.iconImage }}"> 
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close</button>
+                                                <button  class="btn btn-primary" >Update</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <!-- end of add category -->
+                        </div>
+                         <div class="add-s-task">
+                            <a class="addTask main-category-btn" data-toggle="modal" data-target="#category"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Category</a>
+                        </div>
+                    </div>
+                <!--ends main category-->
+                <!--starts main category modal -->
+                    <div class="modal fade" id="category" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="compose-box">
+                                        <div class="compose-content" id="addTaskModalTitle">
+                                            <h5 class="add-task-title">Add Category -main catgory</h5>
+
+                                            <form data-4 method="post"  enctype="multipart/form-data" action="{{ path('create_category')}}">
+                                                <div class="form-group mb-4">
+                                                    <label for="name">Category Name</label>
+                                                    <input type="text" id="name" class="form-control form-control-sm" name="name" placeholder="Category  Name*" required="" autocomplete="off">
+                                                    <input type="hidden" id="parent" class="form-control form-control-sm" name="parent" value="0">
+                                                    <input type="hidden" id="nested" class="form-control form-control-sm" name="nested" value="0">
+                                                    <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="0">
+                                                </div>
+                                                <div class="form-row mb-4">
+                                                    <div class="form-group col-md-8">
+                                                        <label for="Priority">Priority</label>
+                                                        <input type="number" class="form-control form-control-sm" id="Priority" placeholder="Priority" autocomplete="off" value="0" name="priority">
+                                                    </div>
+                                                    <div class="form-group col-md-2 align-self-end text-right">
+                                                        <label>Status</label>
+                                                        <label class="switch s-success mr-2"> 
+                                                            <input type="checkbox" checked class="form-control form-control-sm" name="status">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group col-md-2 align-self-end text-right">
+                                                        <label>Visiblity</label>
+                                                        <label class="switch s-danger mr-2"> 
+                                                            <input type="checkbox" checked class="form-control form-control-sm" name="visiblity">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label for="Status">Icon </label>
+                                                    <input type="file" name="image"  class="dropify" id="icon" data-default-file=""> 
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close</button>
+                                        <button  class="btn btn-primary" >Save</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                 <div data-section="s-new" class="task-list-container">
+                        <div class="connect-sorting">
+                            <div class="task-container-header">
+                                <h6 class="s-heading" data-listTitle="In Progress">Sub Categories</h6>
+                                <a href="{{ path('export_subcategory') }}" class="badge outline-badge-danger pull-right">Export to CSV</a>
+                            </div>
+                            <form data-5 method="post" action="{{ path('bulk_action_category')}}">
+                                <div class="row order-info mt-3 mb-3 pl-3 align-self-center" >
+                                    <input class="" type="checkbox" id="gridCheck" name="subcategory">
+                                    <div class="col-lg-8 col-md-8 col-12 mb-3 ">
+                                        <select class="form-control form-control-sm" name="type">
+                                        <option value="0">Activate</option>
+                                        <option value="1">Deactivate</option>
+                                          <option value="2">Delete</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 mb-3 align-self-end">
+                                        <input type="submit" class="btn btn-sm btn-primary" value="Update" >
+                                    </div>
+                                </div>
+                                <div class="connect-sorting-content" >
+                                    {% for sub in subcategory%}
+                                    <a href="{{ path('manage_category_get_nested',{'parent': sub.parent_id,'id': sub.id }) }}">
+                                        <div  class="card sub-category-list simple-title-task {% if sub.id == subid %} active {% endif %}">
+                                            <div class="card-body">
+                                                <div class="task-header background-white sub-category">
+                                                    <!--task header start-->
+                                                     <div class="row">
+                                                        <div class="col-md-4">
+                                                             <div class="row h-100">
+                                                                <div class="col-md-12 align-self-center">
+                                                                     <div class="category-img-wrapper">
+                                                                        <img src='/uploads/sub-category/icons/{{ sub.iconImage }}' class="img-fluid img-responsive rounded">
+                                                                    </div>
+                                                                </div>
+                                                             </div>
+                                                            <!--end-->
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="bg-inner">
+                                                              <div class="row h-100 p-3">
+                                                                    <div class="col-md-12 mb-3 text-left" >
+                                                                        <input type="checkbox" name="all[]" class="subcategory" value="{{ sub.id }}">
+                                                                        <span  style="font-size:16px; font-weight:700;float:right;">#{{ sub.id }}</span>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <h4 class="text-left mb-3" data-taskTitle="{{ sub.categoryName }}">{{ sub.categoryName }}</h4>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <i class="fa"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 s-task-edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"   data-toggle="modal" data-target="#subcategory{{ sub.id }}"></path></svg></i>
+                                                                        {% if sub.featured == 0 %}
+                                                                        <i class="fa fa-eye"></i>
+                                                                        {% else %}
+                                                                        <i class="fa fa-eye-slash"></i>
+                                                                        {% endif %}
+                                                                        {% if sub.status == 1 %}
+                                                                        <i class="fa fa-circle" style="color:red;"></i> 
+                                                                        {% else %}
+                                                                        <i class="fa fa-circle" style="color:green;"></i>
+                                                                        {% endif %}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end-->
+                                                                    <!--task header ends-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                            </form>
+                            {% for sub in subcategory%} 
+                                 <!-- add sub category -->
+                            <div class="modal fade" id="subcategory{{sub.id}}" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <form data-6 method="post"  enctype="multipart/form-data" action="{{ path('update_category')}}">
+                                            <div class="modal-body">
+                                                <div class="compose-box">
+                                                    <div class="compose-content" id="addTaskModalTitle">
+                                                        <h5 class="add-task-title">Edit Category</h5>
+                                                        <div class="form-group mb-4">
+                                                            <label for="name">Category Name</label>
+                                                            <input type="text" id="name" class="form-control form-control-sm" name="name" placeholder="Category  Name*" required="" autocomplete="off" value="{{ sub.categoryName }}">
+                                                            <input type="hidden" name="id" placeholder="Category  Name*" required=""  value="{{ sub.id }}">
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <label for="name">Parent Category</label>
+                                                            <select id="name" class="form-control form-control-sm" name="parent">
+                                                                {% for mainc in category %}
+                                                                <option value="{{ mainc.id }}" {% if mainc.id == sub.parent_id %} selected {% endif %}>{{ mainc.categoryName }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        <input type="hidden" id="nested" class="form-control form-control-sm" name="nested" value="0">
+                                                        <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="1">
+                                                        <div class="form-row mb-4">
+                                                            <div class="form-group col-md-8">
+                                                                <label for="Priority">Priority</label>
+                                                                <input type="number" class="form-control form-control-sm" id="Priority" placeholder="Priority" autocomplete="off" name="priority" value="{{ sub.priority }}">
+                                                            </div>
+                                                            <div class="form-group col-md-2 align-self-end text-right">
+                                                                <label>Status</label>
+                                                                <label class="switch s-success mr-2"> 
+                                                                    <input type="checkbox" {% if sub.status == 0 %}checked{% endif %} class="form-control form-control-sm" name="status"  value="{{ sub.status }}">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-group col-md-2 align-self-end text-right">
+                                                                <label>Visiblity</label>
+                                                                <label class="switch s-danger mr-2"> 
+                                                                    <input type="checkbox"  {% if sub.featured == 0 %}checked{% endif %} class="form-control form-control-sm" name="visiblity"  value="{{ sub.featured }}">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <label for="Status">Icon </label>
+                                                            <input type="file" name="image"  class="dropify" id="icon" data-default-file="/uploads/sub-category/icons/{{ sub.iconImage }}"> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close</button>
+                                                <button  class="btn btn-primary" >Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                                <!-- end of add category --> 
+                            {% endfor %}
+                            {% if subadd == '0' %}
+                            <div class="add-s-task">
+                                <a class="addTask" data-toggle="modal" data-target="#subcategory"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Category</a>
+                            </div>
+                            {% endif %}
+                         </div>
+                    </div>
+                 <!--end sub category-->
+
+                <!-- starts sub category add modal -->
+                <div class="modal fade" id="subcategory" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="compose-box">
+                                    <div class="compose-content" id="addTaskModalTitle">
+                                        <h5 class="add-task-title">Add Category</h5>
+
+                                        <form data-7 method="post"  enctype="multipart/form-data" action="{{ path('create_category')}}">
+                                            <div class="form-group mb-4">
+                                                <label for="name">Category Name</label>
+                                                <input type="text" id="name" class="form-control form-control-sm" name="name" placeholder="Category  Name*" required="" autocomplete="off">
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label for="name">Parent Category</label>
+                                                <select id="name" class="form-control" name="parent">
+                                                    {% for mainc in category %}
+                                                    <option value="{{ mainc.id }}" >{{ mainc.categoryName }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <input type="hidden" id="nested" class="form-control form-control-sm" name="nested" value="0">
+                                            <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="1">
+                                            <div class="form-row mb-4">
+                                                <div class="form-group col-md-8">
+                                                    <label for="Priority">Priority</label>
+                                                    <input type="number" class="form-control form-control-sm" id="Priority" placeholder="Priority" autocomplete="off" value="0" name="priority">
+                                                </div>
+                                                <input type="hidden" id="nested" class="form-control form-control-sm" name="nested" value="0">
+                                                <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="1">
+                                                <div class="form-group col-md-2 align-self-end text-right">
+                                                    <label>Status</label>
+                                                    <label class="switch s-success mr-2"> 
+                                                        <input type="checkbox" checked class="form-control form-control-sm" name="status">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group col-md-2 align-self-end text-right">
+                                                    <label>Visiblity</label>
+                                                    <label class="switch s-danger mr-2"> 
+                                                        <input type="checkbox" checked class="form-control form-control-sm" name="visiblity">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label for="Status">Icon </label>
+                                                <input type="file" name="image"  class="dropify" id="icon" data-default-file=""> 
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close</button>
+                                    <button  class="btn btn-primary" >Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--it ends here-->
+
+
+                <!-- add nested category -->
+                
+                    <div data-section="s-new" class="task-list-container">
+                        <div class="connect-sorting">
+                            <div class="task-container-header">
+                                <h6 class="s-heading" data-listTitle="In Progress">Nested Categories</h6>
+                                <a href="{{ path('export_nestedcategory') }}" class="badge outline-badge-danger pull-right">Export to CSV</a>
+                            </div>
+                            <form data-8 method="post" action="{{ path('bulk_action_category')}}">
+                                <div class="row order-info mt-3 mb-3 pl-3" >
+                                    <input class="" type="checkbox" id="gridCheck" name="nestedcategory">
+                                    <div class="col-lg-8 col-md-8 col-12 mb-3 ">
+                                        <select class="form-control form-control-sm" name="type">
+                                        <option value="0">Activate</option>
+                                        <option value="1">Deactivate</option>
+                                           <option value="2">Delete</option>
+                                       </select>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 mb-3 align-self-end">
+                                        <input type="submit" class="btn btn-sm btn-primary" value="Update">
+                                    </div>
+                                </div>
+                                <div class="connect-sorting-content" >
+                                    {% for sub in nestedcategory%}
+                                    <a href="#nestedtedit">
+                                        <div  class="card  nested-category-list simple-title-task {% if sub.id == mainid %} active {% endif %}">
+                                            <div class="card-body">
+                                                <div class="task-header background-white nested-category">
+                                                    <!--task header start-->
+                                                    <div class="row ">
+                                                        <div class="col-md-4">
+                                                              <div class="row h-100">
+                                                                <div class="col-md-12 align-self-center">
+                                                                    <div class="category-img-wrapper">
+                                                                         <img src='/uploads/sub-category/icons/{{ sub.iconImage }}' class="img-fluid  img-responsive">
+                                                                    </div>
+                                                                 </div>
+                                                             </div>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="bg-inner">
+                                                                <div class="row h-100 p-3">
+                                                                    <div class="col-md-12 mb-3 text-left" >
+                                                                        <input type="checkbox" name="all[]" class="category" value="{{ sub.id }}">
+                                                                        <span class="text-right" style="font-size:16px; font-weight:700;float:right;">#{{ sub.id }}</span>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <h4 class="text-left mb-3" data-taskTitle="{{ sub.categoryName }}">{{ sub.categoryName }}</h4>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <i class="fa"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 s-task-edit"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"   data-toggle="modal" data-target="#nestedcategory{{ sub.id }}"></path></svg></i>
+                                                                        {% if sub.featured == 0 %}
+                                                                        <i class="fa fa-eye"></i>
+                                                                        {% else %}
+                                                                        <i class="fa fa-eye-slash"></i>
+                                                                        {% endif %}
+                                                                        {% if sub.status == 1 %}
+                                                                        <i class="fa fa-circle" style="color:red;"></i> 
+                                                                        {% else %}
+                                                                        <i class="fa fa-circle" style="color:green;"></i>
+                                                                        {% endif %}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    {% endfor %}
+                                </div>
+                            </form>
+                            <!-- add nested category -->
+                             {% for sub in nestedcategory%}
+                            <div class="modal fade" id="nestedcategory{{sub.id}}" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <!--form starts-->
+                                        <form  method="post"  enctype="multipart/form-data" action="{{ path('update_category')}}">      
+                                            <div class="modal-body">
+                                                <div class="compose-box">
+                                                    <div class="compose-content" id="addTaskModalTitle">
+                                                        <h5 class="add-task-title">Edit Nested Category</h5>
+                                                        <div  class="form-group mb-4">
+                                                            <label for="name">Category Name</label>
+                                                            <input type="text" id="name" class="form-control form-control-sm" name="name" placeholder="Category  Name*" required="" autocomplete="off" value="{{ sub.categoryName }}">
+                                                            <input type="hidden" name="id" placeholder="Category  Name*" required=""  value="{{ sub.id }}">
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <label for="name">Parent Category</label>
+                                                            <select id="name" class="form-control form-control-sm" name="parent">
+                                                                {% for mainc in nested %}
+                                                                <option value="{{ mainc.id }}" {% if mainc.id == sub.parent_id %} selected {% endif %}>{{ mainc.categoryName }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        <input type="hidden" id="nested" class="form-control form-control-sm" name="nested" value="1">
+                                                        <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="1">
+                                                        <div class="form-row mb-4">
+                                                            <div class="form-group col-md-8">
+                                                                <label for="Priority">Priority</label>
+                                                                <input type="number" class="form-control form-control-sm" id="Priority" placeholder="Priority" autocomplete="off" name="priority" value="{{ sub.priority }}">
+                                                            </div>
+                                                            <div class="form-group col-md-2 align-self-end text-right">
+                                                                <label>Status</label>
+                                                                <label class="switch s-success mr-2"> 
+                                                                    <input type="checkbox" {% if sub.status == 0 %}checked{% endif %} class="form-control form-control-sm" name="status"  value="{{ sub.status }}">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-group col-md-2 align-self-end text-right">
+                                                                <label>Visiblity</label>
+                                                                <label class="switch s-danger mr-2"> 
+                                                                    <input type="checkbox"  {% if sub.featured == 0 %}checked{% endif %} class="form-control form-control-sm" name="visiblity"  value="{{ sub.featured }}">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <label for="Status">Icon </label>
+                                                            <input type="file" name="image"  class="dropify" id="icon" data-default-file="/uploads/sub-category/icons/{{ sub.iconImage }}"> 
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close</button>
+                                                <button  class="btn btn-primary" >Update</button>
+                                            </div>
+                                        </form>
+                                        <!--from ends-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of nested category -->
+                            {% endfor %}
+                        {% if nestedadd == '0' %}
+                            <div class="add-s-task">
+                                <a class="addTask" data-toggle="modal" data-target="#nestedcategory"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg> Add Category</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                <!--nested add category -->
+                <div class="modal fade" data-myform id="nestedcategory" tabindex="-1" role="dialog" aria-labelledby="addTaskModalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <form data-1 id="nestedcategoryform"  method="post"  enctype="multipart/form-data" action="{{ path('create_category')}}">
+                                <div class="modal-body">
+                                    <div class="compose-box">
+                                        <div class="compose-content" id="addTaskModalTitle">
+                                            <h5 class="add-task-title">Add Category</h5>
+                                            <div class="form-group mb-4">
+                                                <label for="name">Category Name</label>
+                                                <input type="text" id="name" class="form-control form-control-sm" name="name" placeholder="Category  Name*" required="" autocomplete="off">
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label for="name">Parent Category</label>
+                                                <select id="name" class="form-control" name="parent">
+                                                    {% for mainc in nested %}
+                                                    <option value="{{ mainc.id }}" >{{ mainc.categoryName }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="1">
+                                            <div class="form-row mb-4">
+                                                <div class="form-group col-md-8">
+                                                    <label for="Priority">Priority</label>
+                                                    <input type="number" class="form-control form-control-sm" id="Priority" placeholder="Priority" autocomplete="off" value="0" name="priority">
+                                                </div>
+                                                <input type="hidden" id="nested" class="form-control form-control-sm" name="nested" value="1">
+                                                <input type="hidden" id="type" class="form-control form-control-sm" name="type" value="1">
+                                                <div class="form-group col-md-2 align-self-end text-right">
+                                                    <label>Status</label>
+                                                    <label class="switch s-success mr-2"> 
+                                                        <input type="checkbox" checked class="form-control form-control-sm" name="status">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group col-md-2 align-self-end text-right">
+                                                    <label>Visiblity</label>
+                                                    <label class="switch s-danger mr-2"> 
+                                                        <input type="checkbox" checked class="form-control form-control-sm" name="visiblity">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label for="Status">Icon </label>
+                                                <input type="file" name="image"  class="dropify" id="icon" data-default-file=""> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close</button>
+                                    <button  class="btn btn-primary" >Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--nested ends category-->
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

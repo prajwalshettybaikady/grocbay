@@ -1,0 +1,129 @@
+ {% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+
+<!-- Modal -->
+<div id="uploadCSV" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Upload Menu Items</h4>
+      </div>
+      <div class="modal-body">
+        <p><form>
+        <input type="file" class="form-control">
+        </form></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="col-xs-12">
+                                                <h3>Details</h3>
+
+                        
+                        {% for st in stock %}
+                              
+                              
+<div class="container">
+  <div class="card">
+<div class="card-header">
+Invoice : 
+<strong>#{{ st.ref }}</strong> 
+  <span class="float-right"> <strong> {% if st.mode == 0 %} Purchase Inwards {% else %} Purchase Return {% endif %}</strong></span>
+
+</div>
+<div class="card-body">
+<div class="row mb-4">
+<div class="col-sm-6">
+<div>
+Date and time : {{ st.date }} - {{ st.time }}
+</div>
+<div>Description : {{ st.description }}</div>
+<div>Added By : {{ st.addedBy }}</div>
+
+
+{# <div class="col-sm-6">
+<h6 class="mb-3">To:</h6>
+<div>
+<strong>Bob Mart</strong>
+</div>
+<div>Attn: Daniel Marek</div>
+<div>43-190 Mikolow, Poland</div>
+<div>Email: marek@daniel.com</div>
+<div>Phone: +48 123 456 789</div>
+</div> #}
+
+
+
+</div><br><br>
+
+<div class="table-responsive">
+<table class="table table-striped" style="width:100%;">
+<thead>
+<tr>
+<th class="center">#</th>
+<th>Item Name</th>
+  <th class="center">Qty</th>
+<th class="right">Curent Stock</th>
+</tr>
+</thead>
+<tbody>
+     {% for sl in menu %}
+<tr>
+<td class="center">{{ sl.id }}</td>
+<td class="left strong"> {{ sl.itemName }} - {{ sl.variationName }}</td>
+<td class="left">{{ sl.qty }}</td>
+<td class="right">{{ sl.stock }}</td>
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+<div class="row">
+<div class="col-lg-4 col-sm-5">
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+  {% endfor %}
+
+<span class="pull-right">
+                    {#      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadCSV">Upload CSV</a> #}
+                            <a href="#back" class="btn btn-primary" onclick="window.history.go(-1); return false;">Back</a>
+                        </span>
+
+
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+   
+</script>
+{% endblock %}

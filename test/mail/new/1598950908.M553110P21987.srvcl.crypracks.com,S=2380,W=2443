@@ -1,0 +1,63 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id ADlvIPwNTl/jVQAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Tue, 01 Sep 2020 05:01:48 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Tue, 01 Sep 2020 05:01:48 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1kD2Am-00060f-BI
+	for grocbayc@srvcl.crypracks.com; Tue, 01 Sep 2020 05:01:48 -0400
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1kD2Am-00060e-A6@srvcl.crypracks.com>
+Subject: Mail failure - malformed recipient address
+Message-Id: <E1kD2Am-00060f-BI@srvcl.crypracks.com>
+Date: Tue, 01 Sep 2020 05:01:48 -0400
+
+A message that you sent contained one or more recipient addresses that were
+incorrectly constructed:
+
+  info@appinsight..tech: domain missing or malformed
+
+This address has been ignored. There were no other addresses in your
+message, and so no attempt at delivery was possible.
+
+------ This is a copy of your message, including all the headers. ------
+
+To: info@appinsight..tech
+Subject: You have new order(#6675847801)
+X-PHP-Script: www.admin.grocbay.com/web/app.php for 95.168.187.200
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: mail@appinsight.tech
+Reply-To: mail@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1kD2Am-00060e-A6@srvcl.crypracks.com>
+Date: Tue, 01 Sep 2020 05:01:48 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ </head><body>Grocbay<br>
+   ----------------------------------------<br>
+  #order : 6675847801<br>
+Customer Name : Prajwal Baikady <br>
+ Address : hello
+, hello, Ambalpadi, Udupi<br>
+ Delivery Area   : Karnataka<br>
+----------------------------------------<br>Order Details:<br>85X  Act II Butter Delite(70 g)<br>89X  Adidas Perfumed Deo - Natural Vitality - Women(150ml)<br>85X  American Garden Hot Sauce Louisiana Style(88 g)<br>----------------------------------------<br>
+Subtotal: ₹ 26805<br>
+Delivery Charges: ₹ 0<br>
+Promo Code: -- ₹ <br>
+Grand Total: ₹26805<br>
+----------------------------------------<br>
+Payment Type: cod<br>
+Delivery Time: 6 AM -9 AM<br></body></html>

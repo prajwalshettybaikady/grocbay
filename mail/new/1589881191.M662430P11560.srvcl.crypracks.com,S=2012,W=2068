@@ -1,0 +1,56 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id nqVBJmepw14oLQAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Tue, 19 May 2020 05:39:51 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Tue, 19 May 2020 05:39:51 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.92)
+	id 1jayj1-00031T-GQ
+	for grocbayc@srvcl.crypracks.com; Tue, 19 May 2020 05:39:51 -0400
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+Subject: Mail failure - no recipient addresses
+Message-Id: <E1jayj1-00031T-GQ@srvcl.crypracks.com>
+Date: Tue, 19 May 2020 05:39:51 -0400
+
+A message that you sent contained no recipient addresses, and therefore no
+delivery could be attempted.
+
+------ This is a copy of your message, including all the headers. ------
+
+To: 
+Subject: Thank you for ordering order(#4531978962)
+X-PHP-Script: admin.grocbay.com/web/app.php for 116.66.189.110
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: info@appinsight.tech
+Reply-To: info@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1jayj1-00031P-FU@srvcl.crypracks.com>
+Date: Tue, 19 May 2020 05:39:51 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ </head><body>Grocbay<br>
+   ----------------------------------------<br>
+  #order : 4531978962<br>
+Customer Name : Prajwal Shetty<br>
+ Address : 5th floor raj tower,near city bustand<br>
+ Delivery Area   : Asia1<br>
+----------------------------------------<br>Order Details:<br>2X  Masoor Dal(1kg)<br>----------------------------------------<br>
+Subtotal: ₹ 200<br>
+Delivery Charges: ₹ 20<br>
+Promo Code: -- ₹ <br>
+Grand Total: ₹220<br>
+----------------------------------------<br>
+Payment Type: wallet<br>
+Delivery Time: 7:30 AM - 12:30 PM<br></body></html>

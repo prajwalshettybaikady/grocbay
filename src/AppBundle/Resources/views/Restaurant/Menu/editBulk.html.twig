@@ -1,0 +1,273 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+<div class="re"> </div>
+
+<div class="row" id="refresh">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="col-xs-12">
+                        <span class="pull-right">
+                         
+                            <a href="{{ path('restaurant_add_menu_item') }}" class="btn btn-primary btn-sm"> Add new item</a>
+                        </span>
+                    </div>
+                     <div class="container-card">
+                             
+    <div class="panel-group" id="col">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"></a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body"></div>
+      </div>
+    </div>                    
+        {% set count = 0 %}
+        {% for product in dummy %}
+{#  {{ dump() }} #}
+
+
+
+
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title edit-title">
+          <a data-toggle="collapse" data-parent="#col"  href="#{{ product.id }}{{ count }}">{{ product.itemName }}</a>
+        </h4>
+      </div>
+      <div id="{{ product.id }}{{ count }}" class="panel-collapse collapse">
+        <ul class="list-group">
+          <li class="list-group-item">
+          <table class="table">
+<tr>
+<th>Item name</th>
+<th>Gst %</th>
+<th>
+
+</tr>
+<tr>
+<td><input type="text" value="{{ product.itemName }}" style="width:100%;" id="item{{ product.id }}{{ count }}" ></td>
+<td><input type="text" value="{{ product.salesTax }}" style="width:70px;" id="gst{{ product.id }}{{ count }}">
+  <input type="hidden" value="{{ product.salePrice }}" style="width:70px;" id="itemmrp{{ product.id }}{{ count }}">
+  <input type="hidden" value="{{ product.regularPrice }}" style="width:70px;" id="itemdiscount{{ product.id }}{{ count }}">
+<input type="hidden" value="" style="width:70px;"  id="itemstock{{ product.id }}{{ count }}"></td>
+{# {% <element></element>ndif %} #}
+
+</tr> 
+          </table>
+
+        <table class="table" id="addvar{{ count }}">
+        <tr>
+        <th>Variation Name</th>
+        <th>Regular Price</th>
+        <th>Discounted Price</th>
+
+        <th>Priority</th>
+        <th>Min. Order Quantity</th>
+        <th>Max. Order Quantity</th>
+        <th>Qty</th>
+        <th>New Qty</th>
+          <th><button class="btn btn-primary btn-sm" id="variationAdd{{ count }}">Add Variation</button></th>
+        </tr>
+  {% for res in product.variation %}
+
+          <tr>
+          <td><input type="hidden" value="o" style="width:130px;" id="type{{res.id}}" name="id" class="type{{ count }}">
+            <input type="hidden" value="{{res.id}}" style="width:130px;" id="{{res.id}}" name="id" class="ids{{ count }}">
+            <input type="text" value="{{res.variationName}}" style="width:130px;"  id="name{{res.id}}" class="name{{count}}"></td>
+<td><input type="text" value="{{ res.mrp }}" style="width:70px;" id="mrp{{ res.id }}"  class="mrp{{count}}"></td>
+
+<td><input type="text" value="{{ res.price }}" id="discount{{ res.id }}" style="width:70px;" onkeyup="checkDiscount('mrp{{ res.id }}','discount{{ res.id }}');"  class="discount{{count}}"></td>
+
+          <td><input type="text" value="{{res.priority}}" style="width:120px;"  class="priority{{ count }}" id="priority{{res.id}}"><input type="hidden" value="{{res.stock}}" style="width:120px;"  class="stock{{ count }}" id="stock{{res.id}}"></td>
+
+<td><input type="text"  value="{{ res.minItem }}" style="width:70px;"  id="min{{ res.id }}" class="cstock{{ count }}"></td>
+<td><input type="text"  value="{{ res.maxItem }}" style="width:70px;"  id="max{{ res.id }}" class="cstock{{ count }}"></td>
+<td>{{res.stock}}</td>
+<td><input type="text" value="" style="width:70px;"  id="qty{{ res.id }}" class="cstock{{ count }}"></td>
+  <td><button type='button' onclick='removeVariant(this)' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button></td>
+          </tr>
+
+     
+        {% endfor %}
+           </table>
+  <a class="btn btn-success save{{ product.id }}" style="float:right;"  onclick="save('{{ count }}','item{{ product.id }}{{ count }}','{{ product.id }}','{{ product.id }}{{ count }}')" data-toggle="collapse" data-parent="#col"  href="#{{ product.id }}{{ count }}" >SAVE</a>
+</li>
+        </ul>
+      </div>
+    </div>
+
+<script>
+
+      $(document).ready(function(){
+        var count=0;
+      $('#variationAdd{{ count }}').click(function(){
+// alert('add');
+$('#addvar{{ count }}').append('<tr><td><input type="hidden" value="v" style="width:130px;" id="type'+count+'" name="id" class="type{{ count }}"><input type="hidden" value="new" style="width:130px;" id="'+count+'" name="id" class="ids{{ count }}"><input type="text" value="" style="width:130px;" id="name'+count+'" class="name{{ count }}"></td><td><input type="text" value="" style="width:70px;" id="mrp'+count+'" class="mrp{{ count }}" class="mrp"></td><td><input type="text" value="" style="width:70px;" id="discount'+count+'" class="discount{{ count }}" onkeyup="checkDiscount(mrp'+count+',discount'+count+');"></td><td><input type="text" value="0" style="width:100px;" id="priority'+count+'"  class="priority{{ count }}"></td><td><input type="text" value="0" style="width:70px;" id="min'+count+'" class="min{{ count }}"></td><td><input type="text" value="10" style="width:70px;" id="max'+count+'" class="max{{ count }}"></td><td><input type="text" value="0" style="width:70px;" id="qty'+count+'" class="qty{{ count }}"></td><td></td> <td><button type="button" onclick="removeVariant(this)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td></tr>');
+
+count++;
+});
+
+// console.log(items)
+//       });
+
+      });
+
+
+       function removeVariant(obj){
+// $(this).attr("data-usr" , '');
+
+        $(obj).parent().parent().remove();
+
+    }
+    function save(x,itemname,id,parent)
+    {
+var id=fixed(x,itemname,id,parent);
+
+    }
+
+     // PICK THE VALUES FROM EACH TEXTBOX WHEN "SUBMIT" BUTTON IS CLICKED.
+   
+</script>
+     {% set count = count + 1 %}
+
+                                {% endfor %}
+</div>                        
+
+  
+<div class="cha"></div>
+                </div>
+            </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+
+<script>
+// function count(x)
+// {
+//   $(document).ready(function(){
+//  $('.ids'+x+'').each(function() {
+//  console.log(this.id);
+// });
+// });
+// }
+function fixed(x,itemname,productID,parent)
+{
+  $(document).ready(function(){
+   
+var arr=[];
+ $('.ids'+x+'').each(function() {
+ var id=this.id;
+ var itemnames=$('#'+itemname+'').val();
+ var type=$('#type'+id+'').val();
+ var name=$('#name'+id+'').val();
+ var mrp=$('#mrp'+id+'').val();
+ var discount=$('#discount'+id+'').val();
+ var priority=$('#priority'+id+'').val();
+ var qty=$('#qty'+id+'').val();
+  var min=$('#min'+id+'').val();
+ var max=$('#max'+id+'').val();
+
+
+// var map = new Map();
+// map.set('productID', productID);
+// map.set('id', id);
+// map.set('variationName', name);
+// map.set('itemName', itemnames);
+// map.set('type', type);
+// map.set('mrp', mrp);
+// map.set('discount', discount);
+// map.set('priority', priority);
+// map.set('qty', qty);
+var datas ={"productID": productID, "id":id, "variationName": name,"itemName": itemnames,"type": type,"mrp": mrp,"discount": discount,"priority": priority,"qty": qty,"max": max,"min": min};
+
+// 
+// 
+      arr.push(datas);
+
+    // store(d);
+
+});
+
+ var itemnames=$('#'+itemname+'').val();
+ var gst=$('#gst'+parent+'').val();
+ var itemmrp=$('#itemmrp'+parent+'').val();
+ var itemdiscount=$('#itemdiscount'+parent+'').val();
+ var itemstock=$('#itemstock'+parent+'').val();
+ var per='{"productID": "'+productID+'","itemName": "'+itemnames+'","gst": "'+gst+'","itemmrp": "'+itemmrp+'","itemdiscount": "'+itemdiscount+'","itemstock": "'+itemstock+'"}';
+// sendMenu(per);
+send(arr,per,productID);
+// console.log(per);
+});
+}
+
+
+function send(x,main,productID)
+{
+   var data = {'data' : JSON.stringify(x),'main':main};
+
+ // console.log(x);
+$.ajax({
+    type: "POST",
+    url: "{{ path('manage_restaurant_variation_ajax') }}",
+    data: data,
+    success: function (data, dataType) {
+
+      // console.log(data);
+      if(data=='0')
+      {
+$('.save'+productID+'').html('saved!');
+$('#refresh').load("/app-manager/restaurant/edit-ajax-items/{{ app.request.get('id') }}");
+
+
+      }
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+    }
+});
+
+}
+function sendMenu(x,main)
+{
+ // console.log(x);
+ $('.cha').html(data);
+$.ajax({
+    type: "POST",
+    url: "{{ path('manage_restaurant_main_ajax') }}",
+    data: data,
+    success: function (data, dataType) {
+      $('.cha').html(data);
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+    }
+});
+
+}
+     function checkDiscount(mrpid,saleid)
+      {
+        // alert('ahahaha');
+//         var mrpa=$('#'+mrpid+'').val();
+//         var salea=$('#'+saleid+'').val();
+//        if(parseInt(salea)>=parseInt(mrpa))
+//        {
+// alert('Discounted Price must be lesser than regular price!');
+// $('#'+saleid+'').val(0);
+//        }
+
+      }
+</script>
+
+{% endblock %}

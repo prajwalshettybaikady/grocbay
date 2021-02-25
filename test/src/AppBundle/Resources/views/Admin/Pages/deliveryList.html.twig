@@ -1,0 +1,59 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Delivery staff Update Panel</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Email Id</th>
+                                    <th>Mobile Number</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                <tr>
+                                    <td>{{ user.firstName ~ " " ~ user.lastName }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.mobileNumber }}</td>
+                                    <td>
+                                        {% if user.isOnline %}
+                                            <a href="javascript:;" class="btn btn-success btn-xs">Online</a>
+                                        {% else %}
+                                            <a href="javascript:;" class="btn btn-danger btn-xs">Offline</a>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('delivery_boy_edit',{'id':user.id})}}" title="Edit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-13" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+{# {{ dump(res) }} #}
+<!-- Modal -->
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                              {{ msg | raw }}
+
+                <div class="card-body">
+                    <div class="col-xs-12">
+                        <span class="pull-right">
+                    {#      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadCSV">Upload CSV</a> #}
+                          
+                        </span>
+                    </div> 
+                    <h2>Bulk Import <a href="{{ path('get_csv') }}" class="btn btn-primary" style="float:right;margin-left:15px;">Download CSV Data</a> 
+                       <a href="#pricing" class="btn btn-primary" style="float:right;" data-toggle="modal" data-target="#pricing">Update Pricing</a>
+</h2>
+
+
+<!-- Modal -->
+<div id="pricing" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Pricing</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+<form method="post" action="{{ path('manage_import_pricing') }}" enctype="multipart/form-data">       
+<div class="form-group">
+<input type="file" name="file" class="form-control" required>
+
+</div>
+        </p>
+      </div>
+      <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Upload</button>
+
+        <a href="{{ path('get_single_stock') }}" class="btn btn-success" style="float:right;">Download CSV</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+                    <div>
+<form method="post" action="{{ path('manage_import_csv') }}" enctype="multipart/form-data">       
+                        <div class="row">
+                             <div class="form-group col-md-8">
+                            <label>Select CSV File*</label>
+                            <input type="file" name="file" class="form-control" required=""   accept=".csv"  style="border:none;">
+
+                        </div>
+                          <div class="form-group col-md-4">
+                            <label></label><br>
+                            <button type="submit" name="ref" class="btn btn-primary" value="Upload" style="margin-top:9px;">upload</button>
+
+                        </div>
+                    </div>
+</form>
+                        <hr> 
+ <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Log id</th>
+                                     <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for rows in data %}
+                               <tr>
+                                <td><a href="/uploads/csv/{{  rows.ref }}">{{  rows.ref }}</a></td>
+                               <td>{{  rows.date }}</td>
+                               <td><a href="{{ path('csv_delete',{'id':rows.id}) }}" class="btn btn-danger btn-sm">remove</a></td>
+                             </tr>
+                               {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    </form> 
+                    </div>
+     
+                </div>
+            </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+                  "order": [[ 0, "desc" ]]
+
+        });
+    });
+</script>
+
+{% endblock %}

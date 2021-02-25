@@ -1,0 +1,561 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<link rel="stylesheet" href="/assets/plugins/iCheck/all.css">
+
+<style>
+    [type=checkbox]:checked, [type=checkbox]:not(:checked) {
+         position: relative; 
+         left: 0px; 
+         opacity: 1; 
+    }
+    .form-control
+    {
+      height: 4px !important;
+      background: white;
+      border: 1px solid #5f5f5f;
+      padding: 3px;
+      font-size: 14px;
+      min-height: 32px;
+      width: 141px !important;
+    }
+    .btn
+    {
+         color: #0071a1;
+      border-color: #0071a1;
+      background: #f3f5f6;
+      vertical-align: top;
+      height: 32px !important;
+      line-height: 10px;
+    }
+        .btns
+    {
+color: #0071a1;
+      border-color: #0071a1;
+      background: #f3f5f6;
+      vertical-align: top;
+      height: 32px !important;
+      line-height: 10px;
+    }
+.left {
+    margin-left: 2px;
+}
+.all-orders a {
+    color: #0073aa;
+    font-weight: 400;
+    font-size: 16px;
+        font-family: initial;
+    margin-left: 2px;
+    transition-property: border,background,color;
+    transition-duration: .05s;
+    transition-timing-function: ease-in-out;
+    }
+    .view
+    {
+ color: #0073aa;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: initial;
+    margin-left: 2px;
+    transition-property: border,background,color;
+    transition-duration: .05s;
+    width: 150px;
+    height: 29px !important;
+    transition-timing-function: ease-in-out;
+    }
+    @media print{
+   .noprint{
+       display:none;
+   }
+}
+</style>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+   $( "#datepickers" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+{% endblock %}
+
+{% block body %}
+<div class="noprint">
+
+<div class="row">
+    <div class="col-12">
+            <span style="text-transform:uppercase">Pickup List | {{ status }}</span>
+<br><br>
+
+</div>
+
+{% if status == '' %} 
+{% else %}
+<form method="POST" action="{{ path('update_pickup_status') }}" style="
+    margin-left: 14px;
+">
+<div class="row" >
+<input type="hidden" name="status" value="{{ status }}">
+<div class="left">
+  <input class="" type="checkbox" id="gridCheck" name="selectThemAll">
+<select class="form-control otype " id="" name="orderStatus">
+<option value="">Bulk Actions</option>
+><option value="received">Received</option><option value="processing">Processing</option><option value="ready">Order ready</option><option value="cancelled">Cancelled</option><option value="completed">Completed</option>
+</select>
+</div>
+<div id="dboy" class="left">
+</div>
+<div class="left">
+<button class="btn" type="submit">Update</button>
+</div>
+
+<!-- search for items -->
+<div class="row" style="margin-left:10px;">
+<div class="col-3" >
+<input type="text" name="date" class="form-control" id="datepicker" placeholder="select date" value="{{ date }}">
+  </div>
+   <div class="col-3">
+ <select class="form-control " id="area" name="area">
+ <option value="0">Select Block</option>
+   {% for place in area %}
+     <option value="{{  place.id }}">{{ place.title }}</option>
+   {% endfor %}
+ </select>  
+ </div>
+  <div class="col-3">
+  <select class="form-control " id="time" name="time">
+  <option value="0">Pickup Location</option>
+  </select>  
+  </div>
+
+    <div class="col-3">
+    <button class="btn" type="button" id="filter">Filter</button>
+    </div>
+  </div>
+
+<!-- <div class="db"></div> -->
+<!-- end of search for items -->
+</div>
+
+{% endif %}
+<table id="myTable" class="table table-bordered table-striped" style="margin-top:10px;">
+                            <thead>
+                                <tr> 
+                                    <th>#</th>
+                                    <th>Customer Details</th>
+                                    <th>Shipping</th>
+                                    <th>Order Info</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                            {% for order in orders %}
+
+                            <tr>
+                            <td>
+
+<input type="checkbox" name="all[]" class="tst" value="{{ order.id }}">
+                            
+                                {% if order.trayStatus == '0' or order.trayStatus == '' or order.trayStatus is null %}<a href="{{ path('restaurant_orders_panel_update',{'id':order.id}) }}" title="Edit">{{ order.id }}</a><br> {% endif %}
+                                {% if order.trayStatus == '3'%} <span ><a href="{{ path('restaurant_orders_panel_update',{'id':order.id}) }}" title="Edit" style="color:#e91e63;font-weight:400;">{{ order.id }}</a><br></span> {% endif %}
+                                {% if order.trayStatus == '1' %} <span ><a href="{{ path('restaurant_orders_panel_update',{'id':order.id}) }}" title="Edit" style="color:#F44337;font-weight:400;">{{ order.id }}</a><br></span> {% endif %}
+                                {% if order.trayStatus == '2' %} <span ><a href="{{ path('restaurant_orders_panel_update',{'id':order.id}) }}" title="Edit" style="color:#014c0a;font-weight:400;">{{ order.id }}</a><br></span> {% endif %}
+</td> <td><p>
+            
+                                        <small class="text-sm">
+                                            {{ order.customerName }}<br>
+                                            {{ order.customer.mobileNumber }}<br>
+                                            {{ order.customer.email }}
+                                        </small>
+                                    </p></td>
+                                    <td>
+                                    <small class="text-sm">
+                                           {{ order.address }}<br>
+                                           <span style="color: #000000;font-size: 10px;text-transform: uppercase;">Delivery Area : {{ order.area }} <br> Delivery Time : {{ order.fixTime }} - {{ order.fixdate }}</span></small>
+                                    </td>
+                                    <td>
+                                        <small>
+                                          
+                                            {{ order.paymenttype|upper }}, ₹{{ order.orderAmount }}<br>
+                                            {{  order.orderDate.date|date("d-m-Y") }} at {{  order.orderDate.date|date("h-i A") }},
+                                           
+                                        </small>
+                                    </td>
+                            <td> <span style="color:green;font-size:10px;font-weight:bold;">{% if order.orderStatus == 'dispatched' %} Out For Delivery {% elseif order.orderStatus == 'ready' %} Order Ready {% else %}{{ order.orderStatus|upper }} {% endif %}</span>&nbsp;<br>
+                              <span style="font-size:10px;font-weight:bold;">  Tray.No :{% if order.tray == '0' or order.tray == '' or order.tray is not null %} Not Assigned {% else %} {{ order.tray|upper }} {% endif %}</span><br>
+                                <a class="btn" href="{{ path('restaurant_orders_panel_update',{'id':order.id}) }}"  style="width:150px;line-height: 9px;height: 25px !important;font-size: 12px;font-weight: 400 !important;">
+                                     Update
+                                    </a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                             
+                        </table>
+                        </form>
+                    </div>
+                </div>
+         
+
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Export To Csv</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row m-t-20">
+               <form method="post" action="{{ path('export_order') }}">
+                  <div >
+   <div class="col-12">
+  <label>Order Status </label><br>
+  <select class="form-control otype " name="orderStatuss" style="width:400px !important;">
+><option value="received">Received</option><option value="processing">Processing</option><option value="ready">Order ready</option><option value="dispatched">Out for delivery</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option><option value="completed">Completed</option>
+</select>
+</div><br>
+   <div class="col-12">
+  <label>Date </label><br>
+<input type="text" name="dates" class="form-control" id="datepickers" placeholder="select date" value="{{ date }}" style="width:400px !important;">
+  </div><br>
+   <div class="col-12">
+      <label>Area </label><br>
+
+ <select class="form-control " id="areas" name="areas" style="width:400px !important;">
+ <option value="0">SELECT AREA</option>
+   {% for place in area %}
+     <option value="{{  place.title }}">{{ place.title }}</option>
+   {% endfor %}
+ </select>
+ </div><br>
+ 
+
+    <div class="col-12">
+    <button class="btn" type="submit" id="filter" name="order">Export Order List</button>
+    <button class="btn" type="submit" id="filter" name="packing">Export Packing List</button>
+    </div>
+  </div>
+               </form>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end of modal -->
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js
+"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js
+"></script>
+<script>
+  $(document).ready(function() {
+         $('#myTable').DataTable( {
+         
+    } );
+    });
+$('#filter').click(function(){
+var datepicker =$('#datepicker').val();
+var area =$('#area').val();
+var time =$('#time').val();
+var out ={'area':area,'time':time,'date':datepicker};                      // alert(x);
+$.ajax({
+    type: "POST",
+    url: "{{ path('restaurant_orders_list',{'status':status}) }}",
+    data: out,
+    success: function (res, dataType) {
+
+  $('#tbody').empty();
+  $('#tbody').append(res);
+          
+
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+    }
+});
+});
+
+$('#area').change(function() {  
+var area=$('#area').val();
+var out ={'data':area};                      // alert(x);
+$.ajax({
+    type: "POST",
+    url: "{{ path('getpickup__location') }}",
+    data: out,
+    success: function (res, dataType)
+    {
+time(res);
+    },
+   error: function (XMLHttpRequest, textStatus, errorThrown) {
+    alert('Error : ' + errorThrown);
+    }
+});
+
+        });
+$('#areas').change(function() {  
+var area=$('#areas').val();
+var out ={'data':area};                      // alert(x);
+$.ajax({
+    type: "POST",
+    url: "{{ path('get_time_by_location') }}",
+    data: out,
+    success: function (res, dataType)
+    {
+times(res);
+    },
+   error: function (XMLHttpRequest, textStatus, errorThrown) {
+    alert('Error : ' + errorThrown);
+    }
+});
+
+        });
+    $(function() {
+    jQuery("[name=selectThemAll]").click(function(source) { 
+        checkboxes = jQuery('.tst');
+        for(var i in checkboxes){
+            checkboxes[i].checked = source.target.checked;
+        }
+    });
+});
+
+    $('.otype').change(function(){
+var value=this.value;
+if(value=='dispatched')
+{
+    // alert('delivery boy names come here!');
+ $('#dboy').show();
+    $('#dboy').html('<select class="form-control db" name="delivery"></select>');
+    getDelivery();
+}
+else
+{
+ $('#dboy').hide();   
+}
+});
+
+
+function getDelivery()
+{
+var out ={'data':'12'};                      // alert(x);
+$.ajax({
+    type: "POST",
+    url: "/restaurant-manager/get-del",
+    data: out,
+    success: function (res, dataType) {
+ // console.log('{{ path('manage_restaurant_get_cat') }}');
+send(res);
+          
+// console.log(datas);
+
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+    }
+});
+                                        }
+function send(myObjects)
+{
+$('.subcat').html('');
+$.each(myObjects, function () {
+    $('.db').append('<option value="'+this.id+'">'+this.value+'</option>');
+      
+    });            
+   }
+   function time(myObjects)
+{
+  $('#time').html('');
+$('#time').append('<option value="0">No Location found!</option>');
+  $('#time').html('');
+
+$.each(myObjects, function () {
+    $('#time').append('<option value="'+this.id+'">'+this.start+'</option>');
+      
+    });            
+   }
+      function times(myObjects)
+{
+  $('#times').html('');
+$('#times').append('<option value="0">Select Time</option>');
+$.each(myObjects, function () {
+    $('#times').append('<option value="'+this.start+' - '+this.end+'">'+this.start+' - '+this.end+'</option>');
+      
+    });            
+   }
+</script>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Select Branch Location</h4>
+      </div>
+      <div class="modal-body">
+                         <div  class="map-area">
+<script>
+var map;
+var marker;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 12
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+    mapOptions);
+
+  // Get GEOLOCATION
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+        position.coords.longitude);
+$('#appbundle_restaurants_restaurantLat').val(position.coords.latitude);
+$('#appbundle_restaurants_restaurantLong').val(position.coords.longitude);
+
+
+
+      map.setCenter(pos);
+      marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        draggable: true
+      });
+      google.maps.event.addListener(marker, 'dragstart', function(evt) {
+ $('#appbundle_restaurants_restaurantLat').val(marker.position.lat());
+$('#appbundle_restaurants_restaurantLong').val(marker.position.lng());
+
+});
+
+    }, function() {
+      handleNoGeolocation(true);
+    });
+
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag) {
+      var content = 'Error: The Geolocation service failed.';
+    } else {
+      var content = 'Error: Your browser doesn\'t support geolocation.';
+    }
+
+    var options = {
+      map: map,
+      position: new google.maps.LatLng(60, 105),
+      content: content
+    };
+
+    map.setCenter(options.position);
+    marker = new google.maps.Marker({
+      position: options.position,
+      map: map,
+      draggable: true
+    });
+
+  }
+
+  // get places auto-complete when user type in location-text-box
+  var input = /** @type {HTMLInputElement} */
+    (
+      document.getElementById('location-text-box'));
+
+
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.bindTo('bounds', map);
+
+  var infowindow = new google.maps.InfoWindow();
+  marker = new google.maps.Marker({
+    map: map,
+    anchorPoint: new google.maps.Point(0, -29),
+    draggable: true
+  });
+
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    infowindow.close();
+    marker.setVisible(false);
+    var place = autocomplete.getPlace();
+    if (!place.geometry) {
+      return;
+    }
+
+    // If the place has a geometry, then present it on a map.
+    if (place.geometry.viewport) {
+      map.fitBounds(place.geometry.viewport);
+    } else {
+      map.setCenter(place.geometry.location);
+      map.setZoom(17); // Why 17? Because it looks good.
+    }
+    marker.setIcon( /** @type {google.maps.Icon} */ ({
+      url: place.icon,
+      size: new google.maps.Size(71, 71),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(17, 34),
+      scaledSize: new google.maps.Size(35, 35)
+    }));
+    $('#appbundle_restaurants_restaurantLat').val(marker.position.lat());
+$('#appbundle_restaurants_restaurantLong').val(marker.position.lng());
+    marker.setPosition(place.geometry.location);
+    marker.setVisible(true);
+
+    var address = '';
+    if (place.address_components) {
+      address = [
+        (place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')
+      ].join(' ');
+    }
+
+  });
+
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+<style type="text/css">
+  #map-canvas {
+  height: 350px;
+  width: 100%;
+  margin: 0px;
+  padding: 0px
+}
+.pac-container {
+    z-index: 1051 !important;
+}
+</style>
+<div style="height:100%; width:100%;">
+  <div id="map-canvas"></div>
+    <input type="text" id="location-text-box"  class="form-control" placeholder="please enter location" /><br>
+</div>
+</div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Save & Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+

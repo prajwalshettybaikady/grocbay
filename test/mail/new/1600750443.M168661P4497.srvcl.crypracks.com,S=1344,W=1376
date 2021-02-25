@@ -1,0 +1,32 @@
+Return-Path: <grocbayc@srvcl.crypracks.com>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id 8K5NCWuDaV+REQAAYUfyRA
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	for <grocbayc@srvcl.crypracks.com>; Tue, 22 Sep 2020 00:54:03 -0400
+Return-path: <grocbayc@srvcl.crypracks.com>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Tue, 22 Sep 2020 00:54:03 -0400
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.93)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1kKaJW-0001HD-R8
+	for grocbayc@srvcl.crypracks.com; Tue, 22 Sep 2020 00:54:03 -0400
+From: "(Cron Daemon)" <grocbayc@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+Subject: Cron <grocbayc@srvcl> 0 0 * * * find admin.grocbay.com/var/logs -mtime +7 -exec rm {}\;
+Content-Type: text/plain; charset=UTF-8
+Auto-Submitted: auto-generated
+Precedence: bulk
+X-Cron-Env: <XDG_SESSION_ID=89494>
+X-Cron-Env: <XDG_RUNTIME_DIR=/run/user/1511>
+X-Cron-Env: <LANG=en_US.UTF-8>
+X-Cron-Env: <SHELL=/usr/local/cpanel/bin/jailshell>
+X-Cron-Env: <HOME=/home/grocbayc>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=grocbayc>
+X-Cron-Env: <USER=grocbayc>
+Message-Id: <E1kKaJW-0001HD-R8@srvcl.crypracks.com>
+Date: Tue, 22 Sep 2020 00:54:02 -0400
+
+/usr/local/cpanel/bin/jailshell: 0: command not found

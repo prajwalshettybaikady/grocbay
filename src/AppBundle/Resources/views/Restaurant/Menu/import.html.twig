@@ -1,0 +1,179 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-13" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+{# {{ dump(res) }} #}
+<!-- Modal -->
+  <!-- Modal -->
+<div id="pricing" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Pricing</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+<form method="post" action="{{ path('manage_import_pricing') }}" enctype="multipart/form-data">       
+<div class="form-group">
+<input type="file" name="file" class="form-control" style="border:none;">
+
+</div>
+        </p>
+      </div>
+      <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Upload</button>
+
+        <a href="{{ path('get_single_stock') }}" class="btn btn-success" style="float:right;">Download CSV</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+                    <div>
+                      <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                    <div class="col-xs-12">
+                        <span class="pull-right">
+                    {#      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadCSV">Upload CSV</a> #}
+                          
+                        </span>
+                    </div> 
+                    <h2>Bulk Import <a href="{{ path('get_csv_branch') }}" class="btn btn-primary" style="float:right;margin-left:15px;">Download CSV Data</a> 
+                       <a href="#pricing" class="btn btn-primary" style="float:right;" data-toggle="modal" data-target="#pricing">Update Pricing</a>
+</h2>
+
+
+
+<form method="post" action="{{ path('manage_import_csv_branch') }}" enctype="multipart/form-data">       
+                        <div class="row">
+                             <div class="form-group col-md-8">
+                            <label>Select CSV File*</label>
+                            <input type="file" name="file" class="form-control" required=""   accept=".csv"  style="border:none;">
+
+                        </div>
+                          <div class="form-group col-md-4">
+                            <label></label><br>
+                            <button type="submit" name="ref" class="btn btn-primary" value="Upload" style="margin-top:9px;">upload</button>
+
+                        </div>
+                    </div>
+</form>
+                        <hr> 
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                             
+
+                <div class="card-body">
+                    <div class="col-xs-12">
+                        <span class="pull-right">
+                    {#      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadCSV">Upload CSV</a> #}
+                          
+                        </span>
+                    </div> 
+                    <h2>Import Products</h2>
+                    <form method="post" action="{{ path('import_root_items')}}">
+                    <div class="form-row">
+                        <div class="form-group">
+                          <div class="form-check form-check-inline">
+                      <input class="" type="checkbox" id="gridCheck" name="selectThemAll" style="display:none;">
+                    <label class="form-check-label" for="gridCheck">Select All</label>
+                      </div>
+                        </div>
+                         <div class="form-group" style="margin-left:10px;">
+                         <button type="submit" class="btn btn-primary btn-sm">Import</button>
+                         </div>
+                          
+  </div>
+
+                      
+                    <div class="table-responsive m-t-10">
+
+                        <table id="myTable" class="table table-hovered">
+                            <thead>
+                                <tr>
+                                  <th>#</th>
+                                    <th>id</th>
+                                    <th>Product Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            
+                          
+                        </table>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+      $('#myTable').DataTable({   
+              // "dom": '<"toolbar">frtip',
+      'processing': true,
+      'serverSide': true,
+    "pageLength": 25,
+      'serverMethod': 'post',
+      'ajax': { 
+          'url':"{{ path('import_ajax')}}?branch={{ app.user.branch }}",
+          'type': "post",      },
+           'fnDrawCallback': function()
+            {
+                 // $("#myTable_length").prepend('');
+            },
+      'columns': [
+         { data: 'branch' },
+         { data: 'id' },
+         { data: 'itemName' },
+         { data: 'isActive' },
+      ],
+
+   });
+
+          // $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+
+    });
+        $(function() {
+    jQuery("[name=selectThemAll]").click(function(source) { 
+        checkboxes = jQuery('.tst');
+        for(var i in checkboxes){
+            checkboxes[i].checked = source.target.checked;
+        }
+    });
+});
+</script>
+
+{% endblock %}

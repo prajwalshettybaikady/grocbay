@@ -1,0 +1,693 @@
+save_customer:
+    path:     /save-customer
+    defaults: { _controller: "AppBundle:Customer:saveCustomer" }
+    methods:  [GET, POST]
+category_main_create:
+    path:     /category/new-parent-category
+    defaults: { _controller: "AppBundle:Manager:createCategory" }
+    methods:  [GET, POST]
+nested_category_create:
+    path:     /category/create-nested
+    defaults: { _controller: "AppBundle:Manager:createNested" }
+    methods:  [GET, POST]
+nested_edit:
+    path:     /category/{id}/nested-edit
+    defaults: { _controller: "AppBundle:Manager:nestedEdit" }
+    methods:  [GET, POST]
+nested_category_list:
+    path:     /category/list-nested
+    defaults: { _controller: "AppBundle:Manager:listNested" }
+    methods:  [GET, POST]
+category_sub_create:
+    path:     /category/new-sub-category
+    defaults: { _controller: "AppBundle:Manager:createSubCategory" }
+    methods:  [GET, POST]
+brand_create:
+    path:     /brand/new-brand
+    defaults: { _controller: "AppBundle:Brand:createBrand" }
+    methods:  [GET, POST]
+update_return:
+    path:     /return/update
+    defaults: { _controller: "AppBundle:Return:update" }
+    methods:  [GET, POST]
+delivery_location:
+    path:     /delivery-location
+    defaults: { _controller: "AppBundle:Manager:location" }
+    methods:  [GET, POST]
+view_location:
+    path:     /view-location/{id}
+    defaults: { _controller: "AppBundle:Manager:ViewLocation" }
+    methods:  [GET, POST]
+location_delete:
+    path:     /location-delete/{id}
+    defaults: { _controller: "AppBundle:Manager:deleteLocation" }
+    methods:  [GET, POST]
+thermal_print:
+    path:     /thermal-print/{id}
+    defaults: { _controller: "AppBundle:Order:thermalPrint" }
+    methods:  [GET, POST]
+filter_order_list:
+    path:     /filter-order-list
+    defaults: { _controller: "AppBundle:Order:filterOrderList" }
+    methods:  [GET, POST]   
+normal_print:
+    path:     /normal-print/{id}
+    defaults: { _controller: "AppBundle:Order:normalPrint" }
+    methods:  [GET, POST]
+category_edit:
+    path:     /category/{id}/edit-category
+    defaults: { _controller: "AppBundle:Manager:editSubCategory" }
+    methods:  [GET, POST]
+category_main_edit:
+    path:     /category/{id}/edit-main-category
+    defaults: { _controller: "AppBundle:Manager:editCategory" }
+    methods:  [GET, POST]
+
+add_membership:
+    path:     /membership/add-membership
+    defaults: { _controller: "AppBundle:Manager:addMembership" }
+    methods:  [GET, POST]
+
+add_location:
+    path:     /add-location
+    defaults: { _controller: "AppBundle:Manager:addLocation" }
+    methods:  [GET, POST]
+update_location:
+    path:     /update-location
+    defaults: { _controller: "AppBundle:Manager:updateLocation" }
+    methods:  [GET, POST]
+product_variation:
+    path:     /product-variation
+    defaults: { _controller: "AppBundle:Manager:productVariation" }
+    methods:  [GET, POST]
+category_main_list:
+    path:     /category/all-parent-category
+    defaults: { _controller: "AppBundle:Manager:listCategory" }
+    methods:  [GET, POST]
+category_ajax_main_list:
+    path:     /category/ajax-parent-category
+    defaults: { _controller: "AppBundle:Manager:listCategoryAjax" }
+    methods:  [GET, POST]
+category_ajax_sub_list:
+    path:     /category/ajax-sub-category
+    defaults: { _controller: "AppBundle:Manager:listSubCategoryAjax" }
+    methods:  [GET, POST]
+category_ajax_nested_list:
+    path:     /category/ajax-nested-category
+    defaults: { _controller: "AppBundle:Manager:listNestedCategoryAjax" }
+    methods:  [GET, POST]
+ajax_brand_list:
+    path:     /brand/ajax-brand-list
+    defaults: { _controller: "AppBundle:Brand:ajaxBrandList" }
+    methods:  [GET, POST]
+create_membership:
+    path:     /membership/create
+    defaults: { _controller: "AppBundle:Manager:createMembership" }
+    methods:  [GET, POST]
+manage_membership:
+    path:     /membership/manage-membership
+    defaults: { _controller: "AppBundle:Manager:manageMembership" }
+    methods:  [GET, POST]
+category_sub_list:
+    path:     /category/all-sub-category
+    defaults: { _controller: "AppBundle:Manager:listSubCategory" }
+    methods:  [GET, POST]
+brand_edit:
+    path:    /brand-edit/{id}
+    defaults: { _controller: "AppBundle:Brand:brandEdit" }
+    methods:  [GET, POST]
+brand_list:
+    path:     /brand/all-brands
+    defaults: { _controller: "AppBundle:Brand:listBrands" }
+    methods:  [GET, POST]
+bulk_action_brands:
+    path:     /bulk-action-brands
+    defaults: { _controller: "AppBundle:Brand:bulkActionBrands" }
+    methods:  [GET, POST]
+bulk_action_items:
+    path:     /bulk-action-items
+    defaults: { _controller: "AppBundle:Manager:bulkActionitems" }
+    methods:  [GET, POST]
+bulk_import:
+    path:     /menu-item/bulk-import
+    defaults: { _controller: "AppBundle:Restaurant:bulkImport" }
+    methods:  [GET, POST]
+import_products:
+    path:     /products/import
+    defaults: { _controller: "AppBundle:Restaurant:importProduct" }
+    methods:  [GET, POST]
+import_root_items:
+    path:     /products/import-root-items
+    defaults: { _controller: "AppBundle:Restaurant:importRootItems" }
+    methods:  [GET, POST]
+manage_import_csv:
+    path:     /import-csv
+    defaults: { _controller: "AppBundle:Restaurant:importCSV" }
+    methods:  [GET, POST]
+manage_import_csv_branch:
+    path:     /import-csv-branch
+    defaults: { _controller: "AppBundle:Restaurant:importCSVBranch" }
+    methods:  [GET, POST]
+    
+manage_import_pricing:
+    path:     /import-pricing
+    defaults: { _controller: "AppBundle:Restaurant:importPricing" }
+    methods:  [GET, POST]
+manage_import_pricing_branch:
+    path:     /import-pricing-branch
+    defaults: { _controller: "AppBundle:Restaurant:importBranchPricing" }
+    methods:  [GET, POST]
+csv_delete:
+    path:     /csv-delete/{id}
+    defaults: { _controller: "AppBundle:Restaurant:deleteCSV" }
+    methods:  [GET, POST]
+get_csv:
+    path:     /get-csv
+    defaults: { _controller: "AppBundle:Restaurant:getCsv" }
+    methods:  [GET, POST]
+get_csv_branch:
+    path:     /get-csv-branch
+    defaults: { _controller: "AppBundle:Restaurant:getCsvBranch" }
+    methods:  [GET, POST]
+get_single_stock:
+    path:     /get-single-stock
+    defaults: { _controller: "AppBundle:Restaurant:getSingleStock" }
+    methods:  [GET, POST]
+get_category_csv:
+    path:     /get-category-csv
+    defaults: { _controller: "AppBundle:Restaurant:getCategoryCsv" }
+    methods:  [GET, POST]
+export_stock_inwards:
+    path:     /stock-inwards
+    defaults: { _controller: "AppBundle:Restaurant:exportStockInwards" }
+    methods:  [GET, POST]
+export_subcategory:
+    path:     /export_subcategory
+    defaults: { _controller: "AppBundle:Stock:exportSubcategory" }
+    methods:  [GET, POST]
+export_brands:
+    path:     /export-brands
+    defaults: { _controller: "AppBundle:Stock:exportBrands" }
+    methods:  [GET, POST]
+export_category:
+    path:     /export_category
+    defaults: { _controller: "AppBundle:Stock:exportCategory" }
+    methods:  [GET, POST]
+export_nestedcategory:
+    path:     /export_nestedcategory
+    defaults: { _controller: "AppBundle:Stock:exportNestedCategory" }
+    methods:  [GET, POST]
+export_stock:
+    path:     /export-stock
+    defaults: { _controller: "AppBundle:Stock:exportStock" }
+    methods:  [GET, POST]
+bulk_update:
+    path:     /menu-item/bulk-update
+    defaults: { _controller: "AppBundle:Restaurant:bulkUpdate" }
+    methods:  [GET, POST]
+users_list:
+    path:     /customer/all-users
+    defaults: { _controller: "AppBundle:Customer:listUser" }
+    methods:  [GET, POST]
+customer_page:
+    path:     /customer-page
+    defaults: { _controller: "AppBundle:Customer:customerPage" }
+    methods:  [GET, POST]
+users_view:
+    path:     /customer/{id}/view
+    defaults: { _controller: "AppBundle:Customer:viewUsers" }
+    methods:  [GET, POST]
+
+report_view:
+    path:     /report/view
+    defaults: { _controller: "AppBundle:Customer:reportUser" }
+    methods:  [GET, POST]
+
+restaurant_view_menu_item:
+    path:     /view-menu
+    defaults: { _controller: "AppBundle:Restaurant:viewMenuItem" }
+
+view_menu_item:
+    path:     /view-menu-ajax
+    defaults: { _controller: "AppBundle:Restaurant:viewMenuItemAjax" }
+restaurant_view_single_menu_item:
+    path:     /view-menu/details/{id}
+    defaults: { _controller: "AppBundle:Restaurant:viewMenuItemDetail" }
+    
+restaurant_add_menu_item:
+    path:     /menu-item
+    defaults: { _controller: "AppBundle:Restaurant:addMenuItem" }
+
+restaurant_edit_menu_item:
+    path:     /menu-item/{id}
+    defaults: { _controller: "AppBundle:Restaurant:editMenuItem" }
+
+bulk_update_menu_item:
+    path:     /menu-category
+    defaults: { _controller: "AppBundle:Restaurant:menuCategory" }
+
+single_update_menu_item:
+    path:     /edit-bulk-items/{id}
+    defaults: { _controller: "AppBundle:Restaurant:editBulk" }
+
+ajax_update_menu_item:
+    path:     /edit-ajax-items/{id}
+    defaults: { _controller: "AppBundle:Restaurant:editBulkAjax" }
+
+restaurant_all_orders_list:
+    path:     /{status}/orders
+    defaults: { _controller: "AppBundle:Order:report" }
+getpickup__location:
+    path:    /get-pickup-location
+    defaults: { _controller: "AppBundle:Manager:getpickuplocation" } 
+    methods:  [GET, POST]    
+update_pickup_status:
+    path:    /update-pickup-status
+    defaults: { _controller: "AppBundle:Order:updatePickUpStatus" } 
+    methods:  [GET, POST]    
+restaurant_all_pickup_list:
+    path:     /{status}/pickup
+    defaults: { _controller: "AppBundle:Order:pickupList" }
+restaurant_all_express_list:
+    path:     /{status}/express
+    defaults: { _controller: "AppBundle:Order:expressList" }
+restaurant_all_orders_count:
+    path:     /{status}/status
+    defaults: { _controller: "AppBundle:Order:status" }
+pickup_location:
+  path:     /pickup-location
+  defaults: { _controller: "AppBundle:Manager:pickupLocation" } 
+delete_pickup:
+  path:     /delete-pickup/{id}
+  defaults: { _controller: "AppBundle:Manager:deletePickup" } 
+create_pickup_location:
+  path:     /create-pickup-location
+  defaults: { _controller: "AppBundle:Manager:createpickupLocation" } 
+edit_pickup_location:
+  path:     /edit-pickup-location
+  defaults: { _controller: "AppBundle:Manager:editpickupLocation" } 
+restaurant_orders_list:
+    path:     /{status}/orders-reports
+    defaults: { _controller: "AppBundle:Order:reportJson" }
+
+restaurant_orders_panel_update:
+    path:     /{id}/order-update
+    defaults: { _controller: "AppBundle:Order:editOrder" }
+restaurant_pickup_panel_update:
+    path:     /pickup/{id}/pickup-update
+    defaults: { _controller: "AppBundle:Order:editPickup" }
+#Manage promocodes
+manage_promocode:
+    path:     /promocode
+    defaults: { _controller: "AppBundle:Promocode:listPromo" }
+
+add_new_promocode:
+    path:     /promocode/update
+    defaults: { _controller: "AppBundle:Promocode:addnew" }
+
+#reports
+profit_report:
+    path:     /report/profit
+    defaults: { _controller: "AppBundle:Reports:profit" }
+filter_profit:
+    path:     /filter-profit
+    defaults: { _controller: "AppBundle:Reports:profitFilter" }
+itemwise_report:
+    path:     /report/itemwise-sales-report
+    defaults: { _controller: "AppBundle:Reports:itemSalesReport" }
+view_item_sale:
+    path:     /report/itemwise-sales-report/{id}
+    defaults: { _controller: "AppBundle:Reports:itemSalesReportList" }
+
+manage_app_foodra_order_report:
+    path:     /report/sales
+    defaults: { _controller: "AppBundle:Reports:order" }
+filter_order:
+    path:     /filter/order
+    defaults: { _controller: "AppBundle:Reports:filterOrder" }
+    methods:  [GET, POST] 
+delivery_slots:
+  path:     /delivery-slots/{id}
+  defaults: { _controller: "AppBundle:Manager:allDeliverySlots" } 
+pickup_slots:
+  path:     /pickup-slots/{id}
+  defaults: { _controller: "AppBundle:Manager:allPickupSlots" } 
+all_delivery_slots:
+  path:     /delivery-slots
+  defaults: { _controller: "AppBundle:Manager:deliverySlots" } 
+
+restaurant_return:
+  path:     /returns/returns/{id}
+  defaults: { _controller: "AppBundle:Return:newReturns" }
+  
+restaurant_view_return:
+  path:     /returns/view/{id}
+  defaults: { _controller: "AppBundle:Return:viewReturn" }
+
+restaurant_view_ajax:
+  path:     /returns/ajax
+  defaults: { _controller: "AppBundle:Return:ajax" }
+
+manage_restaurant_stock:
+    path:     /purchase-inwards
+    defaults: { _controller: "AppBundle:Stock:stock" }
+add_stock_csv:
+    path:     /add-stock-csv
+    defaults: { _controller: "AppBundle:Stock:addStockCsv" }
+    methods:  [GET, POST]
+
+manage_restaurant_stock_return:
+    path:     /purchase-return-list
+    defaults: { _controller: "AppBundle:Stock:stockReturn" }
+
+manage_restaurant_purchase_return:
+    path:     /purchase-return
+    defaults: { _controller: "AppBundle:Stock:stockReturnForm" }
+
+manage_restaurant_stock_detail:
+    path:     /stock-detail/{id}
+    defaults: { _controller: "AppBundle:Stock:stockDetail" }
+
+manage_restaurant_add_stock:
+    path:     /add-stock
+    defaults: { _controller: "AppBundle:Stock:addStock" }
+
+manage_restaurant_add_stock_item:
+    path:     /add-stock-item
+    defaults: { _controller: "AppBundle:Stock:addStockItem" }
+
+manage_restaurant_return_stock_item:
+    path:     /return-stock-item
+    defaults: { _controller: "AppBundle:Stock:returnStockItem" }
+#reports
+manage_app_foodra_stock_report:
+    path:     /report/out-of-stock
+    defaults: { _controller: "AppBundle:Stock:stockReports" }
+manage_app_foodra_all_stock_report:
+    path:     /report/stock
+    defaults: { _controller: "AppBundle:Stock:allstockReports" }
+ajax_stock_list:
+    path:     /ajax-all-stock
+    defaults: { _controller: "AppBundle:Stock:ajaxAllStock" }
+ajax_out_stock_list:
+    path:     /ajax-out-stock-list
+    defaults: { _controller: "AppBundle:Stock:ajaxoutStockList" }
+manage_restaurant_get_var:
+    path:     /stock/get-var
+    defaults: { _controller: "AppBundle:Stock:getVar" }
+    methods:  [GET, POST]
+category_status:
+    path:     /category-status/{id}
+    defaults: { _controller: "AppBundle:Manager:categoryStatus" }
+    methods:  [GET, POST]
+brand_status:
+    path:     /brand-status/{id}
+    defaults: { _controller: "AppBundle:Brand:brandStatus" }
+    methods:  [GET, POST]
+category_nested_status:
+    path:     /nested-status/{id}
+    defaults: { _controller: "AppBundle:Manager:nestedStatus" }
+    methods:  [GET, POST]
+menu_status:
+    path:     /menu-status/{id}
+    defaults: { _controller: "AppBundle:Manager:menuStatus" }
+    methods:  [GET, POST]
+sub_category_status:
+    path:     /sub-category-status/{id}
+    defaults: { _controller: "AppBundle:Manager:subcategoryStatus" }
+    methods:  [GET, POST]
+create_slot:
+    path:     /create-slot/{id}
+    defaults: { _controller: "AppBundle:Manager:createSlot" }
+    methods:  [GET, POST]
+block_slot:
+    path:     /block-slot/{id}/{date}/{area}
+    defaults: { _controller: "AppBundle:Manager:blockSlot" }
+    methods:  [GET, POST]
+unblock_slot:
+    path:     /unblock-slot/{id}/{date}/{area}
+    defaults: { _controller: "AppBundle:Manager:unblockSlot" }
+    methods:  [GET, POST]
+edit_slots:
+    path:     /edit-slot/{id}
+    defaults: { _controller: "AppBundle:Manager:editSlot" }
+    methods:  [GET, POST]
+customer_create:
+    path:    /customer/create
+    defaults: { _controller: "AppBundle:Customer:createCustomer" }
+    methods:  [GET, POST]
+insert_customer:
+    path:    /customer/insert
+    defaults: { _controller: "AppBundle:Customer:insertCustomer" } 
+    methods:  [GET, POST]
+
+create_order:
+    path:    /orders/create
+    defaults: { _controller: "AppBundle:Order:createOrder" } 
+    methods:  [GET, POST]
+get_customer_data:
+    path:    /get-customer-data
+    defaults: { _controller: "AppBundle:Manager:getCustomerdata" } 
+    methods:  [GET, POST]
+do_order:
+    path:    /do-order
+    defaults: { _controller: "AppBundle:Order:doOrder" } 
+    methods:  [GET, POST]
+create_tray_number:
+    path:    /create-tray-number
+    defaults: { _controller: "AppBundle:Order:createTrayNumber" } 
+    methods:  [GET, POST]
+update_tray_quantity:
+    path:    /update-tray-quantity
+    defaults: { _controller: "AppBundle:Order:updateTrayNumber" } 
+    methods:  [GET, POST]
+update_order_status:
+    path:    /update-order-status
+    defaults: { _controller: "AppBundle:Order:updateOrderStatus" } 
+    methods:  [GET, POST]    
+sms_manage_template:
+    path:    /sms/manage-tempalte
+    defaults: { _controller: "AppBundle:Sms:ManageTemplate" } 
+    methods:  [GET, POST]    
+update_template:    
+    path:    /update-tempalte
+    defaults: { _controller: "AppBundle:Sms:updateTemplate" } 
+    methods:  [GET, POST]   
+get_time_by_location:
+    path:    /get-time-by-location
+    defaults: { _controller: "AppBundle:Manager:getTimeByLocation" } 
+    methods:  [GET, POST]    
+app_home_page:          
+    path:    /app-home-page
+    defaults: { _controller: "AppBundle:Manager:appHomePage" } 
+    methods:  [GET, POST]    
+site_setting:
+    path:    /site-setting
+    defaults: { _controller: "AppBundle:Manager:siteSetting" } 
+    methods:  [GET, POST]    
+update_site_details:
+    path:    /update-site-details
+    defaults: { _controller: "AppBundle:Manager:siteDetails" } 
+    methods:  [GET, POST]   
+create_home_page:
+    path:    /create-home-page
+    defaults: { _controller: "AppBundle:Manager:createHomePage" } 
+    methods:  [GET, POST]    
+update_order:
+    path:    /update-order
+    defaults: { _controller: "AppBundle:Order:updateOrder" } 
+    methods:  [GET, POST] 
+export_order:
+    path:    /export-order
+    defaults: { _controller: "AppBundle:Order:exportOrder" } 
+    methods:  [GET, POST] 
+update_payment:
+    path:    /update-payment
+    defaults: { _controller: "AppBundle:Order:updatePayment" } 
+    methods:  [GET, POST] 
+update_payment_pending:
+    path:    /update-payment-pending
+    defaults: { _controller: "AppBundle:Order:updatePaymentPending" } 
+    methods:  [GET, POST] 
+list_notification:
+    path:    /list-notification
+    defaults: { _controller: "AppBundle:Firebase:listNotification" } 
+    methods:  [GET, POST]   
+view_notification:
+    path:    /view-notification/{id}
+    defaults: { _controller: "AppBundle:Firebase:viewNotification" } 
+    methods:  [GET, POST]  
+send_push_notification:
+    path:    /send-push-notification/{type}
+    defaults: { _controller: "AppBundle:Firebase:sendPushnotification" } 
+    methods:  [GET, POST] 
+filter_notification_user:
+    path:    /filter-notification-user
+    defaults: { _controller: "AppBundle:Firebase:filterNotifcationUser" } 
+    methods:  [GET, POST] 
+transaction_list:
+    path:    /transaction-list
+    defaults: { _controller: "AppBundle:Manager:transactionList" } 
+    methods:  [GET, POST]      
+app_shop_details:
+    path:    /shop-details
+    defaults: { _controller: "AppBundle:Manager:shopDetails" } 
+    methods:  [GET, POST]  
+update_shop_details:
+    path:    /update-shop-details
+    defaults: { _controller: "AppBundle:Manager:updateShopDetails" } 
+    methods:  [GET, POST]  
+send_notification:
+    path:    /send-notification
+    defaults: { _controller: "AppBundle:Firebase:sendNotification" } 
+    methods:  [GET, POST]  
+loyalty:
+    path:    /loyalty
+    defaults: { _controller: "AppBundle:Loyalty:manage" } 
+    methods:  [GET, POST]  
+update_loyalty:
+    path:    /update-loyalty
+    defaults: { _controller: "AppBundle:Loyalty:edit" } 
+    methods:  [GET, POST]  
+branch_import_csv:
+    path:    /import-products
+    defaults: { _controller: "AppBundle:Restaurant:branchImportCsv" } 
+    methods:  [GET, POST]  
+filter_items:
+    path:     /filter-items
+    defaults: { _controller: "AppBundle:Reports:filterItems" }
+    methods:  [GET, POST]
+delivery_boy_reports:
+    path:     /delivery-reports
+    defaults: { _controller: "AppBundle:Reports:deliveryBoyReport" }
+    methods:  [GET, POST]
+filter_delivery:
+    path:     /filter-delivery
+    defaults: { _controller: "AppBundle:Reports:filterDelivery" }
+    methods:  [GET, POST]
+bulk_action_category:
+    path:     /bulk-action-category
+    defaults: { _controller: "AppBundle:Manager:bulkActionCategory" }
+    methods:  [GET, POST]
+bulk_action_sub_category:
+    path:     /bulk-action-sub-category
+    defaults: { _controller: "AppBundle:Manager:bulkActionSubCategory" }
+    methods:  [GET, POST]
+bulk_action_nested_category:
+    path:     /bulk-action-nested-category
+    defaults: { _controller: "AppBundle:Manager:bulkActionNestedCategory" }
+    methods:  [GET, POST]
+pages_about:
+    path:     /pages/about
+    defaults: { _controller: "AppBundle:Manager:pageAbout" }
+    methods:  [GET, POST]
+pages_privacy:
+    path:     /pages/privacy-policy
+    defaults: { _controller: "AppBundle:Manager:privacyPolicy" }
+    methods:  [GET, POST]
+pages_terms:
+    path:     /pages/terms-condition
+    defaults: { _controller: "AppBundle:Manager:terms" }
+    methods:  [GET, POST]
+pages_return:
+    path:     /pages/return
+    defaults: { _controller: "AppBundle:Manager:return" }
+    methods:  [GET, POST]
+pages_refund:
+    path:     /pages/refund
+    defaults: { _controller: "AppBundle:Manager:refund" }
+    methods:  [GET, POST]
+pages_wallet:
+    path:     /pages/wallet
+    defaults: { _controller: "AppBundle:Manager:wallet" }
+    methods:  [GET, POST]
+update_page_details:
+    path:     /pages/update
+    defaults: { _controller: "AppBundle:Manager:pageUpdate" }
+    methods:  [GET, POST]
+manage_category:
+    path:     /manage-categories
+    defaults: { _controller: "AppBundle:Manager:manageCategories" }
+    methods:  [GET, POST]
+manage_category_get:
+    path:     /manage-category/{id}
+    defaults: { _controller: "AppBundle:Manager:manageSubCategories" }
+    methods:  [GET, POST]
+manage_category_get_nested:
+    path:     /manage-category/{parent}/{id}
+    defaults: { _controller: "AppBundle:Manager:manageNestedCategories" }
+    methods:  [GET, POST]
+create_category:
+    path:     /create-category
+    defaults: { _controller: "AppBundle:Manager:addCategory" }
+    methods:  [GET, POST]
+update_category:
+    path:     /update-category
+    defaults: { _controller: "AppBundle:Manager:updateCategory" }
+    methods:  [GET, POST]
+get_slot_by_id:
+    path:     /get-slot-by-id
+    defaults: { _controller: "AppBundle:Order:getSlotById" }
+    methods:  [GET, POST]
+search_data:
+    path:     /search
+    defaults: { _controller: "AppBundle:Manager:search" }
+    methods:  [GET, POST]
+filter_order_list_ajax:
+    path:     /filter-order-list-ajax
+    defaults: { _controller: "AppBundle:Order:filterOrderListAjax" }
+    methods:  [GET, POST]
+tickets:
+    path:  /tickets/{status}/{type}
+    defaults: { _controller: "AppBundle:Tickets:all" }
+    methods:  [GET, POST]
+all_tickets:
+    path:  /all-tickets/{status}
+    defaults: { _controller: "AppBundle:Tickets:list" }
+    methods:  [GET, POST]
+view_tickets:
+    path:  /view-tickets/{id}
+    defaults: { _controller: "AppBundle:Tickets:view" }
+    methods:  [GET, POST]
+update_ticket:
+    path:  /update-tickets
+    defaults: { _controller: "AppBundle:Tickets:update" }
+    methods:  [GET, POST]
+delete_menu_items:
+    path:     /delete-menu-items
+    defaults: { _controller: "AppBundle:Restaurant:deleteMenuItem" }
+    methods:  [GET, POST]
+brandwise_report:
+    path:     /report/brandwise-sales-report
+    defaults: { _controller: "AppBundle:Reports:brandSalesReport" }
+view_brand_sale:
+    path:     /report/brandwise-sales-report/{id}
+    defaults: { _controller: "AppBundle:Reports:brandSalesReportList" }
+filter_brands:
+    path:     /filter-brands
+    defaults: { _controller: "AppBundle:Reports:filterBrands" }
+    methods:  [GET, POST]
+sales:
+    path:     /sales
+    defaults: { _controller: "AppBundle:Admin:sales" }
+    methods:  [GET, POST]
+get_sales:
+    path:     /get-sales
+    defaults: { _controller: "AppBundle:Admin:getSales" }
+    methods:  [GET, POST]
+view_customer_report_month:
+    path:     /view-customer-report-month/{id}
+    defaults: { _controller: "AppBundle:Admin:viewCustomerReportMonth" }
+    methods:  [GET, POST]
+view_order_report_month:
+    path:     /view-order-report-month/{id}
+    defaults: { _controller: "AppBundle:Admin:viewOrderReportMonth" }
+    methods:  [GET, POST]
+view_order_sale_report_month:
+    path:     /view-order-sale-report-month/{id}
+    defaults: { _controller: "AppBundle:Admin:viewOrderSaleReportMonth" }
+    methods:  [GET, POST]
+filter_gst_report:
+    path:     /filter/gst
+    defaults: { _controller: "AppBundle:Reports:filterGstReport" }
+    methods:  [GET, POST] 

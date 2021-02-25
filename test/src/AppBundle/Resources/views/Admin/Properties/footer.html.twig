@@ -1,0 +1,40 @@
+ <!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+<script type="text/javascript">
+
+$(document).ready(function(){
+web_getneworder();
+
+});
+function web_getneworder() {
+  $.get("{{ path('web_getneworder',{'id':app.user.branch }) }}", function(data, status){
+	// $('.page-title').html(data);
+  // console.log(data.delivery);
+  // $.each(data, function () {
+  $('.home').html(data.delivery);
+  $('.pickup').html(data.pickup);
+  $('.express').html(data.express);
+   $('.page-title').html(data.branch);
+   $('.onway').html(data.onway);
+   $('.neworder').html(data.new);
+
+// });
+
+});
+}
+window.setInterval(function(){
+web_getneworder();
+// notifyMe();
+  }, 5000);
+
+  
+
+</script>
+
+<footer class="footer noprint">
+  <!--   Designed and developed by <a href="https://www.appinsight.tech/" target="blank_" style="color:#f79501;"> Appinsight Technologies </a> -->
+</footer>
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->

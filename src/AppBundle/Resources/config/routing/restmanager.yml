@@ -1,0 +1,56 @@
+restaurant_side_all_orders_list:
+    path:     /{status}/{restId}/orders
+    defaults: { _controller: "AppBundle:Order:report" }
+
+restaurant_side_orders_panel_update:
+    path:     /single/{id}/order-update
+    defaults: { _controller: "AppBundle:Order:editOrder" }
+
+manage_restaurant_order_report:
+    path:     /report/orders
+    defaults: { _controller: "AppBundle:Reports:order" }
+
+manage_restaurant_variation_ajax:
+    path:     /variation-ajax
+    defaults: { _controller: "AppBundle:Restaurant:variationAjax" }
+settle_commision:
+  path:     /wallet/settle-commision
+  defaults: { _controller: "AppBundle:Restaurant:settleCommision" }
+manage_restaurant_main_ajax:
+    path:     /main-ajax
+    defaults: { _controller: "AppBundle:Restaurant:mainAjax" }
+
+manage_restaurant_get_cat:
+    path:     /get-cat
+    defaults: { _controller: "AppBundle:Restaurant:getCat" }
+    methods:  [GET, POST]
+manage_restaurant_get_del:
+    path:     /get-del
+    defaults: { _controller: "AppBundle:Restaurant:getDel" }
+    methods:  [GET, POST]
+manage_restaurant_get_picker:
+    path:     /get-picker
+    defaults: { _controller: "AppBundle:Restaurant:getPicker" }
+    methods:  [GET, POST]
+add_credit_to_wallet:
+  path:     /wallet/add-credits
+  defaults: { _controller: "AppBundle:Restaurant:addCredits" }
+add_credit_to_loyalty:
+  path:     /wallet/add-loyalty
+  defaults: { _controller: "AppBundle:Restaurant:addCreditsLoyaty" }
+
+add_credit_to_wallet_postpaid:
+  path:     /wallet/add-credits-postpaid
+  defaults: { _controller: "AppBundle:Restaurant:addCreditsPostpaid" }
+
+reccive_postpaid_payments:
+  path:     /wallet/reccive-postpaid-payments
+  defaults: { _controller: "AppBundle:Restaurant:reccivePostpaid" }
+
+add_duration_postpaid:
+  path:     /wallet/add-duration-postpaid
+  defaults: { _controller: "AppBundle:Restaurant:addDurationPostpaid" }
+
+block_duration_postpaid:
+  path:     /wallet/block-duration-postpaid
+  defaults: { _controller: "AppBundle:Restaurant:blockDurationPostpaid" }

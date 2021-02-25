@@ -1,0 +1,26 @@
+{# app/Resources/views/template/fields.html.twig #}
+{% block form_row %}
+{% spaceless %}
+<td id="{{ form.vars.id }}_form_group" class="{{ form_errors(form) ? "has-error" : "" }}">
+
+
+  {{ form_widget(form,{'attr':{'class':'form-control'}}) }}
+  {% if form_errors(form) %}
+      {% spaceless %}
+   {% if errors is defined %}
+    {% if errors|length > 0 %}
+        {% for error in errors %}
+          <div class="alert alert-danger fade in">
+               <a href="javascript:;" class="close" data-dismiss="alert">&times;</a>
+               <strong>Error!</strong> {{ error.message }}.
+          </div>
+        
+        {% endfor %}
+    {% endif %}
+   {% endif %}
+      {% endspaceless %}
+  {% endif %}
+  </td>
+
+{% endspaceless %}
+{% endblock form_row %}

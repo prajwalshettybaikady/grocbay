@@ -1,0 +1,507 @@
+        {% if yes == 1 %}
+    <center>No Data Found!</center>
+{% endif %}
+
+      <style type="text/css">
+    /* Our Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+  color: #000 !important;
+}
+ 
+body {
+  margin-top: 10px;
+  height: 100vh;
+}
+
+/* The Receipt */
+.receipt {
+    width: 400px;
+    background-color: white;
+    border-radius: 30px;
+    position: relative;
+    /* top: 30%; */
+    /* left: 50%; */
+    /* margin-top: -360px; */
+    /* margin-left: -180px; */
+    padding: 20px;
+    margin: 0px auto;
+}
+.body {
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto;
+}
+/* Heading */
+.name {
+  text-transform: uppercase;
+  text-align: center;
+  color: #6c8b8e;
+  letter-spacing: 1px;
+  font-size: 1.8em;
+  margin-top: 10px
+}
+
+/* Big thank */
+.greeting {
+  font-size: 21px;
+  text-transform: capitalize;
+  text-align: center;
+  color: #6f8d90;
+  margin: 35px 0;
+  letter-spacing: 1.2px
+}
+
+/* Order info */
+.order p {
+  font-size: 13px;
+  color: #aaa;
+  padding-left: 10px;
+  letter-spacing: .7px
+}
+
+/* Our line */
+hr {
+  border: .7px solid #ddd;
+  margin: 15px 0;
+}
+
+/* Order details */
+.details {
+  padding-left: 10px;
+  margin-bottom: 3px;
+  overflow: hidden
+}
+
+.details h3 {
+  font-weight: 400;
+  color: #6c8b8e;
+  font-size: 1.5em;
+  margin-bottom: 8px
+}
+
+/* Image and the info of the order */
+.product {
+  float: left;
+  width: 83%
+}
+
+.product img {
+  width: 65px;
+  float: left
+}
+
+.product .info {
+  float: left;
+  margin-left: 15px
+}
+
+.product .info h4 {
+  color: #6f8d90;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 5px
+}
+
+.product .info p {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Net price */
+.details > p {
+  color: #6f8d90;
+  margin-top: 25px;
+  font-size: 15px
+}
+
+/* Total price */
+.totalprice p {
+  padding-left: 10px
+}
+
+.totalprice .sub,
+.totalprice .del {
+  font-size: 13px;
+  color: #aaa
+}
+
+.totalprice span {
+  float: right;
+  margin-right: 17px
+}
+
+.totalprice .tot {
+  color: #6f8d90;
+  font-size: 15px
+}
+
+/* Footer */
+footer {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 15px; /* You can make it with position try it */
+  color: #aaa
+}
+.td
+{
+      padding-left: 24px !important;
+    background: white;
+    padding: 3px;
+    font-size: 12px;
+}
+.tdd
+{
+    background: white;
+    padding: 3px;
+    font-size: 12px;
+}
+.tds {
+    padding-left: 20px !important;
+    background: white;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bold;  
+}
+.tdds {
+    background: white;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bold;  
+}
+.tdss {
+    padding-left: 18px !important;
+    background: white;
+    padding: 3px;
+    font-size: 10px;
+    font-weight: bold;  
+}
+.tdsss {
+    padding-left: 50px !important;
+    background: white;
+    padding: 3px;
+    font-size: 10px;
+    font-weight: bold;  
+}
+hr {
+    border: .7px solid #ddd;
+    margin: seconds.3px 0;
+}
+ @media print
+      {
+         @page {
+           margin-top: 0;
+           margin-bottom: 0;
+         }
+         body  {
+           padding-top: 72px;
+           padding-bottom: 72px ;
+         }
+      } 
+    </style>
+    {% for order in orders %}
+
+    {% for res in restaurant%}
+    {% set numberFormat = res.number_format %}
+       <div class="body">
+
+    <div class="receipt">
+      <h2 class="name"> {{ res.restaurantName }} </h2>
+      
+    <center>  
+    <b>#{{ order.id }}</b>
+    <h4>{% if order.orderType == 'Delivery'  or order.orderType == 'delivery' %} Home Delivery {% elseif order.orderType == 'pickup' %} Pickup From Store {% else %} Express Delivery {% endif %}</h4>
+ <div class="order"><small>
+                           {{ res.restaurantAddress }}<br>
+                           {{ res.restaurantLocation }}<br>
+                            Gst No:{{ res.gst }}<br>
+
+                           Mobile : {{ res.primaryMobile }}<br>
+                           Email : {{ res.primaryEmail }} 
+                         </small>
+                         </div></center>
+<hr>
+
+    <div class="order">
+
+      <p>Bill to/Ship to:<br>
+                           <small>
+                           {{ order.customerName }}<br>
+                           {{ order.address }}<br>
+                           {{ order.landmark }}<br>
+                           Mobile : {{ order.mobileNo }}<br>
+                           Email : {{ order.email }}<br>
+                           Gst No: {{ order.gst }}<br>
+                           Delivery Date :  {{ order.fixDate }}<br>
+Delivery Time : {{ order.fixtime }}<br>
+Note : <b>{{ order.note }}</b><br>
+Order Date :{{  order.orderDate|date("d-m-Y") }} at {{  order.orderDate|date("h-i A") }}<br>
+Payment Type : {% if order.paymentType == 'cod' %}Cash On Delivery {% elseif order.paymentType == 'sod'%} Swipe On Delivery {% else %} {{ order.paymentType }} {% endif %}
+                           </small>
+      </div>
+
+      <hr>
+
+      <!-- Details -->
+<table>
+  <tr>
+    <td class="tdds">Item</td>
+      <td class="tds">Net. Price</td>
+    <td class="tds">Qty</td>
+    <td class="tds">Discount</td>
+    <td class="tds">Total </td>
+ </tr>
+ {% set count = 0 %}
+ {% set sum = 0 %}
+ {% set discount = 0 %}
+{% for item in items %}
+{% if item.order_d == order.id %}
+{% if item.tax == 0 or item.tax == ''%}
+{% set taxp = item.tax %} 
+<tr>
+    <td class="tdd">{{ item.itemName }} - {{ item.priceVariavtion }}<br>
+    {{ item.barcode }}</td>
+  {% set dis = item.discount+item.discountPrice %}
+    <td class="td">{% set final = item.price  %}
+        {% if numberFormat == 0 %}
+          {{ final|round(2, 'floor') }}
+        {% elseif numberFormat == 1 %}
+          {{ final|number_format(2, '.', '') }}
+        {% endif %}
+    </td>
+    <td class="td">{{ item.quantity }}</td>
+    <td class="td">{{ item.discount }}</td>
+    <td class="td">{% set x =  item.price * item.quantity  %} 
+        {% if numberFormat == 0 %}
+          {{ item.subTotal|round(2, 'floor') }}
+        {% elseif numberFormat == 1 %}
+          {{ item.subTotal|number_format(2, '.', '') }}
+        {% endif %}
+    </td>
+ </tr>
+ {% set fts=0*item.quantity %} 
+ {% set stotal = item.subTotal - item.discount|round(2, 'floor')%}
+
+{% else %} 
+<tr>
+    <td class="tdd">{{ item.itemName }} - {{ item.priceVariavtion }}<br>
+    {{ item.barcode }} </td>
+  {% set dis = item.discount+item.discountPrice %}
+    {% if orders == '' %}
+    <center>No Data Found!</center>
+{% endif %}  
+{% if item.discount != 0 %}
+{% set discount = item.discount %}
+{% set quantity = item.quantity %}
+{% set priceO = discount/quantity %}
+{% set price = item.price + priceO %}
+{% else %}
+{% set price = item.price %}
+{% endif %}
+ {% set taxp = price / item.tax %} {% set finals = price  %} 
+{% set xs= 100+item.tax %}
+ {% set finals=price*100/xs %} 
+                                     {% set final =  finals %}
+   {% set f=price-final %} 
+
+   {% set ft=f*item.quantity %} 
+
+    <td class="td">{% if numberFormat == 0 %}{{ final|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ final|number_format(2, '.', '') }}{% endif %}</td>
+  
+    <td class="td">{{ item.quantity }}</td>
+    <td class="td">{{ item.discount }}</td>
+      {% if numberFormat == 0 %}
+{% set subTotals = final|round(2, 'floor') * item.quantity %} 
+{% elseif numberFormat == 1 %}
+{% set subTotals = final|number_format(2, '.', '') * item.quantity %} 
+{% endif %}
+    <td class="td"> 
+{% if numberFormat == 0 %}
+ {% set f=price-final|round(2, 'floor') %} {% set ft=f*item.quantity %} 
+
+{% elseif numberFormat == 1 %}
+{% set f=price-final|number_format(2, '.', '') %} 
+{% endif %}
+{% set fts=f*item.quantity %} 
+
+      {% if numberFormat == 0 %}{% set x = subTotals|round(2, 'floor') %}{% elseif numberFormat == 1 %}{% set x = subTotals|number_format(2, '.', '') %}{% endif %}
+ {% if numberFormat == 0 %}
+ {% set stotal = x - item.discount|round(2, 'floor')%}
+                                       {{ x - item.discount|round(2, 'floor') }}
+                                    {% elseif numberFormat == 1 %}
+                                       {{ x - item.discount|number_format(2, '.', '') }}
+                                        {% set stotal = x - item.discount|number_format(2, '.', '') %}
+
+                                    {% endif %}
+    </td>
+
+ </tr>
+
+ {% endif %}
+    {% set count = count + fts %}
+    {% set sum = sum + stotal %}
+    {% set discount = discount + dis %}
+{% endif %}
+{% endfor %}
+</table>
+<hr>
+{% if count == 0 or count == ''%}
+<div class="totalprice">
+
+        <p class="sub"> Subtotal <span> {% if numberFormat == 0 %}{{ sum|round(2,'floor')}}{% elseif numberFormat == 1 %}{{ sum|number_format(2, '.', '')}}{% endif %}</span></p>
+        <!-- <p class="del"> Tax <span>   {{ count }} </span> </p> -->
+        <!-- <p class="del"> Discount <span> {{ order.totalDiscount + order.discountTotal }} </span> </p> -->
+ <p class="del"> Delivery <span> {% if numberFormat == 0 %}{{ order.deliveryCharge|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ order.deliveryCharge|number_format(2, '.', '') }}{% endif %} </span> </p>
+  {% if order.promocode == ''%}
+        {% else %}
+        {% endif %}
+      {% if order.loyalty == 0 %}
+        {% else %}
+        <p class="del"> Loyalty <span>-{{ order.loyalty }}</span> </p>
+        {% endif %}
+        <hr>
+
+        <p class="del"> Total <span> {% if order.paymentType == 'wallet' %} {% set total = order.actualAmount + order.deliveryCharge + order.totalDiscount %} {% if numberFormat == 0 %}{{ total|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ total|number_format(2, '.', '') }}{% endif %} {% else %}{{ order.orderAmount  }}{% endif %}</span> </p>
+
+      </div>
+
+      {% if discount == 0  %}
+      {% else %}
+          {% for res in restaurant%}
+       <center><b>You Saved {{ res.currencyFormat }}{% set d = discount %} {{ d }}</b></center>
+        {% endfor %}
+        {% endif %}
+<center style="font-size:10px;"> 
+    {% if order.promocode != '' %}
+  <span> Promocode ({{ order.promocode }})<span> <b>{{ order.totalDiscount }} OFF!</b></span><br>
+{% endif %}
+<span>Wallet Payment : {{ order.wallet }} | Cash/Online Payment :  {{ order.orderAmount }}</span></center>
+{% else %}
+      <div class="totalprice">
+
+        <p class="sub"> Subtotal <span> {% set x = order.actualAmount * count / 100 %} {%  set fin = sum - x %} {% if numberFormat == 0 %}{{ sum|number_format(2, '.', '')}}{% elseif numberFormat == 1 %}{{ sum|number_format(2, '.', '')}}{% endif %}</span></p>
+        {% if res.currencyFormat == 'AED' %}
+<p class="del"> VAT <span>   {{ count|number_format(2, '.', '') }} </span> </p> 
+{% else %}
+<p class="del"> Tax <span>   {{ count|number_format(2, '.', '') }} </span> </p> 
+
+        {% endif %}
+  
+
+        <p class="del"> Delivery <span> {% if numberFormat == 0 %}{{ order.deliveryCharge|round(2, 'floor') }}{% elseif numberFormat == 1 %}{{ order.deliveryCharge|number_format(2, '.', '') }}{% endif %} </span> </p>
+  {% if order.promocode == ''%}
+        {% else %}
+        {% endif %}
+      {% if order.loyalty == 0 %}
+        {% else %}
+        <p class="del"> Loyalty <span>-{{ order.loyalty }}</span> </p>
+        {% endif %}
+ 
+         
+               <hr>
+
+   <p class="del"> Total <span> {% if order.paymentType == 'wallet' %} {% set total = order.actualAmount + order.deliveryCharge + order.totalDiscount %} {% if numberFormat == 0 %}{{ total|number_format(2, '.', '') }}{% elseif numberFormat == 1 %}{{ total|number_format(2, '.', '') }}{% endif %} {% else %}{% set total = order.actualAmount + order.wallet + order.loyalty + order.deliveryCharge + order.totalDiscount %} {{ total|number_format(2, '.', '') }}{% endif %}</span> </p>
+
+      </div>
+      {% if discount == 0  %}
+      {% else %}
+          {% for res in restaurant%}
+       <center><b>You Saved {{ res.currencyFormat }}{% set d = discount %} {{ d }}</b></center>
+        {% endfor %}
+     {% endif %}
+<center style="font-size:10px;">
+  {% if order.promocode != '' %}
+  <span> Promocode ({{ order.promocode }})<span> <b>{{ order.totalDiscount }} OFF!</b></span><br>
+{% endif %}
+Wallet Payment : {{ order.wallet }} | Cash/Online Payment :  {{ order.orderAmount }}</span></center>
+
+{% if res.currencyFormat == 'AED' %}
+{% else %}
+{% if count == 0 or count == '' %}
+{% else %}
+ 
+<table>
+  <tr>
+    <td class="tdss">GST Index</td>
+    <td class="tdss">Taxable Amount</td>
+    <td class="tdss">CGST</td>
+    <td class="tdss">SGST</td>
+    <td class="tdss">Total</td>
+ </tr>
+ <hr>       
+
+ {% set count = 1 %}
+  {% set res = 0 %}
+  {% set data = 0 %}
+
+ {% for ta in tax %}
+ {% if order.id == ta.order_d %}
+
+ {% if ta.tax == 0 %}
+ {% else %}
+  <tr> 
+    <td class="td">{{ ta.tax }}</td>
+    <td class="td">{% set x= 100+ta.tax %}
+                                     {% set pr=ta.subTotal*100/x %} 
+                                     {% if numberFormat == 0 %}
+                                      {{ pr|round(2, 'floor') }}
+                                    {% elseif numberFormat == 1 %}
+                                      {{ pr|number_format(2, '.', '') }}
+                                    {% endif %}
+</td>
+{% set cgst = ta.subTotal-pr %} 
+    <td class="td">{% set cg = cgst/2 %} 
+    {% if numberFormat == 0 %}
+      {{ cg|round(2,'floor') }}
+    {% elseif numberFormat == 1 %}
+      {{ cg|number_format(2, '.', '') }}
+    {% endif %}
+      </td>
+    <td class="td">  
+    {% if numberFormat == 0 %}
+      {{ cg|round(2,'floor') }}
+    {% elseif numberFormat == 1 %}
+      {{ cg|number_format(2, '.', '') }}
+    {% endif %}
+    </td>
+    <td class="td">{{ ta.subTotal }}</td>
+ </tr>
+ {% set count = count + 1 %}
+ {% set res = res + cg %}
+  {% set data = data + pr %}
+ {% endif %}
+ {% endif %}
+
+{% endfor %}
+
+<tr>
+<th colspan="5"><hr></th></tr>
+  <tr>
+
+    <td class="tdss">Total</td>
+    <td class="tdss">{% if numberFormat == 0 %}{{ data|round(2,'floor') }}{% elseif numberFormat == 1 %}{{ data|number_format(2, '.', '') }}{% endif %}</td>
+    <td class="tdss">{% if numberFormat == 0 %}{{ res|round(2,'floor') }}{% elseif numberFormat == 1 %}{{ res|number_format(2, '.', '') }}{% endif %}</td>
+    <td class="tdss">{% if numberFormat == 0 %}{{ res|round(2,'floor') }}{% elseif numberFormat == 1 %}{{ res|number_format(2, '.', '') }}{% endif %}</td>
+    <td class="tdss">{% if numberFormat == 0 %}{{ order.actualAmount|round(2,'floor') }}{% elseif numberFormat == 1 %}{{ order.actualAmount|number_format(2, '.', '') }}{% endif %}</td>
+ </tr>
+</table>
+{% endif %}
+{% endif %}
+ {% endif %}
+
+<hr>
+   {% endfor %}
+
+      <!-- Footer -->
+      <footer><b> Thank you for ordering with      {% for res in restaurant%}
+{{ res.restaurantName }}</b> {% endfor %}</footer>
+
+    </div>
+  </div>
+   {% endfor %}   

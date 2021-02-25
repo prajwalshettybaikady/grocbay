@@ -1,0 +1,62 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id 5zZFAzMBRl9kBwAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Wed, 26 Aug 2020 02:29:07 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Wed, 26 Aug 2020 02:29:07 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1kAovi-0000UQ-OW
+	for grocbayc@srvcl.crypracks.com; Wed, 26 Aug 2020 02:29:06 -0400
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1kAovi-0000UO-Nx@srvcl.crypracks.com>
+Subject: Mail failure - malformed recipient address
+Message-Id: <E1kAovi-0000UQ-OW@srvcl.crypracks.com>
+Date: Wed, 26 Aug 2020 02:29:06 -0400
+
+A message that you sent contained one or more recipient addresses that were
+incorrectly constructed:
+
+  info@appinsight..tech: domain missing or malformed
+
+This address has been ignored. There were no other addresses in your
+message, and so no attempt at delivery was possible.
+
+------ This is a copy of your message, including all the headers. ------
+
+To: info@appinsight..tech
+Subject: You have new order(#9639654647)
+X-PHP-Script: admin.grocbay.com/web/app.php for 43.247.159.130
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: mail@appinsight.tech
+Reply-To: mail@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1kAovi-0000UO-Nx@srvcl.crypracks.com>
+Date: Wed, 26 Aug 2020 02:29:06 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ </head><body>Grocbay<br>
+   ----------------------------------------<br>
+  #order : 9639654647<br>
+Customer Name : Chinmay K <br>
+ Address : 123, qwe, Brahmagiri, Udupi<br>
+ Delivery Area   : Karnataka<br>
+----------------------------------------<br>Order Details:<br>1X  24M Natural Himalayan Rock Salt Powder(1 kg)<br>1X  24M Organic Demerara Sugar(500 g)<br>4X  24M Organic Himalayan Rock Salt(1 kg)<br>3X  24M Organic Jaggery(1 kg)<br>----------------------------------------<br>
+Subtotal: ₹ 1250<br>
+Delivery Charges: ₹ 0<br>
+Promo Code: -- ₹ <br>
+Grand Total: ₹1250<br>
+----------------------------------------<br>
+Payment Type: cod<br>
+Delivery Time: 10:00 AM - 12:00 PM<br></body></html>

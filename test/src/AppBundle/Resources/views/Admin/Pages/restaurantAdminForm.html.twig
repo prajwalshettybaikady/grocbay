@@ -1,0 +1,177 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+
+{% block styles %}
+
+
+<link href="/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">User Update Panel 
+                            <a href="{{ path('restaurant_view',{'id':user.restaurant.id}) }}" class="btn btn-primary pull-right">
+                                Back to restaurant
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                            <div class="form-body">
+                                <h3 class="card-title">Personal Info</h3>
+                                <hr>
+                                <div class="row p-t-20">
+                                    <div class="col-md-2">
+                                        <div class="row">
+                                            {% form_theme form '@AppBundle/Themes/file.html.twig' %}
+                                            <div class="form-group">
+                                                {{ form_label(form.imageFile, "Profile Picture",{'label_attr':{'class':'m-l-20'}}) }}
+                                                {% set userPic = "" %}
+                                                {% if user.userPic != null %}
+                                                    {% set userPic = '/uploads/user/pictures/'~user.userPic %}
+                                                {% endif %}
+                                                {{ form_row(form.imageFile,{'attr':{'data-default-file':userPic}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    {{ form_label(form.firstName, "First Name") }}
+                                                    {{ form_row(form.firstName,{'attr':{'class':'form-control','placeholder':'John'}}) }}
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    {{ form_label(form.lastName, "Last Name") }}
+                                                    {{ form_row(form.lastName,{'attr':{'class':'form-control','placeholder':'Doe'}}) }}
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                {{ form_label(form.address, "Address") }}
+                                                {{ form_row(form.address,{'attr':{'class':'form-control','placeholder':'Doe'}}) }}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                {{ form_label(form.isActive, "User Active Status") }}
+                                                {{ form_row(form.isActive,{'attr':{'placeholder':'Doe',"data-on-text":"Active","data-off-text":"Inactive"}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/row-->
+                                <h3 class="box-title m-t-0">Security credentials</h3>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            {{ form_label(form.mobileNumber, "Mobile Number") }}
+                                            {{ form_row(form.mobileNumber,{'attr':{'class':'form-control','placeholder':'9865321548'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            {{ form_label(form.email, "Email") }}
+                                            {{ form_row(form.email,{'attr':{'class':'form-control','placeholder':'admin@domain.com'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if passwordMessage != "" %}
+                                    <h3 class="box-title m-t-20">Security Password Reset <small class="text-muted">(Leave blank to avoid resetting.)</small></h3>
+                                    <hr>
+                                {% endif %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form_label(form.password.first, "Password") }}
+                                            {{ form_row(form.password.first,{'attr':{'class':'form-control','placeholder':'******'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form_label(form.password.second, "Confirm Password") }}
+                                            {{ form_row(form.password.second,{'attr':{'class':'form-control','placeholder':'******'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                <button type="button" class="btn btn-inverse">Cancel</button>
+                            </div>
+                        {{ form_end(form) }}
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row -->
+{% endblock %}
+
+
+{% block scripts %}
+
+<script src="/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+<script>
+    
+        $("input[type='checkbox']").bootstrapSwitch();
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+    
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+    
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+    
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+    
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+    
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+</script>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="col-xs-12">
+                        <span class="pull-right">
+                         
+                            <a href="{{ path('restaurant_add_menu_item') }}" class="btn btn-primary btn-sm"> Add new item</a>
+                        </span>
+                    </div>
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in menuItems %}
+                                <tr>
+                                  
+                                    <td>{{ product.categoryName }}</td>
+                                    <td>
+                                        <a href="{{ path('single_update_menu_item',{'id':product.id})}}" title="Manage item" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                       
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+advertisement_type_manager:
+    path:     /advertisement-type
+    defaults: { _controller: "AppBundle:Advertisement:manageType" }
+    methods:  [GET, POST]
+
+advertisement_new:
+    path:     /create-banner
+    defaults: { _controller: "AppBundle:Advertisement:createBanner" }
+    methods:  [GET, POST]
+
+advertisement_manager:
+    path:     /manage-advertisement
+    defaults: { _controller: "AppBundle:Advertisement:viewBanner" }
+    methods:  [GET, POST]
+advertisement_manager_ajax:
+    path:    /manage-advertisement-ajax
+    defaults: { _controller: "AppBundle:Advertisement:viewBannerAjax" }
+    methods: [GET, POST]
+

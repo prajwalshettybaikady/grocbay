@@ -1,0 +1,451 @@
+Return-Path: <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id uH9jD2rJcV+OQgAAYUfyRA
+	(envelope-from <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>)
+	for <info@grocbay.com>; Mon, 28 Sep 2020 07:30:50 -0400
+Return-path: <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Mon, 28 Sep 2020 07:30:50 -0400
+Received: from o87.email.fmsend.net ([192.254.127.69]:10154)
+	by srvcl.crypracks.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.93)
+	(envelope-from <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>)
+	id 1kMrMl-0004tz-U8
+	for info@grocbay.com; Mon, 28 Sep 2020 07:30:50 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshchat.com; 
+	h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; 
+	s=cd6qgs3; bh=p+7G+ein6JHE8XPhh+Lz7wviDbyLFAp1LHqSlKCe9tI=; b=Nx
+	HLkY70sBelyCnPhJyoZC9VjEU7q3bTGqtWvfM4ju+aY4CyoKZK7iepnZpyZcWrvQ
+	lq78valiJFExRO5bM7BKHWCYOuuQNmP6t6Qqyaa/VIEQknRvzGHXHSXI48mh7Z+C
+	E6K4QZDo7eOZuPk3Dv4Dujy4gmU4DgQEqDZgtYkyk=
+Received: by filter0987p1iad2.sendgrid.net with SMTP id filter0987p1iad2-1284-5F71C93A-31
+        2020-09-28 11:30:02.636993602 +0000 UTC m=+397015.826663952
+Received: from OTk1MDcwNQ (unknown)
+	by ismtpd0078p1mdw1.sendgrid.net (SG) with HTTP id p5rHKLOETziAPPab3Ix56Q
+	Mon, 28 Sep 2020 11:30:02.566 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=526eea0e95f76efb735d05b74d4ef5fe3f5da2a52b3d17af9fac925f2aa5
+Date: Mon, 28 Sep 2020 11:30:03 +0000 (UTC)
+From: "Freshchat Support" <hello@freshchat.com>
+Mime-Version: 1.0
+Reply-to: "Freshchat Support" <hello@freshchat.com>
+To: "Jason Shetty" <info@grocbay.com>
+Message-ID: <f315a397-9def-41e6-a8b2-6f72051aca55.campaign-consumer4@email.freshmarketer.com>
+Subject: [Important] Freshchat SDK Deprecation
+X-IP-POOL: 61608
+List-unsubscribe: <https://freshworks.freshmarketer.com/mas/api/v1/subscription-preferences?fm_digest=FACE0C22FBF697675D0F05B1A32179A14AEE98FC7F3A7DF18CA696F04CC09CB2F843F062DA4C8B045095BE202564ED945A5A9FD582B795BAC3563A2ACF8B2DE77C30D75B208D15DFF08403A68B1712A596C9D2BA98317CE54EC26ADBD46A235A>
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON5GNAaCGDU/VJEa7Kkx9bieh0VgyoHLQN3x75
+ Lbvqmj4jG/p2GkkGAUgvO8h8TKWwgVJAsh4vYaexjpowy4gBcHAk/jIZHRhfo9IW3QTDmrRvLZip5E
+ hBG7D8ozNYLnCsBBTZ3VPbrPPjsZGizFtuRgE/y0OFHWJbD7dD12jK9Iny2rX/2JSUxRpI7ocnO5bi
+ E=
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7DSu0gJ/TVEn+1ohcECzg/di0pbjnSTKcrDNImjGIYiclaRDKMqVXuvYir
+ uFXrn+Q69Wv1i1afyvI6TCHnTZk0d517122aPbLKSSHyPLBJWDwg0BlMBkw1cJtqNv2e84lZt6wqJB
+ 43UqM3ACNdmKpxvgkOxiFAuvKnDWiiTt/WE6TJYMT0pjM9ZHF1fgJeL6Mb1tv4Ujto/B76wg2OlKsX
+ Pcb/+/6LMLGb/5kXTmznA9HlTYJMPvz+F6/ZpEEeSX6jCzBy0mJInLz+nNA2/uebKFbhIyCbh2rk77
+ 4VWOU0HfjIVww+emZhL8TCUrYSX3tgOsRNTPfGcLh3G3sXpJMiowP+F6fza6USTD8xr9XyXySUErZx
+ vRMBM92BnQ/2QlE8gyaoMwFounyRRbiyFJYnwkNf0JGPQNhFscS2MceJLXX7dki7jQlEmyy1fLp3XO
+ 4iLTG7vrczqusnWClThC7u9e62c8BWG3Il8wV8oP24iUOpPC1KVuhv7txVrN1Ib2f+eqTTavYfwXD1
+ 7UN+MZSB+MqEoRVUX6OvZDrGDAXLYXY5rk7eHmm2yIgNe7Ktmr4DJGi3mqRTLvO4kek/h3Np06W9nI
+ xGblpHe0WfzmtXMD
+X-Spam-Status: No, score=1.0
+X-Spam-Score: 10
+X-Spam-Bar: +
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Freshchat SDK is getting some major updates. Hello, We hope
+    you and everyone out there are doing well! There's a bunch of changes going
+    out on the Freshchat Mobile SDK and as you are one of our valued [...] 
+ Content analysis details:   (1.0 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshworks.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [192.254.127.69 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 HTTPS_HTTP_MISMATCH    BODY: No description available.
+  0.0 T_KAM_HTML_FONT_INVALID BODY: Test for Invalidly Named or
+                             Formatted Colors in HTML
+  1.1 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+--526eea0e95f76efb735d05b74d4ef5fe3f5da2a52b3d17af9fac925f2aa5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+Freshchat SDK is getting some major updates. Hello, We hope you and everyon=
+e out there are doing well! There's a bunch of changes going out on the Fre=
+shchat Mobile SDK and as you are one of our valued customers, we wanted to =
+give you a shoutout on these, to ensure you=E2=80=99re always getting the v=
+ery best out of Freshchat. First things first, Beginning November 3, Freshc=
+hat support for Android SDK will be from Android API 21 (Lollipop) only Add=
+itionally, from November 3, Freshchat support for iOS SDK will be from iOS =
+10 only. React Native Versions starting from 2.6.4 and above. We recommend =
+you update both your Android and iOS applications to the latest SDK version=
+s as we are deprecating support for our older SDKs from 27 November 2020. W=
+hile existing implementations will continue to work, version 3.3.0 and its =
+earlier versions will not be supported after 27 November 2020 What=E2=80=99=
+s New? Our power-packed new SDK comes with a whole bunch of updates: Optimi=
+zed Billing: Improved MUV Calculation Logic, for much better value, and mor=
+e optimised costs. More on this here. Feature Enhancements: Events, Message=
+ fragments like Drop down, Carousel, Calendar and much more engaging featur=
+es on the latest SDKs. Continuous Improvements: Improved Performance, stabi=
+lity and continuous updates, to ensure that you=E2=80=99re always on the be=
+st chat platform there is. To stay on top of Freshchat SDK updates, go to t=
+he links below and click on =E2=80=98Watch=E2=80=99, you=E2=80=99ll get not=
+ified whenever we make any changes. http://fmtrack1.freshchat.com/ls/click?=
+upn=3DChgKqXKfaeCJvxAAADlH3OvVgEyRBJfL31VDetO7UZHy0exIA44wTc8vizAx-2BBTx9X-=
+2FyK4YOZ8NhrgM6l42bQg-3D-3D58TH_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbt=
+GB0I-2BQLevdOzi2l9BnAwbufrkw8sNxNScyQJFGL-2FWreb6j-2F1pJxYrhj-2BJ3w0EdI0pLh=
+KddruJcTMF3NcdPeX-2FihzggX8o5lQqFvZHPSkWVHor7ynBEkxIWVE9YNcuR239iGN7o-2B-2B=
+3oOnr771eum3MLlfAuUr-2FvYq1Yi-2BRtCGorl5eU7D4elq0xjaVPfiFR8Vf-2FIInK59osu76=
+WE04DVYKtkjX5zptDKrVP65qPLUvYruzsrm6MMnoofUX43TpzcyI9QWSU0zcncALZ-2Fk76hq6a=
+xPVq-2FKHBVC7af-2BqmlxjKjsWQ0NgavNsvNdUyW-2FXe9i9h1cYebPzAjvvZ83YaFAqTWNAjp=
+i2CYP5KMlUQXvvEJXIQrSE5Dw7Ug3qcOoWHe9ALDaFwqoHwHR67kqCrccOLZkiVQwODKnFab20p=
+TU-2FpCCnJkv0nGUDJsfGOWLJR7L4KQmr-2FZpo5x7dJ5m41ux64CquSzESdnxtrLY5BW-2BRHS=
+Xu7fIwdLoqm0hVsfoK9bcD2fw7sgUedamfAtvSbzpTsi9-2FTNsh-2BPXSkcliDlvkDj8OdQzCG=
+1WaPzRe-2BpEHiq6nSerwGQkaLBvwYt0oONfBRgM2kTjMnAc5vJGH4WtIg2Rg2xZ9HbCtqM9JoH=
+T9YLyC2DYm7el03AEcpNSu7vZa1onNovQuZHSpjNZZfnSou4uiTx3IzDTt5VFxKIlIGNqa4-2Bq=
+0QhfWeJUE7gYv79lNJ5mr-2F4UxssujeodMknCIXRMnEss3ZvtvhNnhSjKbdHTRIpdNZJQSIP0C=
+-2BkFau1vX8xWmv-2BnDjbgFTajoNnXinA-3D-3D http://fmtrack1.freshchat.com/ls/c=
+lick?upn=3DChgKqXKfaeCJvxAAADlH3OvVgEyRBJfL31VDetO7UZH90TvGRG7nc-2B2-2FiMFe=
+w8eGdoM-2B7PVUNPW9Mom2rKXUBQ-3D-3DwWq-_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0f=
+ZbS1bbtGB0I-2BQLevdOzi2l9BnAwbufrkw8sNxNScyQJFGL-2FWreb6j-2F1pJxYrhj-2BJ3w0=
+EdI0pLhKddruJcTMF3NcdPeX-2FihzggX8o5lQqFvZHPSkWVHor7ynBEkxIWVE9YNcuR239iGN7=
+o-2B-2B3oOnr771eum3MLlfAuUr-2FvYq1Yi-2BRtCGorl5eU7D4elq0xjaVPfiFR8Vf-2FIInK=
+59osu76WE04DVYKtkjX5zptDKrVP65qPLUvYruzsrm6MMnoofUX43TpzcyI9QWSU0zcncALZ-2F=
+k76hq6axPVq-2FKHBVC7af-2BqmlxjKjsWQ0NgavNsvNdUyW-2FXe9i9h1cYebPzAjvvZ83YaFA=
+qTWNAjpi2CYP5KMlUQXvvEJXIQrSE5Dw7Ug3qcOoWHe9ALDaFwqoHwHR67kqCrccOLZkiVQwODK=
+nFab20pTU-2FpCCnJkv0nGUDJsfGOWLJR7L4KQmr-2FZpo5x7dJ5m41ux64CquSzESdnxtrLY5B=
+W-2BRHSXu7fIwdLoqm0hVsfoK9bcD2fw7sgUedamfAtvSbzpTsi9-2FTNsh-2BPXSkcliDlvkDj=
+8OdQzCG1WaPzRe-2BpEHiq6nSerwGQkaLBvwYt0oONfBRgM2kTjMnAc5vJGH4WtIg2Rg2xZ9HbC=
+tqM9JoHT9YLyC2DYm7el03AEcpNSu7vZanJRdmGfs9-2BizrBwSswiZAaOPFOViiGG7mNsI2tQX=
+U2Vhp2M0LmYd3WQL7yeyEo-2FL1curXzUyW4tcvoXEmsejEIlDA-2BNnhWclCNdKAnHOX-2BPo5=
+pQSS-2FGSxHPpfQkM1x1Rc-2BZVGgrRk9VJ8a19wVMPnQ-3D-3D For any queries, please=
+ write back to us, and we=E2=80=99d be more than happy to assist! Cheers, T=
+eam Freshchat Message sent by Freshworks Inc at 2950 S Delaware Street, Sui=
+te 201, San Mateo, California, USA. Don't want to receive emails from us? M=
+anage your email preferences here. Powered by Freshworks=
+
+--526eea0e95f76efb735d05b74d4ef5fe3f5da2a52b3d17af9fac925f2aa5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+ <head>
+  <title></title>
+ </head>
+ <body aria-disabled=3D"false">
+  <div style=3D"display:none">
+   Freshchat SDK is getting some major updates.
+  </div>=20
+  <br>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">Hello,</span></p>
+  <br>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">We hope you and everyone out there are doing we=
+ll!&nbsp;</span></p>
+  <br>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">There's a bunch of changes going out on the Fre=
+shchat Mobile SDK and as you are one of our valued customers, we wanted to =
+give you a shoutout on these, to ensure you=E2=80=99re always getting the v=
+ery best out of Freshchat.&nbsp;</span></p>
+  <br>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">First things first,&nbsp;</span></p>
+  <ul style=3D"margin-top:0;margin-bottom:0;">
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#000000;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:12pt;margin-bottom:0pt;"><span style=3D"font-size:9pt;font-f=
+amily:'Helvetica Neue',sans-serif;color:#000000;background-color:transparen=
+t;font-weight:400;font-style:normal;font-variant:normal;text-decoration:non=
+e;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Beginning =
+November 3, Freshchat support for Android SDK will be from Android API 21 (=
+Lollipop) only</span></p></li>
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#000000;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:0pt;margin-bottom:0pt;"><span style=3D"font-size:9pt;font-fa=
+mily:'Helvetica Neue',sans-serif;color:#000000;background-color:transparent=
+;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none=
+;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Additionall=
+y, from November 3, Freshchat support for iOS SDK will be from iOS 10 only.=
+</span></p></li>
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#000000;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:0pt;margin-bottom:0pt;"><span style=3D"font-size:9pt;font-fa=
+mily:'Helvetica Neue',sans-serif;color:#000000;background-color:transparent=
+;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none=
+;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">React Nativ=
+e Versions starting from 2.6.4 and above.&nbsp;</span></p></li>
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#000000;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:0pt;margin-bottom:12pt;"><span style=3D"font-size:9pt;font-f=
+amily:'Helvetica Neue',sans-serif;color:#000000;background-color:transparen=
+t;font-weight:400;font-style:normal;font-variant:normal;text-decoration:non=
+e;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">We recomme=
+nd you update both your Android and iOS applications to the latest SDK vers=
+ions as we are deprecating support for our older SDKs from&nbsp;</span><spa=
+n style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;color:#000=
+000;background-color:transparent;font-weight:700;font-style:normal;font-var=
+iant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;wh=
+ite-space:pre-wrap;">27 November 2020</span><span style=3D"font-size:9pt;fo=
+nt-family:'Helvetica Neue',sans-serif;color:#000000;background-color:transp=
+arent;font-weight:400;font-style:normal;font-variant:normal;text-decoration=
+:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">. Whil=
+e existing implementations will continue to work, version 3.3.0 and its ear=
+lier versions will not be supported after&nbsp;</span><span style=3D"font-s=
+ize:9pt;font-family:'Helvetica Neue',sans-serif;color:#000000;background-co=
+lor:transparent;font-weight:700;font-style:normal;font-variant:normal;text-=
+decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wra=
+p;">27 November 2020</span></p></li>
+  </ul>
+  <br>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;"><strong>What=E2=80=99s New?</strong></span></p>
+  <br>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">Our power-packed new SDK comes with a whole bun=
+ch of updates:&nbsp;</span></p>
+  <ul style=3D"margin-top:0;margin-bottom:0;">
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#000000;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:12pt;margin-bottom:0pt;"><span style=3D"font-size:9pt;font-f=
+amily:'Helvetica Neue',sans-serif;color:#000000;background-color:transparen=
+t;font-weight:400;font-style:normal;font-variant:normal;text-decoration:non=
+e;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Optimized =
+Billing: Improved MUV Calculation Logic, for much better value, and more op=
+timised costs. More on this</span><a fr-original-style=3D"text-decoration:n=
+one;" href=3D"http://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAA=
+ADlH3ENTGP9rRXnarS5s8vbEpSmeYkGb06vdNjHFloH7hxEAtsBDp3zI3pb3ndMZ-2FweRdDJR9=
+oC2h-2BdvdxYzB1MOmRAh9l8NLgbQg3uTOGJLDwN0IH4mceSiF3bMI0OA3XNS9Q-3D-3DJMuE_R=
+YEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbufrkw8sNxN=
+ScyQJFGL-2FWreb6j-2F1pJxYrhj-2BJ3w0EdI0pLhKddruJcTMF3NcdPeX-2FihzggX8o5lQqF=
+vZHPSkWVHor7ynBEkxIWVE9YNcuR239iGN7o-2B-2B3oOnr771eum3MLlfAuUr-2FvYq1Yi-2BR=
+tCGorl5eU7D4elq0xjaVPfiFR8Vf-2FIInK59osu76WE04DVYKtkjX5zptDKrVP65qPLUvYruzs=
+rm6MMnoofUX43TpzcyI9QWSU0zcncALZ-2Fk76hq6axPVq-2FKHBVC7af-2BqmlxjKjsWQ0Ngav=
+NsvNdUyW-2FXe9i9h1cYebPzAjvvZ83YaFAqTWNAjpi2CYP5KMlUQXvvEJXIQrSE5Dw7Ug3qcOo=
+WHe9ALDaFwqoHwHR67kqCrccOLZkiVQwODKnFab20pTU-2FpCCnJkv0nGUDJsfGOWLJR7L4KQmr=
+-2FZpo5x7dJ5m41ux64CquSzESdnxtrLY5BW-2BRHSXu7fIwdLoqm0hVsfoK9bcD2fw7sgUedam=
+fAtvSbzpTsi9-2FTNsh-2BPXSkcliDlvkDj8OdQzCG1WaPzRe-2BpEHiq6nSerwGQkaLBvwYt0o=
+ONfBRgM2kTjMnAc5vJGH4WtIg2Rg2xZ9HbCtqM9JoHT9YLyC2DYm7el03AEcpNSu7vZa54jEaXh=
+Cbzio6e-2BhnYig9V02GffpHz6qwQ0mUrRvnGcGicGkVURz0ZyB9ek8NteuHOy6V0O2SMWsU16H=
+R24U5DAb92EZOgV7CW5e8MhcLqBQ-2F0-2F6LMhEbbcn6FxPKhj1vdTn2OVjy-2BU3H1TbaAZeq=
+g-3D-3D" style=3D"text-decoration: none; color: inherit;" target=3D"_blank"=
+><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;color=
+:#000000;background-color:transparent;font-weight:400;font-style:normal;fon=
+t-variant:normal;text-decoration:none;vertical-align:baseline;white-space:p=
+re;white-space:pre-wrap;">&nbsp;</span><span style=3D"font-size:9pt;font-fa=
+mily:'Helvetica Neue',sans-serif;color:#dca10d;background-color:transparent=
+;font-weight:400;font-style:normal;font-variant:normal;text-decoration:unde=
+rline;-webkit-text-decoration-skip:none;text-decoration-skip-ink:none;verti=
+cal-align:baseline;white-space:pre;white-space:pre-wrap;">here</span></a><s=
+pan style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;color:#0=
+00000;background-color:transparent;font-weight:400;font-style:normal;font-v=
+ariant:normal;text-decoration:underline;-webkit-text-decoration-skip:none;t=
+ext-decoration-skip-ink:none;vertical-align:baseline;white-space:pre;white-=
+space:pre-wrap;">.</span></p></li>
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#000000;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:0pt;margin-bottom:0pt;"><span style=3D"font-size:9pt;font-fa=
+mily:'Helvetica Neue',sans-serif;color:#000000;background-color:transparent=
+;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none=
+;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Feature Enh=
+ancements: Events, Message fragments like Drop down, Carousel, Calendar and=
+ much more engaging features on the latest SDKs.</span></p></li>
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#000000;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:0pt;margin-bottom:12pt;"><span style=3D"font-size:9pt;font-f=
+amily:'Helvetica Neue',sans-serif;color:#000000;background-color:transparen=
+t;font-weight:400;font-style:normal;font-variant:normal;text-decoration:non=
+e;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Continuous=
+ Improvements: Improved Performance, stability and continuous updates, to e=
+nsure that you=E2=80=99re always on the best chat platform there is.&nbsp;<=
+/span></p></li>
+  </ul>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">To stay on top of Freshchat SDK updates, go to =
+the links below and click on =E2=80=98Watch=E2=80=99, you=E2=80=99ll get no=
+tified whenever we make any changes.</span></p>
+  <ul style=3D"margin-top:0;margin-bottom:0;">
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#dca10d;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:12pt;margin-bottom:0pt;"><a fr-original-style=3D"text-decora=
+tion:none;" href=3D"http://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfae=
+CJvxAAADlH3OvVgEyRBJfL31VDetO7UZHy0exIA44wTc8vizAx-2BBTx9X-2FyK4YOZ8NhrgM6l=
+42bQg-3D-3Dg9w6_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2=
+l9BnAwbufrkw8sNxNScyQJFGL-2FWreb6j-2F1pJxYrhj-2BJ3w0EdI0pLhKddruJcTMF3NcdPe=
+X-2FihzggX8o5lQqFvZHPSkWVHor7ynBEkxIWVE9YNcuR239iGN7o-2B-2B3oOnr771eum3MLlf=
+AuUr-2FvYq1Yi-2BRtCGorl5eU7D4elq0xjaVPfiFR8Vf-2FIInK59osu76WE04DVYKtkjX5zpt=
+DKrVP65qPLUvYruzsrm6MMnoofUX43TpzcyI9QWSU0zcncALZ-2Fk76hq6axPVq-2FKHBVC7af-=
+2BqmlxjKjsWQ0NgavNsvNdUyW-2FXe9i9h1cYebPzAjvvZ83YaFAqTWNAjpi2CYP5KMlUQXvvEJ=
+XIQrSE5Dw7Ug3qcOoWHe9ALDaFwqoHwHR67kqCrccOLZkiVQwODKnFab20pTU-2FpCCnJkv0nGU=
+DJsfGOWLJR7L4KQmr-2FZpo5x7dJ5m41ux64CquSzESdnxtrLY5BW-2BRHSXu7fIwdLoqm0hVsf=
+oK9bcD2fw7sgUedamfAtvSbzpTsi9-2FTNsh-2BPXSkcliDlvkDj8OdQzCG1WaPzRe-2BpEHiq6=
+nSerwGQkaLBvwYt0oONfBRgM2kTjMnAc5vJGH4WtIg2Rg2xZ9HbCtqM9JoHT9YLyC2DYm7el03A=
+EcpNSu7vZaK1yDIjs-2FWmcL1VE7aWqkIwE7QW0UvvmOM24LZotWx8X43IygBZxTOfnI9GaQ4GP=
+trbWoIW3JEWrR72peRVAjKfVNfOr7vc-2BIw6fLazRo6zPQJZnytrR5y387AlWgkkU3Io9bxBqj=
+KO1BS7e83G2IJQ-3D-3D" style=3D"text-decoration: none; color: inherit;" targ=
+et=3D"_blank"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',san=
+s-serif;color:#1155cc;background-color:transparent;font-weight:400;font-sty=
+le:normal;font-variant:normal;text-decoration:underline;-webkit-text-decora=
+tion-skip:none;text-decoration-skip-ink:none;vertical-align:baseline;white-=
+space:pre;white-space:pre-wrap;">https://github.com/freshdesk/freshchat-and=
+roid/releases</span></a></p></li>
+   <li dir=3D"ltr" style=3D"list-style-type:disc;font-size:9pt;font-family:=
+'Helvetica Neue',sans-serif;color:#dca10d;background-color:transparent;font=
+-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vert=
+ical-align:baseline;white-space:pre;"><p dir=3D"ltr" style=3D"line-height:1=
+.38;margin-top:0pt;margin-bottom:12pt;"><a fr-original-style=3D"text-decora=
+tion:none;" href=3D"http://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfae=
+CJvxAAADlH3PUPWEjQq7maeW3rf5OzWAl8fwKbIvCJ28GbpGlHIcpfWaGa76LLE3Wq4QGfFoT5-=
+2BUz5z1gs2eAqGXrgAp3obw-2FF7QJfq578m3epbJGydZvZF7bO6DyPwJToEUMFRrSRug-3D-3D=
+TlxV_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbufrk=
+w8sNxNScyQJFGL-2FWreb6j-2F1pJxYrhj-2BJ3w0EdI0pLhKddruJcTMF3NcdPeX-2FihzggX8=
+o5lQqFvZHPSkWVHor7ynBEkxIWVE9YNcuR239iGN7o-2B-2B3oOnr771eum3MLlfAuUr-2FvYq1=
+Yi-2BRtCGorl5eU7D4elq0xjaVPfiFR8Vf-2FIInK59osu76WE04DVYKtkjX5zptDKrVP65qPLU=
+vYruzsrm6MMnoofUX43TpzcyI9QWSU0zcncALZ-2Fk76hq6axPVq-2FKHBVC7af-2BqmlxjKjsW=
+Q0NgavNsvNdUyW-2FXe9i9h1cYebPzAjvvZ83YaFAqTWNAjpi2CYP5KMlUQXvvEJXIQrSE5Dw7U=
+g3qcOoWHe9ALDaFwqoHwHR67kqCrccOLZkiVQwODKnFab20pTU-2FpCCnJkv0nGUDJsfGOWLJR7=
+L4KQmr-2FZpo5x7dJ5m41ux64CquSzESdnxtrLY5BW-2BRHSXu7fIwdLoqm0hVsfoK9bcD2fw7s=
+gUedamfAtvSbzpTsi9-2FTNsh-2BPXSkcliDlvkDj8OdQzCG1WaPzRe-2BpEHiq6nSerwGQkaLB=
+vwYt0oONfBRgM2kTjMnAc5vJGH4WtIg2Rg2xZ9HbCtqM9JoHT9YLyC2DYm7el03AEcpNSu7vZau=
+q0bc9iy5gTepapIWVWTKnv6bp3ff4aPTRgE1EV2AQEZJNLAAKgR6gXobhb3vrS6I9xFdIZioQ9A=
+gmbAdt8pk0HGF1Kr7yNfZfPeChsCijyCOgcmUd0i82C-2FL5RApxz86M0oI7r79VHofwb4e9RC3=
+w-3D-3D" style=3D"text-decoration: none; color: inherit;" target=3D"_blank"=
+><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;color=
+:#1155cc;background-color:transparent;font-weight:400;font-style:normal;fon=
+t-variant:normal;text-decoration:underline;-webkit-text-decoration-skip:non=
+e;text-decoration-skip-ink:none;vertical-align:baseline;white-space:pre;whi=
+te-space:pre-wrap;">https://github.com/freshdesk/freshchat-ios/releases</sp=
+an></a></p></li>
+  </ul>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">For any queries, please write back to us, and w=
+e=E2=80=99d be more than happy to assist!&nbsp;</span></p>
+  <br>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">Cheers,</span></p>
+  <p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+;"><span style=3D"font-size:9pt;font-family:'Helvetica Neue',sans-serif;col=
+or:#000000;background-color:transparent;font-weight:400;font-style:normal;f=
+ont-variant:normal;text-decoration:none;vertical-align:baseline;white-space=
+:pre;white-space:pre-wrap;">Team Freshchat&nbsp;</span></p>
+  <br>
+  <br>
+  <br>=20
+  <div style=3D"text-align:center;">=20
+   <div>
+     Message sent by Freshworks Inc at 2950 S Delaware Street, Suite 201,  =
+San Mateo, California, USA.=20
+   </div>=20
+   <div>
+     Don't want to receive emails from us? Manage your email preferences=20
+    <a fr-original-style=3D"color:#333333;text-decoration: underline;" href=
+=3D"https://freshworks.freshmarketer.com/mas/api/v1/subscription-preference=
+s?fm_digest=3D936E02C9FC45AD59CBAE40F75405D0321E61B34CD0A9EA8B841B50F8BC8E2=
+28F73022652851367B23036868D998E6D536F10157EF75F36B0B528AA4677754F7C0EA2F828=
+49C5190E1B184ED18D7504817A5D021F3495ACBBF3DA215454C50691354E0A8054E9F268BD3=
+41DA1ACB3782B1976B4145A507669B6D23DE696F4512D226BD8BDF939A97A0DD7CC98A1A7E5=
+C60F6BD845AC640479BF428D38A5F30F4E7367666A9CEAAD0292DEEBC8DEA395C0" rel=3D"=
+noopener" style=3D"color:#333333;text-decoration: underline;" target=3D"_bl=
+ank" clicktracking=3D"off">here</a>.=20
+   </div>=20
+  </div>=20
+  <div style=3D"text-align:center;font-size:13px;margin:10px 0;">=20
+   <a clicktracking=3D"off" href=3D"https://www.freshworks.com/marketing-au=
+tomation/?utm_source=3DFreshworks Inc&amp;utm_medium=3Demail&amp;utm_campai=
+gn=3Dpoweredbyfm&amp;utm_content=3Dfooterlink" style=3D"text-decoration:non=
+e;color:#adadad;">Powered by Freshworks</a>=20
+  </div>=20
+=20
+<img src=3D"http://fmtrack1.freshchat.com/wf/open?upn=3DQFWB4BCTtzCIRKos7Yr=
+rfN6kkY1TVGiaF4XIkvq4n6x33fI5eS4USrpI2aDUeWN1BWAOdmGCQGyHzjLkvqfg7bV0v1gao4=
+Rq-2FPDlcIL8LHXpnurdaxuCBoIf-2Bxvuf1wtRq-2ByMFa4I0Jxf2NlNx2IFJ8MSz0OUxBfQKn=
+MOSuyzNSteky5kBaaezxKoEB02CuW5nDzjW0ZLmd-2Bu6eG5GFhzJddEBY-2BrMO-2BjyHGc6VC=
+JqRCk4HmdUXA9f6nyNMQhHmwy0VW8bhbs5CQC2mU4A2brOTf1lBfGhoRJmoWvmgh2XV2pEqqfwd=
+ubshbrLA9YWpcKP-2BKe4NfKc58qQCSyyCr-2FPqDxgh47SQbYn-2FEY08L0C6kxiY5a8esOn3H=
+JGXjZaKXNaaUG4G3G0kXCq-2Fb25niLDxBklEHQRMj6-2BMrAA2TDs-2Bo-2FGKWuIZMuIjHVGk=
+gxk7L803nmxoz9vpLjUOBOzSaTo-2B3MfGTaNiyELe2bGzmqzh6aJSBGQ1hANqWpqXaq8Ji8TqQ=
+56cnWRPkrQZ1GD565tWqgyXddFUYY4bUW-2BD4DcRXloFvMODaa8mhXdaCLOQnHoehwK0-2Ff7X=
+x9wwVm009cbHoyGORLV6sJJjC5r82Pqyvq666lKX3b7i90pr-2BxItuuJP1Tdx8KRrequ4YKdr0=
+cUMQstZWP8iuUFEEAbcNYItf0QGpr3QzAUM-2F-2FTGQ6fNEzFSTCclilS4Z48j1Vjo9GgX4C6Y=
+5BukyYqYoRoY8xnybm4QmnJsgbmCI3IUzf-2Fob-2FNKweNfe0VVsb-2BZXrOgAJPPDbi9fE3LZ=
+x-2F1Wu7p9-2BL8Rj-2Bqws-2F018SKAxEaQc3-2FILJF553A1kzM-2Bnkf1AP1-2BKw-3D-3D"=
+ alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !import=
+ant;width:1px !important;border-width:0 !important;margin-top:0 !important;=
+margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !importa=
+nt;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !im=
+portant;padding-left:0 !important;"/>
+</body>
+</html>
+
+--526eea0e95f76efb735d05b74d4ef5fe3f5da2a52b3d17af9fac925f2aa5--

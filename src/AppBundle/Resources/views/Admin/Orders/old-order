@@ -1,0 +1,718 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+{% block body %}
+<style type="text/css">
+.pr
+   {
+    font-size: 10px;
+    text-transform: uppercase;
+   }
+   @media print{
+   .noprint{
+   display:none;
+   }
+
+ 
+      .print-area
+   {
+    display: block !important;
+   }
+   }
+      .print-area
+   {
+    display: none;
+   }
+   .edit-order
+   {
+   float: right;
+   font-weight: bolder;
+   text-transform: uppercase;
+   font-size: 11px;
+   }
+   .borderless tr {
+    border: none;
+}
+</style>
+<div class="row noprint">
+   <div class="col-12">
+      <div class="card card-outline-info">
+         <div class="card-header">
+            <h4 class="m-b-0 text-white"> <a href="javascript:;" class="text-warning">#Order {{ order.id }}</a></h4>
+         </div>
+         <div class="card-body">
+            {{ form_start(form) }}
+            {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+            <div class="row">
+               <div class="col-md-8">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>From,<br>
+                           <small>
+                           {{ order.customerName }}<br>
+                           {{ order.address }}<br>
+                           {{ order.landmark }}<br>
+                           Gst No : {{ order.customer.gst }}<br>
+                           Mobile : {{ order.customer.mobileNumber }}<br>
+                           Email  : {{ order.customer.email }}
+                           </small>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="row m-t-20">
+                     <div class="col-md-12">
+                        <p>Payment method : {{ order.paymentType }}<br>
+                           Delivery method : {{ order.orderType }}<br>
+                           {% if dname == '' %}
+                           {% else %}
+                           Delivered By : {{ dname }}-({{ dmobile }})<br>
+                           Delivery Time : {{ order.deliveryTime }}<br>
+                           {% endif %}                          
+                           Order Date :{{  order.orderDate.date|date("d-m-Y") }} at {{  order.orderDate.date|date("h-i A") }}<br>
+                           Slot : {{ order.fixtime }} - {{ order.fixDate}}<br>
+                           Transaction Id : {{ order.transactionId }}<br>
+                           Note : {{ order.note }}<br>
+
+                        </p> 
+                     </div>
+                     <div class="col-md-12 m-t-20">
+                        <h4>Order items</h4>
+                        <div class="table-responsive">
+                           <table class="table table-hovered">
+                              <thead class="bg-primary text-white">
+                                 <tr>
+                                    <th>Item name</th>
+                                    <th>price variavtion</th>
+                                    <th>price</th>
+                                    <th>quantity</th>
+                                    <th>tax</th>
+                                    <th>Sub total</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                {% set tax= 0 %} 
+                                 {% for item in order.customerOrderItems %}
+                                 <tr style="font-size:10px;">
+                                    <td>{% if item.isTray == '0' or item.isTray == '' %} <span style="color:#2196f3;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                       {% if item.isTray == '3'%} <span style="color:#e91e63;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                       {% if item.isTray == '1' %} <span style="color:#F44337;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                       {% if item.isTray == '2' %} <span style="color:#014c0a;font-weight:400;">{{ item.itemName }}</span> {% endif %}
+                                    </td>
+                                    <td>{{ item.priceVariavtion }}</td>
+                                    <td>{% set x= 100+item.tax %}
+                                     {% set pr=item.price*100/x %} {{ pr|round(2, 'floor') }}</td>
+                                    <td>{{ item.quantity }}  {% if item.isTray == '1' %} <span style="color:#F44337;font-weight:400;">({{ item.trayQty }})</span> {% endif %} {% if item.trayQty > item.quantity %} <span style="color:green;font-weight:400;">({{ item.trayQty-item.quantity }})</span> {% endif %}</td>
+                                    {% set st = item.price*item.tax/100 * item.quantity %}
+                                       <td class="text-right">{{ item.tax }}% <br><span style="font-size:8px;">( {% set f=item.price-pr %} {% set ft=f*item.quantity%} {{ ft|round(2, 'floor') }})</span></td>
+
+
+                                    <td class="text-right">{{ item.subTotal|round(2, 'floor') }}</td>
+                                    {% set tax = tax+ft|round(2, 'floor') %}
+                                 </tr>
+                                 {% endfor %}
+                              </tbody>
+                           </table>
+                                          {% if order.orderStatus != "completed" and order.orderStatus != "cancelled" %} 
+
+                           <a href="#" class="noprint edit-order" data-toggle="modal" data-target="#edit-order">edit order</a>
+{% endif %}
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6"></div>
+                     <div class="col-md-6 text-right" style="background:#e2e2e2;padding:20px;">
+                        <h4><small>Total</small> : {{ order.actualAmount|round(2, 'floor')-tax|round(2, 'floor') }}</h4>
+                        <h4><small>Tax</small> :{{ tax|round(2, 'floor') }}</h4>
+                        <h4><small>Delivery Charge</small> : {{ order.deliveryCharge|round(2, 'floor') }}</h4>
+                        <h4><small>Grand Total</small> : {% if order.paymentType == 'cod' %} {{ order.orderAmount|round }} {% else %}{{ order.orderAmount }}{% endif %}</h4>
+                     </div>
+                  </div>
+               </div>
+               {% if order.orderStatus != "completed" and order.orderStatus != "cancelled" %} 
+               <div class="col-md-4">
+                  <div class="form-group">
+                     <label>Tray number</label><br>
+                     {% if order.tray == ''  or order.tray == '0' or order.tray is null %} <i style="color:red;">not created </i>{% else %} {{ order.tray }}{% endif %}   (<a href="#ssss"  data-toggle="modal" data-target="#myModal">edit</a>)
+                  </div>
+                  <div class="form-group">
+                     <label>Tray Status</label><br>
+                     {% if order.tray == ''  or order.tray == '0'  or order.tray is null %} <i style="color:red;">Tray number not assigned</i>{% else %} in Tray {% endif %}   (<a href="#ssss"  data-toggle="modal" data-target="#trayStatus">edit</a>)
+                  </div>
+                  <div class="form-group">
+                     <label>Current status</label><br>
+                     <b style="text-transform:uppercase;color:#3f51b5;">{% if order.orderStatus == 'dispatched' %} Out For Delivery {% elseif order.orderStatus == 'ready' %} Order Ready {% else %}{{ order.orderStatus|upper }} {% endif %}</b>
+                  </div>
+
+                  {% if order.paymentStatus == 'paid' %}
+                  <div class="form-group">
+                     <label for="x" class="required" style="cursor:pointer;">Mark As Pending</label>
+                     <div class="form-group " >
+                      <input type="checkbox" id="x"  data-toggle="modal" data-target="#payment_status_remain" checked style="pointer-events: none; tabindex: -1;">
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% if order.paymentStatus == 'pending'  or order.paymentStatus == '' or order.paymentStatus == 'cancelled' %}
+                  <div class="form-group">
+                     <label for="payment_status" class="required" style="cursor:pointer;">Mark As Paid</label>
+                     <div class="form-group " >
+                      <input type="checkbox" id="payment_status"  data-toggle="modal" data-target="#edit-payment-status">
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+
+                 
+                  <div class="form-group">
+                     {{ form_label(form.orderStatus, "Order status") }}
+                     {{ form_row(form.orderStatus,{'attr':{'class':'form-control otype'}}) }}
+                  </div>
+                  <div id="dboy">
+                  </div>
+                  <div class="form-group">
+                     <button type="submit" class="btn btn-primary pr">Update order</button>
+                     <a href="#download" class="btn btn-primary pr" onclick="window.print()">A4 Print</a>
+                     <a href="" class="btn btn-primary pr" onclick="frames['frame'].print()" value="printletter">Thermal Print</a>
+                  </div>
+               </div>
+               {% else %} 
+                             <div class="col-md-4">
+
+                     <a href="#download" class="btn btn-primary  pr" onclick="window.print()" >Print</a>
+                      <a href="" class="btn btn-primary pr" onclick="frames['frame'].print()" value="printletter">Thermal Print</a>
+                  </div>
+               {% endif %}
+            </div>
+            {{ form_widget(form._token) }}
+            {{ form_end(form,{'render_rest':false}) }}
+         </div>
+
+ </div>
+ </div>
+</div>
+
+<iframe src="{{ path('thermal_print',{'id':order.id}) }}" style="display:none;" name="frame"></iframe>
+
+<!-- starty of  card -->
+<div class="print-area">
+  <div class="container">
+<div class="row">
+  <div class="col-12">
+<center><span>O  R  I  G  I  N  A  L     T  A  X     I  N  V  O  I  C  E</span></center>
+</div>
+</div>
+<div class="row">
+  <div class="col-6">
+      <p>Bill to/Ship to:<br>
+                           <small>
+                           {{ order.customerName }}<br>
+                           {{ order.address }}<br>
+                           {{ order.landmark }}
+                           Mobile : {{ order.customer.mobileNumber }}<br>
+                           Email : {{ order.customer.email }}<br>
+                           Gst No: {{ order.customer.gst }}
+
+                           </small>
+                        </p>
+                         <table class="table table-bordered">
+                                 <tr>
+                                  <td>Order Id</td>
+                                   <td>{{ order.id }}</td> 
+                                 </tr>
+                                 <tr>
+                                  <td>Order Date</td>
+                                   <td>{{  order.orderDate.date|date("d-m-Y") }} at {{  order.orderDate.date|date("h-i A") }}</td> 
+                                 </tr>
+                                  <tr>
+                                  <td>Slot</td>
+                                   <td>{{ order.fixtime }} - {{ order.fixDate}}</td> 
+                                 </tr>
+                                 
+                                  <tr>
+                                  <td>Order Type</td>
+                                   <td>{{ order.paymentType|upper }}</td> 
+                                 </tr>
+                            </table>
+</div>
+  <div class="col-6">
+    {% for res in restaurant %}
+          <p style="float:right"><img src="/uploads/restaurant/icons/{{ res.iconImage }}" style="height:50px;"><br>
+                           <small>
+                           {{ res.restaurantName }}<br>
+                           {{ res.restaurantAddress }}<br>
+                           {{ res.restaurantLocation }}<br>
+                            Gst No:{{ res.gst }}<br>
+
+                           Mobile : {{ res.primaryMobile }}<br>
+                           Email : {{ res.primaryEmail }} 
+                           </small>
+
+                        </p>
+                                   
+                        {% endfor %}
+                    
+</div>
+</div>
+
+<div class="table-responsive">
+                           <table class="table table-bordered">
+                              <thead>
+                                 <tr>
+                                  <td>#</th>
+                                    <td>Item name</td>
+                                      <td>Hsn</td>
+
+                                    <td>Price</td>
+                                     <td>Quantity</td>
+                                         <td>Discount</td>
+                                    <td>Tax</td>
+                                  <td> Total Value</td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                {% set count= 1 %}
+                                 {% for item in order.customerOrderItems %}
+                                 <tr>
+                                  <td>{{ count }}</td>
+                                           
+
+                                    <td>{{ item.itemName }} - {{ item.priceVariavtion }}
+                                    </td>
+                                  <td>{{ item.hsn }}</td>
+                                  <td>{% set x= 100+item.tax %}
+                                     {% set pr=item.price*100/x %} {{ pr|round(2, 'floor') }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                     <td>{{ item.discount }}</td>
+                                    <td>{{ item.tax }}% <br>( {% set f=item.price-pr %} {% set ft=f*item.quantity%} {{ ft|round(2, 'floor') }})</td>
+                                    <td class="text-right">{{ item.subTotal|round(2, 'floor') }}</td>
+                                 </tr>
+                                                                 {% set count= count+1 %}
+
+                                 {% endfor %}
+
+
+                                   <tr>
+                                  <th colspan="6"></th>
+                               
+
+                                    <th>Total</th>
+                                  <th>{% set m=order.actualAmount-tax %}{{ m|round(2, 'floor') }}</th>
+                                 </tr>
+                                  <tr>
+                                       <th colspan="6"></th>                                         
+                                    <th>Tax</th>
+                                  <th>{{ tax|round(2, 'floor') }}</th>
+                                 </tr>
+                                  <tr>
+                                   <tr>
+                                       <th colspan="6"></th>                                         
+                                    <th>Delivery Charge</th>
+                                  <th>{{ order.deliveryCharge|round(2, 'floor') }}</th>
+                                 </tr>
+                                  <tr>
+                                   <th colspan="6"></th>                               
+                                    <th>Discount</th>
+                                  <th>{{ order.totalDiscount|round(2, 'floor') }}</th>
+                                 </tr>
+                                 <tr>
+                                    <th colspan="6"></th>                              
+                                    <th>Grand Total</th>
+                                  <th>{% if order.paymentType == 'cod' %} {{ order.orderAmount|round }} {% else %}{{ order.orderAmount }}{% endif %}</th>
+                                 </tr>
+                              </tbody>
+                           </table>
+</div>
+
+
+</div>
+</div>
+<!-- end of card -->
+
+<!-- Modal
+for payment approval -->
+<div id="edit-payment-status" class="modal" role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Payment Status | {{ order.paymentStatus|upper }}</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <div class="col-12">
+                  <form method="post" action="{{ path('update_payment') }}">
+                     <div class="form-group" >
+                  <label class="label" style="color:#000;">Payment Mode</label>
+                  <select class="form-control" name="mode" id="payment_statuss">
+                  <option value="Online">Online Payment</option>
+                       <option value="cash">Cash</option>
+                     </select>
+                   </div>
+                   <div class="ons">
+                 <div class="form-group">
+                  <label class="label" style="color:#000;">Transaction Id</label>
+                  <input type="tex" name="transactionId" class="form-control" value=" {{ order.transactionId}}">
+                 </div>
+                  </div>
+  <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                 <div class="form-group">
+                  <label class="label" style="color:#000;">Date / Payment Through / Note</label>
+                  <textarea class="form-control" rows="3"  name="note">
+                     {{ order.note}}
+                  </textarea>
+               </div>
+                     <button class="btn btn-success" type="submit">Mark as Paid</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<!-- end of modal -->
+
+<!-- Modal 
+incase of payment caancelling and all-->
+<div id="payment_status_remain" class="modal" role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Payment Status  | {{ order.paymentStatus|upper }}</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <div class="col-12">
+                  <form method="post" action="{{ path('update_payment_pending') }}">
+                   
+                 
+  <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                 <div class="form-group">
+                  <label class="label" style="color:#000;">Reason for changing payment status</label>
+                  <textarea class="form-control" rows="3"  name="note">
+                    {{ order.note}}
+                  </textarea>
+               </div>
+                     <button class="btn btn-success" type="submit">Mark As Pending</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<!-- end of modal -->
+<!-- Modal -->
+<div id="edit-order" class="modal " role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Edit Orders</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <div class="col-12">
+                  <form method="post" action="{{ path('update_order') }}">
+                     <div class="table-responsive">
+                        <table class="table table-hovered">
+                           <thead class="bg-primary text-white">
+                              <tr>
+                                 <th>Item</th>
+                                 <th>Qty</th>
+                              </tr>
+                           </thead>
+                           <input type="hidden" value="{{ order.id }}" name="order">
+                           {% for item in order.customerOrderItems %}
+                           <tr>
+                              <td><input type="hidden" value="{{ item.price }}" name="price[]"><input type="hidden" value="{{ item.id }}" name="id[]">{{ item.itemName }} - {{ item.priceVariavtion }}</td>
+                              <td><input type="number" class="form-control" value="{{ item.quantity }}" name="qty[]"></td>
+                           </tr>
+                           {% endfor %}    
+                        </table>
+                     </div>
+                     <button class="btn btn-success" type="submit">Save</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<!-- end of modal -->
+<!-- Modal -->
+<div id="myModal" class="modal " role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Confirm Tray Items</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row m-t-20">
+               <form method="post" action="{{ path('create_tray_number') }}">
+                  <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Update Tray Number</label> 
+                        <input type="text" name="traynumber" class="form-control" required="" value="{{ order.tray }}">
+                        <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                     </div>
+                     <button class="btn btn-primary" type="submit">update Tray Number</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end of modal -->
+<!-- tray status -->
+<div id="trayStatus" class="modal " role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Confirm Tray Items</h4>
+         </div>
+         <div class="modal-body">
+            <div class="row m-t-20">
+               <form method="post" action="{{ path('update_tray_quantity') }}" class="col-12">
+                  <div class="col-md-12">
+                     <div class="form-group">
+                        <label>Item Id</label> 
+                        <input type="text" id="barcode" class="form-control" placeholder="scan barcode here">
+                     </div>
+                     <div class="form-group">
+                        <label>Select Item</label> 
+                        <select name="traynumber" class="form-control" id="sels">
+                           {% for item in order.customerOrderItems %}
+                           <option value="{{ item.id }}" data-name="{{ item.itemName }}  - {{ item.priceVariavtion }}" data-qty="{{ item.quantity }}">{{ item.itemName }}  - {{ item.priceVariavtion }}</option>
+                           {% endfor %}
+                        </select>
+                        <input type="hidden" name="orderid" class="form-control" required="" value="{{ order.id }}">
+                     </div>
+                     <div class="form-group">
+                        <label>Enter Quantity</label> 
+                        <input type="number" id="quantity" class="form-control" >
+                     </div>
+                     <button class="btn btn-primary btn-sm" type="button" id="sel">Add</button>
+                  </div>
+                  <br>
+                  <div class="table-responsive">
+                     <table class="table table-hovered" id="myTable">
+                        <thead class="bg-primary text-white">
+                           <tr>
+                              <th>Item</th>
+                              <th>Qty</th>
+                              <th>Action</th>
+                           </tr>
+                        </thead>
+                        {% for item in order.customerOrderItems %}
+                        {% if item.isTray == '0' or item.isTray == ''  %} 
+                        {% else %}
+                        <tr>
+                           <td><input type="hidden" value="{{ item.quantity }}" name="oqty[]"><input type="hidden" value="{{ item.id }}" name="id[]">{{ item.itemName }} - {{ item.priceVariavtion }}</td>
+                           <td><input type="hidden" value="{{ item.trayQty }}" name="qty[]">{{ item.trayQty }}</td>
+                           <td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                     </table>
+                  </div>
+                  <div class="form-group">
+                     <button class="btn btn-success" type="submit">Save</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- end of tray status -->
+<script type="text/javascript">
+   $('.otype').change(function(){
+   var value=this.value;
+   if(value=='dispatched')
+   {
+       // alert('delivery boy names come here!');
+    $('#dboy').show();
+       $('#dboy').html('<div class="form-group"><label for="appbundle_customerorder_orderBoy" class="required">Assign Task To</label><select class="form-control db" name="appbundle_customerorder[deliveryBoy]"></select></div>');
+       getDelivery();
+   }
+   else
+   {
+    $('#dboy').hide();   
+   }
+   });
+   
+   
+   function getDelivery()
+   {
+   var out ={'data':'12'};                      // alert(x);
+   $.ajax({
+       type: "POST",
+       url: "/restaurant-manager/get-del",
+       data: out,
+       success: function (res, dataType) {
+    // console.log('{{ path('manage_restaurant_get_cat') }}');
+   send(res);
+             
+   // console.log(datas);
+   
+       },
+       error: function (XMLHttpRequest, textStatus, errorThrown) {
+           alert('Error : ' + errorThrown);
+       }
+   });
+                                           }
+   function send(myObjects)
+   {
+   $('.subcat').html('');
+   $.each(myObjects, function () {
+       $('.db').append('<option value="'+this.id+'">'+this.value+'</option>');
+         
+       });            
+      }
+       function removeVariant(obj){
+   // $(this).attr("data-usr" , '');
+   
+           $(obj).parent().parent().remove();
+   
+       }
+    $('#sel').click(function () {
+    var id=$('#sels').val();
+    var name = $('#sels option:selected').attr('data-name');
+    var qty=$('#quantity').val();
+    var barcode=$('#barcode').val();
+    if(barcode=='' || barcode == '0')
+    {
+    var oqty= $('#sels option:selected').attr('data-qty');
+    // alert(oqty);
+   if(qty > oqty)
+   {
+       qty=qty;
+   }
+   // alert(qty);
+    var output = $('input[name="qty[]"]').val();
+   // if(typeof(output)=='undefined')
+   // {
+   // $('#myTable').append('<tr><td><input type="hidden" value="'+id+'" name="id[]">'+name+'</td><td><input type="hidden" value="'+qty+'" name="qty[]">'+qty+'</td><td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td></tr>'); 
+   // }   
+     $('#myTable').append('<tr><td><input type="hidden" value="'+oqty+'" name="oqty[]"><input type="hidden" value="'+id+'" name="id[]">'+name+'</td><td><input type="hidden" value="'+qty+'" name="qty[]">'+qty+'</td><td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td></tr>'); 
+        $('#quantity').val(0);
+//      $('input[name="id[]"]').each(function() {
+//       var comp= $(this).val(); 
+//       console.log(comp);
+//    if(id == comp)
+//    {
+//    // alert('item already in tray!');
+//    $(this).parent().parent().remove();
+
+
+// } else
+//   {
+
+  
+
+//  }
+//  });
+          
+   }
+   else
+   {
+   
+   }
+   
+   // }
+     // });
+     
+   
+   
+    });
+    $('#barcode').on('input propertychange paste', function() {
+    var id=$('#barcode').val();
+     var inputlength = $('#barcode').val().length;
+       if (inputlength>4) {
+   var out ={'order':{{ order.id }},'barcode':id};                      // alert(x);
+   
+   $.ajax({
+       type: "POST",
+       url: "{{ path('api_get_item_by_barcode')}}",
+       data: out,
+       success: function (res, dataType) {
+    // console.log('{{ path('manage_restaurant_get_cat') }}');
+   // send(res);
+   addbar(res);
+             
+   // console.log(datas);
+   
+       },
+       error: function (XMLHttpRequest, textStatus, errorThrown) {
+           alert('Error : ' + errorThrown);
+       }
+   });
+   
+             return false;
+       }
+     
+   
+   });
+ 
+    function addbar(x)
+    {
+     var txt;
+     if(x.status=='0')
+     {
+       $('#barcode').val(0);
+   alert('barcode is invalid!!');
+     }
+     else
+     {
+        var person = prompt("Please enter Quantity:", x.quantity);
+     if (person == null || person == "") {
+       txt = "User cancelled the prompt.";
+     } else {
+       if(person > x.quantity)
+   {
+       person=x.quantity;
+   }
+             $('#myTable').append('<tr><td><input type="hidden" value="'+x.quantity+'" name="oqty[]"><input type="hidden" value="'+x.id+'" name="id[]">'+x.name+'('+x.variation+')</td><td><input type="hidden" value="'+person+'" name="qty[]">'+person+'</td><td><button class="btn btn-danger" type="button" class="remove" onclick="removeVariant(this)"><i class="fa fa-trash"></i></button></td></tr>'); 
+        $('#quantity').val(0);
+     } 
+     }
+   
+   }
+   
+
+                  $('#payment_statuss').change(function(){
+                    var status=$('#payment_statuss').val();
+                    // alert(status);
+                    if(status=='cash')
+                    {
+                      $('.ons').hide();
+                    }
+                    else
+                    {
+                       $('.ons').show();
+                    }
+
+                  });</script>
+{% endblock %}

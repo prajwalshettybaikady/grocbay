@@ -1,0 +1,113 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<!--nestable CSS -->
+<link href="/assets/plugins/nestable/nestable.css" rel="stylesheet" type="text/css" />
+
+<style>
+</style>
+
+{% endblock %}
+{% block body %}
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Variation Unit</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+
+<div class="form-group">
+  <label>Variation Name</label>
+  <input type="text" class="form-control">
+</div>
+<div class="form-group">
+  <label>Variation Unit</label>
+  <select class="form-control">
+    <option value="500">250 GM</option>
+    <option value="500">500 GM</option>
+    <option value="1000">1 KG</option>
+    <option value="5000">5 KG</option>
+    <option value="10000">10 KG</option>
+    <option value="15000">15 KG</option>
+    <option value="20000">20 KG</option>
+  </select>
+</div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            {# {{ path('category_create') }} #}
+            <div class="card-body">
+                   <h4 class="card-title">Product Varaition  Unit<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right;">
+                Create Variation Unit</button></h4>
+  
+
+                <table class="table table-hovered" id="myTable">
+                    <thead>
+                    <tr>
+                        <th>Variation</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                                    <tbody>
+
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!--Nestable js -->
+<script src="/assets/plugins/nestable/jquery.nestable.js"></script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+   $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Nestable
+
+        //updateOutput($('#nestable').data('output', $('#nestable-output')));
+/*
+        $('#nestable-menu').on('click', function(e) {
+            var target = $(e.target),
+                action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });*/
+
+        $('#nestable-menu').nestable();/*
+        $('.dd').nestable('collapseAll');*/
+    });
+    </script>
+
+{% endblock %}

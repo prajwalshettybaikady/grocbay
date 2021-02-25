@@ -1,0 +1,87 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<link rel="stylesheet" href="/assets/plugins/iCheck/all.css">
+<style>
+
+    @media print{
+   .noprint{
+       display:none;
+   }
+}
+</style>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+{% endblock %}
+
+{% block body %}
+<Span style="float:right;">
+<a href="#" class="btn btn-primary">Excel</a>
+<a href="#" class="btn btn-primary">CSV</a>
+</Span>
+<table id="myTable" class="table table-bordered table-striped" style="margin-top:10px;">
+                            <thead>
+                                <tr> 
+                                    <th>#</th>
+                                    <th>Customer Name</th>
+                                    <th>Date</th>
+                                    <th>Payment Method</th>
+                                    <th>Desccription</th>
+                                       <th>Amount</th>
+                                       <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                              {% set count = 1 %}
+
+                              {% for da in data %}
+                           <tr>
+                            <td>{{ count }}</td>
+                             <td><A href="{{ path('restaurant_orders_panel_update',{'id':da.id}) }}">{{ da.customerName }}</A></td>
+                              <td>{{ da.orderDate }}</td>
+                               <td> {{ da.paymentType }}</td>
+                                <td><span style="font-size:10px;">Invoice Payment-{{ da.id }}<span></td>
+                                 <td>{{ da.orderAmount }}</td>
+                                  <td><a href="{{ path('restaurant_orders_panel_update',{'id':da.id}) }}">view</a></td>
+
+
+                            </tr>
+                            {% set count= count+1 %}
+                            {% endfor %}
+                            </tbody>
+                             
+                        </table>
+                        </form>
+                    </div>
+                </div>
+         
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js
+"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js
+"></script>
+<script>
+  $(document).ready(function() {
+         $('#myTable').DataTable( {
+         
+    } );
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+Return-Path: <grocbayc@srvcl.crypracks.com>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id qEccA57+ul76ewAAYUfyRA
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	for <grocbayc@srvcl.crypracks.com>; Tue, 12 May 2020 15:53:02 -0400
+Return-path: <grocbayc@srvcl.crypracks.com>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Tue, 12 May 2020 15:53:02 -0400
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.92)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1jYaxZ-0000VW-T8
+	for grocbayc@srvcl.crypracks.com; Tue, 12 May 2020 15:53:01 -0400
+From: "(Cron Daemon)" <grocbayc@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+Subject: Cron <grocbayc@srvcl> /home/grocbayc/backup.grocbay.com/index.php
+Content-Type: text/plain; charset=UTF-8
+Auto-Submitted: auto-generated
+Precedence: bulk
+X-Cron-Env: <XDG_SESSION_ID=481950>
+X-Cron-Env: <XDG_RUNTIME_DIR=/run/user/1511>
+X-Cron-Env: <LANG=en_US.UTF-8>
+X-Cron-Env: <SHELL=/usr/local/cpanel/bin/jailshell>
+X-Cron-Env: <HOME=/home/grocbayc>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=grocbayc>
+X-Cron-Env: <USER=grocbayc>
+Message-Id: <E1jYaxZ-0000VW-T8@srvcl.crypracks.com>
+Date: Tue, 12 May 2020 15:53:01 -0400
+
+/usr/local/cpanel/bin/jailshell: /home/grocbayc/backup.grocbay.com/index.php: Permission denied

@@ -1,0 +1,241 @@
+    <style type="text/css">
+    /* Our Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+  color: #000 !important;
+}
+ 
+body {
+  margin-top: 10px;
+  height: 100vh;
+}
+
+
+.receipt {
+    width: 400px;
+    background-color: white;
+    border-radius: 30px;
+    position: relative;
+    /* top: 30%; */
+    /* left: 50%; */
+    /* margin-top: -360px; */
+    /* margin-left: -180px; */
+    padding: 20px;
+    margin: 0px auto;
+}
+/* Heading */
+.name {
+  text-transform: uppercase;
+  text-align: center;
+  color: #6c8b8e;
+  letter-spacing: 1px;
+  font-size: 1.8em;
+  margin-top: 10px
+}
+
+/* Big thank */
+.greeting {
+  font-size: 21px;
+  text-transform: capitalize;
+  text-align: center;
+  color: #6f8d90;
+  margin: 35px 0;
+  letter-spacing: 1.2px
+}
+
+/* Order info */
+.order p {
+  font-size: 13px;
+  color: #aaa;
+  padding-left: 10px;
+  letter-spacing: .7px
+}
+
+/* Our line */
+hr {
+  border: .7px solid #ddd;
+  margin: 15px 0;
+}
+
+/* Order details */
+.details {
+  padding-left: 10px;
+  margin-bottom: 3px;
+  overflow: hidden
+}
+
+.details h3 {
+  font-weight: 400;
+  color: #6c8b8e;
+  font-size: 1.5em;
+  margin-bottom: 8px
+}
+
+/* Image and the info of the order */
+.product {
+  float: left;
+  width: 83%
+}
+
+.product img {
+  width: 65px;
+  float: left
+}
+
+.product .info {
+  float: left;
+  margin-left: 15px
+}
+
+.product .info h4 {
+  color: #6f8d90;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 5px
+}
+
+.product .info p {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Net price */
+.details > p {
+  color: #6f8d90;
+  margin-top: 25px;
+  font-size: 15px
+}
+
+/* Total price */
+.totalprice p {
+  padding-left: 10px
+}
+
+.totalprice .sub,
+.totalprice .del {
+  font-size: 13px;
+  color: #aaa
+}
+
+.totalprice span {
+  float: right;
+  margin-right: 17px
+}
+
+.totalprice .tot {
+  color: #6f8d90;
+  font-size: 15px
+}
+
+/* Footer */
+footer {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 15px; /* You can make it with position try it */
+  color: #aaa
+}
+.td
+{
+      padding-left: 24px !important;
+    background: white;
+    padding: 3px;
+    font-size: 12px;
+}
+.tds {
+    padding-left: 20px !important;
+    background: white;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bold;  
+}
+.tdss {
+    padding-left: 18px !important;
+    background: white;
+    padding: 3px;
+    font-size: 10px;
+    font-weight: bold;  
+}
+.tdsss {
+    padding-left: 50px !important;
+    background: white;
+    padding: 3px;
+    font-size: 10px;
+    font-weight: bold;  
+}
+hr {
+    border: .7px solid #ddd;
+    margin: 3px 0;
+}
+ @media print
+      {
+         @page {
+           margin-top: 0;
+           margin-bottom: 0;
+         }
+         body  {
+           padding-top: 72px;
+           padding-bottom: 72px ;
+         }
+      } 
+    </style>
+   
+    <div class="receipt">
+    {% for order in orders %}
+      
+    <center>  <div class="order"><small>
+      {% if order.orderType == 'Delivery' %}
+ <h3>  Home Delivery</h3><br>
+      {% else %}
+ <h3>  Pickup From store</h3><br>
+      {% endif %}
+                           Delivery Date :  {{ order.fixDate }}<br>
+Delivery Time : {{ order.fixtime }}<br>
+
+                         </small>
+                         </div></center>
+<hr>
+      <!-- Order info -->
+      <div class="order">
+
+
+      <p>Bill to/Ship to:<br>
+                           <small>
+                           {{ order.customerName }}<br>
+                           {{ order.address }}<br>
+                           {{ order.landmark }}
+                           Mobile : {{ order.mobileNo }}<br>
+                           Email : {{ order.email }}<br>
+                          
+                           </small>
+      </div>
+
+      <hr>
+
+      <!-- Details -->
+<table style="width:100%;">
+  <tr>
+    <td class="tds">Item</td>
+    <td></td>
+    <td class="tds">Qty</td>
+
+ </tr>
+{% for item in items %}
+<tr>
+    <td class="td">{{ item.itemName }} - {{ item.priceVariavtion }} </td>
+    <td></td>
+    <td class="td">{{ item.quantity }}</td>
+
+ </tr>
+   
+{% endfor %}
+</table>
+  
+      <!-- Footer -->
+
+    </div>{% endfor %}

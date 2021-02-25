@@ -1,0 +1,112 @@
+Return-Path: <Briana@uscnm.top>
+Delivered-To: info+spam@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id CI4eI+PcmF/kfgAAYUfyRA
+	(envelope-from <Briana@uscnm.top>)
+	for <info+spam@grocbay.com>; Tue, 27 Oct 2020 22:52:19 -0400
+Return-path: <Briana@uscnm.top>
+Envelope-to: info@grocbay.com
+Delivery-date: Tue, 27 Oct 2020 22:52:19 -0400
+Received: from [106.12.97.205] (port=44273 helo=server2.bbxxzx.top)
+	by srvcl.crypracks.com with esmtp (Exim 4.93)
+	(envelope-from <Briana@uscnm.top>)
+	id 1kXbZN-0008Rx-CU
+	for info@grocbay.com; Tue, 27 Oct 2020 22:52:19 -0400
+Received: from DESKTOP-E8N0CFH (58.23.229.75) by server2.bbxxzx.top id hj3edq0e97ck for <info@grocbay.com>; Wed, 28 Oct 2020 10:40:25 +0800 (envelope-from <Briana@uscnm.top>)
+From: "Briana" <kairun12@kairun.com.cn>
+To: info@grocbay.com
+Content-Type: text/html; charset=UTF-8
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Sender: Briana@uscnm.top
+Reply-To: kairun12@kairun.com.cn
+Date: Wed, 28 Oct 2020 10:40:26 +0800
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.3790.4913
+Content-Disposition: inline
+X-Spam-Status: Yes, score=9.9
+X-Spam-Score: 99
+X-Spam-Bar: +++++++++
+X-Spam-Report: Spam detection software, running on the system "srvcl.crypracks.com",
+ has identified this incoming email as possible spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hi, Hope this email find you well. As one of the largest plastic
+    cutlery manufacturers in China, we provide a wide range of disposable cutlery
+    both foldable and straight in a reasonable price. Biodegradable cutlery that
+    made of PLA or [...] 
+ Content analysis details:   (9.9 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: kairunair.com]
+  2.5 RCVD_IN_MSPIKE_L3      RBL: Low reputation (-3)
+                             [106.12.97.205 listed in bl.mailspike.net]
+  1.3 RCVD_IN_RP_RNBL        RBL: Relay in RNBL,
+                             https://senderscore.org/blacklistlookup/
+                             [106.12.97.205 listed in bl.score.senderscore.com]
+  0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.0 T_KAM_HTML_FONT_INVALID BODY: Test for Invalidly Named or
+                             Formatted Colors in HTML
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  1.0 KAM_LAZY_DOMAIN_SECURITY Sending domain does not have any
+                             anti-forgery methods
+  0.0 RCVD_IN_MSPIKE_BL      Mailspike blacklisted
+  0.5 FROM_SUSPICIOUS_NTLD   From abused NTLD
+  2.0 RDNS_NONE              Delivered to internal network by a host with no rDNS
+  2.5 TO_NO_BRKTS_MSFT       To: lacks brackets and supposed Microsoft tool
+X-Spam-Flag: YES
+Subject:  ***SPAM***  Plastic cutlery
+
+PCFET0NUWVBFIEhUTUwgUFVCTElDICItLy9XM0MvL0RURCBIVE1MIDQuMCBUcmFuc2l0aW9uYWwv
+L0VOIj4NCjxIVE1MPjxIRUFEPg0KPE1FVEEgbmFtZT1HRU5FUkFUT1IgY29udGVudD0iTVNIVE1M
+IDExLjAwLjEwNTcwLjEwMDEiPjwvSEVBRD4NCjxCT0RZPg0KPFA+SGksPC9QPg0KPFA+PEZPTlQg
+c2l6ZT00PkhvcGUgdGhpcyBlbWFpbCBmaW5kIHlvdSB3ZWxsLjxCUj48QlI+QXMmbmJzcDtvbmUg
+b2YgdGhlIGxhcmdlc3QgcGxhc3RpYyBjdXRsZXJ5IG1hbnVmYWN0dXJlcnMgaW4gQ2hpbmEsIHdl
+IHByb3ZpZGUgYSB3aWRlIHJhbmdlIG9mIGRpc3Bvc2FibGUgY3V0bGVyeSBib3RoIGZvbGRhYmxl
+IGFuZCBzdHJhaWdodCBpbiBhIHJlYXNvbmFibGUgcHJpY2UuIEJpb2RlZ3JhZGFibGUgY3V0bGVy
+eSB0aGF0IG1hZGUgb2YgUExBIG9yJm5ic3A7Y29ybnN0YXJjaCBpcyBhbHNvIGF2YWlsYWJsZS4g
+QWxsIG9mIG91ciBwcm9kdWN0cyBhcmUgbWFkZSBvZiBmcmVzaCB2aXJnaW4gcmF3IG1hdGVyaWFs
+cyB3aGljaCBhcmUgZm9vZCBncmFkZSBhbmQgc2FmZSBmb3IgZm9vZCBjb250YWN0LjwvRk9OVD48
+U1BBTiBzdHlsZT0iRk9OVC1TSVpFOiAxOHB4OyBURVhULURFQ09SQVRJT046IG5vbmU7IEZPTlQt
+RkFNSUxZOiB0aW1lcyBuZXcgcm9tYW47IEZPTlQtVkFSSUFOVDogbm9ybWFsOyBXSElURS1TUEFD
+RTogbm9ybWFsOyBXT1JELVNQQUNJTkc6IDBweDsgVEVYVC1UUkFOU0ZPUk06IG5vbmU7IEZMT0FU
+OiBub25lOyBGT05ULVdFSUdIVDogNDAwOyBDT0xPUjogcmdiKDAsMCwwKTsgRk9OVC1TVFlMRTog
+bm9ybWFsOyBURVhULUFMSUdOOiBsZWZ0OyBPUlBIQU5TOiAyOyBESVNQTEFZOiBpbmxpbmU7IExF
+VFRFUi1TUEFDSU5HOiBub3JtYWw7IEJBQ0tHUk9VTkQtQ09MT1I6IHRyYW5zcGFyZW50OyBURVhU
+LUlOREVOVDogMHB4OyAtd2Via2l0LXRleHQtc3Ryb2tlLXdpZHRoOiAwcHgiPldlIGFyZSBpbiBh
+IGdvb2QgcG9zaXRpb24gbm90IG9ubHkgdG8gc3VwcGx5IHlvdSBoaWdoIHF1YWxpdHkgcHJvZHVj
+dHMsIGJ1dCBhbHNvIHRoZSBleGNlbGxlbnQgYWZ0ZXIgc2FsZXMgc2VydmljZS5DdXN0b21pemVk
+IHNlcnZpY2UgaXMgd2FybWx5IHdlbGNvbWVkLjxCUj48L1NQQU4+PEJSPjxGT05UIHNpemU9ND5V
+cG9uIHJlY2VpcHQgb2YgeW91ciBmZWVkYmFjaywgd2Ugd2lsbCB1cGRhdGUgeW91IG1vcmUgcmVs
+ZXZhbnQgcHJvcG9zYWxzLjxCUj48QlI+TG9va2luZyBmb3J3YXJkIHRvIGhlYXJpbmcgZnJvbSB5
+b3Ugc29vbi48QlI+PEJSPlRoYW5rcy48QlI+PEJSPjxCUj48L0ZPTlQ+PFNQQU4gc3R5bGU9IkZP
+TlQtU0laRTogMTAuNXB0OyBGT05ULUZBTUlMWTogJ0NvbWljIFNhbnMgTVMnIj5CZXN0IHJlZ2Fy
+ZHMsPEJSPjxCUj5CcmlhbmE8QlI+PEJSPjxTUEFOIHN0eWxlPSJDT0xPUjogIzMzNjZmZiI+S2Fp
+cnVuIENvLixMdGQ8QlI+WGlhbWVuIEthaXJ1bmFpciBDb21tb2RpdHkgQ28uLEx0ZC4gPC9TUEFO
+PjxCUj48U1BBTiBzdHlsZT0iRk9OVC1TSVpFOiAxMC41cHQ7IEZPTlQtRkFNSUxZOiAnQ29taWMg
+U2FucyBNUyciPjwvU1BBTj48L1NQQU4+PC9QPg0KPFA+PFNQQU4gc3R5bGU9IkZPTlQtU0laRTog
+MTAuNXB0OyBGT05ULUZBTUlMWTogJ0NvbWljIFNhbnMgTVMnIj48U1BBTiBzdHlsZT0iRk9OVC1T
+SVpFOiAxMC41cHQ7IEZPTlQtRkFNSUxZOiAnQ29taWMgU2FucyBNUyciPkVtYWlsOiA8QSBocmVm
+PSJtYWlsdG86a2FpcnVuMTJAa2FpcnVuLmNvbS5jbiI+a2FpcnVuMTJAa2FpcnVuLmNvbS5jbjwv
+QT48L1NQQU4+PEJSPkRpcmVjdCB0ZWw6IDg2LTU5Mi01ODgyMDIzPEJSPkZheCBOby46IDg2LTU5
+Mi01ODg0ODgzPEJSPlFROiAyODUwOTg1MzUxPEJSPlNreXBlOiBicmlhbmEud2VuZzxCUj5XQy9X
+QTogODYtMTg5MDYwMzYwNjc8L1NQQU4+PFNQQU4gc3R5bGU9IkZPTlQtU0laRTogMTAuNXB0OyBG
+T05ULUZBTUlMWTogJ0NvbWljIFNhbnMgTVMnIj48QlI+QWRkcmVzczogVW5pdCAxOTA5ICxZb3Vk
+aWFuIEd1YW5ndG9uZyBCdWlsZGluZyw8QlI+Tm8sMTEgRWFzdCBIdWJpbiBSb2FkLCBYaWFtZW4g
+MzYxMDA0LEZ1amlhbixDaGluYTxCUj48U1BBTiBzdHlsZT0iQ09MT1I6IGJsYWNrIj5XZWJzaXRl
+OiA8L1NQQU4+PC9TUEFOPjxTUEFOIHN0eWxlPSJGT05ULUZBTUlMWTogJ0NvbWljIFNhbnMgTVMn
+Ij48QSBocmVmPSJodHRwOi8vd3d3LmthaXJ1bi5jb20uY24vIj48U1BBTiBzdHlsZT0iRk9OVC1T
+SVpFOiAxMC41cHQ7IENPTE9SOiBibGFjayI+d3d3LmthaXJ1bi5jb20uY248L1NQQU4+PC9BPjxG
+T05UIHNpemU9ND4mbmJzcDsmbmJzcDs8L0ZPTlQ+PEEgaHJlZj0iaHR0cDovL3d3dy5rYWlydW5h
+aXIuY29tLyI+PEZPTlQgc3R5bGU9IkZPTlQtU0laRTogMTAuNXB0Ij53d3cua2FpcnVuYWlyLmNv
+bTwvRk9OVD48L0E+PEJSPjxGT05UIHNpemU9ND4mbmJzcDs8L0ZPTlQ+PC9TUEFOPjwvUD48L0JP
+RFk+PC9IVE1MPg0K

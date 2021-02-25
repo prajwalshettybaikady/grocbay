@@ -1,0 +1,290 @@
+Return-Path: <bounces@crisp.email>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id cNdtJ3J5WF8aJgAAYUfyRA
+	(envelope-from <bounces@crisp.email>)
+	for <info@grocbay.com>; Wed, 09 Sep 2020 02:42:58 -0400
+Return-path: <bounces@crisp.email>
+Envelope-to: info@grocbay.com
+Delivery-date: Wed, 09 Sep 2020 02:42:58 -0400
+Received: from mailer-3.outbound.crisp.email ([93.177.84.4]:40077)
+	by srvcl.crypracks.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.93)
+	(envelope-from <bounces@crisp.email>)
+	id 1kFtom-0002Xy-17
+	for info@grocbay.com; Wed, 09 Sep 2020 02:42:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=crisp.chat; s=staff;
+	t=1599633734; bh=RitnCBn+oFL87CdVixpAh2h/PHHZPAFOChYL0GXgoTY=;
+	h=From:To:Subject:Date:From;
+	b=+r1ficJ5WELM/PwHqUohBqnDKRfRjZOvXqImkaXV/3yZtO0sNPe5HjwC4wSO3YFjV
+	 BdO/TdDnQYwGbQa2hK9JYi6zlYSpFYp9Cq5LcvogGhzrUxVKGZIa7w+xUGIarAetwg
+	 WeUnDIn/p2zv/L4T3TjVpefZftWpqI+ZlW11BxqNRrVUy78OmEHnCG9SrvHJYje8Ae
+	 bviwO3lMLcH9MPDJwtJCBhqWZE1UbkEs1RsJPE4+rG0vserjZNKFn6iiiRKvN5ovtF
+	 inAoKkLY+iWBsCfibvijaB8yO8c8+9l3cnHZWaKfnvb+5eD1gVKMEMmjPjWonkMcw3
+	 o2x+3DAxVCmvg==
+Content-Type: multipart/alternative;
+ boundary="--_NmP-027c46d6b5fd8f81-Part_1"
+X-Universally-Unique-Identifier: a8bcd35e-9d62-4a60-b186-f5d762eedc0b
+MIME-Version: 1.0 (Crisp Mailer)
+X-Auto-Response-Suppress: All
+X-Crisp-Shard-Type: transactional
+From: Crisp Notifications <noreply@crisp.chat>
+To: info@grocbay.com
+Subject: Crisp trial has just ended
+Message-ID: <d8606966-b608-85ee-26d6-1b99389a8a9e@crisp.email>
+Date: Wed, 09 Sep 2020 06:42:14 +0000
+X-Spam-Status: No, score=-0.1
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  [https://mail.crisp.chat/images/header/common/logo.png]AppInsight,
+    your Crisp trial has ended.Your Crisp subscriptions have been downgraded
+   to Basic, because your Crisp Unlimited trial has just ended, [...] 
+ Content analysis details:   (-0.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: crisp.chat]
+  0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+X-Spam-Flag: NO
+
+----_NmP-027c46d6b5fd8f81-Part_1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+[https://mail.crisp.chat/images/header/common/logo.png]AppInsight, your =
+Crisp
+trial has ended.Your Crisp subscriptions have been downgraded to =
+Basic, because
+your Crisp Unlimited trial has just ended, and your website =
+has no payment
+method.If you wish to keep using Crisp Unlimited, please add=
+ a payment method
+and upgrade to Unlimited. All your plugins will be back =
+after upgrading.Add a
+payment method and upgrade [https://app.crisp.=
+chat/settings/billing/]You may
+re-upgrade to Crisp Unlimited by adding a =
+payment method, and then upgrading to
+Unlimited.You receive this email =
+because we deactivated some active
+subscriptions on Crisp.Crisp website =
+[https://crisp.chat/]Terms of Service
+[https://crisp.=
+chat/terms/]Unsubscribe from emails
+[https://app.crisp.=
+chat/settings/notifications/]=C2=A9 2020 Crisp IM SARL - All
+rights reserved.[https://mail.crisp.chat/images/footer/common/separator.=
+png]We
+run on[https://mail.crisp.chat/images/footer/common/powered_by.png]
+[https://crisp.chat/]
+----_NmP-027c46d6b5fd8f81-Part_1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" =
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html =
+xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en" dir=3D"ltr"><head>
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3DUTF-8"><meta name=3D"viewport" content=3D"width=3Ddevice-width, =
+initial-scale=3D1"><style type=3D"text/css">
+@media screen and =
+(max-width:720px) {
+  .c-v84rpm,
+.c-y3y5wk {
+    width: 100%!important;
+  }
+
+  .c-v84rpm {
+    max-width: 720px!important;
+  }
+
+  .c-11rjz69,
+.c-rchyuu,
+.c-uvt8qr {
+    border-width: 1px 0 0!important;
+  }
+
+  .c-ohl6s9 {
+    border-width: 1px 0!important;
+  }
+
+  .c-rchyuu {
+    padding-left: 12px!important;
+    padding-right: 12px!important;
+  }
+
+  .c-11rjz69,
+.c-uvt8qr {
+    padding-left: 8px!important;
+    padding-right: 8px!important;
+  }
+
+  .c-1vld4cz {
+    padding-bottom: 10px!important;
+  }
+}
+</style><title>Crisp trial has =
+just ended</title></head><body style=3D"padding: 0; margin: 0; font-family:=
+ HelveticaNeueLight,HelveticaNeue-Light,'Helvetica Neue Light',=
+HelveticaNeue,'Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; =
+font-weight: 300; font-stretch: normal; font-size: 14px; letter-spacing: .=
+35px; background: #EFF3F6; color: #333;"><table role=3D"presentation" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"center" =
+dir=3D"ltr" class=3D"c-v84rpm" style=3D"border: 0; border-collapse: =
+separate; width: 720px;" width=3D"720"><tr style=3D"border: 0; =
+border-collapse: separate; height: 114px;"><td style=3D"border: 0; =
+border-collapse: separate; vertical-align: middle;" =
+valign=3D"middle"><table align=3D"center" role=3D"presentation" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" dir=3D"ltr" =
+style=3D"border: 0; border-collapse: separate; width: 100%;" =
+width=3D"100%"><tr align=3D"center" style=3D"border: 0; border-collapse: =
+separate; padding: 16px 0 15px;"><td style=3D"border: 0; border-collapse: =
+separate; vertical-align: middle;" valign=3D"middle"><img alt =
+src=3D"https://mail.crisp.chat/images/header/common/logo.png" =
+style=3D"border: 0; line-height: 100%; outline: 0; text-decoration: none; =
+width: 120px; height: 33px;" width=3D"120" height=3D"33"></td></tr></table>=
+</td></tr><tr style=3D"border: 0; border-collapse: separate; box-shadow: 0 =
+3px 5px rgba(0,0,0,.04);"><td style=3D"border: 0; border-collapse: =
+separate; vertical-align: middle;" valign=3D"middle"><table =
+align=3D"center" role=3D"presentation" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" dir=3D"ltr" style=3D"border: 0; border-collapse: =
+separate; width: 100%;" width=3D"100%"><tr style=3D"border: 0; =
+border-collapse: separate; text-align: center;" align=3D"center"><td =
+style=3D"border: 0; border-collapse: separate; vertical-align: middle;" =
+valign=3D"middle"><table role=3D"presentation" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" dir=3D"ltr" =
+class=3D"c-rchyuu" style=3D"border: 0; border-collapse: separate; =
+border-color: #E3E3E3; border-style: solid; width: 100%; border-width: 1px =
+1px 0; background: #FBFCFC; padding: 40px 54px 42px;"><tr style=3D"border: =
+0; border-collapse: separate;"><td style=3D"border: 0; border-collapse: =
+separate; vertical-align: middle; text-align: center; font-family: =
+HelveticaNeueLight,HelveticaNeue-Light,'Helvetica Neue Light',HelveticaNeue=
+,'Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; font-weight: =
+300; color: #1D2531; font-size: 25.45px; line-height: 32px;" =
+align=3D"center" valign=3D"middle">AppInsight, your Crisp trial has ended.=
+</td></tr><tr style=3D"border: 0; border-collapse: separate;"><td =
+style=3D"border: 0; border-collapse: separate; vertical-align: middle; =
+text-align: center; font-family: HelveticaNeue,'Helvetica Neue',=
+HelveticaNeueRoman,HelveticaNeue-Roman,'Helvetica Neue Roman',=
+HelveticaNeue-Regular,'Helvetica Neue Regular',Helvetica,Arial,'Lucida =
+Grande',sans-serif; font-weight: 400; line-height: 20px; color: #7F8FA4; =
+font-size: 15.45px; padding-top: 20px;" align=3D"center" =
+valign=3D"middle">Your Crisp subscriptions have been downgraded to Basic, =
+because your Crisp Unlimited trial has just ended, and your website has no =
+payment method.</td></tr><tr style=3D"border: 0; border-collapse: =
+separate;"><td style=3D"border: 0; border-collapse: separate; =
+vertical-align: middle; text-align: center; font-family: =
+HelveticaNeueMedium,HelveticaNeue-Medium,'Helvetica Neue Medium',=
+HelveticaNeue,'Helvetica Neue',sans-serif; font-weight: 500; font-size: 13.=
+64px; line-height: 17px; padding-top: 12px;" align=3D"center" =
+valign=3D"middle">If you wish to keep using Crisp Unlimited, please add a =
+payment method and upgrade to Unlimited. All your plugins will be back =
+after upgrading.</td></tr><tr style=3D"border: 0; border-collapse: =
+separate;"><td style=3D"border: 0; border-collapse: separate; =
+vertical-align: middle; text-align: center; padding-top: 38px;" =
+align=3D"center" valign=3D"middle"><a href=3D"https://app.crisp.=
+chat/settings/billing/" target=3D"_blank" style=3D"color: #000; =
+font-family: HelveticaNeueMedium,HelveticaNeue-Medium,'Helvetica Neue =
+Medium',HelveticaNeue,'Helvetica Neue',sans-serif; font-weight: 500; =
+font-size: 13.64px; line-height: 15px; text-decoration: none; display: =
+inline-block; letter-spacing: .6px; border-radius: 2px; background-color: =
+#1972F5; padding: 12px 24px;"><span style=3D"color: #fff;">Add a payment =
+method and upgrade</span></a></td></tr><tr style=3D"border: 0; =
+border-collapse: separate;"><td style=3D"border: 0; border-collapse: =
+separate; vertical-align: middle; text-align: center; font-family: =
+HelveticaNeueLight,HelveticaNeue-Light,'Helvetica Neue Light',HelveticaNeue=
+,'Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; font-weight: =
+300; font-size: 12.73px; line-height: 16px; font-style: italic; =
+padding-top: 52px;" align=3D"center" valign=3D"middle">You may re-upgrade =
+to Crisp Unlimited by adding a payment method, and then upgrading to =
+Unlimited.</td></tr></table></td></tr><tr style=3D"border: 0; =
+border-collapse: separate;"><td style=3D"border: 0; border-collapse: =
+separate; vertical-align: middle;" valign=3D"middle"><table =
+role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%" dir=3D"ltr" class=3D"c-ohl6s9" style=3D"border: 0; =
+border-collapse: separate; text-align: center; border-color: #E3E3E3; =
+border-style: solid; width: 100%; font-size: 11.82px; background: #FFF; =
+border-width: 1px; padding: 18px 40px 20px;" align=3D"center"><tr =
+style=3D"border: 0; border-collapse: separate;"><td style=3D"border: 0; =
+border-collapse: separate; vertical-align: middle;" =
+valign=3D"middle"><span>You receive this email because we deactivated some =
+active subscriptions on Crisp.</span></td></tr></table></td></tr></table></=
+td></tr><tr style=3D"border: 0; border-collapse: separate;"><td =
+style=3D"border: 0; border-collapse: separate; vertical-align: middle;" =
+valign=3D"middle"><table role=3D"presentation" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" dir=3D"ltr" =
+class=3D"c-1vld4cz" style=3D"border: 0; border-collapse: separate; =
+padding-top: 26px; padding-bottom: 26px;"><tr style=3D"border: 0; =
+border-collapse: separate;"><td style=3D"border: 0; border-collapse: =
+separate; vertical-align: middle;" valign=3D"middle"><table =
+role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"55%" align=3D"center" dir=3D"ltr" style=3D"border: 0; =
+border-collapse: separate; font-size: 10.91px; text-align: center;"><tr =
+style=3D"border: 0; border-collapse: separate;"><td style=3D"border: 0; =
+border-collapse: separate; vertical-align: middle;" valign=3D"middle"><a =
+href=3D"https://crisp.chat/" target=3D"_blank" style=3D"text-decoration: =
+underline; color: #7F8FA4;">Crisp website</a></td><td style=3D"border: 0; =
+border-collapse: separate; vertical-align: middle;" valign=3D"middle"><a =
+href=3D"https://crisp.chat/terms/" target=3D"_blank" =
+style=3D"text-decoration: underline; color: #7F8FA4;">Terms of =
+Service</a></td><td style=3D"border: 0; border-collapse: separate; =
+vertical-align: middle;" valign=3D"middle"><a href=3D"https://app.crisp.=
+chat/settings/notifications/" target=3D"_blank" style=3D"text-decoration: =
+underline; color: #7F8FA4;">Unsubscribe from emails</a></td></tr></table><t=
+able role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"100%" dir=3D"ltr" style=3D"border: 0; border-collapse: separate; =
+color: #7F8FA4; font-size: 10.91px; text-align: center; padding-top: 22px;"=
+ align=3D"center"><tr style=3D"border: 0; border-collapse: separate;"><td =
+style=3D"border: 0; border-collapse: separate; vertical-align: middle;" =
+valign=3D"middle">=C2=A9 2020 Crisp IM SARL - All rights reserved.=
+</td></tr></table></td></tr></table><table role=3D"presentation" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" dir=3D"ltr"=
+ style=3D"border: 0; border-collapse: separate;"><tr style=3D"border: 0; =
+border-collapse: separate; text-align: center;" align=3D"center"><td =
+style=3D"border: 0; border-collapse: separate; vertical-align: middle;" =
+valign=3D"middle"><img alt src=3D"https://mail.crisp.=
+chat/images/footer/common/separator.png" class=3D"c-y3y5wk" =
+style=3D"border: 0; line-height: 100%; outline: 0; text-decoration: none; =
+width: 719px; height: 2px;" width=3D"719" height=3D"2"></td></tr><tr =
+style=3D"border: 0; border-collapse: separate;"><td align=3D"center" =
+style=3D"border: 0; border-collapse: separate; vertical-align: middle; =
+padding-top: 15px; padding-bottom: 22px;" valign=3D"middle"><a =
+href=3D"https://crisp.chat/" target=3D"_blank" style=3D"color: #000; =
+text-decoration: none;"><table role=3D"presentation" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" dir=3D"ltr" style=3D"border: 0; =
+border-collapse: separate;"><tr style=3D"border: 0; border-collapse: =
+separate;"><td style=3D"border: 0; border-collapse: separate; =
+vertical-align: middle; text-transform: lowercase; font-family: =
+HelveticaNeue,'Helvetica Neue',HelveticaNeueRoman,HelveticaNeue-Roman,=
+'Helvetica Neue Roman',HelveticaNeue-Regular,'Helvetica Neue Regular',=
+Helvetica,Arial,'Lucida Grande',sans-serif; font-weight: 400; color: =
+#b3b6b8; font-size: 12.5px;" valign=3D"middle">We run on</td><td =
+style=3D"border: 0; border-collapse: separate; vertical-align: middle; =
+padding-left: 6px;" valign=3D"middle"><img alt src=3D"https://mail.crisp.=
+chat/images/footer/common/powered_by.png" style=3D"line-height: 100%; =
+outline: 0; text-decoration: none; border: 0; width: 50px; height: 16px; =
+margin-bottom: -3px;" width=3D"50" height=3D"16"></td></tr></table></a></td=
+></tr></table>
+
+</td></tr></table></body></html>
+----_NmP-027c46d6b5fd8f81-Part_1--

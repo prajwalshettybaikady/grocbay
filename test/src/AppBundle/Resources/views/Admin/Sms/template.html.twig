@@ -1,0 +1,81 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">SMS Template 
+                       
+                    </h4>
+                </div>
+                               <form method="post" action="{{ path('update_template') }}">
+     {% for res in data %}
+                    
+                <div class="card-body">
+<center><span  style="color: red;font-size: smaller;font-weight: 400;">Paste template Id  accordingly.
+</span></center>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                         <label for="reg1">Registration (Customer)*</label>
+                         <input type="text"  class="form-control" rows="1"  id="reg1" required name="a1" value="{{ res.registration_user}}">
+                        </div>
+                        <div class="form-group">
+                         <label for="reg2">Registration (Delivery)</label>
+                         <input type="text" class="form-control" rows="1" id="reg2"  name="a2" value="{{ res.registration_delivery}}">
+                        </div>   
+                      <div class="form-group">
+                         <label for="reg3">OTP *</label>
+                        <input type="text" class="form-control" rows="1"  id="reg3" required  name="a3" value="{{ res.otp}}">
+                        </div>
+                         
+                        <div class="form-group">
+                         <label for="reg4">SMS after Creating Order (Customer)</label>
+                          <input type="text" class="form-control" rows="1"  id="reg4"  name="a4" value="{{ res.order_u}}">
+                        </div>
+                        <div class="form-group">
+                         <label for="reg5">SMS after Creating Order (Admin)</label>
+                        <input type="text" class="form-control" rows="1"  id="reg5"  name="a5" value="{{ res.order_a}}">
+                        </div>
+                         <div class="form-group">
+                         <label for="reg6">SMS after Receiving Order (Customer)</label>
+                         <input type="text" class="form-control" rows="1"  id="reg6"  name="a6" value="{{ res.recciving}}">
+                        </div>
+                        
+                          <div class="form-group">
+                         <label for="reg7">SMS after Out For Delivery (Customer)</label>
+                        <input type="text" class="form-control" rows="1"  id="reg7"  name="a7" value="{{ res.delivery_u}}">
+                        </div>
+                         <div class="form-group">
+                         <label for="reg8">SMS after Out For Delivery (Delivery Boy)</label>
+                      <input type="text" class="form-control" rows="1" id="reg8"  name="a8" value="{{ res.delivery_d}}">
+                        </div>
+                         <div class="form-group">
+                         <label for="reg9">SMS after Item Delivered (Customer)</label>
+                        <input type="text" class="form-control" rows="1" id="reg9"  name="a9" value="{{ res.delivered}}">
+                        </div>   
+                         <div class="form-group">
+                         <label for="reg10">SMS after Order Completed (Customer)</label>
+                        <input type="text" class="form-control" rows="1" id="reg10" name="a10" value="{{ res.completed}}"> 
+                        </div>  
+                        <div class="form-group">
+                         <label for="reg11">SMS after Order Cancelled (Customer)</label>
+                         <input type="text" class="form-control" rows="1" id="reg11"  name="a11" value="{{ res.cancelled}}"> 
+                        </div>       
+
+                      </div>
+                      
+                        <div class="clearfix"></div>
+                        <button type="submit" class="btn btn-primary pull-right">Save</button>
+{% endfor %}
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+
+
+{% endblock %}

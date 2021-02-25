@@ -1,0 +1,62 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Email Id</th>
+                                    <th>Mobile Number</th>
+                                    <th>User Type</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                <tr>
+                                    <td>{{ user.firstName ~ " " ~ user.lastName }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.mobileNumber }}</td>
+                                    <td>{{ user.userType }}</td>
+                                    <td>
+                                        {% if user.isActive %}
+                                            <a href="javascript:;" class="btn btn-success btn-xs">active</a>
+                                            <a href="{{ path('admin_activate',{'id':user.id}) }}" class="btn btn-danger btn-xs">X</a>
+                                        {% else %}
+                                            <a href="javascript:;" class="btn btn-danger btn-xs">inactive</a>
+                                            <a href="{{ path('admin_activate',{'id':user.id}) }}" class="btn btn-success btn-xs">
+                                                <i class="fa fa-check"></i>
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('admin_edit',{'id':user.id})}}" title="Edit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

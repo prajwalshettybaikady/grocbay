@@ -1,0 +1,47 @@
+
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+                        <li class="nav-small-cap"></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ path('restaurant_dashboard') }}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                        {% if app.user.restaurant != null %}
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{{ path('restaurant_side_add_menu_item',{'restName':app.user.restaurant.restaurantSlug }) }}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Restaurant</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{ path('restaurant_side_add_menu_item',{'restName':app.user.restaurant.restaurantSlug }) }}">Add new menu item</a></li>
+                                <li><a href="{{ path('restaurant_side_view_menu_item',{'restName':app.user.restaurant.restaurantSlug }) }}">View menu</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Orders</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'all','restId':app.user.restaurant.id})}}">All Orders</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'pending','restId':app.user.restaurant.id})}}">Pending</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'processing','restId':app.user.restaurant.id})}}">Processing</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'ready','restId':app.user.restaurant.id})}}">Item ready</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'out-for-delivery','restId':app.user.restaurant.id})}}">Out for delivery</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'onway','restId':app.user.restaurant.id})}}">On the way</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'delivered','restId':app.user.restaurant.id})}}">Delivered</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'completed','restId':app.user.restaurant.id})}}">Completed</a></li>
+                                <li><a href="{{ path('restaurant_side_all_orders_list',{'status':'cancelled','restId':app.user.restaurant.id})}}">Cancelled</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{{ path('manage_restaurant_order_report') }}" ><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Reports</span></a></li> 
+                        
+                        {% endif %}
+                        <li></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->

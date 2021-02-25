@@ -1,0 +1,37 @@
+Return-Path: <grocbayc@srvcl.crypracks.com>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id qRJ6KcO33V53LwAAYUfyRA
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	for <grocbayc@srvcl.crypracks.com>; Mon, 08 Jun 2020 00:00:03 -0400
+Return-path: <grocbayc@srvcl.crypracks.com>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Mon, 08 Jun 2020 00:00:03 -0400
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.92)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1ji8x9-0003FB-E2
+	for grocbayc@srvcl.crypracks.com; Mon, 08 Jun 2020 00:00:03 -0400
+From: "(Cron Daemon)" <grocbayc@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+Subject: Cron <grocbayc@srvcl> curl http://backup.grocbay.com/index.php
+Content-Type: text/plain; charset=UTF-8
+Auto-Submitted: auto-generated
+Precedence: bulk
+X-Cron-Env: <XDG_SESSION_ID=575375>
+X-Cron-Env: <XDG_RUNTIME_DIR=/run/user/1511>
+X-Cron-Env: <LANG=en_US.UTF-8>
+X-Cron-Env: <SHELL=/usr/local/cpanel/bin/jailshell>
+X-Cron-Env: <HOME=/home/grocbayc>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=grocbayc>
+X-Cron-Env: <USER=grocbayc>
+Message-Id: <E1ji8x9-0003FB-E2@srvcl.crypracks.com>
+Date: Mon, 08 Jun 2020 00:00:03 -0400
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

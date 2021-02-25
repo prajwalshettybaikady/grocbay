@@ -1,0 +1,130 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+
+{% block styles %}
+
+
+{% endblock %}
+
+{% block body %}
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Manage Delivery Slots | {% for lo in location %}{{ lo.title }}   {% endfor %}</h4>
+                    </div>
+                    <div class="card-body">
+  <form action="{{ path('create_slot',{'id':id})}}" method="POST">
+    <table class="table" id="addvar">
+      <tr>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Order Per Slot</th>
+        <th><button class="btn btn-primary btn-sm" id="variationAdd" type="button">Add Timings</button></th>
+      </tr>
+    {% for da in data %}
+
+          <tr><th><select class="form-control" value="" name="start[]" required>{% for t in time %}<option {% if t == da.start %} selected {% endif %}>{{ t }}</option>{% endfor %}</select></th><th><select class="form-control"  placeholder="11-00 AM" name="end[]">{% for t in time %}<option {% if t == da.end %} selected {% endif %}>{{ t }}</option>{% endfor %}</select></th><th><input type="number" class="form-control" placeholder="order per slot"  name="slot[]" value="{{ da.orders }}"></th><td><a class="btn btn-danger " style="float:right;"  onclick="removeVariant(this)" data-toggle="collapse" data-parent="#col"  href="#" ><i class="fa fa-trash"></i></a></td></tr>
+      {% endfor %}
+    </table>
+ 
+
+  <button type="submit" class="btn btn-primary" style="float:right;">update</button>
+  <a href="{{ path('delivery_slots',{'id':id}) }}"class="btn btn-primary" id="variationAdd" type="button"  style="float:right;margin-right:10px;">Back</a>
+</form>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row -->
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+      $(document).ready(function(){
+
+        var count=0;
+      $('#variationAdd').click(function(){
+// alert('add');
+$('#addvar').append('<tr><th><select class="form-control" value="" name="start[]" required>{% for t in time %}<option>{{ t }}</option>{% endfor %}</select></th><th><select class="form-control"  placeholder="11-00 AM" name="end[]" value="">{% for t in time %}<option>{{ t }}</option>{% endfor %}</select></th><th><input type="number" class="form-control" placeholder="order per slot"  name="slot[]"></th><td><a class="btn btn-danger " style="float:right;"  onclick="removeVariant(this)" data-toggle="collapse" data-parent="#col"  href="#" ><i class="fa fa-trash"></i></a></td></tr>');
+
+count++;
+});
+
+// console.log(items)
+//       });
+
+      });
+
+
+       function removeVariant(obj){
+// $(this).attr("data-usr" , '');
+
+        $(obj).parent().parent().remove();
+
+    }
+    function save(x,itemname,id,parent)
+    {
+var id=fixed(x,itemname,id,parent);
+
+    }
+
+     // PICK THE VALUES FROM EACH TEXTBOX WHEN "SUBMIT" BUTTON IS CLICKED.
+   
+
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+
+    
+        $("input[type='checkbox']").bootstrapSwitch();
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+    
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+    
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+    
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+    
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+    
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+</script>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<!--nestable CSS -->
+<link href="/assets/plugins/nestable/nestable.css" rel="stylesheet" type="text/css" />
+
+<style>
+</style>
+
+{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            {# {{ path('category_create') }} #}
+            <div class="card-body">
+                <h4 class="card-title">Manage Membership Plans<a href="" class="btn btn-primary btn-sm pull-right">New Category</a></h4>
+                <table class="table table-hovered">
+                    <tr>
+                        <th>Id</th>
+                        <th>Plan Name</th>
+                       <th>Duration</th>
+                       <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                   
+                    <tr>
+                        <td>1</td>
+                        <td>Gold Plan</td>
+                        <td>2 Years</td>
+                        <td>300</td>
+                        <td><a href="#delete" class="btn btn-primary btn-sm" title=""><i class="fa fa-edit"></i></a></td>
+                    </tr>
+                
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!--Nestable js -->
+<script src="/assets/plugins/nestable/jquery.nestable.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Nestable
+
+        //updateOutput($('#nestable').data('output', $('#nestable-output')));
+/*
+        $('#nestable-menu').on('click', function(e) {
+            var target = $(e.target),
+                action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });*/
+
+        $('#nestable-menu').nestable();/*
+        $('.dd').nestable('collapseAll');*/
+    });
+    </script>
+{% endblock %}

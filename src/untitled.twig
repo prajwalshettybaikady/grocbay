@@ -1,0 +1,8 @@
+    {% if is_granted("ROLE") %}
+        {% else %}
+{% block scripts %}
+
+<script type="text/javascript">
+// window.location.href = "{{path('admin_login')}}"; </script>
+{% endblock %}
+{% endif %}

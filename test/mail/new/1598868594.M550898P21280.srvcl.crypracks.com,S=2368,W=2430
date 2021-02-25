@@ -1,0 +1,62 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id eNx9IHLMTF8gUwAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Mon, 31 Aug 2020 06:09:54 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Mon, 31 Aug 2020 06:09:54 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1kCgl8-0005Yr-D4
+	for grocbayc@srvcl.crypracks.com; Mon, 31 Aug 2020 06:09:54 -0400
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1kCgl8-0005Yq-Bk@srvcl.crypracks.com>
+Subject: Mail failure - malformed recipient address
+Message-Id: <E1kCgl8-0005Yr-D4@srvcl.crypracks.com>
+Date: Mon, 31 Aug 2020 06:09:54 -0400
+
+A message that you sent contained one or more recipient addresses that were
+incorrectly constructed:
+
+  info@appinsight..tech: domain missing or malformed
+
+This address has been ignored. There were no other addresses in your
+message, and so no attempt at delivery was possible.
+
+------ This is a copy of your message, including all the headers. ------
+
+To: info@appinsight..tech
+Subject: You have new order(#4012636298)
+X-PHP-Script: admin.grocbay.com/web/app.php for 43.247.159.130
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: mail@appinsight.tech
+Reply-To: mail@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1kCgl8-0005Yq-Bk@srvcl.crypracks.com>
+Date: Mon, 31 Aug 2020 06:09:54 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ </head><body>Grocbay<br>
+   ----------------------------------------<br>
+  #order : 4012636298<br>
+Customer Name : hello hello <br>
+ Address : hello1, hello1, Ambalpadi, Udupi<br>
+ Delivery Area   : Karnataka<br>
+----------------------------------------<br>Order Details:<br>1X  Taj Mahal Tea, 1 kg(1kg)<br>1X  Nivea Soft Light Moisturiser Tropical Fruit(200ml)<br>1X  Lifebuoy Total Soap (BUY 3 GET 1 FREE)(500g)<br>----------------------------------------<br>
+Subtotal: ₹ 850<br>
+Delivery Charges: ₹ 25<br>
+Promo Code: -- ₹ <br>
+Grand Total: ₹875<br>
+----------------------------------------<br>
+Payment Type: cod<br>
+Delivery Time: 10:00 AM - 12:00 PM<br></body></html>

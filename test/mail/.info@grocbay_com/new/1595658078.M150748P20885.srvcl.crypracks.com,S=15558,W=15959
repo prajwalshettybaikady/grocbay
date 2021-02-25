@@ -1,0 +1,401 @@
+Return-Path: <bounces+3920424-2649-info=grocbay.com@smtp.freshchat.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id 5st+CF7PG1+VUQAAYUfyRA
+	(envelope-from <bounces+3920424-2649-info=grocbay.com@smtp.freshchat.com>)
+	for <info@grocbay.com>; Sat, 25 Jul 2020 02:21:18 -0400
+Return-path: <bounces+3920424-2649-info=grocbay.com@smtp.freshchat.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Sat, 25 Jul 2020 02:21:18 -0400
+Received: from o11.email.freshchat.io ([167.89.104.34]:58513)
+	by centos7 with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.93)
+	(envelope-from <bounces+3920424-2649-info=grocbay.com@smtp.freshchat.com>)
+	id 1jzDYZ-0005JZ-UK
+	for info@grocbay.com; Sat, 25 Jul 2020 02:21:18 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshchat.com; 
+	h=content-type:from:mime-version:reply-to:to:subject; s=fw; 
+	bh=5O03P80kS2210rMeU/LflRUZLsG9BpYhp3MCHSPj8Qc=; b=CkvSX8rl4pDk/
+	LDRLVWo1nJV6rSbdrNImrJhXEWwIJBhR8t+hde/NBYoA2onfTjho592Y5mAcQj7H
+	FYxdkQ/gvatUZ79lpOeXtC7ZMuFOx3fSAGwHEZ1Zq1zcQNBV38fV8bJzvxzAjkfL
+	amnmcXY+mI6L23o11Z4hjM8xR0oIt8=
+Received: by filter1367p1mdw1.sendgrid.net with SMTP id filter1367p1mdw1-17967-5F1BCF31-13
+        2020-07-25 06:20:33.445463382 +0000 UTC m=+284642.455562554
+Received: from MzkyMDQyNA (unknown)
+	by geopod-ismtpd-6-2 (SG) with HTTP id wuvREDy3RT-taXIAoaot_w
+	Sat, 25 Jul 2020 06:20:33.388 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=d765ad9292d897d439ea8ff304fb769462183d44f79e44d5df47b1f4f8b0
+Date: Sat, 25 Jul 2020 06:20:33 +0000 (UTC)
+From: "Freshchat Support" <support@freshchat.com>
+Mime-Version: 1.0
+Reply-to: "Freshchat Support" <support@freshchat.com>
+To: info@grocbay.com
+Message-ID: <dffc7ad0-efcc-4b66-afa1-93f2d0cd1ce1.campaign-consumer5@email.freshchat>
+Subject: Freshchat Account Downgraded Successfully
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON5Q6sAjECdecGj4SJx5uScLW6VYEdUi+irv6j
+ mSzdYmn1woirks491oSn4mFqZMHW3nQUF4vhD8kk6DvqtA6MlYlFDIEMoLwQt2xvymcbd2+AUDs9ju
+ jbhjLRL3x2EyJc4gNwD1Ma1XCeMfdTYpzz3IURovCL6VCg/tdLpogJYAuYoTaIu6gqsaU+qQoSuzY4
+ Y=
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7Ie7/6vQBPm4dUt+0Pmxj4HrgzciEv9x3u34jBxcSqf4HAiiarHeuYF0+0
+ ppc0xgwYnHt0WfX1htisue9ru3yLEAs1rsRdzzpMUL35kzWrWbU37RMY/Jq+ycwprxp6vt9I+BOXtg
+ Va96x9XqWLvi626xsXAzY/IGvbMc/thYMjIThk/mDj8eid/nJxW50iL705qb8QyJEBLZClXRxm8GsU
+ 36DAfRGReI6PTPLrn0K/T5
+X-Spam-Status: No, score=-0.2
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "srvcl.crypracks.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  ${email_subject} Account Downgraded Successfully Hey Jason
+    ${last_name}, Freshchat Account has been downgraded successfully . Please
+    find the details below. Account Name - Grocbay Account ID - 3593653 [...]
+    
+ Content analysis details:   (-0.2 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshchat.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [167.89.104.34 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+--d765ad9292d897d439ea8ff304fb769462183d44f79e44d5df47b1f4f8b0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+${email_subject} Account Downgraded Successfully Hey Jason ${last_name}, Fr=
+eshchat Account has been downgraded successfully . Please find the details =
+below. Account Name - Grocbay Account ID - 359365306746553 Current plan - S=
+prout_2020 Current Cycle - Monthly New Agent count (except App Owner) - 99 =
+This downgrade is requested by Jason on 25-06-2020 Best, Team Freshchat =C2=
+=A9 Freshworks Inc=
+
+--d765ad9292d897d439ea8ff304fb769462183d44f79e44d5df47b1f4f8b0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+      <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+      <title>${email_subject}</title>
+      <style type=3D"text/css">
+         /* -------------------------------------
+         GLOBAL
+         ------------------------------------- */
+         * {
+         margin:0;
+         }
+         * { font-family: 'Open Sans', Arial, sans-serif; }
+         img {
+         max-width: 100%;
+         }
+         .collapse {
+         margin:0;
+         padding:0;
+         }
+         body {
+         -webkit-font-smoothing:antialiased;
+         -webkit-text-size-adjust:none;
+         width: 100%!important;
+         height: 100%;
+         }
+         /* -------------------------------------
+         ELEMENTS
+         ------------------------------------- */
+         a { color: #2BA6CB;}
+         .btn {
+         text-decoration:none;
+         color: #FFF;
+         background-color: #666;
+         padding:10px 16px;
+         font-weight:bold;
+         margin-right:10px;
+         text-align:center;
+         cursor:pointer;
+         display: inline-block;
+         }
+         p.callout {
+         padding:15px;
+         background-color:#ECF8FF;
+         margin-bottom: 15px;
+         }
+         .callout a {
+         font-weight:bold;
+         color: #2BA6CB;
+         }
+         table.social {
+         /* 	padding:15px; */
+         background-color: #ebebeb;
+         }
+         .social .soc-btn {
+         padding: 3px 7px;
+         font-size:12px;
+         margin-bottom:10px;
+         text-decoration:none;
+         color: #FFF;font-weight:bold;
+         display:block;
+         text-align:center;
+         }
+         a.fb { background-color: #3B5998!important; }
+         a.tw { background-color: #1daced!important; }
+         a.gp { background-color: #DB4A39!important; }
+         a.ms { background-color: #000!important; }
+         .sidebar .soc-btn {
+         display:block;
+         width:100%;
+         }
+         /* -------------------------------------
+         HEADER
+         ------------------------------------- */
+         table.head-wrap { width: 100%;}
+         .header.container table td.logo { padding: 15px; }
+         .header.container table td.label { padding: 15px; padding-left:0px=
+;}
+         /* -------------------------------------
+         BODY
+         ------------------------------------- */
+         table.body-wrap { width: 100%;}
+         /* -------------------------------------
+         FOOTER
+         ------------------------------------- */
+         table.footer-wrap { width: 100%;	clear:both!important;
+         }
+         .footer-wrap .container td.content  p { border-top: 1px solid rgb(=
+215,215,215); padding-top:15px;}
+         .footer-wrap .container td.content p {
+         font-size:10px;
+         font-weight: bold;
+         }
+         /* -------------------------------------
+         TYPOGRAPHY
+         ------------------------------------- */
+         h1,h2,h3,h4,h5,h6 {
+         font-family: 'Open Sans', Arial, sans-serif;
+         }
+         h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-=
+size: 60%; color: #6f6f6f; line-height: 0; text-transform: none; }
+         h1 { font-weight:200; font-size: 44px;}
+         h2 { font-weight:200; font-size: 37px;}
+         h3 { font-weight:500; font-size: 27px;}
+         h4 { font-weight:500; font-size: 23px;}
+         h5 { font-weight:900; font-size: 17px;}
+         h6 { font-weight:900; font-size: 14px; text-transform: uppercase; =
+color:#444;}
+         .collapse { margin:0!important;}
+         p, ul {
+         margin-bottom: 12px;
+         font-weight: normal;
+         font-size:13px;
+         line-height:1.7;
+         }
+         p.lead { font-size:17px; }
+         p.last { margin-bottom:0px;}
+         ul li {
+         margin-left:15px;
+         list-style-position: outside;
+         }
+         /* -------------------------------------
+         SIDEBAR
+         ------------------------------------- */
+         ul.sidebar {
+         background:#ebebeb;
+         display:block;
+         list-style-type: none;
+         }
+         ul.sidebar li { display: block; margin:0;}
+         ul.sidebar li a {
+         text-decoration:none;
+         color: #666;
+         padding:10px 16px;
+         /* 	font-weight:bold; */
+         margin-right:10px;
+         /* 	text-align:center; */
+         cursor:pointer;
+         border-bottom: 1px solid #777777;
+         border-top: 1px solid #FFFFFF;
+         display:block;
+         margin:0;
+         }
+         ul.sidebar li a.last { border-bottom-width:0px;}
+         ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sideba=
+r li a h4,ul.sidebar li a h5,ul.sidebar li a h6,ul.sidebar li a p { margin-=
+bottom:0!important;}
+         /* ---------------------------------------------------
+         RESPONSIVENESS
+         Nuke it from orbit. It's the only way to be sure.
+         ------------------------------------------------------ */
+         /* Set a max-width, and make it display as block so it will automa=
+tically stretch to that width, but will also shrink down on a phone or some=
+thing */
+         .container {
+         display:block!important;
+         max-width:600px!important;
+         margin:0 auto!important; /* makes it centered */
+         clear:both!important;
+         }
+         /* This should also be a block element, so that it will fill 100% =
+of the .container */
+         .content {
+         max-width:550px;
+         margin:0 auto;
+         display:block;
+         }
+         /* Let's make sure tables in the content area are 100% wide */
+         .content table { width: 100%; }
+         /* Odds and ends */
+         .column {
+         width: 300px;
+         float:left;
+         }
+         .column tr td { padding: 15px; }
+         .column-wrap {
+         padding:0!important;
+         margin:0 auto;
+         max-width:600px!important;
+         }
+         .column table { width:100%;}
+         .social .column {
+         width: 280px;
+         min-width: 279px;
+         float:left;
+         }
+         /* Be sure to place a .clear element after each set of columns, ju=
+st to be safe */
+         .clear { display: block; clear: both; }
+         /* -------------------------------------------
+         PHONE
+         For clients that support media queries.
+         Nothing fancy.
+         -------------------------------------------- */
+         @media only screen and (max-width: 600px) {
+         a[class=3D"btn"] { display:block!important; margin-bottom:10px!imp=
+ortant; background-image:none!important; margin-right:0!important;}
+         div[class=3D"column"] { width: auto!important; float:none!importan=
+t;}
+         table.social div[class=3D"column"] {
+         width:auto!important;
+         }
+         }
+         .code{
+            height: auto;
+            width: auto;
+            border: 1px solid #DDDDDD;
+            background-color: #F8FAFC;
+            padding: 18px;
+            border-radius: 4px;
+            margin-top: 5px;
+         }
+         .intend1{
+            padding-left: 10px;
+         }
+         .intend2{
+            padding-left: 20px;
+         }
+         .intend3{
+            padding-left: 30px;
+         }
+         .intend4{
+            padding-left: 40px;
+         }
+         .intend5{
+            padding-left: 50px;
+         }
+         .fc-wi-span{
+               width: 62px;
+               padding: 3px;
+               border-radius: 2px;
+               background-color: rgba(69,164,236,0.2);
+               color: #000;
+               font-size: 14px;
+          }      </style>
+   </head>
+   <body style=3D"background:#EFF2F7; margin:0; padding:0px;">
+      <div style=3D"padding:0;">
+         <center>
+            <table width=3D"100%" border=3D"0" align=3D"center" style=3D"ba=
+ckground:#EFF2F7; padding:0">
+               <!-- Header -->
+               <tr>
+                  <td style=3D"padding: 20px 10px 0;">
+                     <table class=3D"content" border=3D"0" align=3D"center"=
+ cellpadding=3D"0" cellspacing=3D"0">
+                        <tr>
+                          <!-- Please upload the logo into s3 and add it he=
+re -->
+                           <img src=3D"https://s3.amazonaws.com/fc-static-a=
+ssets/email/freshchat_logo.png" style=3D"width: 150px; height: 34px; displa=
+y: block; margin: 20px auto 25px">
+                        </tr>
+                        <tr>
+                           <td valign=3D"top" bgcolor=3D"#ffffff" style=3D"=
+padding:40px; font-size:13px; color:#455a64; text-align: left; border-botto=
+m: 3px solid #4ba5e9;" colspan=3D"3">
+                              <div style=3D"padding:0px 1em">
+<div style=3D"text-align:center;border-bottom:1px solid rgba(0,0,0,0.4);mar=
+gin:3.5em 0px">
+<h3> Account Downgraded Successfully</h3>
+<p>Hey Jason ${last_name}, Freshchat Account has been downgraded successful=
+ly . Please find the details below.</p>
+</div>
+<p>Account Name - <b>Grocbay</b></p>
+<p>Account ID - <b>359365306746553</b></p>
+<p>Current plan - <b>Sprout_2020</b></p>
+<p>Current Cycle - <b>Monthly</b></p>
+<p>New Agent count (except App Owner) - <b>99</b></p>
+<div style=3D"margin:3.5em 0px">
+<p> This downgrade is requested by Jason on 25-06-2020  </p>
+<div style=3D"margin:5em 0px;display:block">
+<p> Best,</p>
+<p><b>Team Freshchat</b></p>
+</div>
+</div>                           </td>
+                        </tr>
+                        <tr>
+                           <td style=3D"padding: 0 ">
+                              <table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"text-align:left">
+                                 <tbody>
+                                    <tr>
+                                       <td style=3D"color:#777777; font-siz=
+e:10px;padding:15px 0 10px">&copy; Freshworks Inc</td>
+                                       <td style=3D"color:#777777; font-siz=
+e:10px;padding:15px 0 10px; text-align: right"></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+         </center>
+      </div>
+   </body>
+</html>
+
+--d765ad9292d897d439ea8ff304fb769462183d44f79e44d5df47b1f4f8b0--

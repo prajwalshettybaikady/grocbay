@@ -1,0 +1,135 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker1" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+            $( "#datepicker2" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-body collapse show"> 
+                    {# <h6 id="reportheader">{% if filtertype == 'filterbyitem' %}Item{% elseif filtertype == 'filterbyitem' %}Brand{% endif %} Report Filter</h6> #}
+                    <h6 id="reportheader">Commission Report Filter</h6>
+                    <hr>
+                    <form method="post" action="{{ path('filter_commission')}}">
+                    <div class="row">
+                        <div class="col-md-6">
+                                <label for="">From</label>
+                            <input type="text" name="fromDate" id="datepicker1"  class="form-control" autocomplete="off"  value="{{ from }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">To</label>
+                            <input type="text" name="toDate" id="datepicker2" class="form-control"  autocomplete="off" value="{{ to }}">
+                        </div>
+                    </div>
+
+                     <div class="row m-t-20" id="branchid">
+                        <div class="col-md-12">
+                            <label for="">Branch</label>
+                            <select name="branch" id="branch" class="form-control">
+                                <option value="All">All</option>
+                                {% for branch in branches %}
+                                <option value="{{ branch.id }}" {% if branchid == branch.id %} selected {% endif %}>{{ branch.restaurantName }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row m-t-20">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" type="submit" name="filter">Filter</button>
+                       
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- start -->
+
+    <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-body">
+                        <div class="statbox box box-shadow row pt-4 pb-4 justify-content-center">
+                            <div class="col-md-3">
+                                <div class="card component-card_1">
+                                    <div class="card-body text-center">
+                                        <div class="icon-svg">
+                                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                        </div>
+                                        <h3> {% if numberFormat == 1 %}{{ commission_fees|round(2, 'floor')}}{% elseif numberFormat == 0 %}{{ commission_fees|number_format(2, '.', '') }}{% endif %} </h3>
+                                        <h6 class="report-header">Commission</h6>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end -->
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+        {# $('#grocbay').select2({
+        selectOnClose: true
+        }); #}
+
+         $('#myTable').DataTable();
+{# 
+         $(document).ready(function() { 
+            $('#itemid').show();
+            $('#brandid').hide();
+         }); #}
+
+
+        {# function filterBy(checkbox){
+
+            if(checkbox.value == 'filterbyitem'){
+                $('#itemid').show();
+                $('#brandid').hide();
+
+                $('#reportheader').html('Item Report Filter');
+
+            }else if(checkbox.value == 'filterbybrand'){
+                $('#itemid').hide();
+                $('#brandid').show();
+
+                $('#reportheader').html('Brand Report Filter');
+            }
+
+
+        } #}
+
+</script>
+
+{% endblock %}

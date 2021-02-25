@@ -1,0 +1,113 @@
+admin_login:
+    path:     /
+    defaults: { _controller: "AppBundle:User:login" }
+
+admin_login_check:
+    path:     /login-check
+
+admin_logout:
+    path:     /logout
+
+admin_view:
+    path:     /admin/view-admin/{id}
+    defaults: { _controller: "AppBundle:User:viewAdmin" }
+    methods:  [GET, POST]
+    
+admin_list:
+    path:     /admin/all-admins
+    defaults: { _controller: "AppBundle:User:listAdmin" }
+    methods:  [GET, POST]
+
+admin_create:
+    path:     /admin/new-admin
+    defaults: { _controller: "AppBundle:User:createAdmin" }
+    methods:  [GET, POST]
+
+admin_edit:
+    path:     /admin/edit-admin/{id}
+    defaults: { _controller: "AppBundle:User:editAdmin" }
+    methods:  [GET, POST]
+
+delivery_boy_create:
+    path:     /delivery-boy/new-delivery-boy
+    defaults: { _controller: "AppBundle:User:createDeliveryBoy" }
+    methods:  [GET, POST]
+
+delivery_boy_edit:
+    path:     /delivery-boy/edit-delivery-boy/{id}
+    defaults: { _controller: "AppBundle:User:editDeliveryBoy" }
+    methods:  [GET, POST]
+
+delivery_boy_list:
+    path:     /delivery-boy
+    defaults: { _controller: "AppBundle:User:listDeliveryBoy" }
+    methods:  [GET, POST]
+
+admin_activate:
+    path:     /admins/activate-admin/{id}
+    defaults: { _controller: "AppBundle:User:activateAdmin" }
+    methods:  [GET, POST]
+branch_activate:
+    path:     /branch/activate/{id}
+    defaults: { _controller: "AppBundle:User:branchActivate" }
+    methods:  [GET, POST]
+customer_activate:
+    path:     /customer/activate-customer/{id}
+    defaults: { _controller: "AppBundle:Customer:activateCustomer" }
+    methods:  [GET, POST]
+banner_delete:
+    path:     /banner-delete/{id}
+    defaults: { _controller: "AppBundle:Manager:deleteBanner" }
+    methods:  [GET, POST]
+
+developer_dashboard:
+    path:     /dashboard
+    defaults: { _controller: "AppBundle:Admin:dashboard" }
+
+restaurant_create:
+    path:     /shop/create-shop
+    defaults: { _controller: "AppBundle:Admin:createRestaurant" }
+    methods:  [GET, POST]
+
+restaurant_edit:
+    path:     /edit-branch/{id}
+    defaults: { _controller: "AppBundle:Admin:editRestaurant" }
+    methods:  [GET, POST]
+
+restaurant_list:
+    path:     /branch/all
+    defaults: { _controller: "AppBundle:Admin:allRestaurant" }
+    methods:  [GET, POST]
+view_branch_report:
+    path:     /branch/view/{id}
+    defaults: { _controller: "AppBundle:Admin:branchView" }
+    methods:  [GET, POST]
+branch_report:
+    path:     /branch-report
+    defaults: { _controller: "AppBundle:Admin:allRestaurant" }
+    methods:  [GET, POST]
+restaurant_view:
+    path:     /{id}/profile
+    defaults: { _controller: "AppBundle:Admin:viewRestaurant" }
+    methods:  [GET, POST]
+
+restaurant_admin_create:
+    path:     /{id}/new-admin
+    defaults: { _controller: "AppBundle:User:createRestaurantAdmin" }
+    methods:  [GET, POST]
+
+restaurant_admin_edit:
+    path:     /{id}/edit-admin
+    defaults: { _controller: "AppBundle:User:editRestaurantAdmin" }
+    methods:  [GET, POST]
+
+customer_list:
+    path:     /customer/all
+    defaults: { _controller: "AppBundle:Customer:list" }
+    methods:  [GET, POST]
+
+customer_view:
+    path:     /customer/{id}/view
+    defaults: { _controller: "AppBundle:Customer:view" }
+    methods:  [GET, POST]
+

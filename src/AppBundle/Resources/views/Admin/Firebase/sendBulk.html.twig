@@ -1,0 +1,258 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block body %}
+<style>
+    [type=checkbox]:checked, [type=checkbox]:not(:checked){
+        position: relative;
+        left: auto;
+        opacity: 1;
+    }
+     .fstElement { font-size: 9px; }
+            .fstToggleBtn { min-width: 16.5em; }
+
+            .submitBtn { display: none; }
+
+            .fstMultipleMode { display: block; }
+            .fstMultipleMode .fstControls { width: 100%; }
+
+</style>
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Send Push notification
+                       
+                    </h4>
+                </div>
+                <div class="card-body">
+<center><span  style="color: red;font-size: smaller;font-weight: 400;">
+</span></center>
+<div class="row">
+<div class="col-6">
+</div>
+<div class="col-6">
+ <form method="post" action="{{ path('filter_notification_user') }}" style="float:right">
+  <div class="input-group mb-4">
+<select class="form-control" name="type">
+                          <option value="all" {% if type == 'all' %}selected {% endif %}>All</option>
+                          <option value="prime" {% if type == 'prime' %}selected {% endif %}>Prime User</option>
+                          <option value="active" {% if type == 'active' %}selected {% endif %}>Active User</option>
+                          <option value="new" {% if type == 'new' %}selected {% endif %}>New User</option>
+                            
+                          </select>
+                            <div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Filter</button>
+  </div>
+</div>                 
+</form>
+</div>
+</div>
+<form method="post" action="{{ path('send_notification')}}" enctype="multipart/form-data">
+<div class="row">
+                    <div class="col-md-6">
+                       <div class="form-group">
+                         <label for="reg">Title</label>
+                         <input type="text" class="form-control"   name="title"  placeholder="Offer!" >
+                        </div> 
+                        <div class="form-group">
+                         <label for="reg">Message here *</label>
+                         <textarea class="form-control" rows="10"  name="message" required placeholder="message here"></textarea>
+                        </div> 
+                        <div class="form-group">
+                         <label for="reg">Notification for</label>
+                         <select class="form-control" id="xchange" name="for" >
+                          <option value="0">Send Custom Link</option>
+                            <option value="1">Redirect To Custom Products Page</option>
+                             <option value="2">Redirect To Custom Category Page</option>
+                             <option value="4">Redirect To Custom Brand Page</option>
+                             <option value="3">Redirect To APP</option>
+                           </select>
+                        </div>     
+                        <div class="form-group" id="link">
+                         <label for="reg">Link</label>
+                         <input type="text" class="form-control"   name="link"  placeholder="www.example.com/offer" >
+                        </div>    
+                         <div class="form-group" id="category" style="display:none;">
+                         <label for="reg">Category</label>
+                         <select class="multipleSelect" multiple name="category[]">
+                          {% for cat in category%}
+                          <option value="{{ cat.id }}">{{ cat.categoryName }}</option>
+                          {% endfor %}
+                         </select>
+                        </div> 
+                        <div class="form-group"  id="items" style="display:none;">
+                         <label for="regs">Products</label>
+                       <select class="dd"  name="items[]" multiple>
+                          {% for it in items%}
+                          <option value="{{ it.id }}">{{ it.itemName }}</option>
+                          {% endfor %}
+                         </select>
+                        </div>   
+                           <div class="form-group"  id="brands" style="display:none;">
+                         <label for="regs">Brands</label>
+                       <select class="dd"  name="brands[]" multiple>
+                              {% for br in brands%}
+                          <option value="{{ br.id }}">{{ br.categoryName }}</option>
+                          {% endfor %}
+                         </select>
+                        </div>  
+                        
+                        <!--                 -->
+                      </div>
+                       <div class="col-md-6">
+                     
+                        <div class="form-group">
+                         <label for="reg"></label>
+                         <div class="box" style="max-height:323px;border:2px solid #eee;  overflow-y: scroll;">
+<input id="myInput" type="text" placeholder="Search.." class="form-control">
+
+  <table id="myTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr> 
+                                    <th><div class="form-check">
+   <input class="" type="checkbox" id="gridCheck" name="selectThemAll">
+</div></th>                                    
+                                    <th><div class="form-check">Customer Name</div></th>
+                                     <th><div class="form-check">Location</div></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+{% set count = 0 %}
+{% for cust in customer %} 
+<tr>
+ <td><input type="checkbox" name="all[]" class="tst" value="{{ cust.id }}"></td>
+<td><div class="form-check">
+ {{ cust.username}} </label>
+
+</td>
+<td><div class="form-check">
+ 
+ {{ cust.area}}
+
+</div></td>
+</tr>
+{% set count = count + 1 %}
+
+{% endfor %}
+                          </tbody>
+                          </table>
+                         </div>
+                                                   <b>Total {{ count }} Customers</b>
+
+                        </div>  
+                         <div class="form-group">
+                          <h3 id="helpIcon" data-toggle="modal" data-target="#help">&nbsp;&nbsp;&nbsp;<span style="font-size:15px;float:right;cursor:pointer"><b>Help ?</b></span></h3>
+                          <label for="reg">Notification Image</label>
+                          <input type="file" class="form-control dropify"  name="image" accept=".jpeg,.png">
+                        </div>                        
+                      </div>
+              
+  <div class="clearfix"></div>
+<button type="submit" class="btn btn-primary pull-left">Send</button>
+ </div>       
+</form>
+<div class="modal" tabindex="-1" role="dialog" id="help">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">What is the best image size for my push notification?
+</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <b>Here are the recommended format and sizes for images in push notifications:</b>
+
+<li>File format: Batch requires a PNG or JPEG file.</li>
+<li>Size: Minimum width and height of 300px. Avoid using images wider than 2000 </li>
+  <li>pixels. Also make sure that your image is not bigger than 1MB. </li>
+<li>Aspect ratio: Use images in landscape format respecting a 2:1 ratio (e.g. 1000x500px).</li>
+<li>Composition: Important information or the product you want to show should be in the middle of the image or as far as possible from the borders of the image.</li>
+</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<script type="text/javascript">
+
+jQuery("[name=selectThemAll]").click(function(source) { 
+        checkboxes = jQuery('.tst');
+        for(var i in checkboxes){
+            checkboxes[i].checked = source.target.checked;
+        }
+    });
+    </script>
+<script>
+    
+        $(document).ready(function() {
+$('.multipleSelect').fastselect();
+$('.dd').fastselect();
+
+});
+$('#xchange').click(function(){
+var x=$('#xchange').val();
+if(x==0)
+{
+$('#link').show();
+$('#items').hide();
+$('#category').hide();
+$('#brands').hide();
+
+}
+if(x==1)
+{
+$('#link').hide();
+$('#items').show();
+$('#category').hide();
+$('#brands').hide();
+
+}
+if(x==2)
+{
+$('#link').hide();
+$('#items').hide();
+$('#category').show();
+$('#brands').hide();
+
+}
+if(x==3)
+{
+$('#link').hide();
+$('#items').hide();
+$('#category').hide();
+$('#brands').hide();
+
+}
+if(x==4)
+{
+$('#link').hide();
+$('#items').hide();
+$('#category').hide();
+$('#brands').show();
+
+}
+});
+        </script>
+
+{% endblock %}

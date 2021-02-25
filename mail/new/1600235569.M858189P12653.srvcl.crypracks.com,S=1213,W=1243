@@ -1,0 +1,30 @@
+Return-Path: <freshcom@srvcl.crypracks.com>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id wD16MjGoYV9tMQAAYUfyRA
+	(envelope-from <freshcom@srvcl.crypracks.com>)
+	for <grocbayc@srvcl.crypracks.com>; Wed, 16 Sep 2020 01:52:49 -0400
+Return-path: <freshcom@srvcl.crypracks.com>
+Envelope-to: test@grocbay.com
+Delivery-date: Wed, 16 Sep 2020 01:52:49 -0400
+Received: from freshcom by srvcl.crypracks.com with local (Exim 4.93)
+	(envelope-from <freshcom@srvcl.crypracks.com>)
+	id 1kIQN7-0003IC-N9
+	for test@grocbay.com; Wed, 16 Sep 2020 01:52:49 -0400
+To: test@grocbay.com
+Subject: Thank you for registering with The Fresh Company
+X-PHP-Script: admin.freshcompany.in/web/app.php for 223.186.65.63
+X-PHP-Originating-Script: 1588:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: info@freshcompany.in
+Reply-To: info@freshcompany.in
+X-Mailer: PHP/7.2.30
+Message-Id: <E1kIQN7-0003IC-N9@srvcl.crypracks.com>
+Date: Wed, 16 Sep 2020 01:52:49 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><img src="https://freshcompany.in/email.jpg" style="width:100%;"></head><body>

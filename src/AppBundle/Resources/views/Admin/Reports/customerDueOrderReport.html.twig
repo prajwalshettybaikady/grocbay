@@ -1,0 +1,115 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+
+
+    <div class="row container-fluid">
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Customer History Report</h4>
+                </div>
+                <form method="post" action="{{ path('filter_customer_due_order')}}" id="frm">
+                {# <div class="card-body collapse show col-md-4"> #}
+                <div class="card-body collapse show">
+                   
+                        {#<div class="form-group">
+                             <label for="">Select Duration</label>
+                             <select class="form-control form-control-sm" id="date" name="date"> 
+                                    <option value="last7" {% if date == 'last7' %}selected{% endif %}>Last 7 Days</option>
+                                    <option value="last15" {% if date == 'last15' %}selected{% endif %}>Last 15 Days</option>
+                                    <option value="last30" {% if date == 'last30' %}selected{% endif %}>Last 30 Days</option>
+                                    <option value="last3" {% if date == 'last3' %}selected{% endif %}>Last 3 Months</option>
+                            </select> 
+                        </div> #}
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <label for="">From</label>
+                                <input type="text" name="fromDate" id="fromDate"  class="form-control" value="{{ fromDate }}" autocomplete="off">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">To</label>
+                                <input type="text" name="toDate" id="toDate" class="form-control" value="{{ toDate }}"  autocomplete="off">
+                            </div>
+                        </div>
+                    <input type="hidden" name="hdnpost" id="hdntxt" value=""/>
+                    <br>
+                     <div class="row m-t-20">
+                        <div class="col-md-12">
+                            <button type="button"  class="btn btn-primary" onclick="submitForm('filter')">Filter</button>
+                            <button type="button"  class="btn btn-primary" onclick="submitForm('export')">Export</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Customer List</h4>
+                </div>
+                <div class="card-body collapse show">
+                    <table class="table table-hovered" id="myTable">
+                        <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Mobile No</th>
+                            <th>Email</th>
+                            <th>Area</th>
+                        </tr>
+                       </thead>
+                        <tbody>
+                            {% for resp in data %}
+                        <tr>
+                            <td><a href="{{ path('users_view',{'id':resp.id}) }}">{{ resp.username }}</a></td>
+                            <td>{{ resp.mobileNo }}</td>
+                            <td>{{ resp.email }}</td>
+                            <td>{{ resp.area }}</td>
+                        </tr>
+                        {% endfor %}
+                       </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+  $(document).ready(function() {
+         $('#myTable').DataTable( {
+         
+        });
+     });
+
+     $(function() {
+            $( "#fromDate" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+        });
+    $(function() {
+            $( "#toDate" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+        });
+
+        function submitForm(val){
+            $('#hdntxt').val(val);
+            //document.getElementById("#frm").submit();
+            $('#frm').submit();
+        }
+         </script>
+{% endblock %}

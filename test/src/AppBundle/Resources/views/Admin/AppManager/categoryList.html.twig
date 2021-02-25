@@ -1,0 +1,113 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<!--nestable CSS -->
+
+<style>
+</style>
+
+{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            {# {{ path('category_create') }} #}
+            <div class="card-body">
+                   <h4 class="card-title">Manage Main Categories <a href="{{ path('export_category') }}" class="btn btn-primary btn-sm pull-right">Export to CSV</a></h4>
+                   <form method="post" action="{{ path('bulk_action_category')}}">
+
+
+<div class="row order-info mt-3 mb-3 pl-3" >
+<div class="col-lg-2 col-md-2 col-8 mb-3 ">
+<select class="form-control" name="type">
+  <option value="0">Activate</option>
+  <option value="1">Deactivate</option>
+</select>
+</div>
+<div class="col-lg-2 col-md-2 col-8 mb-3 ">
+<input type="submit" class="btn btn-primary" value="Update">
+</div>
+</div>
+
+                <table class="table table-hovered" id="myTable">
+                    <thead>
+                    <tr>
+<th data-orderable="false"><input class="" type="checkbox" id="gridCheck" name="selectThemAll"></th>
+                        <th>id</th>
+                        <th>Category name</th>
+                        <th>Visble</th>
+                       <th>Priority</th>
+                       <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                      <tbody>
+
+                      </tbody>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!--Nestable js -->
+<script src="/assets/plugins/nestable/jquery.nestable.js"></script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+   $(document).ready(function() {
+      $('#myTable').DataTable({   
+         
+      'processing': true,
+      'serverSide': true,
+      'serverMethod': 'post',
+      'ajax': {
+          'url':"{{ path('category_ajax_main_list')}}",
+          'type': "post",
+      },
+      'columns': [
+         {data: 'nested'},
+         { data: 'id' },
+         { data: 'categoryName' },
+         { data: 'featured' },
+         { data: 'priority' },
+         { data: 'status' },
+         { data: 'iconImage' },
+      ],
+   });
+    });
+      $(function() {
+    jQuery("[name=selectThemAll]").click(function(source) { 
+        checkboxes = jQuery('.tst');
+        for(var i in checkboxes){
+            checkboxes[i].checked = source.target.checked;
+        }
+    });
+});
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Nestable
+
+        //updateOutput($('#nestable').data('output', $('#nestable-output')));
+/*
+        $('#nestable-menu').on('click', function(e) {
+            var target = $(e.target),
+                action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });*/
+
+        $('#nestable-menu').nestable();/*
+        $('.dd').nestable('collapseAll');*/
+    });
+    </script>
+
+{% endblock %}

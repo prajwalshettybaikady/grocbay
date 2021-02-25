@@ -1,0 +1,302 @@
+Return-Path: <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id yO/1BthB9F6rQAAAYUfyRA
+	(envelope-from <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>)
+	for <info@grocbay.com>; Thu, 25 Jun 2020 02:19:04 -0400
+Return-path: <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Thu, 25 Jun 2020 02:19:04 -0400
+Received: from o24.email.freshdesk.com ([198.37.146.36]:30566)
+	by srvcl.crypracks.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>)
+	id 1joLDx-0004FO-Ra
+	for info@grocbay.com; Thu, 25 Jun 2020 02:19:04 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshchat.com; 
+	h=mime-version:from:reply-to:to:in-reply-to:references:subject:content-type:content-transfer-encoding; 
+	s=cw1ec; bh=I2MuL88fladSTXHFTvJfQHYyqJ5pMJ32fHRg8Jy1rCk=; b=Jdvz
+	JgwtVG06Niuyd5K7R+EUsFA7GuEzF07hXsiHbRs7OuaACxLKjMxlYNEVdwZLPU3G
+	5xM25nusPqFZFuobB/+0h0GEnpa4ATxaVvFPYOCU0zJfZGHu6xQcShtADQGOGqcs
+	9RjsQVIOYcoWf8GGUtoj5PjBehfpw6ySBPVQ6vI=
+Received: by filter2187p1mdw1.sendgrid.net with SMTP id filter2187p1mdw1-25776-5EF441AB-5
+        2020-06-25 06:18:19.200945778 +0000 UTC m=+654682.575236596
+Received: from freshdesk.com (unknown)
+	by ismtpd0011p1iad2.sendgrid.net (SG) with ESMTP id pBY43qccTOqgyFMZctc9ig
+	for <info@grocbay.com>; Thu, 25 Jun 2020 06:18:19.166 +0000 (UTC)
+MIME-Version: 1.0
+X-QUEUED-AT: 2020-06-25T06:18:19.048+0000
+X-MAIL-CREATED-AT: 2020-06-25T06:18:19.000+0000
+X-Received: from ec2-54-152-41-238.compute-1.amazonaws.com (EHLO freshdesk.com) ([54.152.41.238])
+          by smtpout.freshdesk.com (Freshworks SMTP Server) with ESMTPA ID 686658831.6
+          for <info@grocbay.com>;
+          Thu, 25 Jun 2020 06:18:19 +0000 (UTC)
+Date: Thu, 25 Jun 2020 06:18:19 +0000 (UTC)
+From: Freshchat Support <support@freshchat.com>
+Reply-To: Freshchat Support <support@freshchat.com>
+To: info@grocbay.com
+Message-ID: <5ef441aaee04f_25e2ae6418694241331655.sidekiq-frequent-fd-poduseast1-main-blue-dc97b8469-rc5wl@notification.freshdesk.com>
+In-Reply-To: <dd0591ff-cccd-4b56-93c7-b88a57ff648f.campaign-consumer2@email.freshchat>
+References: <dd0591ff-cccd-4b56-93c7-b88a57ff648f.campaign-consumer2@email.freshchat>
+Subject: We have received your request - Freshchat account downgrade request
+ from Grocbay received
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5ef441aaf31fd_25e2ae641869424133174a";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+sent-on: 2020-06-25 06:18:18 +0000
+Auto-Submitted: auto-generated
+X-Auto-Response-Suppress: DR, RN, OOF, AutoReply
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON4/iPdSKPG9FHsyLnvTNijTXJp8nh4iWmw6js
+ p55711stJ1Zu1GAVZn0vBIK82zbQuPUY+v63MHVuLA9XRpiKbUGBtRmdIXm0NZTqYLvi3tm5UtDY0+
+ 9HIOpVo6sYqVyMxr1Hr3wFsR2a95gHqocqykAMpl0XmFqsN3KFPlzhkOco/wez1flXEyTO7jOA5GgY
+ g=
+X-SG-ID: dXNuuxiaeVPHPf1dZH02eKYVq1iMeSsftZP6JowhJxhb5fv0iCXYc9Md68SAd++DMA4LzGUUq7lj4k
+ EO7f4231btgsZ1RjYXDf/ivyFzdPyRO2AHOtz7A8bsMhllOPhwZu64uXd7gZX8ig5umrWSiBmr0H35
+ U7Nrhw+a6Nlasljed6xqGTVi3+a0iHnYiStOUBBCKtZ8dfYfy9lLQ+pI0Sr2dtFx1QnOqhySrpUKr+
+ lUo0I3kZ5mCX6str7VzR7YPzDRV3BhBfZhsnDzKzdxISvSNGoOQUAziYYzczqbnScueRyql6+KGda3
+ d4WgidqRJH7LX8W4XZsh5sh9/tZ74+EIjovJ3cd2/Wvktsdp7FpuqooV0RN/Zc4O2oQUH0Ao5LVC35
+ Lr7N6f+RHl/wO12w==
+X-Spam-Status: No, score=1.8
+X-Spam-Score: 18
+X-Spam-Bar: +
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hello Jason, Thank you for reaching out to Freshchat Support. 
+    We have logged a ticket in your name  #7274148 - Freshchat account downgrade
+    request from Grocbay received One of our agents will be [...] 
+ Content analysis details:   (1.8 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [198.37.146.36 listed in wl.mailspike.net]
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshchat.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.8 CPANEL_LOTS_OF_EMPTY_LINE RAW: Spam that has large block of
+                             empty lines
+  1.2 KAM_LINEPADDING        Spam that tries to get past blank line filters
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+----==_mimepart_5ef441aaf31fd_25e2ae641869424133174a
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+=20
+=20
+=20
+=20
+=20
+=20
+=20
+=20
+ Hello Jason,  Thank you for reaching out to Freshchat=C2=A0Support.=C2=A0 =
+ We have logged a ticket in your name=C2=A0=20
+ #7274148 - Freshchat account downgrade request from Grocbay received One o=
+f our agents will be in touch with you shortly to help you with your reques=
+t.=C2=A0=20
+ Thank you for your patience.=20
+ You can view the status of the ticket or add comments=C2=A0using the link =
+below.=C2=A0=20
+ https://support.freshchat.com/support/tickets/7274148  Sincerely, Freshcha=
+t=C2=A0Support=20
+ ___________________________________________________________________=20
+ Freshchat account downgrade request from Grocbay received  ${email_subject=
+} Account downgrade Request Hey Freshchat Team, We have received the reques=
+t for Freshchat account downgrade. Please find the details below. Account N=
+ame - Grocbay Account ID - 359365306746553 Current Subscription Plan - Esta=
+te_2020 Requested Subscription Plan - Sprout_2020 New Agent count (except A=
+pp Owner) - 0 This downgrade is requested by Jason on 25-06-2020 One of our=
+ representatives, will reach out to you shortly. Would you like to change y=
+our mind ? Revert to current plan Best, Team Freshchat =C2=A9 Freshworks Inc
+ ___________________________________________________________________=20
+=20=20=20
+=20
+=20
+=20=20=20
+=20=20=20
+=20=20=20
+=20=20=20
+=20=20=20
+=20
+=20
+=20
+=20
+=20
+=20
+=20
+=20
+
+
+
+
+----==_mimepart_5ef441aaf31fd_25e2ae641869424133174a
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Robo=
+to, Helvetica Neue, Arial, sans-serif; font-size:14px;">
+=09
+<div dir=3D"ltr">
+<div dir=3D"ltr">
+<div dir=3D"ltr">
+<div>
+<div>
+<div>
+<div>
+<div dir=3D"ltr">
+<p>Hello Jason,<br><br>Thank you for reaching out to Freshchat=C2=A0Support=
+.=C2=A0<br><br><span>We have logged a ticket in your name=C2=A0</span></p>
+<p>#7274148 - Freshchat account downgrade request from Grocbay received<br>=
+<font color=3D"#222222">One of our agents will be in touch with you shortly=
+ to help you with your request.=C2=A0</font></p>
+<p><span style=3D'font-family: "Helvetica Neue", Helvetica, Arial, sans-ser=
+if, "Helvetica Neue", Helvetica, Arial, sans-serif;'>Thank you for your pat=
+ience.</span></p>
+<p><span>You can view the status of the ticket or add comments=C2=A0using t=
+he link below.=C2=A0</span></p>
+<p><a href=3D"https://support.freshchat.com/support/tickets/7274148">https:=
+//support.freshchat.com/support/tickets/7274148</a><br><br><span>Sincerely,=
+<br></span><span>Freshchat</span><b>=C2=A0</b><span>Support</span></p>
+<p><span>__________________________________________________________________=
+_</span></p>
+<p><span rel=3D"tempredactor"><b>Freshchat account downgrade request from G=
+rocbay received<br></b></span><b><br></b><div style=3D"padding:0">
+=20=20=20=20=20=20=20=20=20
+            <table width=3D"100%" border=3D"0" align=3D"center" style=3D"ba=
+ckground:#EFF2F7; padding:0">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+               <tbody>
+<tr>
+                  <td style=3D"padding: 20px 10px 0">
+                     <img src=3D"https://s3.amazonaws.com/fc-static-assets/=
+email/freshchat_logo.png" style=3D"width: 150px; height: 34px; display: blo=
+ck; margin: 20px auto 25px"><table class=3D"content" border=3D"0" align=3D"=
+center" cellpadding=3D"0" cellspacing=3D"0">
+                        <tbody>
+<tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20
+                        </tr>
+                        <tr>
+                           <td bgcolor=3D"#ffffff" style=3D"padding:40px; f=
+ont-size:13px; color:#455a64; text-align: left; border-bottom: 3px solid #4=
+ba5e9" colspan=3D"3">
+                              <div style=3D"padding:0px 1em">
+<div style=3D"text-align:center;border-bottom:1px solid rgba(0,0,0,0.4);mar=
+gin:3.5em 0px">
+<h3> Account downgrade Request</h3>
+<div>Hey Freshchat Team, We have received the request for Freshchat account=
+ downgrade. Please find the details below.</div>
+</div>
+<div>Account Name - <b>Grocbay</b>
+</div>
+<div>Account ID - <b>359365306746553</b>
+</div>
+<div>Current Subscription Plan - <b>Estate_2020</b>
+</div>
+<div>Requested Subscription Plan - <b>Sprout_2020</b>
+</div>
+<div>New Agent count (except App Owner) - <b>0</b>
+</div>
+<div style=3D"margin:3.5em 0px">
+<div> This downgrade is requested by Jason on 25-06-2020  </div>
+<div> One of our representatives, will reach out to you shortly.  </div>
+</div>
+<div style=3D"margin:3.5em 0px;text-align:center;display:block">
+<div> Would you like to change your mind ?</div>
+<a href=3D"appinsighttechnologies.freshchat.com/a/359365306746553/settings/=
+billing" style=3D"display:inline-block;padding:0.8em 3em;border-radius:2em;=
+text-decoration:none;font-weight:600;color:#FFFFFF;background-color:#1D68C6=
+" rel=3D"noreferrer">Revert to current plan</a>
+</div>
+<div style=3D"margin:5em 0px;display:block">
+<div> Best,</div>
+<div><b>Team Freshchat</b></div>
+</div>
+</div>                           </td>
+                        </tr>
+                        <tr>
+                           <td style=3D"padding: 0 ">
+                              <table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"text-align:left">
+                                 <tbody>
+                                    <tr>
+                                       <td style=3D"color:#777777; font-siz=
+e:10px;padding:15px 0 10px">=C2=A9 Freshworks Inc</td>
+                                       <td style=3D"color:#777777; font-siz=
+e:10px;padding:15px 0 10px; text-align: right"></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+</table>
+                  </td>
+               </tr>
+            </tbody>
+</table>
+=20=20=20=20=20=20=20=20=20
+      </div>
+=20=20=20
+
+<br><span>_________________________________________________________________=
+__</span></p>
+<p><span rel=3D"tempredactor"><br></span></p>
+</div>
+<div>
+<p style=3D"color: rgb(34, 34, 34);"><br></p>
+<p style=3D"color: rgb(34, 34, 34);"><br></p>
+<p><br></p>
+<p><font color=3D"#222222" face=3D"arial" size=3D"2"><br></font></p>
+<p><font color=3D"#222222" face=3D"arial" size=3D"2"><br></font></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+=09
+	<br/>
+
+
+
+<span title=3D"fd_tkt_identifier" style=3D'font-size:0px; font-family:"fdtk=
+tid"; min-height:0px; height:0px; opacity:0; max-height:0px; line-height:0p=
+x; color:#ffffff'>7274148:2</span>
+
+</div>=
+
+----==_mimepart_5ef441aaf31fd_25e2ae641869424133174a--

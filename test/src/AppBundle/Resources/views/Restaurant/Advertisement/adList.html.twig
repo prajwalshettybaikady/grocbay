@@ -1,0 +1,52 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Add title</th>
+                                    <th>Add type</th>
+                                    <th>Start date</th>
+                                    <th>End date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ad in ads %}
+                                <tr>
+                                    <td>{{ ad.title }}</td>
+                                    <td>{{ ad.advertisementType }}</td>
+                                    <td>{{ ad.startDate|date('d M Y') }}</td>
+                                    <td>{{ ad.endDate|date('d M Y') }}</td>
+                                    <td><a href="{{ path('banner_delete',{'id':ad.id}) }}" class="btn btn-danger btn-xs">Delete</a>
+                                            
+
+                                        <a href="{{ path('advertisement_new',{'editId':ad.id})}}" title="Edit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

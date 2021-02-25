@@ -1,0 +1,23 @@
+commission_order_report:
+    path:     /report/commission
+    defaults: { _controller: "AppBundle:Reports:commission" }
+filter_commission:
+    path:     /filter-commission
+    defaults: { _controller: "AppBundle:Reports:filterCommission" }
+    methods:  [GET, POST]
+view_addon:
+    path:     /view-addon
+    defaults: { _controller: "AppBundle:Addon:viewAddon" }
+    methods:  [GET, POST] 
+add_addon:
+    path:     /add-addon
+    defaults: { _controller: "AppBundle:Addon:createAddon" }
+    methods:  [GET, POST] 
+delete_addon:
+    path:     /delete-addon
+    defaults: { _controller: "AppBundle:Addon:deleteAddon" }
+    methods:  [GET, POST] 
+addon_manager_ajax:
+    path:    /manage-addon-ajax
+    defaults: { _controller: "AppBundle:Addon:viewAddonAjax" }
+    methods: [GET, POST]

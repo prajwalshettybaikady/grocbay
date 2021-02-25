@@ -1,0 +1,176 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+
+{% block styles %}
+
+
+<link href="/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+<link href="/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Manage Delivery Slots | {% for lo in location %}{{ lo.title }}   {% endfor %}
+</h4>
+
+                    </div>
+                    <div class="card-body">
+                    <a href="{{ path('edit_slots',{'id':id}) }}"class="btn btn-primary btn-sm"  style="float:right;">Add/edit Timings</a>
+    <table class="table" id="addvar">
+      <tr>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Order Per Slot</th>
+       
+      </tr>
+    {% for da in data %}
+
+          <tr>
+<td>{{ da.start }}</td>
+<td>{{ da.end }}</td>
+<td>{{ da.orders }}</td>
+
+
+          </tr>
+      {% endfor %}
+    </table>
+
+
+
+<hr>
+        <table class="table" id="myTable">
+       <thead>
+        <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Action</th>        
+        </tr>
+        </thead>
+        <tbody>
+       {% for slots in slot %}  
+       {% for st in status %}   
+       {% if st.start == slots.start and st.end == slots.end  and st.date == slots.date %}
+     
+<tr>
+<td>{{ slots.date }} </td>
+<td>{{ slots.start }} - {{ slots.end }}</td>
+<td><a href="{{ path('unblock_slot',{'id':st.id,'date':slots.date,'area':id}) }}" class="btn btn-success btn-sm">unblock</a></td>
+</tr>
+{% else %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+ {% for slots in slot %}  
+
+<tr>
+<td>{{ slots.date }}</td>
+<td>{{ slots.start }} - {{ slots.end }}</td>
+<td><a href="{{ path('block_slot',{'id':slots.id,'date':slots.date,'area':id}) }}" class="btn btn-danger btn-sm">block</a></td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+           </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row -->
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/assets/plugins/moment/moment.js"></script>
+
+<script src="/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script>
+
+      $(document).ready(function(){
+
+    $('#xss').bootstrapMaterialDatePicker({ format : 'HH:mm', time: true, date: false });
+        var count=0;
+      $('#variationAdd').click(function(){
+// alert('add');
+$('#addvar').append('<tr><th><input type="text" class="form-control" placeholder="9-00 AM" name="start[]" required></th><th><input type="text" class="form-control"  placeholder="11-00 AM" name="end[]"></th><th><input type="number" class="form-control" placeholder="order per slot"  name="slot[]"></th><td><a class="btn btn-danger " style="float:right;"  onclick="removeVariant(this)" data-toggle="collapse" data-parent="#col"  href="#" ><i class="fa fa-trash"></i></a></td></tr>');
+
+count++;
+});
+
+// console.log(items)
+//       });
+
+      });
+
+
+       function removeVariant(obj){
+// $(this).attr("data-usr" , '');
+
+        $(obj).parent().parent().remove();
+
+    }
+    function save(x,itemname,id,parent)
+    {
+var id=fixed(x,itemname,id,parent);
+
+    }
+
+     // PICK THE VALUES FROM EACH TEXTBOX WHEN "SUBMIT" BUTTON IS CLICKED.
+   
+
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+
+    
+        $("input[type='checkbox']").bootstrapSwitch();
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+    
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+    
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+    
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+    
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+    
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+</script>
+
+{% endblock %}

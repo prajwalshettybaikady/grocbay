@@ -1,0 +1,68 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+
+            {% set sum = 0 %}
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>                    </div>
+                    <h4 class="card-title m-b-0">Order Reports
+                        <p class="text-muted pull-right"></p>
+                    </h4>
+                    <table class="table table-hovered" id="myTable">
+                        <thead>
+                            <tr>
+                                <td>Id</td>
+                                <td>Order ID</td>
+                                <td>Order Date</td>
+                                <td>Order amount</td>
+                                <td>Payment Type</td>
+                                <td>Order Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% set count = 1 %}
+                            {% for item in data %}
+                            <tr >
+<td>{{ count }}</td>
+
+                                <td><a href="{{ path('restaurant_orders_panel_update',{'id':item.id}) }}" title="Edit" style="font-weight:600;">{{ item.id }}</a></td>
+                                <td>{{ item.orderDate }}</td>
+                                <td>{{ item.orderAmount }}</td>
+                                <td>{{ item.paymentType }}</td>
+                                <td>{{ item.orderStatus }}</td>
+                        
+                            </tr>
+                               {% set sum = sum + item.orderAmount %}
+                        {% set count = count + 1 %}
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <b>Total : {{ sum|round(2,'floor')}}</b>
+                </div>
+                <div class="card-body collapse show">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

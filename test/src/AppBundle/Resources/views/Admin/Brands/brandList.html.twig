@@ -1,0 +1,174 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<!--nestable CSS -->
+<link href="/assets/plugins/nestable/nestable.css" rel="stylesheet" type="text/css" />
+
+<style>
+</style>
+
+{% endblock %}
+{% block body %}
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="createBrands" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Brands</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       {{ form_start(form) }}
+                    {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                        <div class="form-group">
+                            {{ form_label(form.categoryName, "Brand Name") }}
+                            {{ form_row(form.categoryName,{'attr':{'class':'form-control','placeholder':'Brand name
+                            '}}) }}
+                        </div>
+<div class="form-group">
+     <div class="row">
+                                           {#  <div class="col-md-12">
+                                                <div class="form-group">
+                                                  
+                                                </div>
+                                            </div> #}
+                                           {#  #}
+                                        </div>
+</div>
+                       
+                        <div class="row">
+                                           <div class="col-md-12">
+                                                <label class="d-block">Featured Brand</label>
+                                                <label class="switch s-success mr-2 mt-3"> 
+                                                    <input type="checkbox" {% if category.parentId == 1 %}checked {% endif %} class="form-control form-control-sm" name="parentid"  value="{{ category.parentId }}">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                        {% form_theme form '@AppBundle/Themes/file.html.twig' %}
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                {{ form_label(form.iconFile, "Brand icon") }}
+                                {% set iconImage = "" %}
+                                {% if category.iconImage != null %}
+                                    {% set iconImage = '/uploads/sub-category/icons/'~category.iconImage %}
+                                {% endif %}
+                                {{ form_row(form.iconFile,{'attr':{'data-default-file':iconImage}}) }}
+                            </div>
+                          
+      
+                        </div>
+                        <div class="clearfix"></div>
+                     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+         {{ form_end(form) }}
+                        {{ form_rest(form) }}
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+             <a href="{{ path('export_brands') }}" class="btn btn-primary btn-sm" style="float:right;">Export</a>
+                 <form method="post" action="{{ path('bulk_action_brands')}}">
+                   <div class="row">
+           
+                  
+            <div class="col-2">
+<select class="form-control" name="type">
+    <option  value="1">Add To Featured</option>
+    <option  value="3">Remove From Featured</option>
+
+    <option  value="2">Delete</option>
+</select>
+                    </div>
+                       <div class="col-1">
+<input type="submit" class="btn btn-primary" value="Update">
+                    </div>
+                   </div>
+                <table class="table table-hovered" id="myTable">
+                    <thead>
+                    <tr>
+<th data-orderable="false"><input class="" type="checkbox" id="gridCheck" name="selectThemAll"></th>
+                        <th>Id</th>
+                        <th>Brand name</th>
+                        <th>Featured</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+  $(function() {
+    jQuery("[name=selectThemAll]").click(function(source) { 
+        checkboxes = jQuery('.tst');
+        for(var i in checkboxes){
+            checkboxes[i].checked = source.target.checked;
+        }
+    });
+});
+  $(document).ready(function() {
+      $('#myTable').DataTable({   
+         
+      'processing': true,
+      'serverSide': true,
+      'serverMethod': 'post',
+      'ajax': {
+          'url':"{{ path('ajax_brand_list')}}",
+          'type': "post",
+      },
+      'columns': [
+         { data: 'branch' },
+         { data: 'id' },
+         { data: 'categoryName' },
+         { data: 'featured' },
+         { data: 'view' },
+      ],
+   });
+    });
+</script>
+<!--Nestable js -->
+<script src="/assets/plugins/nestable/jquery.nestable.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Nestable
+
+        //updateOutput($('#nestable').data('output', $('#nestable-output')));
+/*
+        $('#nestable-menu').on('click', function(e) {
+            var target = $(e.target),
+                action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });*/
+
+        $('#nestable-menu').nestable();/*
+        $('.dd').nestable('collapseAll');*/
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                {{ form_start(form,{'attr':{'class':'form-material m-t-20'}}) }}
+                {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                    <div class="form-group">
+                        {{ form_label(form.typeName, "Order type") }}
+                        {{ form_row(form.typeName,{'attr':{'class':'form-control form-control-line','placeholder':'Take away'}}) }}
+                    </div>
+                    <div class="clearfix"></div>
+                    <button type="submit" class="btn btn-primary pull-right">Update Now</button>
+                {{ form_end(form) }}
+                {{ form_rest(form) }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-stripped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Order type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for type in types %}
+                                <tr>
+                                    <td>{{ type.typeName }}</td>
+                                    <td>
+                                        <a href="{{ path('work_order_type_manager',{'editable':type.id}) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ path('work_order_type_manager',{'deletable':type.id}) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,132 @@
+Return-Path: <bounces+e5ba4fbda0bb8800@grocbay.on.crisp.email>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id cDeBNmn9TF9yDwAAYUfyRA
+	(envelope-from <bounces+e5ba4fbda0bb8800@grocbay.on.crisp.email>)
+	for <info@grocbay.com>; Mon, 31 Aug 2020 09:38:49 -0400
+Return-path: <bounces+e5ba4fbda0bb8800@grocbay.on.crisp.email>
+Envelope-to: info@grocbay.com
+Delivery-date: Mon, 31 Aug 2020 09:38:49 -0400
+Received: from mailer-1d.outbound.crisp.email ([93.177.84.54]:46745)
+	by srvcl.crypracks.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.93)
+	(envelope-from <bounces+e5ba4fbda0bb8800@grocbay.on.crisp.email>)
+	id 1kCk1H-0001Rw-7x
+	for info@grocbay.com; Mon, 31 Aug 2020 09:38:49 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=grocbay.on.crisp.email; s=crisp; t=1598881086;
+	bh=TrehA/sudD+8vdkFT5fFbkppaHhGTLcxmLXRdj4ChEk=;
+	h=From:To:Reply-To:Subject:Date:From;
+	b=wO3V9F5dAqCrYa7TJILT1e4d9fyEvoMSKUiGQX/R/tkUml3G5kLYBDJJJtkNQHEtD
+	 MxOw84/KDuMJfdA3OzYoeaXQgmbOJMlQclI6NDbokMMGaHQ/sY0vg0g6pYqhXQK2ys
+	 t7M2c7nIBNEdy0S6QMPuDzM3ucnU8t3kj7+bpDbSsCdM+eIe9xE5cww+cGcb8SDYdL
+	 M9catCr5pSzXl0XL9RZW/MmPxS34r+OItFzU2TtO2E7ukcZlz1/z+GH+B+OKEeoCvo
+	 x634N1NylO+RqEroYpT6yvO+UKsO5FdLyqt/WXLXRUg94r9SxpBW1sa/FtWEL9LIGH
+	 6HpYaXHtR3DYg==
+Content-Type: multipart/alternative;
+ boundary="--_NmP-202c2c77979124b9-Part_1"
+X-Universally-Unique-Identifier: 401fe528-45c4-497b-ad09-b4df4ef31a17
+MIME-Version: 1.0 (Crisp Mailer)
+X-Auto-Response-Suppress: All
+X-Crisp-Shard-Type: transactional
+X-Crisp-Website-ID: 7ada1ff4-e065-4e54-bb26-193defda73e2
+Feedback-ID:
+ session_08e4c3f2-b7f2-44a8-a9c5-ac9e66db36c3:7ada1ff4-e065-4e54-bb26-193defda73e2:message_replies:CrispIM
+From: "hello hello  - GrocBay" <messages@grocbay.on.crisp.email>
+To: info@grocbay.com
+Reply-To: GrocBay <s.473c3ef369e14800.o@grocbay.on.crisp.email>
+Subject: Re: Hi (#ddf)
+Message-ID: <f838505f-aaff-2f6b-8f71-e709e1752a78@grocbay.on.crisp.email>
+Date: Mon, 31 Aug 2020 13:38:06 +0000
+X-Spam-Status: No, score=0.6
+X-Spam-Score: 6
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "srvcl.crypracks.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hi -- [https://grocbay.on.crisp.email/image/avatar/visitor/session_08e4c3f2-b7f2-44a8-a9c5-ac9e66db36c3/92/]
+    hello hello via GrocBay [http://grocbay.com/]. Reply directly to this email,
+    or go to chat [https [...] 
+ Content analysis details:   (0.6 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: crisp.chat]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.7 HTML_IMAGE_ONLY_20     BODY: HTML: images with 1600-2000 bytes of
+                             words
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+X-Spam-Flag: NO
+
+----_NmP-202c2c77979124b9-Part_1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi
+--
+
+[https://grocbay.on.crisp.email/image/avatar/visitor/session_08e4c3f=
+2-b7f2-44a8-a9c5-ac9e66db36c3/92/]
+hello hello via GrocBay [http://grocbay.=
+com/].
+Reply directly to this email, or go to chat
+[https://app.crisp.=
+chat/website/7ada1ff4-e065-4e54-bb26-193defda73e2/inbox/session_08e4c3f2-b7=
+f2-44a8-a9c5-ac9e66db36c3/]
+.Unsubscribe from these emails [https://app.=
+crisp.chat/settings/notifications/].[https://grocbay.on.crisp.=
+email/hooks/email/track/message/?session_id=3Dsession_08e4c3f2-b7f2-44a8-a9=
+c5-ac9e66db36c3&amp;user_id=3Dfac1a92d-ec8f-47a6-8bfb-548c4c9b7e61&amp;webs=
+ite_id=3D7ada1ff4-e065-4e54-bb26-193defda73e2&amp;direction=3Dout&amp;finge=
+rprints=3D%5B159888096351418%5D]
+----_NmP-202c2c77979124b9-Part_1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" =
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html =
+xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en" dir=3D"ltr"><head>
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3DUTF-8"><meta name=3D"viewport" content=3D"width=3Ddevice-width, =
+initial-scale=3D1"><title>Crisp Email</title></head><body =
+style=3D"font-weight: 400;"><div dir=3D"auto" style=3D"font-size: =
+1em;">Hi</div><br><div>--<br><br><div><!--[if !mso]><!-- --><img alt =
+src=3D"https://grocbay.on.crisp.email/image/avatar/visitor/session_08e4c3f2=
+-b7f2-44a8-a9c5-ac9e66db36c3/92/" style=3D"background-size: contain; =
+background-repeat: no-repeat; background-position: center; =
+background-image: url(https://grocbay.on.crisp.email/mail/images/avatar/def=
+ault.png); background-color: #EBEBEB; width: 2em; height: 2em; max-width: =
+30px; max-height: 30px; margin-right: .5em; vertical-align: middle; =
+display: inline-block; border-radius: 2em;"><!--<![endif]--><strong>hello =
+hello </strong><span> </span>via<span> </span><a href=3D"http://grocbay.=
+com/" target=3D"_blank">GrocBay</a>.</div><br><div style=3D"color: #7b7b7b;=
+ margin-top: .75em; font-size: .9em;"><div>Reply directly to this email, or=
+ go<span> </span><a href=3D"https://app.crisp.chat/website/7ada1ff4-e065-4e=
+54-bb26-193defda73e2/inbox/session_08e4c3f2-b7f2-44a8-a9c5-ac9e66db36c3/" =
+target=3D"_blank" style=3D"color: #7b7b7b;"><strong>to chat</strong></a>.=
+</div><div style=3D"margin-top: .25em;"><a href=3D"https://app.crisp.=
+chat/settings/notifications/" target=3D"_blank" style=3D"color: =
+#7b7b7b;">Unsubscribe from these emails</a>.</div></div></div>
+
+<img src=3D"https://grocbay.on.crisp.email/hooks/email/track/message/?=
+session_id=3Dsession_08e4c3f2-b7f2-44a8-a9c5-ac9e66db36c3&amp;user_id=3Dfac=
+1a92d-ec8f-47a6-8bfb-548c4c9b7e61&amp;website_id=3D7ada1ff4-e065-4e54-bb26-=
+193defda73e2&amp;direction=3Dout&amp;fingerprints=3D%5B159888096351418%5D" =
+alt></body></html>
+----_NmP-202c2c77979124b9-Part_1--

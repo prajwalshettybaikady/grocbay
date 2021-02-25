@@ -1,0 +1,477 @@
+api_restaurant_ratings:
+    path:     /restaurant/ratings
+    defaults: { _controller: "AppBundle:RestaurantApi:restaurantRatings" }
+    methods:  [GET, POST]
+
+api_restaurant_ratings_list:
+    path:     /restaurant/ratings-list
+    defaults: { _controller: "AppBundle:RestaurantApi:getRestaurantRatings" }
+    methods:  [GET, POST]
+api_restaurant_details:
+    path:     /restaurant/details
+    defaults: { _controller: "AppBundle:RestaurantApi:getRestaurantDetails" }
+    methods:  [GET, POST]
+api_get_brands_data:
+    path:     /get-brands-data/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getbrandsdata" }
+    methods:  [GET, POST]
+api_get_items:
+    path:     /get-items/{id}
+    defaults: { _controller: "AppBundle:Api:getItems" }
+    methods:  [GET, POST]
+api_get_categories:
+    path:     /get-categories/{id}/{branch}
+    defaults: { _controller: "AppBundle:RestaurantApi:getCategories" }
+    methods:  [GET, POST]
+api_get_notification:
+    path:     /get-notification/{id}/{branch}
+    defaults: { _controller: "AppBundle:RestaurantApi:getNotification" }
+    methods:  [GET, POST]
+api_update_notification:
+    path:     /update-notification/{id}/{status}
+    defaults: { _controller: "AppBundle:RestaurantApi:updateNotification" }
+    methods:  [GET, POST]
+api_get_privacy_policy:
+    path:     /restaurant/privacy-policy
+    defaults: { _controller: "AppBundle:RestaurantApi:getPrivacyPolicy" }
+    methods:  [GET, POST]
+api_get_pickup_location:
+    path:     /pickup-location
+    defaults: { _controller: "AppBundle:RestaurantApi:getPickupLocation" }
+    methods:  [GET, POST]       
+#customer side
+api_customer_pre_register:
+    path:     /customer/pre-register
+    defaults: { _controller: "AppBundle:CustomerApi:preRegister" }
+    methods:  [GET, POST]
+ #customer side
+api_get_resturant:
+    path:     /get-resturant
+    defaults: { _controller: "AppBundle:RestaurantApi:resturant" }
+    methods:  [GET, POST]   
+#customer side
+api_customer_email_check:
+    path:     /customer/email-check
+    defaults: { _controller: "AppBundle:CustomerApi:emailCheck" }
+    methods:  [GET, POST]
+
+api_customer_mobile_check:
+    path:     /customer/mobile-check
+    defaults: { _controller: "AppBundle:CustomerApi:mobileCheck" }
+    methods:  [GET, POST]
+api_get_item_by_barcode:
+    path:     /item-by-barcode
+    defaults: { _controller: "AppBundle:RestaurantApi:getBarcode" } 
+    methods:  [GET, POST]
+api_promocode:
+    path:     /promocode
+    defaults: { _controller: "AppBundle:RestaurantApi:promocodeCheck" }
+    methods:  [GET, POST]
+api_check_promocode:
+    path:     /check-promocode
+    defaults: { _controller: "AppBundle:RestaurantApi:checkPromocode" }
+    methods:  [GET, POST]    
+api_pp_promocode:
+    path:     /pp-promocode
+    defaults: { _controller: "AppBundle:RestaurantApi:promocodes" }
+    methods:  [GET, POST]    
+
+api_single_product:
+    path:     /single-product
+    defaults: { _controller: "AppBundle:Api:singleProduct" }
+    methods:  [GET, POST]
+
+api_customer_login_email:
+    path:     /customer/email-login
+    defaults: { _controller: "AppBundle:CustomerApi:emailLogin" }
+    methods:  [GET, POST]
+    
+api_customer_register:
+    path:     /customer/register
+    defaults: { _controller: "AppBundle:CustomerApi:register" }
+    methods:  [GET, POST]
+
+api_customer_resend_otp:
+    path:     /customer/resend-otp
+    defaults: { _controller: "AppBundle:CustomerApi:resendOtp" }
+    methods:  [GET, POST]
+
+api_customer_resend_otp_30:
+    path:     /customer/resend-otp-30
+    defaults: { _controller: "AppBundle:CustomerApi:resendOtp30" }
+    methods:  [GET, POST]
+
+api_customer_resend_otp_call:
+    path:     /customer/resend-otp-call
+    defaults: { _controller: "AppBundle:CustomerApi:resendOtpCall" }
+    methods:  [GET, POST]
+
+api_customer_basic_details:
+    path:     /customer/get-profile
+    defaults: { _controller: "AppBundle:CustomerApi:getBasicProfile" }
+    methods:  [GET, POST]
+
+#reset password
+api_customer_verify_mobile_number:
+    path:     /customer/reset-password/verify-mobile
+    defaults: { _controller: "AppBundle:CustomerApi:verifyMobile" }
+    methods:  [GET, POST]
+
+#for adding multiple addresses
+api_customer_add_address:
+    path:     /customer/address/add-new
+    defaults: { _controller: "AppBundle:CustomerApi:addAddress" }
+    methods:  [GET, POST]
+
+api_customer_update_address:
+    path:     /customer/address/update
+    defaults: { _controller: "AppBundle:CustomerApi:addAddress" }
+    methods:  [GET, POST]
+
+api_customer_remove_address:
+    path:     /customer/address/remove
+    defaults: { _controller: "AppBundle:CustomerApi:removeAddress" }
+    methods:  [GET, POST]
+
+api_restaurant_product_search:
+    path:     /restaurant/search-products
+    defaults: { _controller: "AppBundle:RestaurantApi:searchProduct" }
+    methods:  [GET, POST]
+
+api_restaurant_product_list:
+    path:     /restaurant/list-all-products
+    defaults: { _controller: "AppBundle:RestaurantApi:listProducts" }
+    methods:  [GET, POST]
+
+
+api_restaurant_categorized_product_search:
+    path:     /restaurant/search-product/category
+    defaults: { _controller: "AppBundle:RestaurantApi:searchCategorizedProduct"}
+    methods:  [GET, POST]
+
+api_make_customer_order:
+    path:     /order/new-order
+    defaults: { _controller: "AppBundle:RestaurantApi:makeOrder"}
+    methods:  [GET, POST]
+api_cancel_order:
+    path:     /cancel-order
+    defaults: { _controller: "AppBundle:RestaurantApi:cancelOrder"}
+    methods:  [GET, POST]
+payment_mode:
+    path:     /payment-mode
+    defaults: { _controller: "AppBundle:RestaurantApi:paymentMode"}
+    methods:  [GET, POST]
+api_promocode_test:
+    path:     /order/new-order/promo-test
+    defaults: { _controller: "AppBundle:RestaurantApi:makeOrder"}
+    methods:  [GET, POST]
+
+api_customer_order_list:
+    path:     /customer/order/list
+    defaults: { _controller: "AppBundle:CustomerApi:getOrderList" }
+    methods:  [GET, POST]
+api_customer_single_order_list:
+    path:     /customer/single-order/list/{id}
+    defaults: { _controller: "AppBundle:CustomerApi:getSingleOrderList" }
+    methods:  [GET, POST]
+
+api_restaurant_all_category:
+    path:     /restaurant/get-categories
+    defaults: { _controller: "AppBundle:RestaurantApi:getAllCategories" }
+    methods:  [GET, POST]
+
+api_restaurant_all_category_id:
+    path:     /restaurant/get-categories-id
+    defaults: { _controller: "AppBundle:RestaurantApi:getAllCategoriesId" }
+    methods:  [GET, POST]
+
+api_restaurant_get_menu_item_by_brand:
+    path:     /restaurant/get-menuitem-by-brand
+    defaults: { _controller: "AppBundle:Api:getMenuItemByBrand" }
+    methods:  [GET, POST]    
+
+api_restaurant_search_product:
+    path:     /restaurant/search-items
+    defaults: { _controller: "AppBundle:Api:searchProductAll" }
+    methods:  [GET, POST]
+
+api_restaurant_get_order_status:
+    path:     /restaurant/get-order-status/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getOrderStatus" }
+    methods:  [GET, POST]
+
+api_restaurant_all_shopping_list:
+    path:     /restaurant/my-shopping-list
+    defaults: { _controller: "AppBundle:RestaurantApi:myShoppingLists" }
+    methods:  [GET, POST]
+
+api_restaurant_getAll_shopping_list:
+    path:     /restaurant/get-all-shopping-list
+    defaults: { _controller: "AppBundle:RestaurantApi:getAllShoppingLists" }
+    methods:  [GET, POST]
+
+
+api_restaurant_delete_item:
+    path:     /restaurant/delete-item-from-list
+    defaults: { _controller: "AppBundle:RestaurantApi:deleteItemToList" }
+    methods:  [GET, POST]
+
+api_restaurant_create_list:
+    path:     /restaurant/create-shopping-list
+    defaults: { _controller: "AppBundle:RestaurantApi:createList" }
+    methods:  [GET, POST]
+
+api_restaurant_add_item_to_list:
+    path:     /restaurant/add-item-to-list
+    defaults: { _controller: "AppBundle:RestaurantApi:addItemToList" }
+    methods:  [GET, POST]
+
+api_restaurant_remove_item_to_list:
+    path:     /restaurant/remove-item-from-list
+    defaults: { _controller: "AppBundle:RestaurantApi:removeItemFromList" }
+    methods:  [GET, POST]
+
+api_restaurant_remove_shopping_list:
+    path:     /restaurant/remove-shopping-list
+    defaults: { _controller: "AppBundle:RestaurantApi:removeShoppingList" }
+    methods:  [GET, POST]
+
+api_restaurant_banner:
+    path:     /restaurant/banner
+    defaults: { _controller: "AppBundle:RestaurantApi:banner" }
+    methods:  [GET, POST]
+api_check_location:
+    path:     /check-location
+    defaults: { _controller: "AppBundle:RestaurantApi:checkLocation" }
+    methods:  [GET, POST]
+
+api_restaurant_getcategory:
+    path:     /restaurant/getcategory
+    defaults: { _controller: "AppBundle:RestaurantApi:getCategory" }
+    methods:  [GET, POST]    
+api_restaurant_getsubcategory:
+    path:     /restaurant/get-sub-category/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getSubCategoryId" }
+    methods:  [GET, POST]    
+
+api_restaurant_get_menu_item:
+    path:     /restaurant/get-menuitem
+    defaults: { _controller: "AppBundle:Api:getMenuItem" }
+    methods:  [GET, POST]    
+
+
+api_restaurant_delivery_boy_login:
+    path:     /restaurant/delivery-boy-login
+    defaults: { _controller: "AppBundle:RestaurantApi:deliveryLogin" }
+    methods:  [GET, POST]    
+
+api_restaurant_delivery_boy_neworder:
+    path:     /restaurant/delivery-boy-neworder
+    defaults: { _controller: "AppBundle:RestaurantApi:deliveryNewOrder" }
+    methods:  [GET, POST] 
+
+api_restaurant_delivery_boy_status:
+    path:     /restaurant/delivery-boy-status
+    defaults: { _controller: "AppBundle:RestaurantApi:deliveryStatus" }
+    methods:  [GET, POST] 
+api_restaurant_delivery_boy_completed:
+    path:     /restaurant/delivery-boy-completed
+    defaults: { _controller: "AppBundle:RestaurantApi:deliveryCompleted" }
+    methods:  [GET, POST]
+api_restaurant_get_featured:
+    path:     /restaurant/get-featured
+    defaults: { _controller: "AppBundle:Api:getFeatured" }
+    methods:  [GET, POST]
+api_restaurant_get_recent_products:
+    path:     /restaurant/get-recent-products/{id}
+    defaults: { _controller: "AppBundle:Api:getRecentProducts" }
+    methods:  [GET, POST]
+api_restaurant_get_discount:
+    path:     /restaurant/get-discount
+    defaults: { _controller: "AppBundle:Api:getDiscount" }
+    methods:  [GET, POST]
+api_restaurant_get_brands:
+    path:     /restaurant/get-brands
+    defaults: { _controller: "AppBundle:RestaurantApi:getBrands" }
+    methods:  [GET, POST]
+api_restaurant_get_ads:
+    path:     /restaurant/get-ads/{id}/{branch}
+    defaults: { _controller: "AppBundle:RestaurantApi:getads" }
+    methods:  [GET, POST]
+api_get_prepaid_balance:
+    path:     /user/get-prepaid-balance
+    defaults: { _controller: "AppBundle:RestaurantApi:getPrepaidBalance" }
+    methods:  [GET, POST]
+
+api_get_logs:
+    path:     /wallet/get-logs
+    defaults: { _controller: "AppBundle:RestaurantApi:getLogs" }
+    methods:  [GET, POST]
+api_update_payment_status:
+    path:     /update-payment-status
+    defaults: { _controller: "AppBundle:RestaurantApi:updatePaymentStatus" }
+    methods:  [GET, POST]
+
+api_get_userdata:
+    path:     /profile/get-userdata
+    defaults: { _controller: "AppBundle:RestaurantApi:getUserdata" }
+    methods:  [GET, POST]
+api_update_profile:
+    path:     /profile/update-profile
+    defaults: { _controller: "AppBundle:RestaurantApi:updateProfile" }
+    methods:  [GET, POST]
+api_get_new_order:
+    path:     /profile/get-new-order
+    defaults: { _controller: "AppBundle:RestaurantApi:getNewOrder" }
+    methods:  [GET, POST]
+api_get_new_return:
+    path:     /return/new-return
+    defaults: { _controller: "AppBundle:RestaurantApi:newReturn" }
+    methods:  [GET, POST]
+api_get_returns:
+    path:     /get-returns
+    defaults: { _controller: "AppBundle:CustomerApi:getReturns" }
+    methods:  [GET, POST]
+api_update_return:
+    path:     /update-return
+    defaults: { _controller: "AppBundle:RestaurantApi:updateReturn" }
+    methods:  [GET, POST]
+api_get_membership:
+    path:     /get-membership
+    defaults: { _controller: "AppBundle:RestaurantApi:getMembership" }
+    methods:  [GET, POST]
+api_add_primary_location:
+    path:     /add-primary-location
+    defaults: { _controller: "AppBundle:CustomerApi:addPrimaryLocation" }
+    methods:  [GET, POST]
+api_get_delivery_slots:
+    path:     /get-delivery-slots
+    defaults: { _controller: "AppBundle:RestaurantApi:getDeliverySlots" }
+    methods:  [GET, POST]
+api_get_membership_detail:
+    path:     /get-membership_detail
+    defaults: { _controller: "AppBundle:RestaurantApi:getmembershipDetail" }
+    methods:  [GET, POST]
+api_get_banner_data:
+    path:     /get-banner-data/{id}
+    defaults: { _controller: "AppBundle:Api:getBannerData" }
+    methods:  [GET, POST]
+get_user_status:
+    path:     /get-user-status/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getuserstatus" }
+    methods:  [GET, POST]
+api_get_delivery_charges:
+    path:     /get-delivery-charges/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getDeliveryCharges" }
+    methods:  [GET, POST]
+api_get_loyalty:
+    path:     /get-loyalty
+    defaults: { _controller: "AppBundle:RestaurantApi:getLoyalty" }
+    methods:  [GET, POST]
+api_check_loyaltys:
+    path:     /check-loyalty
+    defaults: { _controller: "AppBundle:RestaurantApi:loyalty" }
+    methods:  [GET, POST]
+api_cartcheck:
+    path:     /cart-check/{branch}/{item}
+    defaults: { _controller: "AppBundle:RestaurantApi:checkCart" }
+    methods:  [GET, POST]
+api_get_nearby_store:
+    path:     /get-nearby-store
+    defaults: { _controller: "AppBundle:RestaurantApi:getNearByStore" }
+    methods:  [GET, POST]
+api_get_nearby_pickup_store:
+    path:     /get-nearby-pickup-store
+    defaults: { _controller: "AppBundle:RestaurantApi:getNearByPickupStore" }
+    methods:  [GET, POST]
+api_check_loyalty:
+    path:     /check-loyalty/{id}/{branch}
+    defaults: { _controller: "AppBundle:RestaurantApi:checkLoyalty" }
+    methods:  [GET, POST]
+api_get_pickup_slot:
+    path:     /get-pickup-slot/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getPickupSlot" }
+    methods:  [GET, POST]
+get_branch_detail:
+    path:     /get-branch-detail
+    defaults: { _controller: "AppBundle:RestaurantApi:getBranchDetail" }
+    methods:  [GET, POST]
+check_tray:
+    path:     /check-tray
+    defaults: { _controller: "AppBundle:RestaurantApi:checkTray" }
+    methods:  [GET, POST]
+edit_order_picker:
+    path:     /edit-order-picker
+    defaults: { _controller: "AppBundle:RestaurantApi:editOrderPicker" }
+    methods:  [GET, POST]
+picker_login:
+    path:     /picker-login
+    defaults: { _controller: "AppBundle:RestaurantApi:pickerLogin" }
+    methods:  [GET, POST]
+picker_orders:
+    path:     /picker-orders
+    defaults: { _controller: "AppBundle:RestaurantApi:pickerOrders" }
+    methods:  [GET, POST]
+view_order:
+    path:     /view-order/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:viewOrder" }
+    methods:  [GET, POST]
+picker_orders_completed:
+    path:     /picker-completed-orders
+    defaults: { _controller: "AppBundle:RestaurantApi:pickerCompletedOrders" }
+    methods:  [GET, POST]
+picker_orders_count:
+    path:     /picker-order-count
+    defaults: { _controller: "AppBundle:RestaurantApi:pickerOrderCount" }
+    methods:  [GET, POST]
+get_ticket:
+    path:     /get-ticket/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getTicket" }
+    methods:  [GET, POST]
+create_ticket:
+    path:     /create-ticket
+    defaults: { _controller: "AppBundle:RestaurantApi:createTicket" }
+    methods:  [GET, POST]
+update_picker_status:
+    path:     /update-picker-status
+    defaults: { _controller: "AppBundle:RestaurantApi:updatePickerStatus" }
+    methods:  [GET, POST]
+picker_delivery_assign:
+    path:     /picker-delivery-assign
+    defaults: { _controller: "AppBundle:RestaurantApi:pickerDeliveryAssign" }
+    methods:  [GET, POST]
+delivery_boy_list:
+    path:     /delivery-boy-list/{branch}
+    defaults: { _controller: "AppBundle:RestaurantApi:deliveryBoyList" }
+    methods:  [GET, POST]
+api_customer_update_profile:
+    path:     /profile/update-customer-profile
+    defaults: { _controller: "AppBundle:Api:updateCustomerProfile" }
+    methods:  [GET, POST]
+api_customer_set_default_address:
+    path:     /set-default-address
+    defaults: { _controller: "AppBundle:Api:setCustomerDefaultAddress" }
+    methods:  [GET, POST]
+api_customer_get_address:
+    path:     /get-address
+    defaults: { _controller: "AppBundle:Api:getCustomerDefaultAddress" }
+    methods:  [GET, POST]
+api_get_subcategory_shop:
+    path:     /get-subcategory-shop
+    defaults: { _controller: "AppBundle:Api:getShopSubCategories" }
+get_customer_order:
+    path:     /get-customer-order/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:getCustomerOrder" }
+    methods:  [GET, POST]
+get_customer_order_details:
+    path:     /view-customer-order-details/{id}
+    defaults: { _controller: "AppBundle:RestaurantApi:viewOrderDetails" }
+    methods:  [GET, POST]
+set_nested_category:
+    path:     /set-nested-category
+    defaults: { _controller: "AppBundle:Api:setNestedCategory" }
+    methods:  [GET, POST]
+clear_holded_membership:
+    path:     /clear-holded-membership
+    defaults: { _controller: "AppBundle:Api:clearHoldedMembership" }
+    methods:  [GET, POST]

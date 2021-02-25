@@ -1,0 +1,217 @@
+Return-Path: <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id uERRJQ8qzV5qZQAAYUfyRA
+	(envelope-from <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>)
+	for <info@grocbay.com>; Tue, 26 May 2020 10:39:11 -0400
+Return-path: <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Tue, 26 May 2020 10:39:11 -0400
+Received: from o81.email.fmsend.net ([192.254.127.57]:45240)
+	by srvcl.crypracks.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>)
+	id 1jdajV-0006lc-NS
+	for info@grocbay.com; Tue, 26 May 2020 10:39:11 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshworks.com; 
+	h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; 
+	s=fm; bh=3oBVre96rjuYZxnd9iOSQjcsLAc4a9NXftfqlJ6KhtI=; b=uQkOVBs
+	b7MNlOFWpyJYkF0kY4Htx59Dd+C9TJapQei74NPzk1NoWXQEAmYEWRBPkyPaeiN7
+	/bK9kleP6auALKGKYRXt1FWr7xaXr0Ua6B6os6g+j2tDSB9IfZl+xbXSlZ8bIxL/
+	16Tg6BJJ8xruvGciAAUSb9Bjma9/PUq0kAeY=
+Received: by filter0717p1iad2.sendgrid.net with SMTP id filter0717p1iad2-26200-5ECD29E3-6
+        2020-05-26 14:38:27.313112799 +0000 UTC m=+188492.784491730
+Received: from NjE0Mzg4MA (unknown)
+	by ismtpd0046p1mdw1.sendgrid.net (SG) with HTTP id PhA4d0izQ_iDcB6YcgJ1iw
+	Tue, 26 May 2020 14:38:27.330 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=c6d31ec1adeddcde298235be2d21eb5d29deb1db1b0028ab30b1e868eca4
+Date: Tue, 26 May 2020 14:38:27 +0000 (UTC)
+From: "Sri from Freshworks" <freshchat@freshworks.com>
+Mime-Version: 1.0
+Reply-to: "Sri from Freshworks" <freshchat@freshworks.com>
+To: Jason info@grocbay.com <info@grocbay.com>
+Message-ID: <92a34da4-d07f-4cc9-9b02-2af09bb55c55.campaign-consumer2@email.freshmarketer.com>
+Subject: Welcome to Freshchat! Let's get you started. 
+X-IP-POOL: premium
+List-unsubscribe: <https://freshworks.freshmarketer.com/mas/api/v1/subscription-preferences?fm_digest=FACE0C22FBF697675D0F05B1A32179A1305F31107356883520F5A68AEBDCE28E745D5BA3A69CC2F459410CD43A3684215A5A9FD582B795BAC3563A2ACF8B2DE7B3B3B4DEC8B0DBE600006A5EB84CF676DEE2474777BD8DF1BEF08C04E5B0885D>
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON4Fz/TZ0H33bWaUhhKRxJ5+4/s6tRptciVFOT
+ 5w49OYvNhyJLefR0l7cW70Jy5n48qcyXMOHdYHq1Om1ThaJ2kv8tlqB/0dGoTqlHk9K4lOxN1IRn0y
+ wtv2wtQXF0HHvQMBXLkFy3ArxkA77QZSuDkH6HMjjfaLah2IwRfc3ysQGD1pzIwY9i7rerj8coXJHL
+ A=
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7FvLbzGccHilj2U3ZR6aOtueEATHHlt5QI3iCf1xNYxRITmj3x03i/Ajwl
+ ezBbB0wzSRTyZ41RP9NdQ7BfVUrHNBzwP8cAGiWIHk6ywS2EkVnTI10I5cMxgaY8qvT4onmxcvGgx5
+ d9sZnzDbMF0UBcikIq0tDH9H+pvaaSDw61nbEs55PqLivhjgBndpxMd/ty4tke3zvI2Dygvas2vmsE
+ n2bcIByvAnE7XKFlTFPxlsEeZy7NNu2TgB5FilCpupmslF3hLXBQ7RrFaeNv+qknry1wwcShg5gEtw
+ 29N8SRNw090Op2j/YNa8Ox7o9r5j1Q5+1aK7FVYJWRhDUX/lEf9mTv2UMXCjqCI4P7o+wly3uyqr8j
+ w6amCuuxhv2TwpQkkDna8mZbnI38glq9RBg1O0fXLxBQKhRa4Xp3vKL7eb0j1p+Lwq1Xl+q4pfPA44
+ e/OrNSirOrIC2FOIW0tCSF2/OWIflqy7rTdTSh3i+RHnmH/VrNiys1i/JPyuvsCcdfUibJ7OzLBNvd
+ Ju1rdLgT/jk61LzpKmWX4DTOA0WyeRQGfJh3ODx/3juT5U3ct3B37g+/tvJWkvhfigrRfPuPk=
+X-Spam-Status: No, score=0.9
+X-Spam-Score: 9
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hello there, Welcome to Freshchat! We are absolutely thrilled
+    that you’ve chosen to evaluate Freshchat for your messaging needs. You've
+    now begun your 21-day trial. Before you get started, we have o [...] 
+ Content analysis details:   (0.9 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshmarketer.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [192.254.127.57 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 T_KAM_HTML_FONT_INVALID BODY: Test for Invalidly Named or
+                             Formatted Colors in HTML
+  1.1 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+--c6d31ec1adeddcde298235be2d21eb5d29deb1db1b0028ab30b1e868eca4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+Hello there, Welcome to Freshchat! We are absolutely thrilled that you=E2=
+=80=99ve chosen to evaluate Freshchat for your messaging needs. You've now =
+begun your 21-day trial. Before you get started, we have one quick question=
+: What challenges or problems are you trying to solve with Freshchat? Your =
+reply will give us all the context to help you meet your goals. Looking for=
+ward to a great relationship! Cheers, Your friends at Freshchat Login to Fr=
+eshchat Product Tour Videos Message sent by Freshworks Inc. at Block C, 1st=
+ Floor, Global Infocity, #40 MGR Salai, Perungudi, Chennai =E2=80=93 600096=
+,Chennai, Tamil Nadu, India. Unsubscribe from this list | Unsubscribe from =
+all emails Powered by Freshmarketer=
+
+--c6d31ec1adeddcde298235be2d21eb5d29deb1db1b0028ab30b1e868eca4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<html>
+ <head>
+  <title></title>=20
+ </head>
+ <body>
+  <div style=3D"display:none"></div>
+  <div>
+   <p>Hello there,<br> &nbsp;</p>
+   <p>Welcome to Freshchat! We are absolutely thrilled that you=E2=80=99ve =
+chosen to evaluate Freshchat for your messaging needs.&nbsp;<br> &nbsp;<br>=
+ You've now begun your 21-day trial. Before you get started, we have one qu=
+ick question: What challenges or problems are you trying to solve with Fres=
+hchat? Your reply will give us all the context to help you meet your goals.=
+<br> &nbsp;<br> Looking forward to a great relationship!&nbsp;<br> &nbsp;<b=
+r>Cheers,</p>
+   <p>Your friends at Freshchat<br> &nbsp;<br> <a fr-original-style=3D"" hr=
+ef=3D"http://url386.fmemail.net/ls/click?upn=3DMz7MJK-2FtHHikvgFRwjyTcMvraa=
+lfd2PeRkRsuTkNYy3dijCtjrHpRWMv50ZyRXs8tOTL_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZO=
+PI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbZdZgyHJ3lIxM-2Fu17zeVjZTyEw2iHZOHvA5EreU-=
+2BgqmXmQtweG8bVr0kRHfRP82iEBSSdSHxSTZtWc0aaOMYbe2Rh2KNHDTJa6g5-2B5l7sdIDcn6=
+wT-2F0spsAsOB1zxoB0oC6eDUPr8gZD8ou09bZA35oWuQFUw2Ej8KF2FtDbvdItGagK1WfKZ4hF=
+pZfHwxjrkNkJO9xPnd3L6Vp9q7VmDYGMDLBCnB9E0BqwIwF1-2BVNb0nZeNoBruPel7sS6kuOn-=
+2B0SJ2GeWTOh0XUyz6ikyud2N4dU2bsjUtQjc9Vqzg-2Fr5Qo4vWzzotn-2FQnFt572HkY4JJ2q=
+lRH-2BbPwSRLt7H44wRxkcMFK39iisSXI9uUGP4-2BYuEGeR3Z-2FG9i3UUEBWtsA4LWrJlEe9k=
+X9xs-2FS5qPlZWcw6VVNtZWrMuc-2FMk-2BZzai3Dj1pW3HBxvsFoEpDt1taVR6vkg-2FrXw6-2=
+Bu1CFVg39MKdFLxr3DWZ8MAR9jsk6VdyetF-2FTzpXXbI5XtoirkdbU6zNWh0fZKFmyTONxiQ3d=
+Png9-2BK-2FsswYH-2FCQtvykcvnzBVmEDLjlCjkwq-2BL7L3dN-2FRHYiA9bdL-2FwcHUSwp5R=
+dPVQ-2FSLbEGRB4DUvWVCapyGI2Cz7GcjYAn7ucUV3syxUhq17Q0jPPRF2e1TwKkSn-2FPIAHDK=
+YHb6fCwNW3m625kyA9c2zvRuyVUv-2FtJ7c14c2wevzHOFgstPurlz5fS5C7yt71rPuWy8PRU95=
+W-2BErS9tXdCQ9f-2FecbQycb-2Bj5h2day" style=3D"color: inherit;" target=3D"_b=
+lank">Login to Freshchat</a>&nbsp; &nbsp; <a fr-original-style=3D"" href=3D=
+"http://url386.fmemail.net/ls/click?upn=3DMz7MJK-2FtHHikvgFRwjyTcIZQ42i0J89=
+hpvWzetk0QwXS-2FufMxlnuxPw9ukz28lulfjc4wqaKzEFqfTo49Xi9WefTrwaNUCl6nUv0Z-2B=
+ZbdncpdwSk3YnixRo7Bopvbk52tNTj_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtG=
+B0I-2BQLevdOzi2l9BnAwbZdZgyHJ3lIxM-2Fu17zeVjZTyEw2iHZOHvA5EreU-2BgqmXmQtweG=
+8bVr0kRHfRP82iEBSSdSHxSTZtWc0aaOMYbe2Rh2KNHDTJa6g5-2B5l7sdIDcn6wT-2F0spsAsO=
+B1zxoB0oC6eDUPr8gZD8ou09bZA35oWuQFUw2Ej8KF2FtDbvdItGagK1WfKZ4hFpZfHwxjrkNkJ=
+O9xPnd3L6Vp9q7VmDYGMDLBCnB9E0BqwIwF1-2BVNb0nZeNoBruPel7sS6kuOn-2B0SJ2GeWTOh=
+0XUyz6ikyud2N4dU2bsjUtQjc9Vqzg-2Fr5Qo4vWzzotn-2FQnFt572HkY4JJ2qlRH-2BbPwSRL=
+t7H44wRxkcMFK39iisSXI9uUGP4-2BYuEGeR3Z-2FG9i3UUEBWtsA4LWrJlEe9kX9xs-2FS5qPl=
+ZWcw6VVNtZWrMuc-2FMk-2BZzai3Dj1pW3HBxvsFoEpDt1taVR6vkg-2FrXw6-2Bu1CFVg39MKd=
+FLxr3DWZ8MAR9jsk6VdyetF-2FTzpXXbI5XtoirkdbU6zNWh0fZKFmyTONxiQ3dPng9-2BK-2Fs=
+swYH-2FCQtvykcvnzBVmEDLjlCjkwq-2BL7L3dN-2FRHYiA9bdL-2FwcHUSwp5RdPY0-2FiFzYo=
+9aGe33aXS1DqKCFCz6AUZ2gmihwJM3-2FYfGgg4To5QtSZakGkdqQurcmPCZmBp-2FyVI3qF2C3=
+GGnSw4y8ZAOpiRKBxAIAz8q96xit26Zi49Zs-2B86K-2FtBfiDcev9-2BDudpM03d7oyePDVANw=
+e9tqKc2TykIl7yEBx-2F0hqBV" rel=3D"noopener noreferrer" style=3D"color: inhe=
+rit;" target=3D"_blank">Product Tour Videos</a><br> &nbsp;</p>
+  </div>=20
+  <div style=3D"text-align:center;">=20
+   <div>=20
+    <span style=3D"font-size: 12px;">Message sent by Freshworks Inc.  at Bl=
+ock C, 1st Floor, Global Infocity,
+#40 MGR Salai, Perungudi,
+Chennai =E2=80=93 600096,Chennai, Tamil Nadu, India. </span>
+   </div>
+   <span style=3D"font-size: 12px;"> </span>
+   <div>
+    <span style=3D"font-size: 12px;"> <a fr-original-style=3D"text-decorati=
+on: underline; color: #333333;" href=3D"https://freshworks.freshmarketer.co=
+m/mas/api/v1/subscription-preferences?fm_digest=3D936E02C9FC45AD59CBAE40F75=
+405D0321E61B34CD0A9EA8B841B50F8BC8E228F16C0FFE05E242164A0B80B2C2CD392282E31=
+8329BF0D4C866B01559A708BE801B095F2A2ACC18ED7F7F27620C48D7DD6DE275F742EF108B=
+5E482CF776CC2FEA048C8BE10DBC29A4D6061BB2A73444220C49A8EC9FC80AD81B3E1D5F4B8=
+CFA43FDC4B1F416941EEDEEF5A987BF17F7C0695A6F2E385ED16D08137131B34A128F4A5170=
+A810891CC2A2643B8AD2A746BB788FE30E7C2D960D4AEDDF894326B75B840ACD97E3D360C27=
+18B51C8F54587F84" rel=3D"noopener" style=3D"text-decoration: underline; col=
+or: #333333;" target=3D"_blank" clicktracking=3D"off">Unsubscribe from this=
+ list</a> | </span>
+    <a fr-original-style=3D"color:#333333;text-decoration: underline;" href=
+=3D"https://freshworks.freshmarketer.com/mas/api/v1/subscription-preference=
+s?fm_digest=3D936E02C9FC45AD59CBAE40F75405D0321E61B34CD0A9EA8B841B50F8BC8E2=
+28F16C0FFE05E242164A0B80B2C2CD392282E318329BF0D4C866B01559A708BE801B095F2A2=
+ACC18ED7F7F27620C48D7DD6DE275F742EF108B5E482CF776CC2FEA048C8BE10DBC29A4D606=
+1BB2A73444220C49A8EC9FC80AD81B3E1D5F4B8CFA43F96E59F38BBE2FA3AE5521D8FCDD877=
+434B9145B66479C6C07C4F984549C2BCEC6EEF137E5BB2F0D3BE44E0D11A8DC53A" rel=3D"=
+noopener" style=3D"color:#333333;text-decoration: underline;" target=3D"_bl=
+ank" clicktracking=3D"off"><span style=3D"font-size: 12px;">Unsubscribe fro=
+m all emails</span></a>=20
+   </div>=20
+  </div>=20
+  <div style=3D"text-align:center;font-size:13px;margin:10px 0;">=20
+   <a clicktracking=3D"off" href=3D"https://www.freshworks.com/marketing-au=
+tomation/?utm_source=3DFreshworks Inc. &amp;utm_medium=3Demail&amp;utm_camp=
+aign=3Dpoweredbyfm&amp;utm_content=3Dfooterlink" style=3D"text-decoration:n=
+one;color:#adadad;">Powered by Freshmarketer</a>=20
+  </div>=20
+=20
+<img src=3D"http://url386.fmemail.net/wf/open?upn=3DQFWB4BCTtzCIRKos7YrrfN6=
+kkY1TVGiaF4XIkvq4n6x33fI5eS4USrpI2aDUeWN1PbGXu2JDbhXsF-2FpRS6sjpuSA2We-2FNC=
+VNc0ULbNJ-2BU2Sgqt2OEi47Qj1ZdxFnEf8wkib3TpPUAeCYDrcuNTjWfXEN4oDSnoIaxJgwKPx=
+aQ2-2FXWVquhV7dhcXqitDQ4fx4lk0e5v4uoHZpoS-2FKQLudXhgnnwOSt1910LClozTQHVfWe7=
+wP8MIS8-2FjwQt82PdUGaMWnYvNsYOkGMHbH7snDXOTKsqSudZLtTt0S4-2B8Um8fLYrxxCj5Oh=
+TTHXivUddAkRA38hBgj5jna6V6sYytWAng59oRQfA9vuluN4mFauKwTbK2AP2vzLs-2BLqMXuM2=
+jpgua1N6rCPsqiJa1Yr-2FHRQaTJbWQ06UeW9vQFx1LEhP2xmU3KqZOGAg-2B5zb875Mo11V-2F=
+O-2Fdy-2FXr3vz51ftgTf9gUXoD7LNqES5kPtH1rWF5cwhsLJ1PfthvEdBDVSsXvUJUnrp07DiV=
+0j2Y9CH0nMM7gzfJS1lVBDBZWL4oT2pbcaUNxVZCKTBtWd9bWtYv-2FtDWzx83hL7ZdBjyADRS6=
+B3ZarDPL1XwbUluLv6dSDZWbcHSSM-2BVyUVKHUNktYM85IRoQdnv-2FNr5jvHHV9TH3W0uCEgV=
+N3ySd-2BNCd1pD-2B3v3NBpBQy8Pa4oxowh8wjyl3qpcmc3lWJJbwJx9GXX9f1WBEfD9I4KAx4W=
+clHoQqbUV9FnH7UALX85bP6Qp9SYRXZv-2BAtbknJa3h2oOvPA6ozvZnDhVHRF1h9Y3MN1Wh0RM=
+eEEL3Ka8aXQSBqCS5TMgEA" alt=3D"" width=3D"1" height=3D"1" border=3D"0" styl=
+e=3D"height:1px !important;width:1px !important;border-width:0 !important;m=
+argin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important=
+;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !import=
+ant;padding-right:0 !important;padding-left:0 !important;"/>
+</body>
+</html>
+
+--c6d31ec1adeddcde298235be2d21eb5d29deb1db1b0028ab30b1e868eca4--

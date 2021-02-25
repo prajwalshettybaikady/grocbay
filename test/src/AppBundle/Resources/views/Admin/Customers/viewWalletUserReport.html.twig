@@ -1,0 +1,276 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" media="all" href="/assets/css/star/rating.css"/>
+{% endblock %}
+{% block body %}
+
+  <!--second tab-->
+                        <div class="card" id="reccive" role="tabpanel">
+                            <div class="card-body">
+                                   <button class="btn btn-primary"  data-toggle="modal" data-target="#reccive-payment">Reccive Payments</button>
+
+                                <div class="table-responsive m-t-10">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>Date</th>
+                                                    <th>Due Balance</th>
+                                                    <th>Due Duration</th>
+                                                    <th>Paid Balance</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             {% for wallet in due|reverse %}
+                                                <tr>
+                                                <th>{{ wallet.id }}</th>
+                                                <th>  
+                                                  {% for user in users %}
+{% if user.id == wallet.ref %}
+  <a href="{{ path('users_view',{'id':user.id}) }}"> 
+ {{ user.username }}
+  </a>
+{% endif %}
+                                                 
+                                                 {% endfor %}
+                                               </th> 
+                                               <th>{{ wallet.date }}</th>
+                                                <th>
+                                                    {% if wallet.balance <  0 %}
+
+                                                       Payement Reccived
+                                                         {% else %}
+                                                            {{ wallet.balance }}
+                                                    {% endif %}
+                                                   </th>
+                                                <th>{{ wallet.duedate }} Days</th>
+                                                <th>{{ wallet.paid }}</th>
+                                                 <th>
+
+    {% if wallet.status == 0 %}
+         <span style="font-weight:bold;color:red;font-size:14px;">Pending</span> 
+    {% else %}
+         <span  style="font-weight:bold;color:green;font-size:14px;">Paid</span> 
+    {% endif %}
+ </th>
+                                            </tr>
+                                        {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+
+<!-- Modal -->
+<div id="reccive-payment" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       {#  <small class="text-muted" style="color:#e91e63  !important;font-weight:bold;">Current Balance : {% for wallet in balance %}{{ wallet.postpaid }} {% endfor %}</small> #}
+
+        <h4 class="modal-title">Reccive Payments</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <form>
+<div class="form-group">
+<div class="row">
+<label>Select Credit</label>
+<select class="form-control" required="" name="duration" id="rid">
+      {% for wallet in due %}
+        {% if wallet.status == 0 %}
+    <option value="{{ wallet.id }}">{{ wallet.balance }} on {{ wallet.date }}</option>
+
+        {% endif %}
+{% endfor %}
+   </select>
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+<label>Reccived Amount</label>
+<input type="text" class="form-control" placeholder="1000" id="ramount">
+</textarea>
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+<label>Payment Mode</label>
+<select class="form-control" required="" name="duration" id="rmode">
+    <option value="cash">Cash</option>
+    <option value="card">Card</option>
+    <option value="check">Check</option>
+    <option value="online">Online Payment</option>
+   </select>
+</div>
+</div>
+
+
+
+
+
+<div class="form-group">
+<div class="row">
+<button class="btn btn-success" type="submit" id="radd">Reccive Payment</button>
+</div>
+</div>
+
+        </form>
+      </div>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{# end of modal 2 #}
+
+     
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+{% endblock %}
+
+
+ 
+{% block scripts %}
+<script type="text/javascript">
+  //to add prepaid
+        $('#addcredit').click(function(){
+          var credits=parseInt($('#prepaidcredit').val());
+          var mode=$('#prepaidmode').val();
+          var notes=$('#prepaidnotes').val();
+          var userID=$('#userID').val();
+if(credits<1 || isNaN(credits))
+{
+    alert('Please enter valid Credits');
+}
+else
+{
+    var url='{{ path('add_credit_to_wallet') }}';
+ 
+    var data={"userID":userID,"mode":mode,"credits":credits,"note":'Credit From Marketbhaav'};
+
+ajax(url,data,location.reload());
+}
+});
+$('#radd').click(function(){
+var credits=parseInt($('#ramount').val());
+var mode=$('#rmode').val();
+var id=$('#rid').val();
+var userID=$('#userID').val();
+if(credits<1 || isNaN(credits))
+{
+    alert('Please enter valid amount');
+}
+else
+{
+    var url='{{ path('reccive_postpaid_payments') }}';
+ 
+    var data={"userID":userID,"mode":mode,"credits":credits,"id":id};
+
+ajax(url,data,location.reload());
+}
+
+
+      }); 
+//to add postpaid
+ $('#poadd').click(function(){
+          var credits=parseInt($('#pocredits').val());
+          var mode='dummy';
+          var duration='15';
+          var userID=$('#userID').val();
+if(credits==0 || isNaN(credits))
+{
+    alert('Please enter valid Credits');
+}
+else
+{
+    var url='{{ path('add_credit_to_wallet_postpaid') }}';
+ 
+    var data={"userID":userID,"mode":'null',"credits":credits,"note":'Credit From Marketbhaav',"duration":duration};
+// console.log()
+ajax(url,data,location.reload());
+}
+ });
+ //to add postpaid
+ $('#settingsSave').click(function(){
+          var drop=$('#settingsDrop').val();
+          
+          var userID=$('#userID').val();
+
+
+    var url='{{ path('add_duration_postpaid') }}';
+ 
+    var data={"userID":userID,"drop":drop};
+    // alert(data)
+// console.log()
+ajax(url,data,alert('Credit Duration changed to '+drop+' Days'));
+
+ });
+
+// blockP
+ //to add postpaid
+ $('#blockP').click(function(){
+          
+          var userID=$('#userID').val();
+      
+
+
+    var url='{{ path('block_duration_postpaid') }}';
+ 
+    var data={"userID":userID,"status":'1'};
+    // alert(data)
+// console.log()
+ajax(url,data,location.reload());
+
+ });
+ $('#unblockP').click(function(){
+          
+          var userID=$('#userID').val();
+      
+
+
+    var url='{{ path('block_duration_postpaid') }}';
+ 
+    var data={"userID":userID,"status":'0'};
+    // alert(data)
+// console.log()
+ajax(url,data,location.reload());
+
+ });
+function ajax(url,data,output)
+ {
+
+$.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: function (data, dataType) {
+output;
+location.reload();
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+    }
+});
+}
+ </script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+
+
+
+</script>
+{% endblock %}

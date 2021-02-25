@@ -1,0 +1,72 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Message</th>
+                                    <th>Type</th>
+                                    <th>Image</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for product in data %}
+
+                                <tr>
+                                     <td>{{ product.ref }}</td>
+                                     <td>{{ product.message }}</td>
+                                       <td>{% if product.notificationFor == 3 %} Link {% endif %}
+                                       {% if product.notificationFor == 4 %} Items {% endif %}
+                                     {% if product.notificationFor == 5 %} Category {% endif %}
+                                        {% if product.notificationFor == 6 %} Brands {% endif %}
+                                   {% if product.notificationFor == 6 %} Redirect to Homepage {% endif %}</td>
+                                    <td>{% if product.image == '' %}{% else %}<img class="img-responsive" src="/uploads/{{ product.image }}" style="width:100px;height:100px"/>{% endif %}</td>
+                                    <td>{{ product.dateTime }}</td>
+                                      
+                                    <td>
+                                        <a href="{{ path('view_notification',{'id':product.ref})}}" title="view" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                      
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+   
+</script>
+ <script>
+         $(function() {
+            $( "#datepicker-13" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+{% endblock %}

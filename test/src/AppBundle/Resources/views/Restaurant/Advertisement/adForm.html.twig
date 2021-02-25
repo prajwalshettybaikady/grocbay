@@ -1,0 +1,238 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block styles %}
+
+
+<link href="/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                        <div class="form-group">
+                            {{ form_label(form.title, "Banner Title") }}
+                            {{ form_row(form.title,{'attr':{'class':'form-control','placeholder':'eg : featured item'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.advertisementType, "Select a banner type") }}
+                            {{ form_row(form.advertisementType,{'attr':{'class':'form-control'}}) }}
+                        </div>
+                        
+                   
+                        {% form_theme form '@AppBundle/Themes/file.html.twig' %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                {{ form_label(form.bannerFile, "Banner Image(Optional)") }}
+                                {% set bannerImage = "" %}
+                                {% if advertisement.bannerImage != null %}
+                                    {% set bannerImage = '/uploads/banners/banner/'~advertisement.bannerImage %}
+                                {% endif %}
+                                {{ form_row(form.bannerFile,{'attr':{'data-default-file':bannerImage}}) }}
+                            </div>
+                        </div>
+                        
+                        {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ form_label(form.isActive, "Banner Active Status") }}
+                                {{ form_row(form.isActive,{'attr':{'placeholder':'Doe',"data-on-text":"Active","data-off-text":"Inactive"}}) }}
+                            </div>
+                        </div>
+                        
+                          <div class="form-group">
+                            {{ form_label(form.bannerFor, "Banner For") }}
+                            {{ form_row(form.bannerFor,{'attr':{'class':'form-control','placeholder':'eg : http://google.co.in'}}) }}
+                        </div>
+<div class="row menuitem"  {% if advertisement.bannerFor ==  '1'  %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label>Select item</label>
+   <select class="form-control"  id="items" {% if advertisement.bannerFor ==  '1'  %} name="item" {% endif %}>
+  {% for me in menus %}
+  <option value="{{ me.id }}" {% if advertisement.data == me.id %}  selected {% endif %}>{{ me.itemName }}</option>
+  {% endfor %}
+    </select>
+                                    </div> 
+                                </div>
+                            </div>
+                             <div class="row category"  {% if advertisement.bannerFor ==  '2'  %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label>Select Category</label>
+   <select class="form-control" id="cats" {% if advertisement.bannerFor ==  '2'  %} name="item" {% endif %} >
+  {% for cat in category %}
+  <option value="{{ cat.id }}"{% if advertisement.data == cat.id %}  selected {% endif %}>{{ cat.categoryName }}</option>
+  {% endfor %}
+  
+    </select>
+                                    </div>
+                                </div>
+                            </div>
+<div class="row subcategory"  {% if advertisement.bannerFor ==  '3'  %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label>Select Sub Category</label>
+   <select class="form-control" id="cats" {% if advertisement.bannerFor ==  '3'  %} name="item" {% endif %} >
+
+    {% for scat in subcategory %}
+  <option value="{{ scat.id }}" {% if advertisement.data == scat.id %} selected {% endif %}>{{ scat.child }} ({{ scat.main }})</option>
+  {% endfor %}
+    </select>
+                                    </div>
+                                </div>
+                            </div>
+        <div class="row nestedcategory"  {% if advertisement.bannerFor ==  '4'  %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label>Select Nested Category</label>
+   <select class="form-control" id="cats" {% if advertisement.bannerFor ==  '4'  %} name="item" {% endif %} >
+
+    {% for scat in nested %}
+  <option value="{{ scat.id }}" {% if advertisement.data == scat.id %} selected {% endif %}>{{ scat.child }} ({{ scat.main }})</option>
+  {% endfor %}
+    </select>
+                                    </div>
+                                </div>
+                            </div>
+<div class="row brands"  {% if advertisement.bannerFor ==  '5'  %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label>Select Brands</label>
+   <select class="form-control" id="cats" {% if advertisement.bannerFor ==  '5'  %} name="item" {% endif %} >
+
+    {% for scat in brands %}
+  <option value="{{ scat.id }}" {% if advertisement.data == scat.id %} selected {% endif %}>{{ scat.categoryName }}</option>
+  {% endfor %}
+    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="clearfix"></div>
+                        <button type="submit" class="btn btn-primary pull-right">Update Banner</button>
+                    {{ form_end(form) }}
+                    {{ form_rest(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+<script>
+    
+        $("input[type='checkbox']").bootstrapSwitch();
+    
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+    
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+    
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+    
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+    
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+    
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+      $('#appbundle_advertisement_bannerFor').change(function(){
+var id=$('#appbundle_advertisement_bannerFor').val();
+if(id=='1')
+{
+    $('.menuitem').show();
+    $('.category').hide();
+               $('.subcategory').hide();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+    $('#cats').attr('name', 'test');
+    $('#items').attr('name', 'item');
+
+}
+if(id=='2')
+{
+    $('.menuitem').hide();
+    $('.category').show();
+           $('.subcategory').hide();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='3')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').show();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='0')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').hide();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='4')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').hide();
+       $('.nestedcategory').show();
+       $('.brands').hide();
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='5')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').hide();
+       $('.nestedcategory').hide();
+       $('.brands').show();
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+});  
+</script>
+
+{% endblock %}

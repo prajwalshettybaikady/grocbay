@@ -1,0 +1,662 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+
+{% block body %}
+
+<style type="text/css">
+thead.ban td {
+    padding: 5px !important;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.pr
+   {
+    font-size: 10px;
+    text-transform: uppercase;
+   }
+   @media print{
+   .noprint{
+   display:none;
+   }
+
+ 
+      .print-area
+   {
+    display: block !important;
+    background: #fff !important;
+   }
+   }
+      .print-area
+   {
+    display: none;
+   }
+   .edit-order
+   {
+   float: right;
+   font-weight: bolder;
+   text-transform: uppercase;
+   font-size: 11px;
+   }
+   .borderless tr {
+    border: none;
+}
+ @media print
+      {
+         @page {
+           margin-top: 0;
+           margin-bottom: 0;
+         }
+         body  {
+           padding-top: 72px;
+           padding-bottom: 72px ;
+         }
+         *
+         {
+          background: #fff !important;
+         }
+      } 
+
+.x td, .x th {
+    border-color: #f3f1f1;
+    padding: 0px;
+    font-weight: 500;
+    font-size: 11px;
+}
+.xx td, .xx th {
+    border-color: #f3f1f1;
+    padding: 0px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+      .ss
+      {
+        background: #fff0;
+    color: #000 !important;
+    border: none;
+    box-shadow: none;
+    }
+    .select1{
+       padding: 7px 16px;
+    }
+    .card-header{
+        background-color: #fff;
+        border-color: #fff;
+    }
+    .card-header section > div.collapsed {
+        color: #000;
+       }
+
+     select.info {
+
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+ 
+ .form-control.form-control-sm {
+    padding: 6px 16px;
+ }
+      
+select.classic {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #000 50%),
+    linear-gradient(135deg, #000 50%, transparent 50%),
+    linear-gradient(to right, #c7c7c7, #c7c7c7);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+select.classic:focus {
+  background-image:
+    linear-gradient(45deg, #000 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #000 50%),
+    linear-gradient(to right, #c7c7c7, #c7c7c7);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+.right-sidebar-option {
+      background: #f1f2f3;
+}
+
+.card-header section > div:not(.collapsed) {
+    color: #000;
+}
+.right-sidebar-card {
+  margin-bottom:0;
+  border-radius:0;
+}
+
+.select2-container .select2-selection--single{
+  height: 100% !important;
+}
+
+select.form-control.form-control-sm.fa.fa-angle-down {
+    background: #E2A03F;
+    color: #fff !important;
+}
+
+input.submit-btn.submit-btn.btn-block {
+    background: #2F4ACA;
+    border: none;
+    height: 33px;
+    color: #ffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.otype {
+   font-weight:700;
+}
+.importantRule{
+   color:#fff !important;
+}
+</style>
+
+    {% for order in orders %}
+
+<div id="success"></div>
+      <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+      <div class="col-md-12">
+      <div class="card">
+         <div class="p-2">
+                <h4 class=""> <a href="javascript:;" class="text-warning" style="color: #4156b5 !important;">Order#{{ order.ref }}</a> 
+   
+
+   {% if order.status == 0 %}
+<span class="badge badge-danger">  Status :  Pickup Not Assigned  </span>
+   {% endif %}
+   {% if order.status == 1 %}
+ <span class="bage badge-warning">  Status : Pickup Assigned</span>
+   {% endif %}
+   {% if order.status == 2 %}
+<span class="badge badge-info">  Status : Item Accepted </span>
+   {% endif %}
+   {% if order.status == 3 %}
+<span class="badge badge-secondary">  Status : Return Cancelled</span>
+   {% endif %}
+      {% if order.status == 4 %}
+<span class="badge badge-success">  Status : Return Completed</span>
+   {% endif %}                 </h4>
+         </div>
+      </div>
+    </div>
+      <!--col-md-9-->
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="row form-row">
+                <div class="col-md-12 form-group">
+                 <div class="card-header">
+                         <!--a href="#" style="background: #3F51B5;color:#fff;font-size: 12px;padding: 6px;">DELIVERY</a-->
+          </h4>
+        </div>
+                  <div id="user">
+                     <div class="col-md-12 form-group">
+                  <div class="card-body">
+                    <!--address-->
+                    <h5 class="mb-4">Customer Details</h5>
+                    <div class="">
+                        <p>From,<br>
+                                        <small>
+                                            {{ order.userName }}<br>
+                                            {{ order.address }}<br>
+                                            Mobile : {{ order.mobileNo }}<br>
+                                            Email : {{ order.email }}
+                                        </small>
+                                    </p>
+                     </div>
+                    
+                  </div>
+
+                  <!--end-->
+                </div>
+                  
+                     </div>
+                  </div>
+                 
+
+               
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="form-group col-md-12">
+ <div class="card-body">
+                    <!--address-->
+                    <h5 class="mb-4">Payment Details</h5>
+                    <div class="row form-row">
+                    {% for corder in customerorder %}
+                        <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{{ corder.paymentType }}" readonly>
+                        </div>
+                          <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{% if corder.orderType == 'Delivery' %} Home Delivery {% elseif corder.orderType == 'pickup' %} Pickup From Store {% else %} Express Delivery {% endif %} " readonly>
+                        </div>
+                         <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{{  corder.orderDate|date("d-m-Y") }} at {{  corder.orderDate|date("h-i A") }}" readonly>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <input  type="text" name="txt" class="form-control form-control-sm" required="" value="{{ corder.fixDate|date("d-m-Y") }} around {{ corder.fixtime }}" readonly>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <!--p>Payment method : Online<br>
+                           Delivery method : <br>
+                                                                                 
+                                                    Delivery Area : IND + UAE<br>
+
+                           Delivered By : Shahid Ahmad-(8618573179)<br>
+                           Delivery Time : <br>
+                                                     
+                           Order Date :08-09-2020 at 10-55 AM<br>
+                           Slot : 9:00 AM - 12:00 PM - 10-09-2020<br>
+                           Transaction Id :    csescsc<br>
+                           Promocode : <br>
+                           Note : <b>testing</b><br>
+
+                        </p--> 
+             
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-12 mb-4">        
+          <div class="card">
+           <div class="card-body">
+             <h5 class="mb-4">Order Items</h5>
+
+                   <!--div class="col-md-12 text-right">
+                      <a href="#" class="btn btn-primary btn-sm mb-4"  data-toggle="modal" data-target="#uploadCSV">Add Items</a> 
+                    </div-->
+              
+                    <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hovered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Item name</th>
+                                                    <th>price variavtion</th>
+                                                    <th>price</th>
+                                                    <th>quantity</th>
+                                                      <th>Total</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                        {% set total = 0 %}
+                                               {% for item in items %}
+                                         
+                                          
+                                            <tr>
+                                            <td>{{ item.itemName }}</td>
+                                            <td>{{ item.priceVariavtion }}</td>
+                                            <td>{{ item.price }}</td>
+                                            <td>{{ item.qty }}</td>
+                                            <td>{{ item.price * item.qty }}</td>
+                                          
+                                         {% set total = total+item.price * item.qty %}
+                                          </tr>
+{% endfor %} 
+<tr>
+  <th colspan="3">
+    
+  </th>
+  <th>Total</th>
+  <th>{{ total }} <th>
+  </tr>
+                                        
+                                          </tbody>
+                                        </table>
+                                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+           <div class="h-100">
+            <div id="toggleAccordion">
+              
+              <div class="card right-sidebar-card">
+                <div class="card-header" id="headingOne1">
+                  <section class="mb-0 mt-0">
+
+                    <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionOne" aria-expanded="true" aria-controls="defaultAccordionOne">
+                      Order Info <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                  </section>
+                </div>
+                <div id="defaultAccordionOne" class="collapse show" aria-labelledby="headingOne1" data-parent="#toggleAccordion">
+                  <div class="card-body right-sidebar-option">
+
+                   <b>   {% if order.mode == 0 %}
+ Mode : Return<br>
+{% else %}
+ Mode : Exchange<br>
+{% endif %}</b> 
+
+ Reason: {{ order.reason }}<br>
+    Note :  {{ order.note }}<br>
+    Date and Time :  {{ order.date }} | {{ order.deliveryTime }}
+    {% if delivery|length != 0 %}
+                    <div class="">                      
+                      <p style=""><b>Delivery Boy</b></p>
+                      <p>{{ delivery[0].firstName }} {{ delivery[0].lastName }} - {{ delivery[0].mobileNumber }}</p>
+                    </div>
+    {% endif %}
+                    
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card right-sidebar-card">
+                            <div class="card-header" id="headingTwo1">
+                              <section class="mb-0 mt-0">
+                                <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionTwo" aria-expanded="true" aria-controls="defaultAccordionTwo">
+                                  Order Status<div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                </div>
+                              </section>
+                            </div>
+                            <div id="defaultAccordionTwo" class="collapse show" aria-labelledby="headingTwo1" data-parent="#toggleAccordion">
+                              <div class="card-body right-sidebar-option">
+                                   
+              {% if order.status == 0 %}
+                           <div class="col-md-12">
+                            <form method="POST" action="{{ path('update_return')}}">
+                 <input type="hidden" value="{{ order.ref }}" id="ref" name="ref">
+                  <input type="hidden" value="" id="" name="refund">
+                   <div class="form-group">
+                               <label>Status</label>
+                                <select class="form-control form-control-sm" id="deliverys"  name="status">
+                                   <option value="0">Pending</option>
+                                   <option value="1">Out For Pickup</option>
+                                   <option value="2">Accept Order</option> 
+
+                                   <option value="3">Cancel</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="display:none;" id="deliveryx">
+                               <label>Assign Pickup To</label>
+                                <select class="form-control form-control-sm" id="delivery" name="delivery">
+                                  <option value="0">Select delivery Boy</option>
+                                    {% for del in delivery %}
+                                    <option value="{{ del.id }}">{{ del.firstName }} {{ del.lastName }}</option>
+                                      {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group" style="display:none;" id="note">
+                               <label>Note </label>
+                               <textarea class="form-control form-control-sm" rows="3"  name="note"></textarea>
+                            </div>
+                            
+                            <div class="row">   
+                            <div class="col-md-12">
+                             <div class="form-group">
+                                <button type="submit" class="btn btn-primary" >Update</button>
+                            </div></div>                  
+                           
+                        </div>
+                      </form>
+                        </div>
+                        {% endif %} 
+{% if order.status == 1 %}
+                           <div class="col-md-12">
+                            <form method="POST" action="{{ path('update_return')}}">
+                 <input type="hidden" value="{{ order.ref }}" id="ref" name="ref">
+                  <input type="hidden" value="" id="" name="refund">
+                  <div class="form-group">
+                               <label>Status</label>
+                                <select class="form-control form-control-sm" id="status"  name="status">
+                                 <!--   <option value="0">Pending</option>-->
+                                   <option value="2">Item Pickedup</option> 
+                                   <option value="3">Cancel</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="display:none;" id="delivery">
+                               <label>Assign Pickup To</label>
+                                <select class="form-control form-control-sm" id="delivery" name="delivery">
+                                  <option value="0">Select delivery Boy</option>
+                                    {% for del in delivery %}
+                                    <option value="{{ del.id }}">{{ del.firstName }} {{ del.lastName }}</option>
+                                      {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group" style="display:none;" id="note">
+                               <label>Note </label>
+                               <textarea class="form-control form-control-sm" rows="3"  name="note"></textarea>
+                            </div>
+                            
+                            <div class="row">   
+                            <div class="col-md-12">
+                             <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-sm" >Update</button>
+                            </div></div>                  
+                           
+                        </div>
+                      </form>
+                        </div>
+                        {% endif %} 
+{% if order.status == 2 %}
+                           <div class="col-md-12">
+                            <form method="POST" action="{{ path('update_return')}}">
+                 <input type="hidden" value="{{ order.ref }}" id="ref" name="ref">
+                  {% if  order.mode == 0 %}
+                            <div class="form-group">
+                               <label>Refund Mode  </label>
+                                <select class="form-control form-control-sm" name="refund">
+                                   <option value="cash">Cash</option>
+                                   <option value="online">Online Payment</option>
+                                    <option value="wallet">Add  To Wallet</option>
+                                </select>
+                            </div>
+                            {% endif %}
+                            <div class="form-group">
+                               <label>Note </label>
+                               <textarea class="form-control form-control-sm" rows="3"  name="note"></textarea>
+                            </div>
+                   <div class="form-group">
+                               <label>Status</label>
+                                <select class="form-control form-control-sm" id="status"  name="status">
+
+                                   <option value="4">Complete Order</option>
+                                   <option value="3">Cancel</option> 
+
+                                </select>
+                            </div>
+                            <div class="form-group" style="display:none;" id="delivery">
+                               <label>Assign Pickup To</label>
+                                <select class="form-control form-control-sm" id="deliverys" name="delivery">
+                                  <option value="0">Select delivery Boy</option>
+                                    {% for del in delivery %}
+                                    <option value="{{ del.id }}">{{ del.firstName }} {{ del.lastName }}</option>
+                                      {% endfor %}
+                                </select>
+                            </div>
+                            
+                            
+                            <div class="row">   
+                            <div class="col-md-12">
+                             <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-sm" >Update</button>
+                            </div></div>                  
+                           
+                        </div>
+                      </form>
+                        </div>
+                        {% endif %} 
+
+                    
+                    
+              
+           
+                      </div>
+                    </div>
+                  </div>
+
+                        
+                  
+
+                              </div>
+                            </div>
+                          </div>
+                                           </div>
+                
+              </div>
+
+
+
+
+<!-- new invoice end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+//cancel order
+$('#deliverys').change(function(){
+var id=$('#deliverys').val();
+// alert(id);
+if(id=='1')
+{
+  $('#deliveryx').show();
+}
+else
+{
+  $('#deliveryx').hide();
+}
+
+if(id=='3')
+{
+  $('#note').show();
+}
+else
+{
+  $('#note').hide();
+}
+});
+$('#cancelreturn').click(function(){
+var ref=$('#ref').val();
+var note=$('#note').val();
+var cancel="cancel";
+// var ref=$('#ref').val();
+var data={
+    "ref":ref,
+    "method":cancel
+};
+sendMenu(data);
+
+});
+// assign order
+$('#assign').click(function(){
+var ref=$('#ref').val();
+var delivery=$('#delivery').val();
+// var note=$('#note').val();
+var cancel="assign";
+// var ref=$('#ref').val();
+var data={
+    "ref":ref,
+    "delivery":delivery,
+    "method":cancel
+};
+// alert(delivery); 
+sendMenu(data);
+
+});
+// make refund
+$('#make').click(function(){
+var ref=$('#ref').val();
+var refund=$('#refund').val();
+// var note=$('#note').val();
+var cancel="final";
+// var ref=$('#ref').val();
+var data={
+    "ref":ref,
+    "refund":refund,
+    "price":price
+};
+// alert(delivery); 
+sendMenu(data);
+
+});
+
+function sendMenu(data)
+{
+ // console.log(x);
+ // $('.cha').html(data);
+$.ajax({
+    type: "POST",
+    url: "{{ path('restaurant_view_ajax') }}",
+    data: data,
+    success: function (data, dataType) {
+      // $('.cha').html(data);
+      // alert(data);
+      $('#success').html('<div class="alert alert-success"> <i class="ti-check"></i>Return updated successfully!<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+      location.reload();
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+    }
+});
+
+}
+</script>
+{% endfor %}
+{% endblock %}

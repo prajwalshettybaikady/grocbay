@@ -1,0 +1,89 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id fDudFNsIX192SQAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Mon, 14 Sep 2020 02:08:27 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Mon, 14 Sep 2020 02:08:27 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1kHhf8-0004tG-VF
+	for grocbayc@srvcl.crypracks.com; Mon, 14 Sep 2020 02:08:27 -0400
+X-Failed-Recipients: app@appinsight.tech
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1kHhf7-0004t7-Ui@srvcl.crypracks.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1600063706-eximdsn-116898216
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1kHhf8-0004tG-VF@srvcl.crypracks.com>
+Date: Mon, 14 Sep 2020 02:08:26 -0400
+
+--1600063706-eximdsn-116898216
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  app@appinsight.tech
+    host mx.yandex.net [213.180.204.89]
+    SMTP error from remote mail server after RCPT TO:<app@appinsight.tech>:
+    550 5.7.1 No such user!
+
+--1600063706-eximdsn-116898216
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; srvcl.crypracks.com
+
+Action: failed
+Final-Recipient: rfc822;app@appinsight.tech
+Status: 5.0.0
+Remote-MTA: dns; mx.yandex.net
+Diagnostic-Code: smtp; 550 5.7.1 No such user!
+
+--1600063706-eximdsn-116898216
+Content-type: message/rfc822
+
+Return-path: <grocbayc@srvcl.crypracks.com>
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.93)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1kHhf7-0004t7-Ui
+	for app@appinsight.tech; Mon, 14 Sep 2020 02:08:26 -0400
+To: app@appinsight.tech
+Subject: You have new order(#10133)
+X-PHP-Script: admin.grocbay.com/web/app.php for 43.247.159.148
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: mail@appinsight.tech
+Reply-To: mail@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1kHhf7-0004t7-Ui@srvcl.crypracks.com>
+Date: Mon, 14 Sep 2020 02:08:25 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ </head><body>Grocbay<br>
+   ----------------------------------------<br>
+  #order : 10133<br>
+Customer Name : fahina sheikh <br>
+ Address : aaa, aaa, Maruthi Veethika, Udupi<br>
+ Delivery Area   : IND + UAE<br>
+----------------------------------------<br>Order Details:<br>1X  Amul Fresh Cream(1 Litre)<br>----------------------------------------<br>
+Subtotal: ₹ 195<br>
+Delivery Charges: ₹ 50<br>
+Promo Code: -- ₹ <br>
+Grand Total: ₹245<br>
+----------------------------------------<br>
+Payment Type: cod<br>
+Delivery Time: 12:00 PM - 3:00 PM<br></body></html>
+
+--1600063706-eximdsn-116898216--

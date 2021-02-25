@@ -1,0 +1,233 @@
+Return-Path: <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id ADw9CTMkzV7JIwAAYUfyRA
+	(envelope-from <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>)
+	for <info@grocbay.com>; Tue, 26 May 2020 10:14:11 -0400
+Return-path: <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Tue, 26 May 2020 10:14:11 -0400
+Received: from o81.email.fmsend.net ([192.254.127.57]:18343)
+	by srvcl.crypracks.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounces+6143880-6d36-info=grocbay.com@fm.freshworks.com>)
+	id 1jdaLH-0005AF-6O
+	for info@grocbay.com; Tue, 26 May 2020 10:14:11 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshworks.com; 
+	h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; 
+	s=fm; bh=XE0rowUcwU+sX1aobjb/FTFtbbXrxwkgMDJ8KkagXWw=; b=J0z3RaA
+	I5RHN5TxkEQ0U3WvftSEAowIaCzb4hoLm/ARG9AFI+KZXEWHhnp9qv1Oc04y/b6v
+	u1MWMepCni4RQAryHneEwxhx4QageYjrklTchIPktd2gWX6/znSQGccGvmdikAlF
+	69/LdPYTPom+FIyoUTYojUpxQN0hZ6W7DGPg=
+Received: by filter2167p1mdw1.sendgrid.net with SMTP id filter2167p1mdw1-9719-5ECD2403-4E
+        2020-05-26 14:13:23.616286263 +0000 UTC m=+679490.545574852
+Received: from NjE0Mzg4MA (unknown)
+	by ismtpd0109p1mdw1.sendgrid.net (SG) with HTTP id jj09bHkjRHysFNophWg50Q
+	Tue, 26 May 2020 14:13:23.552 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=2afe1a5aae4fa3075950d2f4aa1f2533280d900cd25eff376566ec0721e9
+Date: Tue, 26 May 2020 14:13:23 +0000 (UTC)
+From: "Kavya Hemachander" <kavya.hemachander@freshworks.com>
+Mime-Version: 1.0
+Reply-to: "Kavya Hemachander" <kavya.hemachander@freshworks.com>
+To: Jason info@grocbay.com <info@grocbay.com>
+Message-ID: <7a0f36ed-d794-4d2e-8158-fd21437b418b.campaign-consumer3@email.freshmarketer.com>
+Subject: Webinar alert: Supercharge Your Marketing in 2020
+X-IP-POOL: premium
+List-unsubscribe: <https://freshworks.freshmarketer.com/mas/api/v1/subscription-preferences?fm_digest=FACE0C22FBF697675D0F05B1A32179A15DC323805A2C5F2E251C828F7C4380EB57AC9A94F6DC0F435B18ADC92211C96B5A5A9FD582B795BAC3563A2ACF8B2DE7425D6BCF9617CAD70E783098F716A45594DCA38969EBD30F6F4190622EBE9ABE>
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON4wc30xLcwy2qsxMczVUuQGkMpsfm8O1oq1pf
+ OowaHTw6/fSgyf5EWzd6Jcnbr4LFZXsZHtMTfOdmN9ZwOy1rXYhswam2Bc+aCBaIKuXbi2BIGUJMkW
+ EZlcwzutbNwvZoN+Ni6xEqaUCcHJBovuLAg46pRGrbWqjAJc5PHxvRrjJigeuHPKDKIz7Rv7asfyNX
+ eYlsfJRNbx4B5hFDbsx27E
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7F/tt9zw7KKuoMn50PY3yxvsrf2bJU//gZBP8s+KiK7Z7/nTW7D1qWJzZE
+ GBN/hv6tpZ8Yn8qAO9yFpPq+ZmBgf2NFj0YZDAqhWaO7P33v8aXVfLvqu431ioZr3YUWveWOt1v/jg
+ idGcLFaN73bbdM2ioRQp9fQm+VBNuhD6hluHtzsDGh73JcCEkAaJFKUKChKuxcu9Ec4p4K7xSgb3ZQ
+ ZGnGLbcxHkFRzyXKc+oxYsKzrPCxLCg0oXqqYXbkzhDG9g5njIkiFu32M+lldcLXBZX1FsUbHfvPnH
+ RHIlC7IB6YC5mXutTKwQygA1OU/22dWS9ts5p9N8nHafnHEZWJyfIlmFqUgk/CTYBHdAbcVc73sZaJ
+ 715Zehw9JiLo4iflw1qOPwAdYcCkfC3+d090oX7c5EYVod9DkRuEwAgKCIo2WhhDbwDbZDQkrSM4LD
+ r/tF3EhtJeZHpnAz8fmRVKgBXmkHGVIOpl8pkmJkLBZDv7RQsBEwcPWC65JyapKjL3G6Tf9QPKOWDd
+ NbqEdjLHUqqPrZycujKjEQFgrYcrLy0x9RHPCopnyiOhYql1FaV+Bi0xAET7zbvG8ULmS4gE4=
+X-Spam-Status: No, score=1.0
+X-Spam-Score: 10
+X-Spam-Bar: +
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Join us for a webinar on how to supercharge your marketing
+    efforts in 2020 with Freshworks + Outreach Well, hello! Hope you're hanging
+    in there. With changing times and uncertainties that come with it [...] 
+ Content analysis details:   (1.0 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshworks.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [192.254.127.57 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 HTTPS_HTTP_MISMATCH    BODY: No description available.
+  0.0 T_KAM_HTML_FONT_INVALID BODY: Test for Invalidly Named or
+                             Formatted Colors in HTML
+  1.1 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+--2afe1a5aae4fa3075950d2f4aa1f2533280d900cd25eff376566ec0721e9
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+Join us for a webinar on how to supercharge your marketing efforts in 2020 =
+with Freshworks + Outreach Well, hello! Hope you're hanging in there. With =
+changing times and uncertainties that come with it, it's getting ever so im=
+portant for us to double down our marketing efforts on digital avenues and =
+engagement platforms to keep up with our goals. Keeping this in mind, we've=
+ designed a webinar to help you supercharge your marketing efforts in 2020 =
+to meet your demand gen goals and improve your leads and engagement metric.=
+ Here's what we'll be talking about: - Creative Demand Generation Strategie=
+s examples and case studies. - How to optimize the integrations between you=
+r live chat, bots and interactive tools. - Discussion around the questions =
+submitted by the senior marketers who are attending, and providing examples=
+ for a few industries in the audience. Come, learn with us. Registration li=
+nk - http://url386.fmemail.net/ls/click?upn=3DMz7MJK-2FtHHikvgFRwjyTcHmtnSL=
+GZQyWfxkkDXgUfygicWrUjPaTSctGHLq14d6AS5HWD5tQhH8sDJdcRWELXQ-3D-3DsGEk_RYEeg=
+99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtDFAqL6-2BWMZNS6nVdUQaMzwYeGuPubnz6lGC=
+BxYTHQ45Y50yhflJU3TwWPTZhxxCUGsdWNeuOYfv2DW4P1vprc0RfKqhcVfX-2BrBkQw7-2FWOD=
+LhDqiQ6iHMQnQs-2BVMP-2FaI5reE9rbfT8sPbxpK34Yi5oTDIA5akfp3CHEA7PKsVcwYMG3ltv=
+HuKITJ81cZZaWuYdGvE0zMBGpcgReWwDy7utwhFMJnC2TQ9BdDxot4wZs12aQL0zIe7C3WjhNIo=
+ByB66So43IplyvgWcBw9jd6V98-2F8e-2F3BUq4syRI-2BTN-2FQ69Ld09oEgKAzwBXsItYQ7x-=
+2FpCbLHwUMBdOc-2FHHqZuR7W-2B3vn8r4-2F0Wkhy5IhPktmVwsyz3GR7iVV2PIns3JdwHBRzw=
+4glMneFzIvI8Osv7f1yLHVA4q8muCfXpGkI2fRVPWW6-2FgRdB16c7gmG7I8MQxBNwbafoAuV-2=
+FhumZBaFqapTKPFjQGclRsD8qgz0eh0aGg-2B1jmcuz85RVVBTJJJpMOaaJW6S8qZLyijxhhPsy=
+e-2Fig2WazH1i8vgpKMU3xVXolnreOE3RnggHML7bvCn885nvnUxUcMTV6Gh6Tmw5SVYvipGFLO=
+bZGkwrmxGxXx6UnwthzGBgLlunhQKpOv-2BWkJ-2B2J16t76A8TXfAk-2Bf-2BltOc6gL9wrSOc=
+6-2BCCZJuZADryDUJi0aUgIe3bu5un55DCrcMkOxIh6FYaStKhn29AuFOMggcvyMg2ruFpV5lgF=
+4gqZIIkpHFyUdbazZwRlrc2KAF52ar1M87WMQzlS1B89fU Thanks, Kavya Message sent b=
+y Freshworks Inc at Delaware Street, Suite 201, San Mateo, California, USA.=
+ Don't want to receive emails from us? Manage your email preferences here. =
+Powered by Freshmarketer=
+
+--2afe1a5aae4fa3075950d2f4aa1f2533280d900cd25eff376566ec0721e9
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<html>
+ <head>
+  <title></title>=20
+ </head>
+ <body>
+  <div style=3D"display:none">
+   Join us for a webinar on how to supercharge your marketing efforts in 20=
+20 with Freshworks + Outreach
+  </div>
+  <div>
+   <p>
+    <meta charset=3D"utf-8"></p>
+   <p><span style=3D"color: rgb(0, 0, 0);">Well, hello!</span></p>
+   <p><span style=3D"color: rgb(0, 0, 0);">Hope you're hanging in there. Wi=
+th changing times and uncertainties that come with it, it's getting ever so=
+ important for us to double down our marketing efforts on digital avenues a=
+nd engagement platforms to keep up with our goals. </span></p>
+   <p><span style=3D"color: rgb(0, 0, 0);">Keeping this in mind, we've desi=
+gned a webinar to help you supercharge your marketing efforts in 2020 to me=
+et your demand gen goals and improve your leads and engagement metric.</spa=
+n> </p>
+   <p><img src=3D"https://gallery.freshmarketer.com/f987a607-0b87-352d-9216=
+-f4c9dd1d76b2/files/4bbfe586-3233-40d6-9e58-2c61c21a249f/Social Banner_666.=
+jpeg" style=3D"width: 600px; display: block; vertical-align: top; margin: 5=
+px auto; text-align: center;" data-file_id=3D"23707"></p>
+   <p><strong><span style=3D"color: rgb(0, 0, 0);">Here's what we'll be tal=
+king about:</span></strong><span style=3D"color: rgb(0, 0, 0);"><br>- Creat=
+ive Demand Generation Strategies examples and case studies.&nbsp;<br>- How =
+to optimize the integrations between your live chat, bots and interactive t=
+ools.<br>- Discussion around the questions submitted by the senior marketer=
+s who are attending, and providing examples for a few industries in the aud=
+ience.</span></p>
+   <p><span style=3D"color: rgb(0, 0, 0);">Come, learn with us.&nbsp;</span=
+></p>
+   <p><span style=3D"color: rgb(0, 0, 0);"><strong>Registration link -</str=
+ong><strong>&nbsp;</strong><a fr-original-style=3D"" href=3D"http://url386.=
+fmemail.net/ls/click?upn=3DMz7MJK-2FtHHikvgFRwjyTcHmtnSLGZQyWfxkkDXgUfygicW=
+rUjPaTSctGHLq14d6AS5HWD5tQhH8sDJdcRWELXQ-3D-3DEc4Q_RYEeg99Ap79leT7lYKY4eVge=
+8RBBZ6ZOPI0fZbS1bbtDFAqL6-2BWMZNS6nVdUQaMzwYeGuPubnz6lGCBxYTHQ45Y50yhflJU3T=
+wWPTZhxxCUGsdWNeuOYfv2DW4P1vprc0RfKqhcVfX-2BrBkQw7-2FWODLhDqiQ6iHMQnQs-2BVM=
+P-2FaI5reE9rbfT8sPbxpK34Yi5oTDIA5akfp3CHEA7PKsVcwYMG3ltvHuKITJ81cZZaWuYdGvE=
+0zMBGpcgReWwDy7utwhFMJnC2TQ9BdDxot4wZs12aQL0zIe7C3WjhNIoByB66So43IplyvgWcBw=
+9jd6V98-2F8e-2F3BUq4syRI-2BTN-2FQ69Ld09oEgKAzwBXsItYQ7x-2FpCbLHwUMBdOc-2FHH=
+qZuR7W-2B3vn8r4-2F0Wkhy5IhPktmVwsyz3GR7iVV2PIns3JdwHBRzw4glMneFzIvI8Osv7f1y=
+LHVA4q8muCfXpGkI2fRVPWW6-2FgRdB16c7gmG7I8MQxBNwbafoAuV-2FhumZBaFqapTKPFjQGc=
+lRsD8qgz0eh0aGg-2B1jmcuz85RVVBTJJJpMOaaJW6S8qZLyijxhhPsye-2Fig2WazH1i8vgpKM=
+U3xVXolnreOE3RnggHML7bvCn885nvnUxUcMTV6Gh6Tmw5SVYvipGFLObZGkwrmxGxXx6Unwthz=
+GBgLlunhQKpOv-2BWkJ9jnnFC-2FSPlg0Fs4azgWcvYUiteWsOUSNEtAhrQqGG7IXmF3Kom4PTv=
+FzqRfjoJHL5u61wgARB-2FEAtWsDIA0d14HvxvRS5YhRzTU3NjjuFovRKdrtmOGSnkz1mdLKDvt=
+hO-2Beackn6VN1gCf-2FfYJPdlE" rel=3D"noopener noreferrer" style=3D"color: in=
+herit;" target=3D"_blank"><strong>https://event.webinarjam.com/<wbr>registe=
+r/5/84lp8a2</strong></a></span></p>
+   <p><br></p>
+   <p><span style=3D"color: rgb(0, 0, 0);">Thanks,</span></p>
+   <span style=3D"color: rgb(0, 0, 0);">Kavya</span>
+   <br>
+   <p><br> </p>
+  </div>
+  <div style=3D"text-align:center;">=20
+   <div>
+     Message sent by Freshworks Inc at Delaware Street, Suite 201, San Mate=
+o, California, USA.=20
+   </div>=20
+   <div>
+     Don't want to receive emails from us? Manage your email preferences=20
+    <a fr-original-style=3D"color:#333333;text-decoration: underline;" href=
+=3D"https://freshworks.freshmarketer.com/mas/api/v1/subscription-preference=
+s?fm_digest=3D936E02C9FC45AD59CBAE40F75405D0321E61B34CD0A9EA8B841B50F8BC8E2=
+28FBAC73A422BB6D168D8625EB453BB2F70F60B15C667CB32751C44B9D9F34F6D8566DE3AAE=
+920673EEEFCC264B0C95C9C76ECEAED284BDF1B9ED1AAC626F71020DD7535FCCF0B9695C36B=
+8BA2E60ABD745C49A8EC9FC80AD81B3E1D5F4B8CFA43F96E59F38BBE2FA3AE5521D8FCDD877=
+439D2104E94D8A74BB5E7B1EF45A8DF8C38342BA9C7D9FDB99BC677A66F9CC572B" rel=3D"=
+noopener" style=3D"color:#333333;text-decoration: underline;" target=3D"_bl=
+ank" clicktracking=3D"off">here</a>.=20
+   </div>=20
+  </div>=20
+  <div style=3D"text-align:center;font-size:13px;margin:10px 0;">=20
+   <a clicktracking=3D"off" href=3D"https://www.freshworks.com/marketing-au=
+tomation/?utm_source=3DFreshworks Inc&amp;utm_medium=3Demail&amp;utm_campai=
+gn=3Dpoweredbyfm&amp;utm_content=3Dfooterlink" style=3D"text-decoration:non=
+e;color:#adadad;">Powered by Freshmarketer</a>=20
+  </div>=20
+=20
+<img src=3D"http://url386.fmemail.net/wf/open?upn=3DQFWB4BCTtzCIRKos7YrrfN6=
+kkY1TVGiaF4XIkvq4n6x33fI5eS4USrpI2aDUeWN1Y-2B5wUM269yu5zauOaT5tpmKuBVoqHdbQ=
+gEatTBVdyCPxEku2JUMScIraHZAkxon0rQFYbvgixPv4DCu6l0Bt3NzY-2BcLHoT-2F-2FS-2FU=
+qnwOk3DG0ZwO6HUlDl1a80IwPVCHHpYTO8J1xoCz-2BxC0YKzVYxjzV69d-2FtuYnQ9zwllel4i=
+TFb6dxzN0bRqTV-2BroeOaEH86eJp6tzYuWAJMsh3ED-2FJjZRZsnao67qz98EjCdZmYCU2-2B0=
+QX9IinMql4YBOCoLio9SWJjdzxi7vZK55GLcQ3qiZuOClTqXOdYZ5Lcu6Fqaq9WiwPqGaiQ0Rqg=
+U-2B1hUk8QnN42k-2BBoWB0zCbIKJHG5-2BXC2f-2FnzVfq2rGgqJEm8jECpINEuriOLF2g9JB0=
+AKoFG8C0n7XNM3Pe2XLN5wG61T0Vt56PDb7bt4wxtbk9QSIhSD32GHXw2C7J1R8qkyvbnIoaiit=
+Mik6pf8AiSFiyadzgnQyHKFvg-2F0HQQMiYSoqFE4GNaIf-2BSbE6q1dwUpeEbObQga-2Bj-2FT=
+6s3efBg6lRwiAddopWx0XYvNnar-2F6-2FHpvU7TftOUaQkYP0PNntdRRd-2F-2FDuja-2FovUV=
+8B8VaoEN4x5QSH9kYouSQwhBAz284SRrBdsBeyIvmPEt-2FoSWO10JBFc-2B0RSAvjlQ1TdvKuh=
+Xat7Wr7a5X8abYxVVQE7LWQJ8o0ev6ACanSZo7SbYD7rvLip-2Fg2BAtxt-2FXZqhkkGADJN52G=
+HdnLgZN8HMSy2icplRJTQyTEtQmoNXtdgBEukK" alt=3D"" width=3D"1" height=3D"1" b=
+order=3D"0" style=3D"height:1px !important;width:1px !important;border-widt=
+h:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-ri=
+ght:0 !important;margin-left:0 !important;padding-top:0 !important;padding-=
+bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"/>
+</body>
+</html>
+
+--2afe1a5aae4fa3075950d2f4aa1f2533280d900cd25eff376566ec0721e9--

@@ -1,0 +1,138 @@
+
+   {% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+<div id="order-report-app">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+     
+      <!-- Javascript -->
+      <script>
+     
+      </script>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card card-default">
+                <div class="card-body collapse show">
+                    <h6>Billing Report</h6>
+                    <hr>
+                    <form method="post" action="{{ path('get_sales')}}">
+                    
+                    <div class="row m-t-20">
+                    <div class="col-5">
+                            <label for="">Select Month</label>
+                            <select id="type" class="form-control" name="month">
+                         {% for monthValue in month %}
+                        <option value="{{ monthValue.id}}" {% if monthValue.id == m %}selected {% endif %}>{{ monthValue.month }}</option>
+                         {% endfor %}
+                            </select>
+                        </div>
+                       <div class="col-5">
+  
+                                <label for="">Select Year</label>
+                            <select id="type" class="form-control" name="year">
+                      <option>2020</option>
+                      <option>2021</option>
+                            </select>
+                        </div>
+<div class="col-2">
+                                  <label for="" style="color:transparent;">Select Year</label>
+
+     <button class="btn btn-primary" type="submit" name="filter">Generate Report</button>
+</div>
+
+                    </div>
+                    
+                 
+                </div>
+            </form>
+            </div>
+        </div>
+        
+</div>
+</div>
+
+
+        <div class="container">
+            <center><b style="font-size:19px;">   
+                       Total Billing : {% if orders_sale > 500 %}{% set bill =  orders_sale * 8 + 500 %} {{ bill|round(2,'floor')}} {% elseif orders_sale > 2000 %} {% set bill =  orders_sale * 5 + 500 %} {{ bill|round(2,'floor')}} {% else %} {% set bill =  orders_sale * 10 + 500 %} {{ bill|round(2,'floor')}} {% endif %}
+                     </b>
+                   </center>
+          <div class="row">
+
+   <div class="col-md-4">
+             
+              <div class="card component-card_6">
+            <div class="card-body">             
+                <div class="user-info">
+                    <div class="media-body">
+                        <h5 class="card-user_name"><b>Sales</b></h5>
+                        <p class="card-user_occupation"><b>{{ sales|round }}</b></p>
+                    </div>
+                    <p><a  href="{{ path('view_order_report_month',{'id':m}) }}">
+              <span class="float-right">view report</span>           
+            </a>
+               </p>
+                </div>               
+            </div>
+        </div>  
+            </div>
+      
+            <div class="col-md-4">
+   <div class="card component-card_6">
+            <div class="card-body">             
+                <div class="user-info">
+                    <div class="media-body">
+                        <h5 class="card-user_name"><b>Active Customers</b></h5>
+                        <p class="card-user_occupation"><b>{{ customer }}</b></p>
+                    </div>
+                    <p><a  href="{{ path('view_customer_report_month',{'id':m}) }}">
+              <span class="float-right">view report</span>           
+            </a>
+               </p>
+                </div>               
+            </div>
+        </div> 
+
+       
+            </div>
+
+             <div class="col-md-4">
+               <div class="card component-card_6">
+            <div class="card-body">             
+                <div class="user-info">
+                    <div class="media-body">
+                        <h5 class="card-user_name"><b>Orders</b></h5>
+                        <p class="card-user_occupation"><b>{{ orders_sale }}</b></p>
+                    </div>
+                    <p><a  href="{{ path('view_order_sale_report_month',{'id':m}) }}">
+              <span class="float-right">view report</span>           
+            </a>
+               </p>
+                </div>               
+            </div>
+        </div> 
+           
+            </div>
+            
+          </div>
+
+        </div>
+
+
+            
+          </div>
+        </div>
+      </section>
+
+{% endblock %}
+
+{% block scripts %}
+
+
+{% endblock %}   
+

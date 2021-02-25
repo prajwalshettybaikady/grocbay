@@ -1,0 +1,111 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    <div class="col-xs-12">
+                                                
+
+                        
+                        {% for product in data %}
+                              
+                              
+<div class="container">
+  <div class="card">
+<div class="card-header">
+<strong><h3>Notification Details</h3></strong> 
+  <span class="float-right"> <strong> </strong></span>
+
+</div>
+<div class="card-body">
+<div class="row mb-4">
+<div class="col-sm-6">
+<div>
+Date and time : {{ product.dateTime }} 
+</div>
+<div>Message : {{ product.message }}</div>
+<div>Notification Trigger : {% if product.notificationFor == 3 %} Link {% endif %}
+                                       {% if product.notificationFor == 4 %} Items {% endif %}
+                                     {% if product.notificationFor == 5 %} Category {% endif %}
+                                     {% if product.notificationFor == 10 %} Brands {% endif %}
+                                   {% if product.notificationFor == 6 %} Redirect to Homepage {% endif %}</div>
+<div>Data : {{ response }}</div>
+<div>{% if product.image == '' %}{% else %}<img class="img-responsive" src="/uploads/{{ product.image }}" style="width:100px;height:100px"/>{% endif %}</div>
+
+
+{# <div class="col-sm-6">
+<h6 class="mb-3">To:</h6>
+<div>
+<strong>Bob Mart</strong>
+</div>
+<div>Attn: Daniel Marek</div>
+<div>43-190 Mikolow, Poland</div>
+<div>Email: marek@daniel.com</div>
+<div>Phone: +48 123 456 789</div>
+</div> #}
+
+
+
+</div><br><br>
+
+<div class="table-responsive">
+<table class="table table-striped" style="width:100%;" id="myTable">
+<thead>
+<tr>
+<th class="center">#</th>
+<th>Name</th>
+<th class="right">Status</th>
+</tr>
+</thead>
+<tbody>
+     {% for sl in history %}
+<tr>
+<td class="center">{{ sl.id }}</td>
+<td class="left strong"> {{ sl.username }}</td>
+<td class="right">{% if sl.status == 0 %}Pending{% else %} Opened {% endif %}</td>
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+<div class="row">
+<div class="col-lg-4 col-sm-5">
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+  {% endfor %}
+
+<span class="pull-right">
+                    {#      <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uploadCSV">Upload CSV</a> #}
+                            <a href="#back" class="btn btn-primary" onclick="window.history.go(-1); return false;">Back</a>
+                        </span>
+
+
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+   
+</script>
+{% endblock %}

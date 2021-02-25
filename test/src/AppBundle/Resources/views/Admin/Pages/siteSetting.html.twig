@@ -1,0 +1,314 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block styles %}
+
+<style>
+    [type=checkbox]:checked, [type=checkbox]:not(:checked){
+        position: relative;
+        left: auto;
+        opacity: 1;
+    }
+     .fstElement { font-size: 9px; }
+            .fstToggleBtn { min-width: 16.5em; }
+
+            .submitBtn { display: none; }
+
+            .fstMultipleMode { display: block; }
+            .fstMultipleMode .fstControls { width: 100%; }
+
+</style>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Site Setting
+
+                    </h4>
+                </div>
+                <div class="card-body">
+                 
+<form method="post" action="{{ path('update_site_details') }}" enctype="multipart/form-data">
+  {% for res in data %}
+    <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="background">Website Background Color</label>
+     <input type="color" class="form-control " id="background" placeholder="Website Background Color"  name="background" value="{{ res.background }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="backgroundColor">Website Text Color</label>
+ <input type="color" class="form-control" id="backgroundColor" placeholder="Website Text Color"  name="backgroundColor" value="{{ res.backgroundColor }}">
+    </div>
+</div>
+
+
+    <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="headerBackground">Header Background Color</label>
+     <input type="color" class="form-control" id="headerBackground" placeholder="Header Background Color"  name="headerBackground" value="{{ res.headerBackground }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="topbarColor">Header Text Color</label>
+ <input type="color" class="form-control" id="topbarColor" placeholder="Header Text Color"  name="headerColor" value="{{ res.headerColor }}">
+    </div>
+</div>
+   <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="footerBackground">Footer Background Color</label>
+     <input type="color" class="form-control" id="footerBackground" placeholder="Footer Background Color"  name="footerBackground" value="{{ res.footerBackground }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="footerColor">Footer Text Color</label>
+ <input type="color" class="form-control" id="footerColor" placeholder="Footer Text Color"  name="footerColor" value="{{ res.footerColor }}">
+    </div>
+</div>
+   <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="primaryBackground">Primary Background Color</label>
+     <input type="color" class="form-control" id="primaryBackground" placeholder="Primary Background Color"  name="primaryBackground" value="{{ res.primaryBackground }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="primaryColor">Primary Text Color</label>
+ <input type="color" class="form-control" id="primaryColor" placeholder="primary Text Color"  name="primaryColor" value="{{ res.primaryColor }}">
+    </div>
+</div>
+    <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="topbarBackground">Secondary Background Color</label>
+     <input type="color" class="form-control " id="topbarBackground" placeholder="Secondary Background Color"  name="topbarBackground" value="{{ res.topbarBackground }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="topbarColor">Secondary Text Color</label>
+ <input type="color" class="form-control" id="topbarColor" placeholder="Secondary Text Color"  name="topbarColor" value="{{ res.topbarColor }}">
+    </div>
+</div>
+<hr>
+<center><h4>Social Logins</h4></center>
+ <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="googleKey">Google *</label>
+     <input type="text" class="form-control" id="googleKey" placeholder="google api key "  name="googleKey" value="{{ res.googleKey }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="facebookKey">Facebook *</label>
+ <input type="text" class="form-control" id="facebookKey" placeholder="facebook app id"  name="facebookKey" value="{{ res.facebookKey }}">
+    </div>
+</div>
+<hr>
+<center><h4>Header | Footer | SEO</h4></center>
+ <div class="form-row">
+   <div class="form-group col-md-12">
+      <label for="header">Header </label>
+     <textarea class="form-control" id="header" cols="3" placeholder="put custom scripts" name="header">{{ res.header }}</textarea>
+    </div>
+  </div>
+   <div class="form-row">
+   <div class="form-group col-md-12">
+      <label for="footer">Footer </label>
+     <textarea class="form-control" id="footer" cols="3"  placeholder="put custom scripts" name="footer">{{ res.footer }}</textarea>
+    </div>
+  </div>
+   <div class="form-row">
+<div class="form-group col-md-12">
+      <label for="facebookKey">Site Title *</label>
+ <input type="text" class="form-control" id="facebookKey" placeholder="Online Store | Best store in city" value="{{ res.title }}" name="title">
+    </div>
+</div>
+   <div class="form-row">
+   <div class="form-group col-md-12">
+      <label for="ss">Site Description   </label>
+     <textarea class="form-control" id="ss" cols="3"  placeholder="Best online store in city"  name="description">{{ res.description }}</textarea>
+    </div>
+  </div>
+     <div class="form-row">
+   <div class="form-group col-md-12">
+      <label for="key">Site Keywords   </label>
+     <textarea class="form-control" id="key" cols="3" placeholder="online store , grocery" name="keywords">{{ res.keywords }}</textarea>
+    </div>
+  </div>
+   <div class="form-row">
+
+    <div class="col-6" style="margin-top:20px;">
+     Start Time (Express Delivery)<br>
+   
+     <select class="form-control" value="" name="start" required>{% for t in time %}<option {% if t == res.start %} selected {% endif %}>{{ t }}</option>{% endfor %}</select>
+  </div>
+   <div class="col-6" style="margin-top:20px;">
+     End Time (Express Delivery)<br>
+     <select class="form-control" value="" name="end" required>{% for t in time %}<option {% if t == res.end %} selected {% endif %}>{{ t }}</option>{% endfor %}</select>
+
+</div>
+</div>
+<hr>
+<center><h4>Payment Setting</h4></center>
+ <div class="form-row">
+   <div class="form-group col-md-8">
+      <label for="Payment">Payment Modes *</label>
+                         <select class="multipleSelect" multiple name="mode[]">
+                          <option value="cod" {% for fe in featured %} {% if fe == 'cod' %} selected {% endif %} {% endfor %}>Cash On Delivery</option>
+                          <option value="sod" {% for fe in featured %} {% if fe == 'sod' %} selected {% endif %} {% endfor %}>Swipe On Delivery</option>
+                          <option value="online"  {% for fe in featured %} {% if fe == 'online' %} selected {% endif %} {% endfor %}>Online Payment</option>
+                          <option value="wallet"  {% for fe in featured %} {% if fe == 'wallet' %} selected {% endif %} {% endfor %}>Wallet</option>
+                          <option value="loyalty"  {% for fe in featured %} {% if fe == 'wallet' %} selected {% endif %} {% endfor %}>Loyalty</option>
+           <option value="express"  {% for fe in featured %} {% if fe == 'express' %} selected {% endif %} {% endfor %}>Express</option>
+
+                           <option value="pickupfromstore"  {% for fe in featured %} {% if fe == 'pickupfromstore' %} selected {% endif %} {% endfor %}>Pickup From Store</option>
+                           <option value="upi"  {% for fe in featured %} {% if fe == 'upi' %} selected {% endif %} {% endfor %}>UPI</option>
+                            <option value="sodedxo"  {% for fe in featured %} {% if fe == 'sodedxo' %} selected {% endif %} {% endfor %}>Sodedxo</option>
+                           
+                         </select>
+    </div>
+
+
+      <div class="form-group col-md-2">
+      <label for="agte">Payment Gateway </label>
+                         <select class="form-control" id="gate" name="gateway">
+                          <option value="Paytm" {% if res.payment_gateway == 'Paytm' %}  selected {% endif %}>Paytm</option>
+                          <option value="RazorPay" {% if res.payment_gateway == 'RazorPay' %}  selected {% endif %}>RazorPay</option>
+                          
+                         </select>
+    </div>
+      <div class="form-group col-md-2">
+      <label for="mode">Mode </label>
+                         <select class="form-control" id="mode" name="pmode">
+                          <option value="TEST" {% if res.mode == 'TEST' %}  selected {% endif %}>Test</option>
+                          <option value="PRODUCTION" {% if res.mode == 'PRODUCTION' %}  selected {% endif %}>Production</option>
+                          
+                         </select>
+    </div>
+  </div>
+   {% if res.payment_gateway == 'Paytm' %}  <div class="paytm row"> {% endif %}
+       {% if res.payment_gateway == 'RazorPay' %}    <div class="paytm row" style="display:none;">{% endif %}
+
+<div class="form-group col-md-6">
+      <label for="mid">Paytm Merchant Id </label>
+ <input type="text" class="form-control" id="mid" placeholder="Paytm Merchant Id"  name="key" value="{{ res.gateway_id }}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="mkey">Paytm Merchant Key </label>
+ <input type="text" class="form-control" id="mkey" placeholder="Paytm Merchant Key"  name="secret" value="{{ res.gateway_secret }}" >
+    </div>
+  </div>
+   {% if res.payment_gateway == 'Paytm' %}    <div class="razor row" style="display:none;">
+ {% endif %}
+   {% if res.payment_gateway == 'RazorPay' %}    <div class="razor row" >
+ {% endif %}
+<div class="form-group col-md-6">
+      <label for="mid"> Key Id *</label>
+ <input type="text" class="form-control" id="mid" placeholder="RazorPay Key Id"  name="rkey" value="{{ res.gateway_id }}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="mkey">Key Secret</label>
+ <input type="text" class="form-control" id="mkey" placeholder="RazorPay key secret"  name="rsecret" value="{{ res.gateway_secret }}">
+    </div>
+  </div>
+   <div class="form-row">
+
+    <div class="col-4" style="margin-top:20px;">
+   Logo <br> 
+   <input type="file" name="logo" class="dropify" data-default-file="/uploads/restaurant/icons/{{ res.logo }}"> 
+   </div>
+   <div class="col-4" style="margin-top:20px;">
+     Favicon <br>
+   <input type="file" name="favicon" class="dropify" data-default-file="/uploads/restaurant/banners/{{ res.favicon }}"> 
+
+</div>
+
+   <div class="col-4" style="margin-top:20px;">
+     Default Image <br>
+   <input type="file" name="default"  class="dropify" data-default-file="/uploads/restaurant/banners/{{ res.default_image }}"> 
+
+</div>
+</div>
+
+{% endfor %} <br>
+  <button type="submit" class="btn btn-primary">Save</button>
+
+</form>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+
+<script src="/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="/assets/plugins/moment/moment.js"></script>
+<script src="/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script>
+    
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+    
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+    
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+    
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+    
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+    
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+</script>
+<script>
+    
+        $(document).ready(function() {
+$('.multipleSelect').fastselect();
+});
+     
+           $(document).ready(function() {
+            $('.refund').richText();
+        });
+               $('#gate').change(function() {
+            var x=$('#gate').val();
+            if(x=='Paytm')
+            {
+              $('.paytm').show();
+              $('.razor').hide();
+            }
+            else
+            {
+               $('.paytm').hide();
+             $('.razor').show();              
+            }
+        });
+             $(document).ready(function() {
+            $('.wallet').richText();
+        });
+        </script>
+{% endblock %}

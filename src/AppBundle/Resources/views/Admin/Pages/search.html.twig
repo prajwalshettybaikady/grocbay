@@ -1,0 +1,39 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block body %}
+
+
+<div class="container">
+<h3>Search Result For  <b>{{ data }}</b></h3>
+
+<br>
+<div class="list-group ">
+  {% for order in ordernumber %}
+    <a href="{{ path('restaurant_orders_panel_update',{'id':order.id}) }}" class="list-group-item list-group-item-action">Order : #{{ order.id }} , {{ order.customerName }}  , Order Date : {{  order.orderDate|date("d-m-Y") }} at {{  order.orderDate|date("h-i A") }} </a>
+  {% endfor %}
+    {% for item in itemData %}
+    <a href="{{ path('restaurant_edit_menu_item',{'id':item.id}) }}" class="list-group-item list-group-item-action">Item Id : #{{ item.id }} , {{ item.itemName }} </a>
+  {% endfor %}
+
+  {% for customer in customerData %}
+    <a href="{{ path('users_view',{'id':customer.id}) }}" class="list-group-item list-group-item-action">Customer : #{{ customer.id }} , {{ customer.username }} </a>
+  {% endfor %}
+
+</div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+<script>
+
+        </script>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block styles %}
+
+<style>
+    [type=checkbox]:checked, [type=checkbox]:not(:checked){
+        position: relative;
+        left: auto;
+        opacity: 1;
+    }
+     .fstElement { font-size: 9px; }
+            .fstToggleBtn { min-width: 16.5em; }
+
+            .submitBtn { display: none; }
+
+            .fstMultipleMode { display: block; }
+            .fstMultipleMode .fstControls { width: 100%; }
+
+</style>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-outline-info">
+            
+                <form method="post" action="{{ path('create_home_page') }}">
+                <div class="card-body">
+<center><h4>App Home Page Setting</h4></center>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                         <label for="reg"><input type="text" name="featured_label" required="" placeholder="featured label" class="form-control" value="{{ featured_label }}"></label>
+                          <select class="multipleSelect" multiple name="featured[]">
+  {% for me in MenuItem %}
+  <option value="{{ me.id }}" {% for fe in f %} {% if fe == me.id %} selected {% endif %} {% endfor %}>{{ me.itemName }}</option>
+  {% endfor %}
+    </select>
+                        </div>
+                        <div class="form-group">
+                         <label for="reg"><input type="text" name="discount_label" required="" placeholder="discount label" class="form-control" value="{{ discount_label }}"></label>
+                                 <select class="multipleSelect" multiple name="discount[]">
+  {% for me in MenuItem %}
+  <option value="{{ me.id }}"  {% for fe in d %} {% if fe == me.id %} selected {% endif %} {% endfor %} >{{ me.itemName }}</option>
+  {% endfor %}
+    </select>
+                        </div>     
+
+                  <center><b>Featured Sub Categories 1</b></center>  
+                  <div class="form-group">
+                         <label for="reg"><input type="text" name="category_label" required="" placeholder="Sub Category Label" class="form-control" value="{{ category_label }}"></label>
+                         <select class="multipleSelect" multiple name="category[]">
+                          {% for me in category_list %}
+                          <option value="{{ me.id }}"  {% for fe in category %} {% if fe == me.id %} selected {% endif %} {% endfor %} >{{ me.categoryName }}</option>
+                           {% endfor %}
+                             </select>
+                        </div>       
+                  <center><b>Featured Sub Categories 2</b></center>  
+                  <div class="form-group">
+                         <label for="reg"><input type="text" name="category_label_one" required="" placeholder="Sub Category Label" class="form-control" value="{{ category_one_label }}"></label>
+                         <select class="multipleSelect" multiple name="category_one[]">
+                          {% for me in category_list %}
+                          <option value="{{ me.id }}"  {% for fe in category_one %} {% if fe == me.id %} selected {% endif %} {% endfor %} >{{ me.categoryName }}</option>
+                           {% endfor %}
+                             </select>
+                        </div> 
+                   <center><b>Featured Sub Categories 3</b></center>  
+                  <div class="form-group">
+                         <label for="reg"><input type="text" name="category_label_two" required="" placeholder="Sub Category Label" class="form-control" value="{{ category_two_label }}"></label>
+                         <select class="multipleSelect" multiple name="category_two[]">
+                          {% for me in category_list %}
+                          <option value="{{ me.id }}"  {% for fe in category_two %} {% if fe == me.id %} selected {% endif %} {% endfor %} >{{ me.categoryName }}</option>
+                           {% endfor %}
+                             </select>
+                        </div>                    
+                        <div class="clearfix"></div>
+                        <button type="submit" class="btn btn-primary pull-left">Save</button><br>
+  </div>
+                      
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+
+<script>
+    
+   
+        </script>
+
+{% endblock %}

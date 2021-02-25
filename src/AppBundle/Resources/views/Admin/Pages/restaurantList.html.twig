@@ -1,0 +1,76 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<style>
+    .hidden{
+        display: none !important;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="row" id="vue-list">
+    <div class="col-12">
+        <div class="card" >
+                <div class="card-body">
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <th>Branch Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile Number</th>
+                                    <th>Location</th>
+                                    <th>Sales</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for restaurant in restaurants %}
+                                <tr>
+                                    <td>{{ restaurant.id }}</td>
+                                    <td>{{ restaurant.restaurantname }}</td>
+                                    <td>{{ restaurant.primaryEmail }}</td>
+                                    <td>{{ restaurant.primaryMobile }}</td>
+                                    <td>{{ restaurant.restaurantLocation }} </td>
+                                        <td>{{ restaurant.sales }} <a href="{{ path('view_branch_report',{'id':restaurant.id }) }}">(view)</a> </td>
+                                    <td> {% if restaurant.isOpen %}
+                                            <span class="badge badge-success">active</span>
+                                        {% else %}
+                                            <span class="badge badge-danger">inactive</span>
+                                            </a>
+                                        {% endif %}</td>
+                                    <td>          
+                                       <div class="dropdown custom-dropdown">
+                                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style="will-change: transform;">
+                                                                <a class="dropdown-item" href="{{ path('restaurant_edit',{'id':restaurant.id}) }}">Edit</a>
+                                                               
+                                                                 <a class="dropdown-item" href="{{ path('branch_activate',{'id':restaurant.id}) }}">Change Status</a>
+                                                           </div>
+                                                        </div>                           
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/assets/vue/custom/restaurantList.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

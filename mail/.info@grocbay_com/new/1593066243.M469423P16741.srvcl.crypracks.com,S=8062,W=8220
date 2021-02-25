@@ -1,0 +1,158 @@
+Return-Path: <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id yASzGwND9F5lQQAAYUfyRA
+	(envelope-from <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>)
+	for <info@grocbay.com>; Thu, 25 Jun 2020 02:24:03 -0400
+Return-path: <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Thu, 25 Jun 2020 02:24:03 -0400
+Received: from o24.email.freshdesk.com ([198.37.146.36]:5112)
+	by srvcl.crypracks.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounces+4491982-837d-info=grocbay.com@fwdkim.freshchat.com>)
+	id 1joLIn-00052e-CW
+	for info@grocbay.com; Thu, 25 Jun 2020 02:24:03 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshchat.com; 
+	h=mime-version:from:reply-to:to:subject:content-type:content-transfer-encoding; 
+	s=cw1ec; bh=Jd94QX5PzD6srmdecu1JeV1hTQWUPWDEW90S6ByEIVE=; b=XekP
+	XlND/oc3575oM0oEnSskVd/RkZIP4xQLC1tm9A5/21fiU4faJuq0MwII6LQLv6MO
+	RfSELHxVhkmZ7Ih0zUm0ZS7DwYdwtqLhS2W7P/B9aqfEIQCslJMB2uYegZ2GcO1/
+	TitmFFoFUvsfXy9NQvOLYMRiouhcWnUSDHh4KRM=
+Received: by filter1968p1mdw1.sendgrid.net with SMTP id filter1968p1mdw1-2052-5EF442D6-5
+        2020-06-25 06:23:18.890827786 +0000 UTC m=+654752.774693277
+Received: from freshdesk.com (unknown)
+	by ismtpd0023p1iad2.sendgrid.net (SG) with ESMTP id Set215jMQxu-9z6_obnFNw
+	for <info@grocbay.com>; Thu, 25 Jun 2020 06:23:18.842 +0000 (UTC)
+MIME-Version: 1.0
+X-QUEUED-AT: 2020-06-25T06:23:18.574+0000
+X-MAIL-CREATED-AT: 2020-06-25T06:23:18.000+0000
+X-Received: from ec2-54-152-41-238.compute-1.amazonaws.com (EHLO freshdesk.com) ([54.152.41.238])
+          by smtpout.freshdesk.com (Freshworks SMTP Server) with ESMTPA ID -889435198.5
+          for <info@grocbay.com>;
+          Thu, 25 Jun 2020 06:23:18 +0000 (UTC)
+Date: Thu, 25 Jun 2020 06:23:19 +0000 (UTC)
+From: Freshchat Support <support@freshchat.com>
+Reply-To: Freshchat Support <support@freshchat.com>
+To: info@grocbay.com
+Message-ID: <5ef442d6787a8_1e32ae7935f762013028a2@sidekiq-frequent-fd-poduseast1-main-blue-dc97b8469-prcst.mail>
+Subject: Activate your account at Freshchat Support Portal
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5ef442d674fad_1e32ae7935f76201302770";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+sent-on: 2020-06-25 11:53:18 +0530
+Auto-Submitted: auto-generated
+X-Auto-Response-Suppress: DR, RN, OOF, AutoReply
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON4+d4LWHcF+q9ZkZ4V94tIGpBbmCKNPjA664B
+ zf1wmCKhlWUzOkL+/5BNYGWMPMac8zIGulgKF1tz+M+LbRlMTOC5RIxi1MjSKiTilXhIkx95PfwoTP
+ BY3rfgtTRYumSVK80t6C3fE8y8ibNKRxCEgBXrDlgaN/fUSRTT5Bjj9o4smP5qps3MofXSTOmnD66w
+ c=
+X-SG-ID: dXNuuxiaeVPHPf1dZH02eKYVq1iMeSsftZP6JowhJxhb5fv0iCXYc9Md68SAd++DMA4LzGUUq7lj4k
+ EO7f4231btgsZ1RjYXDf/ivyFzdPyRO2AHOtz7A8bsMhllOPhwZu64uXd7gZX8ig5umrWSiBmr0H35
+ U7Nrhw+a6Nlasljed6xqGTVi3+a0iHnYiStOeRQo8PnymxeMOrw8qcq+H3DxbHi8+9O/xC36ZiHdFG
+ 9RBaCvb+0mXxHTNuH8/z0+JzQJz8+xNGOpdT33g32HCCJOUWMXIi1yX1kab3lHObvwTaELG+36h0J1
+ irMmPLOHRXgbd4ANNwnxNiyd8XWIfBFot+0rZ6UUd/alpBzjkfjFIEc2IKUbNebAv83LdnJlHqozm4
+ u+7poVTaVpWKUEbg==
+X-Spam-Status: No, score=-0.2
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "centos7",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hello Jason, A new account has been created for you in our Freshdesk
+    Support Portal. To get started with using our Support Portal, you will have
+    to activate your account.  Activation lets you part [...] 
+ Content analysis details:   (-0.2 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [198.37.146.36 listed in wl.mailspike.net]
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshchat.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+----==_mimepart_5ef442d674fad_1e32ae7935f76201302770
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+=20
+=20
+ Hello Jason,  A new account has been created for you in our=C2=A0Freshdesk=
+ Support=C2=A0Portal.  To get started with using our Support Portal, you wi=
+ll have to activate your account.=C2=A0=20
+ Activation lets you participate in our Forums, browse our Knowledge Base a=
+nd view and respond to your tickets.=C2=A0 ________________________________=
+__________________________________________=C2=A0=20
+ Activate your account by clicking on the link below.=C2=A0  https://suppor=
+t.freshchat.com/register/cwqn7VrdKp59OVWftTM ______________________________=
+____________________________________________  If the above URL doesn=E2=80=
+=99t work, copy and paste it into your browser.=C2=A0=20
+  In case you are stuck, please write to us for assistance=C2=A0and one of =
+our agents would be happy to help.  Regards,=20
+ Freshdesk Support=20
+=20=20=20
+=20=20=20
+=20=20=20
+=20
+=20
+
+----==_mimepart_5ef442d674fad_1e32ae7935f76201302770
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Robo=
+to, Helvetica Neue, Arial, sans-serif; font-size:14px;">
+	<div dir=3D"ltr">
+<p></p>
+<p style=3D""><span style=3D"color: rgb(34, 34, 34);">Hello Jason,<br></spa=
+n><span style=3D"color: rgb(34, 34, 34);"><br>A new account has been create=
+d for you in our=C2=A0</span><span>Freshdesk Support=C2=A0</span><span styl=
+e=3D"color: rgb(34, 34, 34);">Portal.<br></span><span style=3D"color: rgb(3=
+4, 34, 34);"><br>To get started with using our Support Portal, you will hav=
+e to activate your account.=C2=A0</span></p>
+<p style=3D"color: rgb(34, 34, 34);"><font color=3D"#222222">Activation let=
+s you participate in our Forums, browse our Knowledge Base and view and res=
+pond to your tickets.</font><span>=C2=A0<br></span><span>__________________=
+________________________________________________________=C2=A0</span></p>
+<p style=3D"color: rgb(34, 34, 34);">Activate your account by clicking on t=
+he link below.=C2=A0<br><br><b><a href=3D"https://support.freshchat.com/reg=
+ister/cwqn7VrdKp59OVWftTM">https://support.freshchat.com/register/cwqn7VrdK=
+p59OVWftTM</a><br></b><span>_______________________________________________=
+___________________________<br></span><span><br>If the above URL doesn=E2=
+=80=99t work, copy and paste it into your browser.=C2=A0</span></p>
+<p style=3D"color: rgb(34, 34, 34);"><span><br>In case you are stuck, pleas=
+e write to us for assistance=C2=A0and one of our agents would be happy to h=
+elp.<br></span><span><br>Regards,</span></p>
+<p style=3D"color: rgb(34, 34, 34);">Freshdesk Support</p>
+<p style=3D"color: rgb(34, 34, 34);"><br></p>
+<p style=3D"color: rgb(34, 34, 34);"><br></p>
+<p style=3D"color: rgb(34, 34, 34);"><br></p>
+<p></p>
+</div>
+<br/>
+
+
+</div>=
+
+----==_mimepart_5ef442d674fad_1e32ae7935f76201302770--

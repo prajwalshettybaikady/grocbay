@@ -1,0 +1,61 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    encoders:
+        AppBundle\Entity\User:
+            algorithm:            bcrypt
+            cost:                 13
+    role_hierarchy:
+        ROLE_ADMIN:      [ROLE_RESTAURENT, ROLE_DELEVERY, ROLE_CUSTOMER, ROLE_USER]
+    providers:
+        main:
+            entity:
+                class:              AppBundle\Entity\User
+                property:           email
+        restaurant:
+            entity:
+                class:              AppBundle\Entity\User
+                property:           mobileNumber
+
+    firewalls:
+        admin_firewall:
+            pattern: /app-manager
+            form_login:
+                login_path: /app-manager
+                check_path: /app-manager/login-check
+                default_target_path: /app-manager/dashboard
+            logout:
+                path: /app-manager/logout
+                target: /app-manager
+            anonymous: ~
+            security: true
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 60480000 # 1 week in seconds
+                path:     /app-manager
+        restaurant_firewall:
+            pattern: /restaurant-manager
+            provider: restaurant
+            form_login:
+                login_path: /restaurant-manager
+                check_path: /restaurant-manager/login-check
+                default_target_path: /restaurant-manager/dashboard
+            logout:
+                path: /restaurant-manager/logout
+                target: /restaurant-manager
+            anonymous: ~
+            security: true
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 60480000 # 1 week in seconds
+                path:     /restaurant-manager
+    access_control: 
+        - { path: /api, roles: ["IS_AUTHENTICATED_ANONYMOUSLY"] }
+        - { path: /app-manager/dashboard, roles: ["ROLE_ADMIN"] }
+        - { path: /app-manager/restaurant, roles: ["ROLE_ADMIN"] }
+        - { path: /app-manager/category, roles: ["ROLE_ADMIN"] }
+        - { path: /app-manager/order-type, roles: ["ROLE_ADMIN"] }
+        - { path: /app-manager/promocode, roles: ["ROLE_ADMIN"] }
+        - { path: /app-manager/admins, roles: ["ROLE_ADMIN"] }
+        - { path: /app-manager/delivery-boy, roles: ["ROLE_ADMIN"] }
+        - { path: /app-manager/billing, roles: ["ROLE_ADMIN"] }

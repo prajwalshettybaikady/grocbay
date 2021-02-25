@@ -1,0 +1,89 @@
+Return-Path: <>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id CFF5GQm8dF+PEAAAYUfyRA
+	(envelope-from <>)
+	for <grocbayc@srvcl.crypracks.com>; Wed, 30 Sep 2020 13:10:33 -0400
+Return-path: <>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Wed, 30 Sep 2020 13:10:33 -0400
+Received: from mailnull by srvcl.crypracks.com with local (Exim 4.93)
+	id 1kNfcf-00017n-BB
+	for grocbayc@srvcl.crypracks.com; Wed, 30 Sep 2020 13:10:33 -0400
+X-Failed-Recipients: app@appinsight.tech
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+References: <E1kNfce-00017M-DB@srvcl.crypracks.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1601485833-eximdsn-442164637
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1kNfcf-00017n-BB@srvcl.crypracks.com>
+Date: Wed, 30 Sep 2020 13:10:33 -0400
+
+--1601485833-eximdsn-442164637
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  app@appinsight.tech
+    host mx.yandex.net [213.180.193.89]
+    SMTP error from remote mail server after RCPT TO:<app@appinsight.tech>:
+    550 5.7.1 No such user!
+
+--1601485833-eximdsn-442164637
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; srvcl.crypracks.com
+
+Action: failed
+Final-Recipient: rfc822;app@appinsight.tech
+Status: 5.0.0
+Remote-MTA: dns; mx.yandex.net
+Diagnostic-Code: smtp; 550 5.7.1 No such user!
+
+--1601485833-eximdsn-442164637
+Content-type: message/rfc822
+
+Return-path: <grocbayc@srvcl.crypracks.com>
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.93)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1kNfce-00017M-DB
+	for app@appinsight.tech; Wed, 30 Sep 2020 13:10:32 -0400
+To: app@appinsight.tech
+Subject: You have new order(#10237)
+X-PHP-Script: admin.grocbay.com/web/app.php for 47.9.126.66
+X-PHP-Originating-Script: 1511:HelperFunction.php
+MIME-Version: 1.0
+Content-type: text/html; charset=iso-8859-1
+From: mail@appinsight.tech
+Reply-To: mail@appinsight.tech
+X-Mailer: PHP/7.2.30
+Message-Id: <E1kNfce-00017M-DB@srvcl.crypracks.com>
+Date: Wed, 30 Sep 2020 13:10:32 -0400
+
+<html>
+        <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ </head><body>Grocbay<br>
+   ----------------------------------------<br>
+  #order : 10237<br>
+Customer Name : hence sri<br>
+ Address : 221, CMS, Gomti Nagar<br>
+ Delivery Area   : IND + UAE<br>
+----------------------------------------<br>Order Details:<br>6X  KitKat(1 pack)<br>4X  MTR Dal Makhani(300gm)<br>----------------------------------------<br>
+Subtotal: ₹ 1100<br>
+Delivery Charges: ₹ 0<br>
+Promo Code: -- ₹ <br>
+Grand Total: ₹1100<br>
+----------------------------------------<br>
+Payment Type: cod<br>
+Delivery Time: 10:30 AM - 2:00 PM<br></body></html>
+
+--1601485833-eximdsn-442164637--

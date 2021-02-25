@@ -1,0 +1,387 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block styles %}
+
+<style>
+    [type=checkbox]:checked, [type=checkbox]:not(:checked){
+        position: relative;
+        left: auto;
+        opacity: 1;
+    }
+     .fstElement { font-size: 9px; }
+            .fstToggleBtn { min-width: 16.5em; }
+
+            .submitBtn { display: none; }
+
+            .fstMultipleMode { display: block; }
+            .fstMultipleMode .fstControls { width: 100%; }
+
+</style>
+<link href="/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                        <div class="form-group">
+                            {{ form_label(form.title, "Banner Title") }}
+                            {{ form_row(form.title,{'attr':{'class':'form-control','placeholder':'eg : featured item'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.advertisementType, "Select a banner type") }}
+                            {{ form_row(form.advertisementType,{'attr':{'class':'form-control'}}) }}
+                        </div>
+                        {% form_theme form '@AppBundle/Themes/file.html.twig' %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                {{ form_label(form.bannerFile, "Banner Image(Optional)") }}
+                                {% set bannerImage = "" %}
+                                {% if advertisement.bannerImage != null %}
+                                    {% set bannerImage = '/uploads/banners/banner/'~advertisement.bannerImage %}
+                                {% endif %}
+                                {{ form_row(form.bannerFile,{'attr':{'data-default-file':bannerImage}}) }}
+                            </div>
+                        </div>
+                        
+                        {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                        <!--div class="row">
+                            <div class="col-md-12">
+                                {{ form_label(form.isActive, "Banner Active Status") }}
+                                {{ form_row(form.isActive,{'attr':{'placeholder':'Doe',"data-on-text":"Active","data-off-text":"Inactive"}}) }}
+                            </div>
+                        </div-->
+                        
+                          <div class="col-md-12">
+                            <label class="d-block">Banner Active Status</label>
+                            <label class="switch s-success mr-2 mt-3"> 
+                                <input type="checkbox" {% if advertisement.isActive == 1 %}checked {% endif %} class="form-control form-control-sm" name="isActive"  value="{{ advertisement.isActive }}">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                          <div class="form-group">
+                            {{ form_label(form.bannerFor, "Banner For") }}
+                            {{ form_row(form.bannerFor,{'attr':{'class':'form-control','placeholder':'eg : http://google.co.in'}}) }}
+                        </div>
+
+
+                        <div class="form-group" id="link">
+                         <label for="reg" class="d-block">Link</label>
+                         <input type="text" class="form-control"   name="clickLink"  placeholder="www.example.com/offer" value="{{clickLink}}">
+                        </div>    
+
+                         <div class="form-group" id="category" style="display:none;">
+                         <label for="reg" class="d-block">Select Category</label>
+                         <select class="form-control"  name="category[]" >
+
+                          {% for cat in category %}
+                            <option value="{{ cat.id }}" {% for d in data %} {% if d == cat.id %} selected {% endif %} {% endfor %}>{{ cat.categoryName }}</option>
+                          {% endfor %}
+                         </select>      
+                        </div> 
+                            <div class="form-group" id="sub_category" style="display:none;">
+                         <label for="reg" class="d-block">Select Sub/Nested Category</label>
+                         <select class="form-control"  name="sub_category[]" >
+
+                          {% for cat in nested %}
+                            <option value="{{ cat.id }}" {% for d in data %} {% if d == cat.id %} selected {% endif %} {% endfor %}>{{ cat.categoryName }}</option>
+                          {% endfor %}
+                         </select>      
+                        </div>                     
+                    
+                      
+                        <div class="form-group"  id="items-link" style="display:none;">
+                         <label for="regs" class="d-block">Products</label>
+                       <select class="dd"  name="item[]" multiple>
+
+                             {% for it in menus %}
+                            <option value="{{ it.id }}" {% for d in data %} {% if d == it.id %} selected {% endif %} {% endfor %}>{{ it.itemName }}</option>
+                          {% endfor %}
+
+                         </select>
+                        </div>   
+                           <div class="form-group"  id="brands" style="display:none;">
+                         <label for="regs" class="d-block">Brands</label>
+                       <select class="dd"  name="brand[]" multiple>
+                          
+                           {% for it in brands %}
+                            <option value="{{ it.id }}" {% for d in data %} {% if d == it.id %} selected {% endif %} {% endfor %}>{{ it.categoryName }}</option>
+                          {% endfor %}
+
+                         </select>
+                        </div>   
+                        
+
+                            <!--end-->
+                        <div class="clearfix"></div>
+                        <button type="submit" class="btn btn-primary pull-left">Update Banner</button>
+                    {{ form_end(form) }}
+                    {{ form_rest(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+
+<script>
+    
+        //$("input[type='checkbox']").bootstrapSwitch();
+    
+      /*$('#appbundle_advertisement_bannerFor').change(function(){
+var id=$('#appbundle_advertisement_bannerFor').val();
+
+if(id=='1')
+{
+    $('.menuitem').show();
+    $('.category').hide();
+               $('.subcategory').hide();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+              $('.link').hide();
+
+    $('#cats').attr('name', 'test');
+    $('#items').attr('name', 'item');
+
+}
+if(id=='2')
+{
+    $('.menuitem').hide();
+    $('.category').show();
+           $('.subcategory').hide();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+              $('.link').hide();
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='3')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').show();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+              $('.link').hide();
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='0')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').hide();
+$('.nestedcategory').hide();
+       $('.brands').hide();
+              $('.link').hide();
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='4')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').hide();
+       $('.nestedcategory').show();
+       $('.brands').hide();
+              $('.link').hide();
+
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='5')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').hide();
+       $('.nestedcategory').hide();
+       $('.brands').show();
+              $('.link').hide();
+
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+if(id=='6')
+{
+    $('.menuitem').hide();
+     $('.category').hide();
+       $('.subcategory').hide();
+       $('.nestedcategory').hide();
+       $('.brands').hide();
+       $('.link').show();
+
+    $('#items').attr('name', 'test');
+    $('#cats').attr('name', 'item');
+}
+});  
+*/
+
+ $(document).ready(function() {
+$('.multipleSelect').fastselect();
+$('.dd').fastselect();
+var x=$('#appbundle_advertisement_bannerFor').val();
+//alert(x);
+if(x==0)
+{
+$('#link').show();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+if(x==1)
+{
+$('#link').hide();
+$('#items-link').show();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+if(x==2)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').show();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+if(x==3)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').show();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+if(x==4)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').hide();
+$('#sub_category').show();
+$('#brands').hide();
+$('#nestedcategory').hide();
+
+}
+if(x==5)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').show();
+$('#sub_category').hide();
+
+}
+if(x==6)
+{
+$('#link').show();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+
+}
+$('#appbundle_advertisement_bannerFor').click(function(){
+var x=$('#appbundle_advertisement_bannerFor').val();
+//alert(x);
+if(x==1)
+{
+$('#link').hide();
+$('#items-link').show();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+if(x==2)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').show();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+if(x==3)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').show();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+if(x==4)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').show();
+
+}
+if(x==5)
+{
+$('#link').hide();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').show();
+$('#sub_category').hide();
+
+}
+if(x==6)
+{
+$('#link').show();
+$('#items-link').hide();
+$('#category').hide();
+$('#subcategory').hide();
+$('#nestedcategory').hide();
+$('#brands').hide();
+$('#sub_category').hide();
+
+}
+});
+ });
+
+ $(document).ready(function(){
+$('.banner-area').html('<a href="{{ path('advertisement_new') }}" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Create Banner</a>');
+ });
+</script>
+
+{% endblock %}

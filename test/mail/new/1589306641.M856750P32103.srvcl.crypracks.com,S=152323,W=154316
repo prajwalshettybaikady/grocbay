@@ -1,0 +1,1993 @@
+Return-Path: <grocbayc@srvcl.crypracks.com>
+Delivered-To: grocbayc@srvcl.crypracks.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id yBW4MhHlul5nfQAAYUfyRA
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	for <grocbayc@srvcl.crypracks.com>; Tue, 12 May 2020 14:04:01 -0400
+Return-path: <grocbayc@srvcl.crypracks.com>
+Envelope-to: grocbayc@srvcl.crypracks.com
+Delivery-date: Tue, 12 May 2020 14:04:01 -0400
+Received: from grocbayc by srvcl.crypracks.com with local (Exim 4.92)
+	(envelope-from <grocbayc@srvcl.crypracks.com>)
+	id 1jYZG5-0008Ta-NR
+	for grocbayc@srvcl.crypracks.com; Tue, 12 May 2020 14:04:01 -0400
+From: "(Cron Daemon)" <grocbayc@srvcl.crypracks.com>
+To: grocbayc@srvcl.crypracks.com
+Subject: Cron <grocbayc@srvcl> /usr/local/bin/ea-php72 /home/grocbayc/backup.grocbay.com/index.php
+Content-Type: text/plain; charset=UTF-8
+Auto-Submitted: auto-generated
+Precedence: bulk
+X-Cron-Env: <XDG_SESSION_ID=481578>
+X-Cron-Env: <XDG_RUNTIME_DIR=/run/user/1511>
+X-Cron-Env: <LANG=en_US.UTF-8>
+X-Cron-Env: <SHELL=/usr/local/cpanel/bin/jailshell>
+X-Cron-Env: <HOME=/home/grocbayc>
+X-Cron-Env: <PATH=/usr/bin:/bin>
+X-Cron-Env: <LOGNAME=grocbayc>
+X-Cron-Env: <USER=grocbayc>
+Message-Id: <E1jYZG5-0008Ta-NR@srvcl.crypracks.com>
+Date: Tue, 12 May 2020 14:04:01 -0400
+
+
+
+CREATE TABLE `advertisement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8_unicode_ci,
+  `startDate` datetime DEFAULT NULL,
+  `endDate` datetime DEFAULT NULL,
+  `clickLink` longtext COLLATE utf8_unicode_ci,
+  `isActive` tinyint(1) NOT NULL,
+  `bannerImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bannerFor` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_C95F6AEE51600A2A` (`bannerImage`),
+  KEY `IDX_C95F6AEEC54C8C93` (`type_id`),
+  CONSTRAINT `FK_C95F6AEEC54C8C93` FOREIGN KEY (`type_id`) REFERENCES `advertisement_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO advertisement VALUES
+("14","1","slider 1","4-5","2019-11-13 00:00:00","2019-11-13 00:00:00","","1","banner5e3e66538e88d.jpeg","2","1"),
+("15","1","slider 2","4+2","2019-11-14 00:00:00","2019-11-23 00:00:00","","0","banner5e3e66700cf33.jpeg","",""),
+("16","1","slider 3","+","2019-11-09 00:00:00","2019-11-17 00:00:00","","1","banner5e3e66a8db1ed.jpeg","2","1"),
+("17","2","ad 1","+4","2019-11-14 00:00:00","2019-11-24 00:00:00","","0","banner5e3eb57639937.jpeg","2","1"),
+("18","2","as 2","","2019-11-23 00:00:00","2019-11-24 00:00:00","","1","banner5e3fbac0f3133.webp","",""),
+("19","1","Slider 5","","2019-11-13 00:00:00","2020-01-20 00:00:00","","1","banner5e3e6708aac8f.jpeg","2","2"),
+("20","1","slider4","","2020-01-02 00:00:00","2020-01-03 00:00:00","","1","banner5e3e66c6a2bc9.png","",""),
+("21","1","Slider 6","","2020-02-08 00:00:00","2020-02-29 00:00:00","","1","banner5e3e677191d85.jpeg","2","9"),
+("23","5","advertise1","","","","","1","banner5e4151740c6fd.webp","1","265"),
+("24","5","advertise2","","","","","1","banner5e4152f9e1b4c.webp","",""),
+("25","2","New aarivals","New arri","","","http://www.qlikart.com","0","banner5e4ba8353066a.gif","",""),
+("26","2","banner 3","","","","","0","banner5e4ba9263425b.jpeg","",""),
+("27","6","BEST OFFER","","","","","1","banner5e7c52c521b56.jpeg","2","2");
+
+
+
+
+CREATE TABLE `advertisement_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `typeName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_6F5C4C61B16D2E23` (`typeName`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO advertisement_type VALUES
+("2","Advertisement Banner -1"),
+("5","Advertisement Banner -2"),
+("6","Boxed Slider"),
+("1","Slider");
+
+
+
+
+CREATE TABLE `billing_address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_d` int(11) DEFAULT NULL,
+  `addressType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fullName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lattitude` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `logingitude` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `extraInfo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_6660E456EDE76272` (`customer_d`),
+  CONSTRAINT `FK_6660E456EDE76272` FOREIGN KEY (`customer_d`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `brands` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoryName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `categorySlug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `iconImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bannerImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `categoryDescription` longtext COLLATE utf8_unicode_ci,
+  `parent_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_BCE3F79896B86598` (`categoryName`),
+  UNIQUE KEY `UNIQ_BCE3F798C5730A69` (`iconImage`),
+  UNIQUE KEY `UNIQ_BCE3F79851600A2A` (`bannerImage`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO brands VALUES
+("49","Tide","tide","5d95de60bf54etide.png","5e9d1149497d2tide.jpeg","test banner","1"),
+("50","surf excel","surf-excel","5d95de79e125csurf-excel.gif","","44854854","1"),
+("51","Colgate","colgate","5d95de902d1c2colgate.gif","","","1"),
+("52","Areal","areal","5d95dea81e30careal.jpeg","","","1"),
+("53","life buoy","life-buoy","5d95deb9e9eb4life-boy.jpeg","","","1"),
+("54","fair and lovely","fair-and-lovely","5d95decc19126fair-and-lovely.png","","",""),
+("55","Uniliver","uniliver","5d95dee31b197uniliver.png","","","1"),
+("56","fair and handsome","fair-and-handsome","5d95def974357fair-and-handsome.jpeg","","","1"),
+("57","wipro","wipro","5e030a1fa8646wipro.jpeg","5e030a1faac6awipro.png","","1"),
+("58","ITC","itc","5e3e399237ff9itc.png","","","1"),
+("59","TATA","tata","5e3e8c0827979tata.png","5e9017d520fb0tata.jpeg","","1"),
+("60","Grocbay","grocbay","","","",""),
+("61","Patanjali","patanjali","5e3e8a99ced5dpatanjali.png","","",""),
+("62","Double horse","double-horse","5e3e8b1c10ea8double-horse.png","","",""),
+("63","Kellogg\'s","kellogg\'s","5e3e8b6786c3fkellogg\'s.png","","",""),
+("64","India Gate","india-gate","5e3e8a304f79dindia-gate.jpeg","","",""),
+("65","Pepsico","pepsico","5e3e6991e032fpepsico.png","","",""),
+("66","Nestle","nestle","5e3e7f83b9becnestle.png","","","1"),
+("67","Cocacola","cocacola","5e3e8e7e8aee1cocacola.png","","",""),
+("68","Nivea","nivea","5e3e940d9660cnivea.png","","",""),
+("69","Parle","parle","5e3e97aae77ebparle.png","","",""),
+("70","Cadbury","cadbury","5e3e9e720715ecadbury.png","","",""),
+("71","Del Monte","del-monte","5e3ea88784d89del-monte.png","","",""),
+("72","Himalaya","himalaya","5e3eab447fb19himalaya.png","","",""),
+("73","Procter & Gamble","procter-&-gamble","5e3eae91a41cdprocter-&-gamble.png","","",""),
+("74","Pedigree","pedigree","5e3eb0f221856pedigree.png","","",""),
+("75","Amul","amul","5e423f308fd99amul.png","","",""),
+("76","Gogrej","gogrej","5e4244b3b43eagogrej.png","","",""),
+("77","Natural Farm Fres","natural-farm-fres","","","","0"),
+("78","ADS","ads","5e92853dd654eads.jpeg","5e9285527ee3bads.jpeg","ADS Superior Quality","0"),
+("80","loreal","loreal","","","","0"),
+("81","loose","loose","","","","0"),
+("82","Pratik","pratik","","","Pratik","1"),
+("83","Britania","britania","5eb2ccb7c7d53britania.png","","","0"),
+("84","Dabur","dabur","5eb3da56b0952dabur.png","","","1");
+
+
+
+
+CREATE TABLE `csv_logs` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `date` varchar(100) DEFAULT NULL,
+  `ref` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO csv_logs VALUES
+("34","21-02-2020","860221-02-2020"),
+("35","21-02-2020","685921-02-2020"),
+("36","21-02-2020","278721-02-2020"),
+("38","21-02-2020","500921-02-2020"),
+("39","12-04-2020","243012-04-2020"),
+("40","16-04-2020","923916-04-2020"),
+("41","16-04-2020","394816-04-2020");
+
+
+
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gst` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mobileNo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `isActive` tinyint(1) NOT NULL,
+  `isOnline` tinyint(1) NOT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:json_array)',
+  `apiKey` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `otp` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `registrationKey` longtext COLLATE utf8_unicode_ci,
+  `membership` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `latitude` varchar(500) COLLATE utf8_unicode_ci DEFAULT '0',
+  `longitude` varchar(500) COLLATE utf8_unicode_ci DEFAULT '0',
+  `area` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_81398E09E37B250` (`mobileNo`),
+  UNIQUE KEY `UNIQ_81398E09800A1141` (`apiKey`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO customer VALUES
+("1","","vikas1989sc@gmail.com","9964231805","Vikas","1","1","[\"ROLE_CUSTOMER\"]","customer5eb69054ddfc65.25977590","","\'\'","\'\'","0","","",""),
+("2","","prajwal@appinsight.tech","9632618670","Prajwal Shetty","1","1","[\"ROLE_CUSTOMER\"]","customer5eba7938835598.30408062","1725","\'\'","hah","0","13.3557059","74.7594347","Unnamed Road, Doddangudde, Udupi, Karnataka 576103, India"),
+("3","","rahul.kumbhare@gmail.com","9967004373","Rahul","1","1","[\"ROLE_CUSTOMER\"]","customer5eb9b488cd80d4.07073423","","\'\'","\'\'","0","18.9728907","73.0272797","");
+
+
+
+
+CREATE TABLE `customer_order` (
+  `id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `customer_d` int(11) DEFAULT NULL,
+  `orderDate` datetime NOT NULL,
+  `actualAmount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `totalTax` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deliveryCharge` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `promocode` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `totalDiscount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `orderAmount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `customerName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` longtext COLLATE utf8_unicode_ci,
+  `landmark` longtext COLLATE utf8_unicode_ci,
+  `logitude` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `latitude` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `orderType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `paymentType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `paymentStatus` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `orderStatus` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `proccessTime` datetime DEFAULT NULL,
+  `cancelTime` datetime DEFAULT NULL,
+  `readyTime` datetime DEFAULT NULL,
+  `dispatchTime` datetime DEFAULT NULL,
+  `onwayTime` datetime DEFAULT NULL,
+  `deliveryTime` datetime DEFAULT NULL,
+  `completeTime` datetime DEFAULT NULL,
+  `sortTime` datetime DEFAULT NULL,
+  `restoAppFee` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `restPay` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fixtime` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fixDate` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `deliveryBoy` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `tray` varchar(100) COLLATE utf8_unicode_ci DEFAULT '',
+  `trayStatus` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `area` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `orderFrom` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `channel` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `note` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_3B1CE6A3EDE76272` (`customer_d`),
+  CONSTRAINT `FK_3B1CE6A3EDE76272` FOREIGN KEY (`customer_d`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `customer_order_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_d` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `itemId` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `itemName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `priceVariavtion` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `quantity` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `actualAmount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `extraAmount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tax` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `discount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `subTotal` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `isTray` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `trayQty` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sku` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `hsn` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_61CBB6B8E6BBC1E0` (`order_d`),
+  CONSTRAINT `FK_61CBB6B8E6BBC1E0` FOREIGN KEY (`order_d`) REFERENCES `customer_order` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `customer_with_promocode` (
+  `customer_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `promocode_id` int(11) NOT NULL,
+  PRIMARY KEY (`customer_id`,`promocode_id`),
+  KEY `IDX_5127EEA59395C3F3` (`customer_id`),
+  KEY `IDX_5127EEA5C76C06D9` (`promocode_id`),
+  CONSTRAINT `FK_5127EEA59395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `promocode` (`id`),
+  CONSTRAINT `FK_5127EEA5C76C06D9` FOREIGN KEY (`promocode_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `extra_package` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_item_id` int(11) DEFAULT NULL,
+  `packageName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `pricingType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_6B360779AB44FE0` (`menu_item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO extra_package VALUES
+("1","13","insects","multiple"),
+("2","13","insects","multiple"),
+("4","228","Free Pack","single");
+
+
+
+
+CREATE TABLE `location` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `title` varchar(450) DEFAULT 'Undefined Location',
+  `value` varchar(3000) DEFAULT NULL,
+  `created_date` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`),
+  UNIQUE KEY `value` (`value`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO location VALUES
+("31","Asia1","[{\"lat\":34.9313936432308,\"lng\":67.51315033468791},{\"lat\":35.50581222132476,\"lng\":87.46432220968791},{\"lat\":33.98933824860788,\"lng\":98.4506503346879},{\"lat\":5.671155007960143,\"lng\":89.66158783468791},{\"lat\":-0.7355575156903845,\"lng\":67.68893158468791},{\"lat\":17.193758375740792,\"lng\":58.1088534596879}]","23-04-2020"),
+("36","block1","[{\"lat\":22.743017684838936,\"lng\":75.78595552763669},{\"lat\":22.739851360621802,\"lng\":75.89478884062497},{\"lat\":22.674608776568355,\"lng\":75.91367159208981}]","26-04-2020"),
+("40","udupi","[{\"lat\":14.3426140268318,\"lng\":74.21011829374999},{\"lat\":14.374543460898654,\"lng\":76.06131458281249},{\"lat\":12.66551369698004,\"lng\":76.54471302031249},{\"lat\":12.451044153531756,\"lng\":75.06705188749999},{\"lat\":12.392033806670131,\"lng\":74.27054309843749}]","12-05-2020");
+
+
+
+
+CREATE TABLE `membership` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT ' ',
+  `avator` varchar(100) DEFAULT NULL,
+  `price` varchar(100) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `duration` varchar(100) DEFAULT NULL,
+  `parent_id` varchar(100) DEFAULT '0' COMMENT '0 for main ,1 for sub',
+  `status` varchar(100) DEFAULT NULL,
+  `discounted_price` varchar(100) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO membership VALUES
+("1","test memberships","5e9d58f43d630_1587370228.png","","test description","","0","0","0"),
+("152","2 month","","900","","1","1","1","800"),
+("153","3 month","","900","","3","1","1","950"),
+("157","test","","100","","2","1","1","98"),
+("158","ww","","1000","","8","1","1","10000"),
+("159","two month","","100","","2","1","1","98"),
+("160","five month","","500","","5","1","1","499"),
+("161","1 month","","500","","5","1","1","499"),
+("162","6 Month","","100","","1","1","1","55"),
+("163","1","","100","","6","1","1","50"),
+("164","GRAB","","1000","","12","1","0","550");
+
+
+
+
+CREATE TABLE `membership_history` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(100) DEFAULT NULL,
+  `purchased_date` varchar(100) DEFAULT NULL,
+  `ref` varchar(100) DEFAULT NULL,
+  `expiry_date` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `membership_id` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `duration` varchar(100) DEFAULT NULL,
+  `price` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO membership_history VALUES
+("13","310","18-03-2020","3472462178","18-04-2020","0","152","2 month","1","800"),
+("14","311","18-03-2020","2372640144","18-06-2020","0","153","3 month","3","950"),
+("15","308","20-03-2020","4728309172","20-04-2020","0","152","2 month","1","800"),
+("16","308","21-03-2020","7751167371","21-04-2020","0","152","2 month","1","800"),
+("17","308","21-03-2020","9228648654","21-04-2020","0","152","2 month","1","800"),
+("18","308","21-03-2020","5262180782","21-04-2020","0","152","2 month","1","800");
+
+
+
+
+CREATE TABLE `menu_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `category` varchar(300) COLLATE utf8_unicode_ci DEFAULT '0',
+  `itemName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `itemSlug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vegType` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `itemShortDescription` longtext COLLATE utf8_unicode_ci,
+  `itemDescription` longtext COLLATE utf8_unicode_ci,
+  `itemFeaturedImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `regularPrice` double DEFAULT NULL,
+  `salePrice` double DEFAULT NULL,
+  `isActive` tinyint(1) DEFAULT NULL,
+  `isSubscription` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `salesTax` double DEFAULT NULL,
+  `maxItem` varchar(255) COLLATE utf8_unicode_ci DEFAULT '10',
+  `totalQty` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `brand` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `alert` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `reference` varchar(100) COLLATE utf8_unicode_ci DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `IDX_D754D55012469DE2` (`category_id`),
+  CONSTRAINT `FK_D754D55012469DE2` FOREIGN KEY (`category_id`) REFERENCES `sub_category` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=436 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO menu_item VALUES
+("265","9","9,52","Sharbati Atta NEW","sharbati-atta-new","veg","","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","5e3e3a0e1b880sharbati-atta.jpeg","0","0","1","","18","","300","58","10",""),
+("266","9","15","sugar","sugar","veg","","","5e958850dec03sugar.jpeg","0","0","1","","18","","400","59","10",""),
+("267","9","8,9","Multigrains Atta","multigrains-atta","veg","","XXXXX XXXX XXXXXXX XXXXX XSDFGHJKDFH HGSGXC KSFG SDFG  IASUGD AISU I  AIUGDS FCKXCGSKDJB F ISUGF SDFB SID DFGSID FIFUDG SDFKSYEI FLFOFUV FHDFOFY OEFF9EU DOS HF PDFFU FPSDUF 9 FDFYSDFOCH  OSFYU98E  OISDYF YO  SOIYFP UAD ASFF YEIE PEU APF OFD DSF SDFY SDF SDFOEU  OAFIY S DF EY EFSDF SDFY DSF SDFY SDFOI DFS DF SDF SDFS DFS DFSF","5e3e3babbd7aemultigrains-atta.jpeg","0","0","1","","18","","5000","63","10",""),
+("268","9","9,8","Whole wheat Atta\'s","whole-wheat-atta","veg","","","5e3e3c43743adwhole-wheat-atta.jpeg","0","0","1","","18","","200","63","10",""),
+("269","8","8","Channa Dal","channa-dal","veg","","","","0","0","1","","18","","180","63","10",""),
+("270","8","8,9,13","Masoor Dal","masoor-dal","veg","","","5e3e3f30d20b0masoor-dal.png","0","0","1","","18","","50000","63","10",""),
+("271","8","8","Toor Dal","toor-dal","veg","","","","0","0","1","","18","","400","63","10",""),
+("272","8","8,9","Tata toor Dal","tata-toor-dal","veg","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","5e3e405d1f923tata-toor-dal.png","0","0","1","","18","","10","59","10",""),
+("273","8","9,8","Moong Dal","moong-dal","veg","","","5e3e40df1d039moong-dal.png","0","0","1","","18","","300","63","10",""),
+("274","8","8,9,52","white peasmatter","white-peasmatter","veg","","","5e3e416b5ad53white-peasmatter.png","0","0","1","","18","","300","63","10",""),
+("275","14","9,8","Aashirvaad cow ghee","aashirvaad-cow-ghee","veg","","","5e3e427974911aashirvaad-cow-ghee.jpeg","0","0","1","","18","","300","63","10",""),
+("276","46","9,8","Aashivaad Tumeric","aashivaad-tumeric","veg","","","5e3e4331cdf56aashivaad-tumeric.jpeg","0","0","1","","18","","200","63","10",""),
+("277","46","9,8","TATA Turmeric powder","tata-turmeric-powder","veg","","","5e3e43a84e258tata-turmeric-powder.jpeg","0","0","1","","18","","300","63","10",""),
+("278","46","46","Kashmiri chilli","kashmiri-chilli","veg","","","","0","0","1","","18","","300","63","10",""),
+("279","22","9,8","Tide Lemon & mint","tide-lemon-&-mint","veg","","","5e3e462fbbee3tide-lemon-&-mint.jpeg","0","0","1","","18","","100","63","10",""),
+("280","22","8,9","Tide Jasmine & Rose","tide-jasmine-&-rose","veg","","","5e3e46c11b704tide-jasmine-&-rose.jpeg","0","0","1","","18","","200","63","10",""),
+("281","22","9,8","Tide 3 in 1","tide-3-in-1","veg","","","5e3e47471e812tide-3-in-1.jpeg","0","0","1","","18","","300","63","10",""),
+("282","22","9,8","Surf Excel easy wash","surf-excel-easy-wash","veg","","","5e3e47eb97240surf-excel-easy-wash.jpeg","0","0","1","","18","","300","63","10",""),
+("283","22","9,8","Surf Matic powder","surf-matic-powder","veg","","","5e3e4881d2367surf-matic-powder.jpeg","0","0","1","","18","","340","63","10",""),
+("284","22","8,9,52","Surf Liquid","surf-liquid","veg","","","5e3e4996adf0dsurf-liquid.jpeg","0","0","1","","18","","200","63","10",""),
+("285","44","9,8","Colgate active salt","colgate-active-salt","veg","","","5e3e4a6826aabcolgate-active-salt.jpeg","0","0","1","","18","","400","63","10",""),
+("286","44","9,8","Colgate Plax","colgate-plax","veg","","","5e3e4af288d89colgate-plax.jpeg","0","0","1","","18","","300","63","10",""),
+("287","44","9,8","Colgate Charcoal","colgate-charcoal","veg","","","5e3e4b6cae9b5colgate-charcoal.jpeg","0","0","1","","18","","300","63","10",""),
+("288","44","9,8","Colgate Zig zag","colgate-zig-zag","veg","","","5e3e4c1fc05edcolgate-zig-zag.jpeg","0","0","1","","18","","400","63","10",""),
+("289","44","9,8","Lifebuoy Soap","lifebuoy-soap","veg","","","5e3e4cbae4587lifebuoy-soap.jpeg","0","0","1","","18","","300","63","10",""),
+("290","44","9,8","Fair & lovely cream","fair-&-lovely-cream","veg","","","","0","0","1","","18","","","63","10",""),
+("291","44","9,8","Fair & lovely cream","fair-&-lovely-cream","veg","","","","0","0","1","","18","","300","63","10",""),
+("292","44","9,8","Mens fairness cream","mens-fairness-cream","veg","","","5e3e4fb40fb96mens-fairness-cream.jpeg","0","0","1","","18","","300","63","10",""),
+("293","44","9,8","Close up Extra fresh","close-up-extra-fresh","veg","","","5e3e5081994a3close-up-extra-fresh.jpeg","0","0","1","","18","","400","63","10",""),
+("294","44","9,8","Dove bathing bar","dove-bathing-bar","veg","","","5e3e514a4286bdove-bathing-bar.jpeg","0","0","1","","18","","500","63","10",""),
+("295","18","9,8","Lipton green tea","lipton-green-tea","veg","","","5e3e51f808e74lipton-green-tea.jpeg","0","0","1","","18","","500","63","10",""),
+("296","18","9,8","Lemon ice tea","lemon-ice-tea","veg","","","5e3e527fab554lemon-ice-tea.jpeg","0","0","1","","18","","200","63","10",""),
+("297","40","9,8","Knorr Mixed veg soup","knorr-mixed-veg-soup","veg","","","5e3e533910993knorr-mixed-veg-soup.jpeg","0","0","1","","18","","300","63","10",""),
+("298","40","9,8","Knorr Tomato soup","knorr-tomato-soup","veg","","","5e3e53b6dc8b5knorr-tomato-soup.jpeg","0","0","1","","18","","300","63","10",""),
+("299","22","9,8","Fabric conditioner","fabric-conditioner","veg","","","5e3e547e2c4fefabric-conditioner.jpeg","0","0","1","","18","","200","63","10",""),
+("300","44","9,8","Fair & handsome","fair-&-handsome","veg","","","5e3e55099f6b2fair-&-handsome.jpeg","0","0","1","","18","","300","63","10",""),
+("301","44","9,8","Santoor soap Bar","santoor-soap-bar","veg","","","5e3e5629e8e6asantoor-soap-bar.jpeg","0","0","1","","18","","514","63","10",""),
+("302","34","9,8","Mad angles Masala","mad-angles-masala","veg","","","5e3e5740a95c6mad-angles-masala.jpeg","0","0","1","","18","","300","63","10",""),
+("303","34","9,8","Bingo peri peri","bingo-peri-peri","veg","","","5e3e57b12a924bingo-peri-peri.jpeg","0","0","1","","18","","300","63","10",""),
+("304","44","8,9","Engage nudge","engage-nudge","veg","","","5e3e585443e31engage-nudge.jpeg","0","0","1","","18","","300","63","10",""),
+("305","44","9,8","Engage tickle","engage-tickle","veg","","","5e3e58e1a11cfengage-tickle.jpeg","0","0","1","","18","","500","63","10",""),
+("306","32","9,8","Sunfeast marie light","sunfeast-marie-light","veg","","","5e3e598b11616sunfeast-marie-light.jpeg","0","0","1","","18","","300","63","10",""),
+("307","17","9,8","Guava juice","guava-juice","veg","","","5e3e5a40b1c26guava-juice.jpeg","0","0","1","","18","","200","63","10",""),
+("308","17","9,8","Pomegranate Juice","pomegranate-juice","veg","","","5e3e5abc32858pomegranate-juice.jpeg","0","0","1","","18","","300","63","10",""),
+("309","17","9,8","Mango Juice","mango-juice","veg","","","5e3e5b40a971cmango-juice.jpeg","0","0","1","","18","","400","63","10",""),
+("310","37","9,8","Yippee magic masala","yippee-magic-masala","veg","","","5e3e5bdb2f87dyippee-magic-masala.jpeg","0","0","1","","18","","500","63","10",""),
+("311","30","9,8","Kellogg\'s cornflakes","kellogg\'s-cornflakes","veg","","","5e3e5d07ca6b2kellogg\'s-cornflakes.jpeg","0","0","1","","18","","300","63","10",""),
+("312","30","9,8","Honey Corn Flakes","honey-corn-flakes","veg","","","5e3e5db8e6c31honey-corn-flakes.jpeg","0","0","1","","18","","400","63","10",""),
+("313","30","9,8","Kellogg\'s Chocos","kellogg\'s-chocos","veg","","","5e3e5e53e0c45kellogg\'s-chocos.jpeg","0","0","1","","18","","300","63","10",""),
+("314","30","9,8","Nuts delight","nuts-delight","veg","","","5e3e5fcb8279anuts-delight.jpeg","0","0","1","","18","","300","63","10",""),
+("315","15","9,8","Tata salt","tata-salt","veg","","","5e3e60fa8b9c4tata-salt.jpeg","0","0","1","","18","","300","63","10",""),
+("316","15","9,8","Tata crystal salt","tata-crystal-salt","veg","","","5e3e6191252d4tata-crystal-salt.png","0","0","1","","18","","340","63","10",""),
+("317","14","9,8","mustard oil","mustard-oil","veg","","","5e3e628ea7907mustard-oil.jpeg","0","0","1","","18","","300","63","10",""),
+("318","10","9,8","Basmati rice","basmati-rice","veg","","","5e3e64e452cf7basmati-rice.jpeg","0","0","1","","18","","300","63","10",""),
+("319","10","9,8","Jeera rice","jeera-rice","veg","","","5e3e6561197c8jeera-rice.jpeg","0","0","1","","18","","300","63","10",""),
+("320","10","9,8","Basmati rice -Dubar","basmati-rice--dubar","veg","","","5e3e65fc15889basmati-rice--dubar.jpeg","0","0","1","","18","","300","63","10",""),
+("321","10","9,8","Brown rice","brown-rice","veg","","","5e3e66ca2d599brown-rice.jpeg","0","0","1","","18","","300","63","10",""),
+("322","13","9,8","Sunflower seeds","sunflower-seeds","veg","","","5e3e677e11a50sunflower-seeds.jpeg","0","0","1","","18","","300","63","10",""),
+("323","16","8,9","Pepsi","pepsi","veg","","","5e3e6ae15aca7pepsi.jpeg","0","0","1","","18","","230","63","10",""),
+("324","16","9,8","Mountain Dew","mountain-dew","veg","","","5e3e799f86970mountain-dew.jpeg","0","0","1","","18","","300","63","10",""),
+("325","16","9,8","Cocacola","cocacola","veg","","","5e3e7a192171dcocacola.jpeg","0","0","1","","18","","400","63","10",""),
+("326","16","9,8","Sprite","sprite","veg","","","5e3e7a94cf077sprite.jpeg","0","0","1","","18","","300","63","10",""),
+("327","16","9,8","Pepsi diet","pepsi-diet","veg","","","5e3e7af23adf4pepsi-diet.jpeg","0","0","1","","18","","120","63","10",""),
+("328","16","9,8","Pepsi diet","pepsi-diet","veg","","","","0","0","1","","18","","330","63","10",""),
+("329","17","9,8","Tropicana Litchi","tropicana-litchi","veg","","","5e3e7d6060ec7tropicana-litchi.jpeg","0","0","1","","18","","400","63","10",""),
+("330","17","9,8","Tropicana Apple","tropicana-apple","veg","","","5e3e7de1f2cb8tropicana-apple.jpeg","0","0","1","","18","","300","63","10",""),
+("331","18","9,8","Tata dust tea","tata-dust-tea","veg","","","5e3e7e63e68fatata-dust-tea.jpeg","0","0","1","","18","","400","63","10",""),
+("332","18","9,8","Tata chakra gold","tata-chakra-gold","veg","","","5e3e7ef5c6a3dtata-chakra-gold.jpeg","0","0","1","","18","","300","63","10",""),
+("333","30","9,8","Nestle NAN pro","nestle-nan-pro","veg","","","5e3e80405f3d7nestle-nan-pro.jpeg","0","0","1","","18","","300","63","10",""),
+("334","46","9,8","Tamarind","tamarind","veg","","","5e3e813966183tamarind.jpeg","0","0","1","","18","","400","63","10",""),
+("335","34","9,8","Hot & sweet chilli","hot-&-sweet-chilli","veg","","","5e3e82a76a6e1hot-&-sweet-chilli.jpeg","0","0","1","","18","","400","63","10",""),
+("336","18","9,8","Nescafe coffee","nescafe-coffee","veg","","","5e3e83c8cf9eenescafe-coffee.jpeg","0","0","1","","18","","300","63","10",""),
+("337","18","9,8","Nescafe classic","nescafe-classic","veg","","","5e3e8462c64c2nescafe-classic.jpeg","0","0","1","","18","","300","63","10",""),
+("338","18","9,8","Nescafe sunrise","nescafe-sunrise","veg","","","5e3e84f4183e8nescafe-sunrise.jpeg","0","0","1","","18","","400","63","19",""),
+("339","26","9,8","Nestle milk powder","nestle-milk-powder","veg","","","5e3e856823fcanestle-milk-powder.jpeg","0","0","1","","18","","400","63","10",""),
+("340","48","9,8","Cerelac multigrains","cerelac-multigrains","veg","","","5e3e860b6df95cerelac-multigrains.jpeg","0","0","1","","18","","300","63","10",""),
+("341","19","9,8","Nestle Milo","nestle-milo","veg","","","5e3e87760ed27nestle-milo.jpeg","0","0","1","","18","","400","63","10",""),
+("342","26","9,8","Nestle Nourish milk","nestle-nourish-milk","veg","","","5e3e880203f97nestle.jpeg","0","0","1","","18","","400","63","10",""),
+("343","48","9,8","Cerelac apple cherry","cerelac-apple-cherry","veg","","","5e3e8ce7a9eebcerelac-apple-cherry.jpeg","0","0","1","","18","","400","63","10",""),
+("344","20","9,8","Kinley mineral water","kinley-mineral-water","veg","","","","0","0","1","","18","","300","63","10",""),
+("345","20","9,8","Kinley Soda","kinley-soda","veg","","","5e3e8f8422f26kinley-soda.jpeg","0","0","1","","18","","300","63","10",""),
+("346","20","9,8","Kinley mineral water","kinley-mineral-water","veg","","","5e3e9002af27akinley-mineral-water.jpeg","0","0","1","","18","","300","63","10",""),
+("347","17","9,8","pulpy orange","pulpy-orange","veg","","","5e3e914c0ec0apulpy-orange.jpeg","0","0","1","","18","","300","63","10",""),
+("348","20","9,8","Ginger soda","ginger-soda","veg","","","5e3e91e6b691fginger-soda.jpeg","0","0","1","","18","","300","63","10",""),
+("349","44","9,8","Nivea shower care","nivea-shower-care","veg","","","5e3e947ea3540nivea-shower-care.jpeg","0","0","1","","18","","300","63","10",""),
+("350","44","9,8","Nivea moistorizer","nivea-moistorizer","veg","","","5e3e9525ed5ddnivea-moistorizer.jpeg","0","0","1","","18","","300","63","10",""),
+("351","44","9,8","Nivea Men Roll on","nivea-men-roll-on","veg","","","5e3e959f31bb7nivea-men.jpeg","0","0","1","","18","","300","63","10",""),
+("352","44","9,8","Nivea lemon & oil","nivea-lemon-&-oil","veg","","","5e3e968e35d1enivea-lemon-&-oil.jpeg","0","0","1","","18","","300","63","10",""),
+("353","44","9,8","Nivea fresh","nivea-fresh","veg","","","5e3e973549f90nivea-fresh.jpeg","0","0","1","","18","","400","63","10",""),
+("354","32","9,8","Parle Marie","parle-marie","veg","","","5e3e9800ed8c9parle-marie.jpeg","0","0","1","","18","","300","63","10",""),
+("355","32","9,8","Parle G","parle-g","veg","","","5e3e98ad80f35parle-g.jpeg","0","0","1","","18","","200","63","10",""),
+("356","32","9,8","Parle Monaco","parle-monaco","veg","","","5e3e992c58e46parle-monaco.jpeg","0","0","1","","18","","300","63","10",""),
+("357","32","9,8","Hide & seek","hide-&-seek","veg","","","5e3e99aa79eafhide-&-seek.jpeg","0","0","1","","18","","200","63","10",""),
+("358","32","9,8","Parle Rusk","parle-rusk","veg","","","5e3e9a2e1b8c5parle-rusk.jpeg","0","0","1","","18","","300","63","10",""),
+("359","32","9,8","Choco Roll cookies","choco-roll-cookies","veg","","","5e3e9aa1e9347choco-roll-cookies.jpeg","0","0","1","","18","","400","63","10",""),
+("360","32","9,8","Krack Jack","krack-jack","veg","","","5e3e9b0311752krack-jack.jpeg","0","0","1","","18","","400","63","10",""),
+("361","32","9,8","Nice Biscuit","nice-biscuit","veg","","","5e3e9b820b2abnice-biscuit.jpeg","0","0","1","","18","","400","63","10",""),
+("362","33","9,8","Parle Moong dal","parle-moong-dal","veg","","","5e3e9c02002f5parle-moong-dal.jpeg","0","0","1","","18","","300","63","10",""),
+("363","35","9,8","Parle mango bite","parle-mango-bite","veg","","","5e3e9c8a8a438parle-mango-bite.jpeg","0","0","1","","18","","300","63","10",""),
+("364","35","9,8","Parle Kacha mango","parle-kacha-mango","veg","","","5e3e9d0ae755fparle-kacha-mango.jpeg","0","0","1","","18","","300","63","10","");
+INSERT INTO menu_item VALUES
+("365","35","9,8","Orange bite","orange-bite","veg","","","5e3e9d88cdcdborange-bite.jpeg","0","0","1","","18","","400","63","10",""),
+("366","32","9,8","Oreo choco dipped","oreo-choco-dipped","veg","","","5e3e9f64c2afaoreo-choco-dipped.jpeg","0","0","1","","18","","400","63","10",""),
+("367","35","9,8","Diary milk","diary-milk","veg","","","5e3e9fcd9beefdiary-milk.jpeg","0","0","1","","18","","400","63","10",""),
+("368","35","9,8","Nutties","nutties","veg","","","5e3ea03a564d4nutties.jpeg","0","0","1","","18","","300","63","10",""),
+("369","19","9,8","Bournvita","bournvita","veg","","","5e3ea0bf9ca46bournvita.jpeg","0","0","1","","18","","400","63","10",""),
+("370","35","9,8","Cadbury fruit & nut","cadbury-fruit-&-nut","veg","","","5e3ea17ccdb6ccadbury-fruit-&-nut.jpeg","0","0","1","","18","","300","63","10",""),
+("371","35","9,8","Cadbury fuse","cadbury-fuse","veg","","","5e3ea2adda73bcadbury-fuse.jpeg","0","0","1","","18","","400","63","10",""),
+("372","39","8,9","Maggi Tomato Ketchup","maggi-tomato-ketchup","veg","","","5e3ea42c35414maggi-tomato-ketchup.jpeg","0","0","1","","18","","300","63","10",""),
+("373","37","9,8","Maggi special masala","maggi-special-masala","veg","","","5e3ea4ca8a9c4maggi-special-masala.jpeg","0","0","1","","18","","300","63","10",""),
+("374","37","9,8","veg atta noodles","veg-atta-noodles","veg","","","5e3ea54a4fc78veg-atta-noodles.jpeg","0","0","1","","18","","300","63","10",""),
+("375","40","9,8","Cheese macaroni","cheese-macaroni","veg","","","5e3ea5ba38ec4cheese-macaroni.jpeg","0","0","1","","18","","400","63","10",""),
+("376","40","9,8","masala penne pasta","masala-penne-pasta","veg","","","5e3ea6ced5a4fmasala-penne-pasta.jpeg","0","0","1","","18","","300","63","10",""),
+("377","40","9,8","Tomato pasta","tomato-pasta","veg","","","5e3ea74ba0df8tomato-pasta.jpeg","0","0","1","","18","","400","63","10",""),
+("378","37","9,8","maggi masala","maggi-masala","veg","","","5e3ea7f1f3cfamaggi-masala.jpeg","0","0","1","","18","","300","63","10",""),
+("379","41","9,8","Baked beans","baked-beans","veg","","","5e3ea8ea7287ebaked-beans.jpeg","0","0","1","","18","","300","63","10",""),
+("380","41","9,8","Pineapple slices","pineapple-slices","veg","","","5e3ea955be7e7pineapple-slices.jpeg","0","0","1","","18","","200","63","10",""),
+("381","14","9,8","Olive oil","olive-oil","veg","","","5e3ea9dcc1f79olive-oil.jpeg","0","0","1","","18","","300","63","10",""),
+("382","39","9,8","Del Monte ketchup","del-monte-ketchup","veg","","","5e3eaa874f7c8del-monte-ketchup.jpeg","0","0","1","","18","","200","63","10",""),
+("383","43","9,8","Himalaya baby bath","himalaya-baby-bath","veg","","","5e3eababa1df6himalaya-baby-bath.jpeg","0","0","1","","18","","300","63","10",""),
+("384","43","9,8","Himalaya baby powder","himalaya-baby-powder","veg","","","5e3eac1b17052himalaya-baby-powder.jpeg","0","0","1","","18","","300","63","10",""),
+("385","43","9,8","Himalaya baby cream","himalaya-baby-cream","veg","","","5e3eacaf9681bhimalaya-baby-cream.jpeg","0","0","1","","18","","300","63","10",""),
+("386","43","9,8","Himalaya baby oil","himalaya-baby-oil","veg","","","5e3ead240650bhimalaya-baby-oil.jpeg","0","0","1","","18","","300","63","10",""),
+("387","44","9,8","Neem & tumeric soap","neem-&-tumeric-soap","veg","","","5e3eadca431e2neem-&-tumeric-soap.jpeg","0","0","1","","18","","200","63","10",""),
+("388","42","9,8","pampers XL","pampers-xl","veg","","","5e3eaf9f76221pampers-xl.jpeg","0","0","1","","18","","300","63","10",""),
+("389","43","9,8","pampers Large","pampers-large","veg","","","5e3eb01e01aeapampers-large.jpeg","0","0","1","","18","","230","63","10",""),
+("390","52","9,8","chicken & veg","chicken-&-veg","veg","","","5e3eb15f68f14chicken-&-veg.jpeg","0","0","1","","18","","300","63","10",""),
+("391","52","9,8","Pedigree veg","pedigree-veg","veg","","","5e3eb1d0a82fbpedigree-veg.jpeg","0","0","1","","18","","200","63","10",""),
+("392","52","9,8","chicken & rice","chicken-&-rice","veg","","","5e3eb25a01219chicken-&-rice.jpeg","0","0","1","","18","","300","63","10",""),
+("393","52","9,8","B Natural Juice","b-natural-juice","veg","","","5e413e857f26bb-natural-juice.png","0","0","1","","18","","100","63","10",""),
+("394","52","9,8","Chandrika","chandrika","veg","","","5e413f00e70b8chandrika.jpeg","0","0","1","","18","","400","63","10",""),
+("395","52","9,8","Surf excel","surf-excel","veg","","","5e413fa016e1asurf-excel.jpeg","0","0","1","","18","","300","63","10",""),
+("396","52","9,8","Areal soap powder","areal-soap-powder","veg","","","5e413ffedc547areal-soap-powder.jpeg","0","0","1","","18","","400","63","10",""),
+("397","27","8,9","Eggs","eggs","veg","","","5e423e751363beggs.jpeg","0","0","1","","18","","200","63","10",""),
+("398","28","9,8","Amul Paneer","amul-paneer","veg","","","5e423f708d3b2amul-paneer.jpeg","0","0","1","","18","","300","63","10",""),
+("399","29","8,9","Amul Butter","amul-butter","veg","","","5e424027ad47aamul-butter.jpeg","0","0","1","","18","","200","63","10",""),
+("400","29","8,9","Amul Cheese spread","amul-cheese-spread","veg","","","5e4240a9ad6e4amul-cheese-spread.jpeg","0","0","1","","18","","300","63","10",""),
+("401","31","8,9","Amul Choco spread","amul-choco-spread","veg","","","5e4241402e5c6amul-choco-spread.jpeg","0","0","1","","18","","200","63","10",""),
+("402","29","9,8","Amul cheese blocks","amul-cheese-blocks","veg","","","5e4241e48eb41amul-cheese-blocks.jpeg","0","0","1","","18","","400","63","10",""),
+("403","","8,9,52","Smoke Coil","smoke-coil","veg","","","5e42455d1bc43smoke-coil.jpeg","0","0","1","","18","","300","63","10",""),
+("404","","9,10,13,18","Red Label Tea","red-label-tea","veg","","","","0","0","1","","18","","100","63","10",""),
+("405","","9,10,13,18","Red Label Tea","red-label-tea","veg","","","","0","0","1","","18","","","63","10",""),
+("406","","8","Channa Dal","channa-dal","veg","","","5e60994fd44d0channa-dal.png","0","0","1","","18","","455","63","10",""),
+("407","","9","Sugar control Atta","sugar-control-atta","veg","","","5e609acc91760sugar-control-atta.jpeg","0","0","1","","18","","","63","10",""),
+("408","","10","Palakkad matta","palakkad-matta","veg","","","5e609be992bfapalakkad-matta.jpeg","0","0","1","","18","","200","63","10",""),
+("409","","8","Toor Dal","toor-dal","veg","","","5e609ce7557f8toor-dal.jpeg","0","0","1","","18","","200","63","10",""),
+("410","","14","Kera coconut oil","kera-coconut-oil","veg","","","5e609e7f3a848kera-coconut-oil.jpeg","0","0","1","","18","","200","63","10",""),
+("411","","14","Saffola edible oil","saffola-edible-oil","veg","","","5e609f1df1152saffola-edible-oil.jpeg","0","0","1","","18","","337","63","10",""),
+("412","","15","Iodised salt","iodised-salt","veg","","","5e60a01a7ec47iodised-salt.jpeg","0","0","1","","18","","93","63","10",""),
+("413","","15","sugar","sugar","veg","","","5e60a11c30dd5sugar.png","0","0","1","","18","","100","63","10",""),
+("414","","46","Tumeric powder","tumeric-powder","veg","","","5e60a1b4b0319tumeric-powder.jpeg","0","0","1","","18","","300","63","10",""),
+("415","","46","Kashmiri chilli","kashmiri-chilli","veg","","","5e60a23ccb17ckashmiri-chilli.jpeg","0","0","1","","18","","300","63","10",""),
+("416","","44,45","Daal","daal","veg","","","","0","0","0","1","18","","","63","10",""),
+("417","","37","MAGGI","maggi","veg","How to Use
+\n1. Break the noodle cake into four parts. 
+\n
+\n2. Add the tastemaker and noodles to 210 ml (approx. 1 ½ teacup) of boiling water. 
+\n
+\n3. Cook for 2 minutes in an open pan. 
+\n
+\n4. Stir occasionally. Do not drain the remaining water.
+\n
+\nServing Instructions: Garnish with your favourite veggies and serve hot.
+\n
+\nStorage Conditions: Store in a cool, dry and hygienic place to protect from insects, pests and strong odours","India’s favourite Masala Noodles, MAGGI 2-minute Noodles, now comes with the goodness of Iron. Each portion (70g) of MAGGI Masala Noodles provides you with 15% of your daily Iron requirement (*as per the Daily Dietary Allowances for an Adult Sedentary Male (ICMR 2010). Containing your favourite masala taste, MAGGI noodles are made with the finest quality spices and ingredients. Make your bowl of MAGGI even better by chopping up some vegetables, dropping in an egg or throwing in your favourite ingredients.","5e7380e05d3ddmaggi.jpeg","0","0","1","1","18","","","63","10",""),
+("418","","16","THUMSUP","thumsup","veg","Manufactured by: HINDUSTAN COCA-COLA BEVERAGES PVT. LTD. , SURVEY NO. 284-P, POST KUDUS, TALUKA WADA, DISTRICT PALGHAR- 421 312, MAHARASHTRA 
+\nBest before 05-05-2020","India\'s unbeaten cold drink choice for decades - raise the excitement of any occasion to toofani levels with power-packed Thums Up. Thums Up\'sstrong ta ste packed with a punch of soda has often defined an adventurous aspect of the drinker\'s personality. These people have tasted the thunder and will have it no other way. You can too ride the epic wave of excitement and adventure with Thums Up anytime, anywhere! The strong taste of Thums Up drink is perfect for when you really want to taste the thunder and bring out the toofani side of yours.
+\n
+\nThums Up is well-known for its strong, fizzy flavour and its secure, mature and distinctively masculine attitude. This brand obviously seeks to divide the men from the boys. A glass soft drink goes well with any variety of food and any type of mood.","5e75f24aac012thumsup.jpeg","0","0","1","1","18","","12","67","10",""),
+("419","","16","THUMSUP 2L","thumsup-2l","veg","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","5e7c4ce608d92thumsup-2l.jpeg","0","0","0","1","18","","","67","10",""),
+("420","","9","PAVAKKA","pavakka","veg","","","5e7da37e28ea6pavakka.jpeg","0","0","1","1","18","","","58","10",""),
+("421","","55","Peru amrud 0022","peru-amrud-0022","veg","Organic Produce","Organic Peru","","0","0","1","1","18","","","75","10",""),
+("422","","55","Mango","mango","veg","Mango","Mango","","0","0","1","1","18","","","77","10",""),
+("423","","58","1/4\" x 2.5\" MS FT Bolt","1/4\"-x-2.5\"-ms-ft-bolt","veg","","","","0","0","1","1","18","","","49","10",""),
+("424","","58","1/4\" x 2.5\" MS FT Bolt","1/4\"-x-2.5\"-ms-ft-bolt","veg","","","5e8eea0e1e95c1/4\"-x-2.5\"-ms-ft-bolt.jpeg","0","0","1","1","18","","100","49","10",""),
+("427","","9,52","ADS Atta","","veg","","","","","","1","0","18","10","0","58","10","243012-04-2020"),
+("428","","9,8","ITC cornflakes","","veg","","","5e3e5d07ca6b2ITC-cornflakes.jpeg","","","1","0","18","10","0","58","10","923916-04-2020"),
+("429","","9,8","ITC Chocos","","veg","","","5e3e5e53e0c45ITC-chocos.jpeg","","","1","0","18","10","0","58","10","923916-04-2020"),
+("430","","8","Chana dal","chana-dal","veg","Cd","Chana dal","","0","0","1","1","18","","","60","10",""),
+("431","","33","mixture","mixture","veg","","","","0","0","1","1","5","","","75","10",""),
+("432","","33","mixture","mixture","veg","","","","0","0","1","1","18","","","75","10",""),
+("433","","8","Tata toor","tata-toor","veg","","","","0","0","1","1","18","","","59","10",""),
+("434","","63","Majirel","majirel","veg","","","5ea4427d2b223majirel.jpeg","0","0","1","1","18","","5","80","10",""),
+("435","","32","Good Day 35g","good-day-35g","veg","Britannia Good Day Biscuits","Britannia Good Day Biscuits","5eb2cd0f6ba55good-day-35g.jpeg","0","0","1","1","12","","15","83","10","");
+
+
+
+
+CREATE TABLE `migration_versions` (
+  `version` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `executed_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `order_item_extras` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_item_d` int(11) DEFAULT NULL,
+  `typeName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `itemName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` double NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_BBD06F986AEF1273` (`order_item_d`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `package_extras` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `extra_package_id` int(11) DEFAULT NULL,
+  `typeName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `priority` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_1860160D6A3272` (`extra_package_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO package_extras VALUES
+("1","1","5gm","0","0"),
+("2","2","5gm","0","0"),
+("3","2","47444","555","0"),
+("4","1","Mosquito","30","1"),
+("6","4","Special","0","0");
+
+
+
+
+CREATE TABLE `price_variation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_item_id` int(11) DEFAULT NULL,
+  `variationName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `barcode` varchar(250) COLLATE utf8_unicode_ci DEFAULT '',
+  `price` double NOT NULL,
+  `membership_price` varchar(200) COLLATE utf8_unicode_ci DEFAULT '-',
+  `subscription` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `priority` varchar(11) COLLATE utf8_unicode_ci DEFAULT '0',
+  `mrp` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `stock` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `maxItem` varchar(100) COLLATE utf8_unicode_ci DEFAULT '10',
+  `status` int(100) DEFAULT '0',
+  `minItem` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `reference` varchar(100) COLLATE utf8_unicode_ci DEFAULT '',
+  `sku` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `hsn` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_E12A00169AB44FE0` (`menu_item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=736 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO price_variation VALUES
+("544","265","5kg","","280","275","0","1","300","271","4","0","1","","1","2346"),
+("545","266","1kg","0","19","1","0","1","20","375","18","0","1","","",""),
+("546","267","1kg","","60","55","0","2","75","4998","10","0","1","","",""),
+("547","268","1kg","","55","-","0","5","57","143","10","0","1","","",""),
+("548","269","1kg","","98","-","0","2","100","118","4","0","1","","",""),
+("549","270","1kg","","100","90","0","2","120","49976","3","0","1","","",""),
+("550","271","1kg","12345","24","1","0","1","25","304","20","0","10","","",""),
+("551","272","500 g","11221","56","50","0","2","60","-18","4","0","1","","",""),
+("552","273","1kg","","100","-","0","1","109","240","5","0","1","","",""),
+("553","274","1kg","","118","-","0","1","120","290","3","0","1","","",""),
+("554","275","1 ltr","","570","-","0","1","576","298","3","0","1","","",""),
+("555","276","200gms","","49","-","0","1","50","200","3","0","1","","",""),
+("556","277","200gms","","49","-","0","1","50","296","5","0","1","","",""),
+("557","278","200gms","","45","1","0","1","50","291","40","0","5","","",""),
+("558","279","4kg","","430","-","0","1","450","55","2","0","1","","",""),
+("559","280","2kg","","200","-","0","1","212","179","5","0","1","","",""),
+("560","281","2kg","","280","-","0","1","300","297","3","0","1","","",""),
+("561","282","3kg","","359","-","0","1","360","254","3","0","1","","",""),
+("562","283","2kg","","500","-","0","1","530","340","3","0","1","","",""),
+("563","284","2 ltr","","680","-","0","1","700","191","4","0","1","","",""),
+("564","285","200gms","","95","-","0","1","99","395","5","0","1","","",""),
+("565","286","250ml","","129","-","0","1","130","297","5","0","1","","",""),
+("566","287","200gms","","95","-","0","1","99","298","4","0","1","","",""),
+("567","288","5pcs","","98","-","0","1","99","397","4","0","1","","",""),
+("568","289","125gms","","20","-","0","1","25","287","10","0","1","","",""),
+("569","290","50gms","","90","-","0","1","93","","10","0","1","","",""),
+("570","291","50gms","","90","-","0","1","93","299","10","0","1","","",""),
+("571","292","50gms","","120","-","0","1","130","299","4","0","1","","",""),
+("572","293","150gms","","110","-","0","1","150","400","5","0","1","","",""),
+("573","294","100gms","","190","-","0","2","200","500","10","0","1","","",""),
+("574","295","100gms","","120","-","0","1","125","500","10","0","1","","",""),
+("575","296","350ml","","25","-","0","1","25","200","4","0","1","","",""),
+("576","297","45gms","","49","-","0","1","50","300","10","0","1","","",""),
+("577","298","50gms","","55","-","0","-4","50","300","10","0","1","","",""),
+("578","299","1.6 L","","370","-","0","1","385","200","6","0","1","","",""),
+("579","300","30gms","","60","-","0","1","60","300","5","0","1","","",""),
+("580","301","100gms","","25","-","0","1","25","507","10","0","1","","",""),
+("581","302","80gms","","20","-","0","1","20","300","10","0","1","","",""),
+("582","303","80gms","","20","-","0","2","20","300","5","0","1","","",""),
+("583","304","220ml","","260","-","0","10","300","300","4","0","1","","",""),
+("584","305","220ml","","250","-","0","1","300","500","5","0","1","","",""),
+("585","306","120gms","","14","-","0","1","15","190","5","0","1","","",""),
+("586","307","1 ltr","","105","-","0","0","110","200","3","0","1","","",""),
+("587","308","1 ltr","","110","-","0","1","120","-157","3","0","1","","",""),
+("588","309","200ml","","20","-","0","1","20","400","5","0","1","","",""),
+("589","310","60gms","","12","-","0","1","12","500","10","0","1","","",""),
+("590","311","875gms","","330","-","0","1","350","300","4","0","1","","",""),
+("591","312","630gms","","280","-","0","1","290","400","3","0","1","","",""),
+("592","313","1.2 kg","","430","-","0","1","450","300","5","0","1","","",""),
+("593","314","750gms","","360","-","0","1","380","300","3","0","1","","",""),
+("594","315","1 kg","","19","-","0","2","20","299","5","0","1","","",""),
+("595","316","1kg","","17","-","0","1","18","340","5","0","1","","",""),
+("596","317","1 ltr","","134","-","0","2","135","300","3","0","1","","",""),
+("597","318","5 kg","","400","-","0","1","410","297","2","0","1","","",""),
+("598","319","1 kg","","104","-","0","1","105","298","5","0","1","","",""),
+("599","320","1 kg","","125","-","0","1","125","298","5","0","1","","",""),
+("600","321","1kg","","125","-","0","1","126","299","10","0","1","","",""),
+("601","322","200gms","","80","-","0","1","100","-215","5","0","1","","",""),
+("602","323","2.25 Ltr","","80","75","0","1","89","184","3","0","1","","",""),
+("603","324","600ml","","35","-","0","1","35","291","3","0","1","","",""),
+("604","325","750 ml","","45","-","0","1","45","400","4","0","1","","",""),
+("605","326","1.75 ltr","","84","-","0","1","85","255","3","0","1","","",""),
+("606","328","250ml","","25","-","0","1","25","330","5","0","1","","",""),
+("607","327","250","","25","-","0","1","25","120","10","0","1","","",""),
+("608","329","1 ltr","","105","-","0","1","110","400","4","0","1","","",""),
+("609","330","200ml","","20","-","0","-2","20","300","10","0","1","","",""),
+("610","331","250gms","","48","-","0","1","50","395","3","0","1","","",""),
+("611","332","250gms","","130","-","0","1","145","278","3","0","1","","",""),
+("612","333","400gms","","590","-","0","1","590","300","4","0","1","","",""),
+("613","334","100gms","","65","-","0","1","70","400","4","0","1","","",""),
+("614","335","50gms","","10","-","0","1","10","396","5","0","1","","",""),
+("615","336","50 gms","","145","-","0","1","150","300","5","0","1","","",""),
+("616","337","500gms","","1035","-","0","1","1050","300","4","0","1","","",""),
+("617","338","11 gms","","10","-","0","1","10","400","10","0","1","","",""),
+("618","339","20 gms","","10","-","0","1","10","387","5","0","1","","",""),
+("619","340","300 gms","","255","-","0","1","260","300","5","0","1","","",""),
+("620","341","400gms","","500","-","0","1","470","400","4","0","1","","",""),
+("621","342","1 ltr","","79","-","0","1","80","385","4","0","1","","",""),
+("622","343","300 gms","","220","-","0","1","240","400","4","0","1","","",""),
+("623","344","1 ltr","","300","-","0","1","300","300","2","0","1","","",""),
+("624","345","1.25 ltr","","30","-","0","-3","30","300","5","0","1","","",""),
+("625","346","2 ltr","","35","-","0","1","35","300","5","0","1","","",""),
+("626","347","400","","35","-","0","1","35","154","4","0","1","","",""),
+("627","348","300","","50","-","0","1","50","300","10","0","1","","",""),
+("628","349","500ml","","350","-","0","1","399","300","5","0","1","","",""),
+("629","350","100 ml","","155","-","0","1","160","298","5","0","1","","",""),
+("630","351","50 ml","","140","-","0","1","185","297","4","0","1","","",""),
+("631","352","250ml","","180","-","0","1","199","299","5","0","1","","",""),
+("632","353","250ml","","165","-","0","1","199","393","3","0","1","","",""),
+("633","354","250gms","","28","-","0","1","30","286","4","0","1","","",""),
+("634","355","800gms","","65","-","0","1","100","195","5","0","1","","",""),
+("635","356","75gms","","10","-","0","1","10","300","5","0","1","","",""),
+("636","357","33gms","","10","-","0","1","10","200","8","0","1","","",""),
+("637","358","200gms","","30","-","0","1","30","299","5","0","1","","",""),
+("638","359","120gms","","50","-","0","1","50","400","6","0","1","","",""),
+("639","360","75gms","","10","-","0","1","10","398","5","0","1","","",""),
+("640","361","150gms","","25","-","0","1","25","400","6","0","1","","",""),
+("641","362","180gms","","45","-","0","1","48","298","5","0","1","","",""),
+("642","363","390gms","","80","-","0","1","100","300","5","0","1","","",""),
+("643","364","277gms","","48","-","0","1","50","298","6","0","1","","","");
+INSERT INTO price_variation VALUES
+("644","365","289gms","","50","-","0","1","50","400","4","0","1","","",""),
+("645","366","50gms","","20","-","0","1","20","400","5","0","1","","",""),
+("646","367","23gms","","20","-","0","1","20","400","8","0","1","","",""),
+("647","368","30gms","","40","-","0","1","40","300","5","0","1","","",""),
+("648","369","750gms","","300","-","0","1","302","400","6","0","1","","",""),
+("649","370","137gms","","150","-","0","1","160","300","6","0","1","","",""),
+("650","371","45gms","","30","-","0","1","30","400","5","0","1","","",""),
+("651","372","500gms","123457","80.36","73.8","0","1","81.18","258","10","0","1","","1235","2346"),
+("652","373","17gms","","15","-","0","1","15","297","5","0","1","","",""),
+("653","374","290gms","","70","-","0","1","70","300","4","0","1","","",""),
+("654","375","70gms","","25","-","0","1","25","400","10","0","1","","",""),
+("655","376","65gms","","25","-","0","1","25","300","8","0","1","","",""),
+("656","377","64gms","","25","-","0","1","25","378","6","0","1","","",""),
+("657","378","140gms","","22","-","0","1","23","295","4","0","1","","",""),
+("658","379","450gms","","110","-","0","1","110","300","4","0","1","","",""),
+("659","380","840gms","","190","-","0","1","200","200","6","0","1","","",""),
+("660","381","1 ltr","","700","-","0","1","1350","300","5","0","1","","",""),
+("661","382","950gms","","130","-","0","1","130","200","10","0","1","","",""),
+("662","383","200ml","","145","-","0","1","145","300","4","0","1","","",""),
+("663","384","100gms","","70","-","0","1","70","300","8","0","1","","",""),
+("664","385","200ml","","230","-","0","1","250","300","6","0","1","","",""),
+("665","386","200ml","","160","-","0","1","165","300","6","0","1","","",""),
+("666","387","124gms","","45","-","0","1","45","200","6","0","1","","",""),
+("667","388","32 pcs","","849","-","0","1","849","300","10","0","1","","",""),
+("668","389","30 pcs","","699","-","0","1","699","230","3","0","1","","",""),
+("669","390","15 Kg","","2000","-","0","1","2520","300","2","0","1","","",""),
+("670","391","3 Kg","","670","-","0","1","675","200","4","0","1","","",""),
+("671","392","3 Kg","","640","-","0","1","650","300","3","0","1","","",""),
+("672","393","1 ltr","","50","-","0","1","100","100","4","0","1","","",""),
+("673","394","500gms","","50","-","0","1","100","395","10","0","1","","",""),
+("674","395","2kg","","180","-","0","1","300","-208","4","0","1","","",""),
+("675","396","1kg","","100","-","0","1","200","393","10","0","1","","",""),
+("676","397","6 eggs","","55","50","0","1","60","199","3","0","1","","",""),
+("677","398","200gms","","70","-","0","1","70","292","10","0","1","","",""),
+("678","399","100gms","","48","-","0","1","48","198","5","0","1","","",""),
+("679","400","180gms","","79","-","0","1","79","293","3","0","1","","",""),
+("680","401","200gms","","77","-","0","1","79","184","4","0","1","","",""),
+("681","402","200gms","","100","-","0","1","106","396","5","0","1","","",""),
+("682","403","10 pcs","","34","-","0","2","34","285","10","0","1","","",""),
+("683","404","250 Gram","","105","102","0","1","110","99","1","0","1","","",""),
+("684","405","250 Gram","","105","102","0","1","110","","1","0","1","","",""),
+("685","265","1 kg","","79","1","0","0","80","271","1","0","3","","","2346"),
+("686","266","5 kg","0","295","293","0","1","300","375","290","0","4","","",""),
+("687","280","5 kg","","450","1","0","1","500","179","440","0","7","","",""),
+("688","399","200gms","","75","1","0","1","80","198","70","0","4","","",""),
+("689","401","500gms","","175","1","0","1","180","184","170","0","4","","",""),
+("690","400","500gms","","190","1","0","1","200","293","180","0","3","","",""),
+("691","397","12 eggs","","99","1","0","1","100","199","95","0","2","","",""),
+("692","284","1 ltr","","295","1","0","1","300","191","200","0","4","","",""),
+("693","406","500gms","","48","1","0","1","50","455","44","0","10","","",""),
+("694","407","1kg","","90","1","0","1","100","","89","0","10","","",""),
+("695","408","5kg","","310","1","0","1","320","200","300","0","3","","",""),
+("696","408","10kg","","590","1","0","1","600","200","550","0","2","","",""),
+("697","408","1kg","","60","1","0","1","69","200","59","0","10","","",""),
+("698","409","500gms","","12","1","0","1","15","192","10","0","10","","",""),
+("699","409","1kg","","24","1","0","1","25","192","20","0","10","","",""),
+("700","410","1 ltr","","150","1","0","1","180","178","100","0","10","","",""),
+("701","411","1 ltr","","190","1","0","1","200","302","180","0","10","","",""),
+("702","412","2kg","","18","1","0","1","20","84","18","0","10","","",""),
+("703","412","1kg","","10","1","0","1","12","84","9","0","10","","",""),
+("704","413","3kg","0","48","2","0","1","50","-28","22","0","2","","",""),
+("705","413","5kg","0","75","1","0","1","80","-28","70","0","3","","",""),
+("706","413","1kg","0","19","1","0","1","20","-28","18","0","1","","",""),
+("707","414","100gms","","22","2","0","1","25","297","10","0","10","","",""),
+("708","415","200gms","","45","1","0","1","50","299","40","0","5","","",""),
+("709","407","5Kg","","300","1","0","1","390","","290","0","4","","",""),
+("710","416","500 Gm","","9","","0","1","10","","89","0","10","","",""),
+("711","421","1KG Pack","","50","40","0","2","60","","10","0","1","","",""),
+("712","421","5KG Pack","","200","175","0","1","300","","10","0","1","","",""),
+("713","422","1KG Pack","","45","40","0","2","50","","10","0","1","","",""),
+("714","422","10KG Pack","","450","400","0","1","500","","10","0","1","","",""),
+("715","424","kgs","","3000","","0","4","3500","100","50","0","5","","",""),
+("716","272","1 Kg","11222","111","99","0","1","120","-18","4","0","1","","",""),
+("717","418","2LT","1234","80","75","0","2","95","4","100","0","1","","",""),
+("718","427","5kg","","280","300","0","1","300","1","4","0","1","243012-04-2020","",""),
+("719","327","250ml","","25","-","0","1","25","0","5","0","1","243012-04-2020","",""),
+("720","344","2 ltr","","35","-","0","1","35","0","5","0","1","243012-04-2020","",""),
+("721","269","500gms","","48","1","0","1","50","-20","44","0","10","243012-04-2020","",""),
+("722","271","500gms","12344","12","1","0","1","15","-32","10","0","10","243012-04-2020","",""),
+("723","266","3kg","","48","85","0","1","50","-20","22","0","2","243012-04-2020","",""),
+("724","266","5kg","","75","73","0","1","80","-20","70","0","3","243012-04-2020","",""),
+("725","423","kgs","","3000","","0","4","3500","0","50","0","5","243012-04-2020","",""),
+("726","418","1LT","1235","45","43","0","1","50","4","100","0","1","","",""),
+("727","428","875gms","","330","-","0","1","350","-1","4","0","1","923916-04-2020","",""),
+("728","429","1.2 kg","","430","-","0","1","450","-1","5","0","1","923916-04-2020","",""),
+("729","372","1ltr","123456","170","160","0","2","180","-8","10","0","1","","1234","2345"),
+("730","434","3.0","12342","262.71","","0","1","262.71","1","10","0","1","","","4001"),
+("731","434","7.0","1234444","300","","0","0","310","1","10","0","1","","","4001"),
+("732","434","4.0","4546","300","","0","1","310","1","10","0","1","","","4001"),
+("733","267","2kg","","140","130","0","1","150","4998","10","0","2","","",""),
+("734","270","2kg","","220","210","0","1","230","49976","10","0","2","","",""),
+("735","435","35g","121","14","14","0","1","15","6","10","0","10","","1","1");
+
+
+
+
+CREATE TABLE `promo_usage` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_d` int(11) DEFAULT NULL,
+  `promo_d` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `count` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_39C262E6EDE76272` (`customer_d`),
+  KEY `IDX_39C262E6D1B7041A` (`promo_d`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO promo_usage VALUES
+("1","3","1473511622","2"),
+("2","311","1473511622","3");
+
+
+
+
+CREATE TABLE `promocode` (
+  `id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `promoCode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `startDate` datetime NOT NULL,
+  `endDate` datetime NOT NULL,
+  `discountType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `discountValue` double NOT NULL,
+  `isActive` tinyint(1) NOT NULL,
+  `usageType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `usageLimit` int(11) NOT NULL,
+  `promocodeType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `promocodeFor` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  `minOrderAmountValidation` tinyint(1) NOT NULL,
+  `newUsersOnly` tinyint(1) NOT NULL,
+  `minOrderAmount` double NOT NULL,
+  `items` varchar(800) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sponser` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO promocode VALUES
+("1473511622","GROCBAY","2018-04-08 00:00:00","2020-05-31 00:00:00","amount","100","1","limited","4","amountBased","0","1","0","100","","admin"),
+("2602814630","yumjn","2020-04-14 00:00:00","2021-04-15 00:00:00","perc","5","0","limited","11000","amountBased","1","1","1","1000","1, 3","admin"),
+("9028903446","PICKUP","2020-03-22 00:00:00","2032-09-30 00:00:00","amount","20","1","unlimited","1","amountBased","0","1","0","10","0","admin"),
+("9217354178","ABC","2020-01-24 00:00:00","2020-01-31 00:00:00","amount","10","1","limited","1","amountBased","0","1","0","0","","admin");
+
+
+
+
+CREATE TABLE `restaurant_ratings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) DEFAULT NULL,
+  `ratings` int(11) NOT NULL,
+  `reviews` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `IDX_4FD5BBC9395C3F3` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `restaurants` (
+  `id` int(11) NOT NULL,
+  `gst` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `restaurantName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `restaurantSlug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8_unicode_ci,
+  `restaurantAddress` longtext COLLATE utf8_unicode_ci,
+  `restaurantLocation` longtext COLLATE utf8_unicode_ci,
+  `restaurantLat` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `restaurantLong` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `primaryMobile` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `secondaryMobile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `primaryEmail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `secondaryEmail` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vegType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `openTime` time DEFAULT NULL,
+  `closeTime` time DEFAULT NULL,
+  `isOpen` tinyint(1) NOT NULL,
+  `isFeatured` tinyint(1) NOT NULL,
+  `taxType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tax` double NOT NULL,
+  `serviceFee` double NOT NULL,
+  `popularity` double NOT NULL,
+  `minOrderAmount` double NOT NULL,
+  `deliveryCharge` double NOT NULL,
+  `restaurantTerms` longtext COLLATE utf8_unicode_ci,
+  `iconImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bannerImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `orderType` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:json_array)',
+  `privacy` longtext COLLATE utf8_unicode_ci,
+  `countryCode` varchar(100) COLLATE utf8_unicode_ci DEFAULT '+91',
+  `currencyFormat` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'Rs',
+  `dashboardColor` varchar(100) COLLATE utf8_unicode_ci DEFAULT '#324981',
+  `sms` varchar(100) COLLATE utf8_unicode_ci DEFAULT 'GROCBAY',
+  `apiKey` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `firebase` varchar(200) COLLATE utf8_unicode_ci DEFAULT '',
+  `featured` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `discount` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `topSellingItem` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `discountItem` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `featured_label` varchar(200) COLLATE utf8_unicode_ci DEFAULT 'Featured Item',
+  `discount_label` varchar(200) COLLATE utf8_unicode_ci DEFAULT 'Featured Item',
+  `wallet` longtext COLLATE utf8_unicode_ci,
+  `returns` longtext COLLATE utf8_unicode_ci,
+  `refund` longtext COLLATE utf8_unicode_ci,
+  `facebook_url` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `instagram_url` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_AD83772472150B7E` (`restaurantName`),
+  UNIQUE KEY `UNIQ_AD837724B4ABEE1A` (`restaurantSlug`),
+  UNIQUE KEY `UNIQ_AD83772424F11397` (`primaryMobile`),
+  UNIQUE KEY `UNIQ_AD837724D2E57CA3` (`primaryEmail`),
+  UNIQUE KEY `UNIQ_AD837724C5730A69` (`iconImage`),
+  UNIQUE KEY `UNIQ_AD83772451600A2A` (`bannerImage`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO restaurants VALUES
+("999","18AABCT3518Q1ZV","GrocBAY","grocbay","Grocbay","Sanskrit College Road, Udupi - 576101","Udupi, Karnataka","13.3414684","74.7493501","8970042852","6361935986, 819782806665656","info@appinsight.tech","sales@parivarudupi.com","veg","09:00:00","19:30:00","1","0","inclusive","0","0","0","1000","20","ed 6 months ago
+\nActive 6 months ago
+\nViewed 38 times
+\n
+\n0
+\n
+\n
+\nI\'m trying to build two screens where:
+\n
+\nThe first screen has a Pincode textfield when the user enters the current date in (dd-mm) format for eg: if today\'s date is 24-07, the user enters 2407, then it should navigate to another page i.e., second screen
+\n
+\nFirst Screen: Passcode.dart
+\n
+\nimport \'package:flutter/material.dart\';
+\n
+\nimport \'package:flutter_course/HomePage.dart\';
+\n//import \'package:pin_entry_text_field/pin_entry_text_field.dart\';
+\nimport \'package:pin_code_text_field/pin_code_text_field.dart\';
+\nimport \'package:intl/intl.dart\';
+\n
+\nvoid main() => runApp(MyApp());
+\n
+\nclass MyApp extends StatelessWidget {
+\n  @override
+\n  Widget build(BuildContext context) {
+\n    // TODO: implement build
+\n    return MaterialApp(
+\n        debugShowCheckedModeBanner: false,
+\n        home: Scaffold(
+\n          body: homePage(),
+\n        ));
+\n  }
+\n}
+\n
+\nclass homePage extends StatefulWidget {
+\n  @override
+\n  _homePageState createState() => _homePageState();
+\n}
+\n
+\nclass _homePageState extends State<homePage> {
+\n  @override
+\n  Widget build(BuildContext context) {
+\n    Size size = MediaQuery.of(context).size;
+\n    return Stack(children: <Widget>[
+\n      Center(
+\n        child: Image.asset(
+\n          \"assets/passcode.jpeg\",
+\n          width: size.width,","grocbay.png","grocbay.webp","{\"1\":\"card\",\"2\":\"online\",\"0\":\"cod\"}","Privacy Policies Personal Information AppInsight Technologies Pvt Ltd is the licensed owner of the brand Grocbay and the website Grocbay.in (”The Site”). AppInsight Technologies respects your privacy. This Privacy Policy provides succinctly the manner your data is collected and used by AppInsight Technologies on the Site. As a visitor to the Site/ Customer you are advised to please read the Privacy Policy carefully. By accessing the services provided by the Site you agree to the collection and use of your data by AppInsight Technologies in the manner provided in this Privacy Policy. What information is, or may be, collected form you? As part of the registration process on the Site, AppInsight Technologies may collect the following personally identifiable information about you: Name including first and last name, alternate email address, mobile phone number and contact details, Postal code, Demographic profile (like your age, gender, occupation, education, address etc.) and information about the pages on the site you visit/access, the links you click on the site, the number of times you access the page and any such browsing information. How do we Collect the Information ? AppInsight Technologies will collect personally identifiable information about you only as part of a voluntary registration process, on-line survey or any combination thereof. The Site may contain links to other Web sites. AppInsight Technologies is not responsible for the privacy practices of such Web sites which it does not own, manage or control. The Site and third-party vendors, including Google, use first-party cookies (such as the Google Analytics cookie) and third-party cookies (such as the DoubleClick cookie) together to inform, optimize, and serve ads based on someone\'s past visits to the Site. How is information used ? AppInsight Technologies will use your personal information to provide personalized features to you on the Site and to provide for promotional offers to you through the Site and other channels. AppInsight Technologies will also provide this information to its business associates and partners to get in touch with you when necessary to provide the services requested by you. AppInsight Technologies will use this information to preserve transaction history as governed by existing law or policy. AppInsight Technologies may also use contact information internally to direct its efforts for product improvement, to contact you as a survey respondent, to notify you if you win any contest; and to send you promotional materials from its contest sponsors or advertisers. With whom your information will be shared ? AppInsight Technologies will not use your financial information for any purpose other than to complete a transaction with you. AppInsight Technologies does not rent, sell or share your personal information and will not disclose any of your personally identifiable information to third parties. In cases where it has your permission to provide products or services you\'ve requested and such information is necessary to provide these products or services the information may be shared with AppInsight Technologies’s business associates and partners. AppInsight Technologies may, however, share consumer information on an aggregate with its partners or thrird parties where it deems necessary. In addition AppInsight Technologies may use this information for promotional offers, to help investigate, prevent or take action regarding unlawful and illegal activities, suspected fraud, potential threat to the safety or security of any person, violations of the Site’s terms of use or to defend against legal claims; special circumstances such as compliance with subpoenas, court orders, requests/order from legal authorities or law enforcement agencies requiring such disclosure. What Choice are available to you regarding collection, use and distribution of your information ? To protect against the loss, misuse and alteration of the information under its control, AppInsight Technologies has in place appropriate physical, electronic and managerial procedures. For example, AppInsight Technologies servers are accessible only to authorized personnel and your information is shared with employees and authorised personnel on a need to know basis to complete the transaction and to provide the services requested by you. Although AppInsight Technologies will endeavour to safeguard the confidentiality of your personally identifiable information, transmissions made by means of the Internet cannot be made absolutely secure. By using this site, you agree that AppInsight Technologies will have no liability for disclosure of your information due to errors in transmission or unauthorized acts of third parties. How can you correct inaccuracies in the information ? To correct or update any information you have provided, the Site allows you to do it online. In the event of loss of access details you can send an e-mail to: info@Grocbay.com Policy updates AppInsight Technologies reserves the right to change or update this policy at any time. Such changes shall be effective immediately upon posting to the Site.","+91","₹","089449","GRCBAY","6784AdTo27CKZn5dc8e983","AIzaSyBSR3pigsWMH7goi_CthGQFckfb5QPOH8E","266, 267, 268, 269, 270, 273, 274, 435","292, 293, 294, 295, 296, 350, 351, 352, 353, 354","","","Top Selling Items","Featured Items","","","","","");
+
+
+
+
+CREATE TABLE `return_logs` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `ref` varchar(100) DEFAULT NULL,
+  `itemId` varchar(100) DEFAULT NULL,
+  `qty` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT '0' COMMENT '0 for not done 1 for done',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO return_logs VALUES
+("1","1000","1","2","\n0"),
+("2","1000","2","5","0"),
+("3","14246","40","2","0"),
+("4","14246","41","2","0"),
+("5","41549","40","2","0"),
+("6","41549","41","2","0"),
+("7","50794","40","2","0"),
+("8","50794","41","2","0"),
+("9","86426","40","2","0"),
+("10","86426","41","2","0"),
+("11","39420","40","2","0"),
+("12","39420","41","2","0"),
+("13","68444","40","2","0"),
+("14","68444","41","2","0"),
+("15","49724","201","x1","0"),
+("16","49724","201","x1","0"),
+("17","77734","201","x1","0"),
+("18","77734","201","x1","0"),
+("19","77734","201","x1","0"),
+("20","77734","202","x1","0"),
+("21","77734","201","x1","0"),
+("22","35141","201","x1","0"),
+("23","71478","201","1","0"),
+("24","71478","202","1","0"),
+("25","69648","201","1","0"),
+("26","69648","202","1","0"),
+("27","94282","202","1","0"),
+("28","94282","201","x1","0"),
+("29","68421","559","1","0"),
+("30","57106","124","x3","0"),
+("31","57106","125","x2","0"),
+("32","72667","125","x2","0"),
+("33","72667","126","x1","0"),
+("34","76748","124","x3","0"),
+("35","76748","125","x2","0"),
+("36","98978","126","x1","0"),
+("37","98978","125","x2","0"),
+("38","19390","272","4","0"),
+("39","19390","271","1","0"),
+("40","78229","272","x3","0"),
+("41","78229","271","x1","0"),
+("42","86742","272","x3","0"),
+("43","86742","271","x1","0");
+
+
+
+
+CREATE TABLE `shopping_lists` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) DEFAULT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `listname_id` int(11) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `variation` varchar(100) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO shopping_lists VALUES
+("1","3","14","1","23","0"),
+("4","3","16","1","","0"),
+("3","3","16","2","","0"),
+("5","12","16","3","","0"),
+("8","3","13","1","100","0"),
+("9","3","22","1","100","0"),
+("10","12","14","4","","0"),
+("12","8","222","19","1","0"),
+("13","8","223","19","1","0"),
+("14","8","224","19","2","0"),
+("15","77","231","22","1","0"),
+("16","77","102","27","1","222"),
+("17","77","213","27","1","439"),
+("18","77","212","27","1","438"),
+("19","77","211","27","1","437"),
+("20","77","102","28","1","222"),
+("21","77","213","28","1","439"),
+("22","77","212","28","1","438"),
+("23","77","211","28","1","437"),
+("24","75","102","29","2",""),
+("25","75","105","29","3",""),
+("26","77","102","30","1","222"),
+("27","77","213","30","1","439"),
+("28","77","212","30","1","438"),
+("29","77","211","30","1","437"),
+("30","77","23","31","1","39"),
+("31","76","102","32","1","222"),
+("32","76","106","32","1","233"),
+("33","103","23","33","1","39"),
+("34","103","243","33","1","481"),
+("35","103","229","33","1","464"),
+("36","107","102","34","1","222"),
+("37","107","106","34","1","233"),
+("38","107","106","34","1","234"),
+("39","107","102","35","1","222"),
+("40","107","106","35","1","233"),
+("41","107","106","35","1","234"),
+("42","152","80","36","1","172"),
+("43","152","81","36","1","173"),
+("44","152","80","36","1","172"),
+("45","152","81","36","1","173"),
+("46","152","225","36","1","459"),
+("47","155","236","37","1","470"),
+("48","155","231","37","1","466"),
+("49","167","23","38","1","39"),
+("50","167","23","38","1","39"),
+("51","167","23","39","1","39"),
+("52","184","223","40","1","457"),
+("53","202","106","41","1","233"),
+("54","202","124","42","1","269"),
+("55","772","267","43","2","544"),
+("56","772","267","43","2","544"),
+("57","772","267","43","2","544"),
+("58","116","355","44","0","634"),
+("59","116","355","45","0","634"),
+("60","116","355","44","0","634"),
+("61","116","355","45","0","634"),
+("62","116","355","44","0","634"),
+("63","116","355","45","0","634"),
+("64","116","355","44","0","634"),
+("65","116","355","44","0","634"),
+("66","116","355","45","0","634"),
+("67","116","355","44","0","634"),
+("68","116","355","45","0","634"),
+("69","116","355","45","0","634"),
+("70","116","355","44","0","634"),
+("71","116","355","45","0","634"),
+("72","116","355","44","0","634"),
+("73","116","355","45","0","634"),
+("74","116","427","45","0","718"),
+("75","116","355","45","0","634"),
+("76","116","355","44","0","634"),
+("77","116","355","44","0","634"),
+("78","116","355","45","0","634"),
+("79","116","355","44","0","634"),
+("80","116","355","44","0","634"),
+("81","116","355","45","0","634"),
+("82","116","427","47","0","718");
+
+
+
+
+CREATE TABLE `shopping_lists_name` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `customer_id` (`customer_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO shopping_lists_name VALUES
+("2","3","monthly shopping list"),
+("3","3","monthly shopping list"),
+("4","3","monthly shopping list"),
+("13","3","News"),
+("16","71","Abc"),
+("8","12","favourite items list"),
+("9","12","favourite items list"),
+("19","8","List1"),
+("20","70","Home "),
+("21","70","Home"),
+("32","76","Monthly"),
+("24","75","Monthly "),
+("31","77","Product"),
+("29","75","Prajwal"),
+("36","152","Regular "),
+("43","772","Weekly"),
+("40","184","Sugar"),
+("47","116","Monthly list");
+
+
+
+
+CREATE TABLE `slots` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `start` varchar(100) DEFAULT NULL,
+  `end` varchar(100) DEFAULT NULL,
+  `orders` varchar(100) DEFAULT NULL,
+  `date` varchar(100) DEFAULT NULL,
+  `area` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO slots VALUES
+("42","5:00 PM","7:30 PM","20","20-03-2020","16"),
+("40","7:30 AM","10:00 AM","30","20-03-2020","16"),
+("39","6:00 AM","7:30 AM","100","20-03-2020","16"),
+("38","3 - 00 PM","9","50","14-03-2020","11"),
+("37","1 - 00 PM","3- 00 PM","50","14-03-2020","11"),
+("36","11 - 00 AM","1 - 00 PM","20","14-03-2020","11"),
+("35","9 - 00 AM","11.00 AM","10","14-03-2020","11"),
+("41","1:00 PM","3:00 PM","20","20-03-2020","16"),
+("43","6:30 AM","7:30 AM","100","14-04-2020","21"),
+("44","7:30 AM","10:00 AM","50","14-04-2020","21"),
+("45","5:30 AM","10:30 AM","50","16-04-2020","23"),
+("46","10:30 AM","1:30 PM","40","16-04-2020","23"),
+("47","1:30 PM","5:30 PM","100","16-04-2020","23"),
+("48","5:30 PM","10:00 PM","100","16-04-2020","23"),
+("49","5:30 AM","8:30 AM","50","16-04-2020","22"),
+("50","8:30 AM","11:30 AM","50","16-04-2020","22"),
+("51","11:30 AM","5:00 PM","100","16-04-2020","22"),
+("52","5:00 PM","10:00 PM","100","16-04-2020","22"),
+("53","5:30 AM","10:30 AM","100","16-04-2020","24"),
+("54","10:30 AM","1:30 PM","100","16-04-2020","24"),
+("55","1:30 PM","8:30 PM","50","16-04-2020","24"),
+("58","5:30 AM","7:30 AM","100","23-04-2020","32"),
+("59","7:30 AM","10:30 AM","100","23-04-2020","32"),
+("64","7:30 AM","12:30 PM","100","23-04-2020","31"),
+("63","5:30 AM","7:30 AM","50","23-04-2020","31"),
+("65","12:30 PM","9:30 PM","100","23-04-2020","31"),
+("66","5:30 AM","9:00 PM","100","25-04-2020","33"),
+("67","5:30 AM","8:30 AM","100","26-04-2020","37"),
+("68","8:30 AM","12:00 PM","50","26-04-2020","37"),
+("69","7:00 AM","9:00 AM","20","05-05-2020","39"),
+("70","5:00 PM","7:00 PM","20","05-05-2020","39");
+
+
+
+
+CREATE TABLE `slotstatus` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `date` varchar(100) DEFAULT '',
+  `status` varchar(100) DEFAULT '0',
+  `start` varchar(100) DEFAULT '',
+  `end` varchar(100) DEFAULT '',
+  `area` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO slotstatus VALUES
+("1","05-03-2020","0","6-00 PM","11-00 PM",""),
+("3","09-03-2020","0","2-00 PM","4-00 PM",""),
+("6","18-03-2020","0","3 - 00 PM","9","11"),
+("5","14-03-2020","0","9 - 00 AM","11.00 AM","11"),
+("7","19-03-2020","0","3 - 00 PM","9","11"),
+("8","19-03-2020","0","3 - 00 PM","9","11"),
+("15","21-03-2020","0","5:00 PM","7:30 PM","16"),
+("16","23-03-2020","0","1:00 PM","3:00 PM","16"),
+("18","26-03-2020","0","5:00 PM","7:30 PM","16"),
+("21","04-05-2020","0","5:30 AM","8:30 AM","37");
+
+
+
+
+CREATE TABLE `stock` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `addedBy` varchar(100) DEFAULT NULL,
+  `ref` varchar(200) DEFAULT NULL,
+  `date` varchar(100) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `time` varchar(100) DEFAULT NULL,
+  `mode` varchar(100) DEFAULT NULL COMMENT '0 for in 1 for out',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO stock VALUES
+("1","Admin","1458444177","04-11-2019","test","03:36 PM","0"),
+("2","Admin","1752825325","28-11-2019","test","12:42 PM","0"),
+("3","Admin","2071094620","28-11-2019","rr","02:05 PM","0"),
+("4","Admin","52009320","28-11-2019","rr","02:06 PM","1"),
+("5","Admin","52009320","28-11-2019","rr","02:07 PM","1"),
+("6","Admin","555773634","28-11-2019","ddd","02:11 PM","0"),
+("7","Admin","1369774471","28-11-2019","ww","02:11 PM","1"),
+("8","Admin","1544023676","17-12-2019","test","05:34 PM","0"),
+("9","Admin","1500076816","18-12-2019","tea","12:15 PM","0"),
+("10","Admin","36984683","18-12-2019","Tea","12:17 PM","0"),
+("11","Admin","799832783","25-12-2019","gvj","12:41 PM","0"),
+("12","Admin","808283293","31-12-2019","Mayur","12:50 PM","0"),
+("13","Admin","1158428041","24-01-2020","aa","03:23 PM","0"),
+("14","Admin","1382697607","07-02-2020","stock","12:03 PM","0"),
+("15","Admin","1590807709","07-02-2020","des","05:15 PM","0"),
+("16","Admin","23410170","01-02-2020","qq","10:07 AM","0"),
+("17","Admin","512081368","23-01-2020","aa","10:08 AM","0"),
+("18","Admin","1951688302","23-01-2020","qq","10:10 AM","0"),
+("19","Admin","1442371970","23-01-2020","qq","10:13 AM","0"),
+("20","Admin","1231433983","23-01-2020","cd","10:23 AM","0"),
+("21","Admin","1947909458","23-01-2020","md","10:25 AM","0"),
+("22","Admin","282681712","23-01-2020","td","10:29 AM","0"),
+("23","Admin","1856169204","23-01-2020","ttd","10:30 AM","0"),
+("24","Admin","1845173829","23-01-2020","md","10:32 AM","0"),
+("25","Admin","1006985546","23-01-2020","wp","10:35 AM","0"),
+("26","Admin","1486559943","23-01-2020","cg","10:39 AM","0"),
+("27","Admin","751993624","23-01-2020","tp","10:42 AM","0"),
+("28","Admin","612893626","23-01-2020","tt","10:44 AM","0"),
+("29","Admin","86096415","23-01-2020","kc","10:51 AM","0"),
+("30","Admin","358911984","23-01-2020","tt","10:55 AM","0"),
+("31","Admin","1020847184","23-01-2020","tj","10:57 AM","0"),
+("32","Admin","1892995265","23-01-2020","t3","11:00 AM","0"),
+("33","Admin","470137985","23-01-2020","se","11:02 AM","0"),
+("34","Admin","116887167","23-01-2020","sm","11:05 AM","0"),
+("35","Admin","390546290","24-01-2020","sl","11:09 AM","0"),
+("36","Admin","1517017874","23-01-2020","ca","11:13 AM","0"),
+("37","Admin","641970471","23-01-2020","cd","11:15 AM","0"),
+("38","Admin","1071602922","23-01-2020","12","11:18 AM","0"),
+("39","Admin","448345388","23-01-2020","zz","11:20 AM","0"),
+("40","Admin","486498452","23-01-2020","22","11:23 AM","0"),
+("41","Admin","1682129741","23-01-2020","fl","11:33 AM","0"),
+("42","Admin","1667645574","23-01-2020","mf","11:36 AM","0"),
+("43","Admin","1799906366","23-01-2020","cp","11:39 AM","0"),
+("44","Admin","616933466","23-01-2020","d","11:42 AM","0"),
+("45","Admin","579983657","23-01-2020","lg","11:45 AM","0"),
+("46","Admin","823024089","23-01-2020","it","11:48 AM","0"),
+("47","Admin","1180464074","23-01-2020","ww","11:51 AM","0"),
+("48","Admin","2059004845","23-01-2020","as","11:53 AM","0"),
+("49","Admin","21672334","23-01-2020","cc","11:56 AM","0"),
+("50","Admin","250112657","23-01-2020","fa","11:58 AM","0"),
+("51","Admin","19969788","23-01-2020","11","12:03 PM","0"),
+("52","Admin","145534760","23-01-2020","11","12:08 PM","0"),
+("53","Admin","1724324303","23-01-2020","pp","12:10 PM","0"),
+("54","Admin","536941821","23-01-2020","nn","12:13 PM","0"),
+("55","Admin","448584248","23-01-2020","11","12:15 PM","0"),
+("56","Admin","1107659392","23-01-2020","ml","12:18 PM","0"),
+("57","Admin","1190262568","23-01-2020","gk","12:21 PM","0"),
+("58","Admin","1977133120","23-01-2020","11","12:23 PM","0"),
+("59","Admin","1634865774","23-01-2020","aa","12:25 PM","0"),
+("60","Admin","1796680563","23-01-2020","as","12:27 PM","0"),
+("61","Admin","782788534","23-01-2020","we","12:33 PM","0"),
+("62","Admin","1098799779","23-01-2020","2","12:35 PM","0"),
+("63","Admin","415293697","24-01-2020","we","12:38 PM","0"),
+("64","Admin","1765852801","23-01-2020","11","12:44 PM","0"),
+("65","Admin","1154810157","23-01-2020","ts","12:49 PM","0"),
+("66","Admin","324107372","24-01-2020","23","12:52 PM","0"),
+("67","Admin","1518561254","23-01-2020","aa","12:56 PM","0"),
+("68","Admin","513090093","23-01-2020","1","01:06 PM","0"),
+("69","Admin","779984783","23-01-2020","we","01:08 PM","0"),
+("70","Admin","1336959920","23-01-2020","aa","01:12 PM","0"),
+("71","Admin","1663858722","23-01-2020","rt","01:14 PM","0"),
+("72","Admin","1027755285","23-01-2020","sdd","01:17 PM","0"),
+("73","Admin","1803864277","24-01-2020","sd","01:33 PM","0"),
+("74","Admin","761772284","23-01-2020","11","02:34 PM","0"),
+("75","Admin","2125172163","23-01-2020","sa","02:36 PM","0"),
+("76","Admin","758733687","23-01-2020","sd","02:38 PM","0"),
+("77","Admin","2011462290","24-01-2020","sd","02:41 PM","0"),
+("78","Admin","2132533847","23-01-2020","sd","02:45 PM","0"),
+("79","Admin","591923994","23-01-2020","dd","02:50 PM","0"),
+("80","Admin","1129822106","23-01-2020","ew","02:53 PM","0"),
+("81","Admin","277506559","23-01-2020","ssa","02:55 PM","0"),
+("82","Admin","709651250","23-01-2020","ss","02:57 PM","0"),
+("83","Admin","452257575","23-01-2020","sd","03:03 PM","0"),
+("84","Admin","55309199","23-01-2020","we","03:07 PM","0"),
+("85","Admin","645524936","23-01-2020","ss","03:13 PM","0"),
+("86","Admin","1867600755","23-01-2020","er","03:18 PM","0"),
+("87","Admin","548979795","23-01-2020","as","03:20 PM","0"),
+("88","Admin","1982593577","23-01-2020","sas","03:23 PM","0"),
+("89","Admin","1661369734","24-01-2020","12","03:25 PM","0"),
+("90","Admin","1138372796","23-01-2020","fd","03:28 PM","0"),
+("91","Admin","93035623","23-01-2020","sa","03:33 PM","0"),
+("92","Admin","1800728005","24-01-2020","sd","03:36 PM","0"),
+("93","Admin","2113767812","23-01-2020","as","03:57 PM","0"),
+("94","Admin","1257812064","23-01-2020","sa","04:06 PM","0"),
+("95","Admin","1750266610","24-01-2020","d","04:08 PM","0"),
+("96","Admin","1578487046","23-01-2020","ss","04:10 PM","0"),
+("97","Admin","323405649","24-01-2020","er","04:15 PM","0"),
+("98","Admin","1455488623","23-01-2020","s","04:18 PM","0"),
+("99","Admin","1502498814","24-01-2020","ni","04:29 PM","0"),
+("100","Admin","1544349286","23-01-2020","nm","04:32 PM","0");
+INSERT INTO stock VALUES
+("101","Admin","659414787","23-01-2020","qq","04:34 PM","0"),
+("102","Admin","309120193","23-01-2020","11","04:38 PM","0"),
+("103","Admin","1285124352","23-01-2020","n","04:41 PM","0"),
+("104","Admin","2040791128","23-01-2020","aa","04:44 PM","0"),
+("105","Admin","2042036804","23-01-2020","aa","04:47 PM","0"),
+("106","Admin","803263781","23-01-2020","s","04:49 PM","0"),
+("107","Admin","760928680","24-01-2020","hs","04:51 PM","0"),
+("108","Admin","239937055","24-01-2020","aa","04:53 PM","0"),
+("109","Admin","1215076647","23-01-2020","dd","04:55 PM","0"),
+("110","Admin","1907417074","23-01-2020","q","04:57 PM","0"),
+("111","Admin","961778487","23-01-2020","ee","04:59 PM","0"),
+("112","Admin","1036292961","23-01-2020","1q","05:01 PM","0"),
+("113","Admin","348502260","23-01-2020","ss","05:03 PM","0"),
+("114","Admin","11596003","23-01-2020","sx","05:06 PM","0"),
+("115","Admin","1645822943","23-01-2020","dc","05:08 PM","0"),
+("116","Admin","1981058713","24-01-2020","hh","05:16 PM","0"),
+("117","Admin","1316459584","23-01-2020","ss","05:17 PM","0"),
+("118","Admin","1664160538","23-01-2020","dd","05:19 PM","0"),
+("119","Admin","110587910","23-01-2020","xd","05:21 PM","0"),
+("120","Admin","1125328550","23-01-2020","f","05:25 PM","0"),
+("121","Admin","1711127555","23-01-2020","ss","05:30 PM","0"),
+("122","Admin","1893906591","23-01-2020","11","05:36 PM","0"),
+("123","Admin","587642696","23-01-2020","ma","05:39 PM","0"),
+("124","Admin","1178537026","23-01-2020","as","05:41 PM","0"),
+("125","Admin","1771253767","23-01-2020","aa","05:44 PM","0"),
+("126","Admin","313556970","23-01-2020","ss","05:47 PM","0"),
+("127","Admin","741773510","23-01-2020","ws","05:49 PM","0"),
+("128","Admin","1521532471","23-01-2020","mm","05:52 PM","0"),
+("129","Admin","1478505816","23-01-2020","w2w","05:56 PM","0"),
+("130","Admin","623177278","23-01-2020","ss","05:58 PM","0"),
+("131","Admin","620854750","23-01-2020","ss","06:01 PM","0"),
+("132","Admin","1883597250","23-01-2020","dd","06:03 PM","0"),
+("133","Admin","1804692510","23-01-2020","ss","06:08 PM","0"),
+("134","Admin","1037693225","23-01-2020","bp","06:10 PM","0"),
+("135","Admin","1535325632","23-01-2020","ss","06:12 PM","0"),
+("136","Admin","1945182308","23-01-2020","dd","06:15 PM","0"),
+("137","Admin","2060775019","23-01-2020","ss","06:17 PM","0"),
+("138","Admin","1983179518","23-01-2020","ss","06:25 PM","0"),
+("139","Admin","1778554610","23-01-2020","qq","06:27 PM","0"),
+("140","Admin","1427751423","23-01-2020","ch","06:32 PM","0"),
+("141","Admin","718571097","23-01-2020","11","06:34 PM","0"),
+("142","Admin","1623169783","01-02-2020","cc","06:37 PM","0"),
+("143","Admin","1308622775","23-01-2020","s","04:59 PM","0"),
+("144","Admin","1463764415","23-01-2020","xd","05:01 PM","0"),
+("145","Admin","109060277","23-01-2020","qq","05:04 PM","0"),
+("146","Admin","1113445409","23-01-2020","dd","05:05 PM","0"),
+("147","Admin","180260572","01-02-2020","eg","11:11 AM","0"),
+("148","Admin","399301420","01-02-2020","f","11:15 AM","0"),
+("149","Admin","2056196139","01-02-2020","rf","11:18 AM","0"),
+("150","Admin","837838522","01-02-2020","aa","11:21 AM","0"),
+("151","Admin","488707503","24-01-2020","sds","11:23 AM","0"),
+("152","Admin","159383392","23-01-2020","ss","11:26 AM","0"),
+("153","Admin","34475546","24-01-2020","ff","11:41 AM","0"),
+("154","Admin","1444573613","23-01-2020","aa","03:06 PM","0"),
+("155","Admin","1423892670","23-01-2020","ss","03:07 PM","0"),
+("156","Admin","1629818020","23-01-2020","sws","03:17 PM","0"),
+("157","Admin","1134004959","23-01-2020","ss","03:21 PM","0"),
+("158","Admin","2116711460","23-01-2020","ss","03:25 PM","0"),
+("159","Admin","999278484","23-01-2020","ss","03:27 PM","0"),
+("160","Admin","266514387","24-01-2020","ss","03:29 PM","0"),
+("161","Admin","230632581","24-01-2020","dd","03:34 PM","0"),
+("162","Admin","340589881","23-01-2020","dd","11:47 AM","0"),
+("163","Admin","48368533","23-01-2020","ss","11:53 AM","0"),
+("164","Admin","1811398718","23-01-2020","ss","11:58 AM","0"),
+("165","Admin","1273340194","23-01-2020","dd","12:02 PM","0"),
+("166","Admin","1052042249","23-01-2020","ss","12:09 PM","0"),
+("167","Admin","59695326","23-01-2020","df","12:11 PM","0"),
+("168","Admin","106847953","23-01-2020","dd","12:16 PM","0"),
+("169","Admin","2108787036","23-01-2020","dd","12:20 PM","0"),
+("170","Admin","1511603074","24-01-2020","ss","12:23 PM","0"),
+("171","Admin","924192323","23-01-2020","dd","12:25 PM","0"),
+("172","Admin","1854360057","03-03-2020","yuy","04:16 PM","0"),
+("173","Admin","956491584","19-03-2020","drtr","03:14 PM","0"),
+("174","Admin","1247876737","21-03-2020","THUMSUP","04:26 PM","0"),
+("175","Admin","17307169","21-03-2020","THUMS UP","04:32 PM","0"),
+("176","Admin","180095602","20-03-2020","THUMSUP","05:11 PM","0"),
+("177","Admin","1841463536","25-03-2020","10","04:34 PM","0"),
+("178","Admin","1429141616","25-03-2020","Onion","05:00 PM","0"),
+("179","Admin","1417405181","25-03-2020","Red Onion","05:09 PM","0"),
+("180","Admin","1106073303","26-03-2020","atta","11:59 AM","0"),
+("181","Admin","1106073303","26-03-2020","atta","11:59 AM","0"),
+("182","Admin","169754876","26-03-2020","Thumsup 2L","12:05 PM","0"),
+("183","Admin","739473825","27-03-2020","KKK","12:38 PM","0"),
+("184","Admin","352781398","27-03-2020","added from csv","12:40 PM","0"),
+("185","Admin","1047126750","06-04-2020","asdf","01:48 PM","0"),
+("186","Admin","1796031558","10-04-2020","TATA  TOOR DAL","12:20 PM","0"),
+("187","Admin","1785586411","10-04-2020","Thums Up","12:47 PM","0"),
+("188","Admin","1747978458","12-04-2020","Black Pepper","08:40 AM","0"),
+("189","Admin","1066181001","12-04-2020","THUMSUP","03:45 PM","0"),
+("190","Admin","102456836","15-04-2020","ghfg","05:56 PM","0"),
+("191","Admin","1497211591","15-04-2020","test","07:54 PM","0"),
+("192","Admin","1202023093","25-04-2020","Bill no:545","07:36 PM","0"),
+("193","Admin","1543531535","02/10/2019","xxxx","10:28 AM","1"),
+("194","Admin","1039355417","05-05-2020","trest","09:45 PM","0"),
+("195","Admin","1362715593","05-05-2020","ftr","11:08 PM","0"),
+("196","Admin","2109229615","06-05-2020","ok","08:16 PM","0"),
+("197","Admin","67449895","06-05-2020","Order","08:23 PM","0");
+
+
+
+
+CREATE TABLE `stock_logs` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `qty` varchar(100) DEFAULT NULL,
+  `ref` varchar(100) DEFAULT NULL,
+  `stockId` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO stock_logs VALUES
+("20","150","23410170","265"),
+("21","100","512081368","266"),
+("22","200","1951688302","267"),
+("23","200","1442371970","268"),
+("24","180","1231433983","269"),
+("25","200","1947909458","270"),
+("26","400","282681712","271"),
+("27","300","1856169204","272"),
+("28","300","1845173829","273"),
+("29","300","1006985546","274"),
+("30","300","1486559943","275"),
+("31","200","751993624","276"),
+("32","300","612893626","277"),
+("33","300","86096415","278"),
+("34","100","358911984","279"),
+("35","300","1020847184","280"),
+("36","300","1892995265","281"),
+("37","300","470137985","282"),
+("38","340","116887167","283"),
+("39","300","390546290","284"),
+("40","400","1517017874","285"),
+("41","300","641970471","286"),
+("42","300","1071602922","287"),
+("43","400","448345388","288"),
+("44","300","486498452","289"),
+("45","300","1682129741","291"),
+("46","300","1667645574","292"),
+("47","400","1799906366","293"),
+("48","500","616933466","294"),
+("49","500","579983657","295"),
+("50","200","823024089","296"),
+("51","300","1180464074","297"),
+("52","300","2059004845","298"),
+("53","200","21672334","299"),
+("54","300","250112657","300"),
+("55","500","19969788","301"),
+("56","300","145534760","302"),
+("57","300","1724324303","303"),
+("58","300","536941821","304"),
+("59","500","448584248","305"),
+("60","300","1107659392","306"),
+("61","200","1190262568","307"),
+("62","300","1977133120","308"),
+("63","400","1634865774","309"),
+("64","500","1796680563","310"),
+("65","300","782788534","311"),
+("66","400","1098799779","312"),
+("67","300","415293697","313"),
+("68","300","1765852801","314"),
+("69","300","1154810157","315"),
+("70","340","324107372","316"),
+("71","300","1518561254","317"),
+("72","300","513090093","318"),
+("73","300","779984783","319"),
+("74","300","1336959920","320"),
+("75","300","1663858722","321"),
+("76","300","1027755285","322"),
+("77","230","1803864277","323"),
+("78","300","761772284","324"),
+("79","400","2125172163","325"),
+("80","300","758733687","326"),
+("81","330","2011462290","328"),
+("82","120","2132533847","327"),
+("83","400","591923994","329"),
+("84","300","1129822106","330"),
+("85","400","277506559","331"),
+("86","300","709651250","332"),
+("87","300","452257575","333"),
+("88","400","55309199","334"),
+("89","400","645524936","335"),
+("90","300","1867600755","336"),
+("91","300","548979795","337"),
+("92","400","1982593577","338"),
+("93","400","1661369734","339"),
+("94","300","1138372796","340"),
+("95","400","93035623","341"),
+("96","400","1800728005","342"),
+("97","400","2113767812","343"),
+("98","300","1257812064","344"),
+("99","300","1750266610","345"),
+("100","300","1578487046","346"),
+("101","300","323405649","347"),
+("102","300","1455488623","348"),
+("103","300","1502498814","349"),
+("104","300","1544349286","350"),
+("105","300","659414787","351"),
+("106","300","309120193","352"),
+("107","400","1285124352","353"),
+("108","300","2040791128","354"),
+("109","200","2042036804","355"),
+("110","300","803263781","356"),
+("111","200","760928680","357"),
+("112","300","239937055","358"),
+("113","400","1215076647","359"),
+("114","400","1907417074","360"),
+("115","400","961778487","361"),
+("116","300","1036292961","362"),
+("117","300","348502260","363"),
+("118","300","11596003","364"),
+("119","400","1645822943","365");
+INSERT INTO stock_logs VALUES
+("120","400","1981058713","366"),
+("121","400","1316459584","367"),
+("122","300","1664160538","368"),
+("123","400","110587910","369"),
+("124","300","1125328550","370"),
+("125","400","1711127555","371"),
+("126","300","1893906591","372"),
+("127","300","587642696","373"),
+("128","300","1178537026","374"),
+("129","400","1771253767","375"),
+("130","300","313556970","376"),
+("131","400","741773510","377"),
+("132","300","1521532471","378"),
+("133","300","1478505816","379"),
+("134","200","623177278","380"),
+("135","300","620854750","381"),
+("136","200","1883597250","382"),
+("137","300","1804692510","383"),
+("138","300","1037693225","384"),
+("139","300","1535325632","385"),
+("140","300","1945182308","386"),
+("141","200","2060775019","387"),
+("142","300","1983179518","388"),
+("143","230","1778554610","389"),
+("144","300","1427751423","390"),
+("145","200","718571097","391"),
+("146","300","1623169783","392"),
+("147","100","1308622775","393"),
+("148","400","1463764415","394"),
+("149","300","109060277","395"),
+("150","400","1113445409","396"),
+("151","200","180260572","397"),
+("152","300","399301420","398"),
+("153","200","2056196139","399"),
+("154","300","837838522","400"),
+("155","300","488707503","401"),
+("156","400","159383392","402"),
+("157","300","34475546","403"),
+("158","300","1444573613","266"),
+("159","300","1423892670","265"),
+("160","200","1629818020","280"),
+("161","200","1134004959","399"),
+("162","200","2116711460","401"),
+("163","300","999278484","400"),
+("164","200","266514387","397"),
+("165","200","230632581","284"),
+("166","455","340589881","406"),
+("167","100","48368533","266"),
+("168","200","1811398718","408"),
+("169","200","1273340194","409"),
+("170","200","1052042249","410"),
+("171","300","59695326","411"),
+("172","100","106847953","412"),
+("173","100","2108787036","413"),
+("174","300","1511603074","414"),
+("175","300","924192323","415"),
+("176","20","1854360057","301"),
+("177","12","956491584","412"),
+("178","100","1247876737","418"),
+("179","100","17307169","418"),
+("180","10000","180095602","418"),
+("181","30","169754876","419"),
+("182","5","739473825","420"),
+("183","1000","1047126750","423"),
+("184","10","1796031558","272"),
+("185","16","1785586411","418"),
+("186","12","1066181001","418"),
+("187","100","102456836","404"),
+("188","120","102456836","411"),
+("189","100","1497211591","424"),
+("190","4","1202023093","434"),
+("191","5000","1039355417","267"),
+("192","50000","1362715593","270"),
+("193","10","2109229615","435"),
+("194","15","67449895","435");
+
+
+
+
+CREATE TABLE `stock_return` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `ref` varchar(100) DEFAULT NULL,
+  `customerId` varchar(100) DEFAULT NULL,
+  `itemId` varchar(100) DEFAULT NULL,
+  `address` varchar(300) DEFAULT NULL,
+  `deliveryTime` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `quantity` varchar(100) DEFAULT NULL,
+  `deliveryBoy` varchar(100) DEFAULT NULL,
+  `assignedBy` varchar(100) DEFAULT NULL,
+  `addedTime` varchar(100) DEFAULT NULL,
+  `assignedTime` varchar(100) DEFAULT NULL,
+  `AcceptedTime` varchar(100) DEFAULT NULL,
+  `date` varchar(100) DEFAULT NULL,
+  `mode` varchar(100) DEFAULT '0' COMMENT '0 for return 1 for exchange',
+  `reason` varchar(600) DEFAULT '-',
+  `note` varchar(400) DEFAULT '-',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO stock_return VALUES
+("1","68421","311","","5th flor raj tower, near city bustand, Udupi","12PM - 2PM","1","","5","","12-03-2020 11:33 AM","","","12-03-2020","","Wrong item was sent","some note here"),
+("2","57106","772","","12, temple road, Gopadi","6PM - 8PM","0","","","","16-04-2020 19:23 PM","","","16-04-2020","","Quality not adequate","some note here"),
+("3","72667","772","","12, temple road, Gopadi","","0","","","","16-04-2020 19:39 PM","","","16-04-2020","","Item defective","some note here"),
+("4","63563","","","","","0","","","","16-04-2020 20:11 PM","","","","","","some note here"),
+("5","76748","772","","12, temple road, Gopadi","","0","","","","16-04-2020 20:15 PM","","","16-04-2020","","Item defective","some note here"),
+("6","97679","116","","230","","0","","","","17-04-2020 12:50 PM","","","17-04-2020","","Quality not adequate","some note here"),
+("7","77328","116","","230","","0","","","","17-04-2020 15:38 PM","","","17-04-2020","","Item defective","some note here"),
+("8","75638","116","","230","","0","","","","17-04-2020 15:42 PM","","","17-04-2020","","Wrong item was sent","some note here"),
+("9","98978","772","","12, temple road, Gopadi","","0","","","","17-04-2020 15:44 PM","","","17-04-2020","","Product damaged","some note here"),
+("10","75041","116","","230","","0","","","","17-04-2020 15:54 PM","","","17-04-2020","","Quality not adequate","some note here"),
+("11","19390","116","","230","","1","","5","","17-04-2020 15:56 PM","","","17-04-2020","","Quality not adequate","some note here"),
+("12","78229","116","","230","","0","","","","17-04-2020 19:52 PM","","","17-04-2020","","Quality not adequate","some note here"),
+("13","86742","116","","230","","0","","","","17-04-2020 19:53 PM","","","17-04-2020","","Quality not adequate","some note here");
+
+
+
+
+CREATE TABLE `sub_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoryName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `categorySlug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `iconImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bannerImage` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `categoryDescription` longtext COLLATE utf8_unicode_ci,
+  `parent_id` int(11) DEFAULT NULL,
+  `featured` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `priority` int(100) NOT NULL DEFAULT '0',
+  `status` varchar(100) COLLATE utf8_unicode_ci DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_BCE3F79896B86598` (`categoryName`),
+  UNIQUE KEY `UNIQ_BCE3F798C5730A69` (`iconImage`),
+  UNIQUE KEY `UNIQ_BCE3F79851600A2A` (`bannerImage`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO sub_category VALUES
+("1","Grocery & Staples","grocery-&-staples","5bebe313d26e3grocery-&-staples.jpeg","","","","0","1","0"),
+("2","Beverages","beverages","5becdb4c5d4dbbeverages.jpeg","5d81ba352d228beverages.png","","","0","0","0"),
+("3","Household Needs","household-needs","5becdb853a1cahousehold-needs.jpeg","","","","0","2","0"),
+("4","Breakfast & Dairy","breakfast-&-dairy","5becdc30f3477breakfast-&-dairy.jpeg","","","","0","0","0"),
+("5","Biscuits, Snacks & Chocolates","biscuits,-snacks-&-chocolates","5becdc4bb564ebiscuits,-snacks-&-chocolates.jpeg","","","","0","0","0"),
+("6","Noodles, Sauces & Instant Food","noodles,-sauces-&-instant-food","5becdc663c25bnoodles,-sauces-&-instant-food.jpeg","","","","0","0","0"),
+("8","Pulses","pulses","5e3d5411b74dbpulses.png","","","1","0","0","0"),
+("9","Atta & Other Flours","atta-&-other-flours","5e3d53f7569e6atta-&-other-flours.png","5d19d309bbcb3atta-&-other-flours.png","","1","0","0","0"),
+("10","Rice & Other Grains","rice-&-other-grains","5e3d54228062frice-&-other-grains.png","","","1","0","0","0"),
+("11","Baby & Kids","baby-&-kids","5becdc9c2ca17baby-&-kids.jpeg","","","","0","0","0"),
+("12","Personal Care","personal-care","5becdce42b734personal-care.jpeg","","","","0","0","0"),
+("13","Dry Fruits & Nuts","dry-fruits-&-nuts","5e96be14acd2cdry-fruits-&-nuts.jpeg","","","1","0","0","0"),
+("14","Edible Oils","edible-oils","5e3e39cdb7c94edible-oils.png","","","1","0","0","0"),
+("15","Salt & Sugar","salt-&-sugar","","","","1","0","0","0"),
+("16","Soft Drinks","soft-drinks","","","","2","0","0","0"),
+("17","Juices & Concentrates","juices-&-concentrates","","","","2","0","0","0"),
+("18","Tea & Coffee","tea-&-coffee","","","","2","0","0","0"),
+("19","Health & Energy Drinks","health-&-energy-drinks","","","","2","0","0","0"),
+("20","Water & Soda","water-&-soda","","","","2","0","0","0"),
+("21","Milk Drinks","milk-drinks","","","","2","0","0","0"),
+("22","Laundry Detergents","laundry-detergents","","","","3","0","0","0"),
+("23","Dishwashers","dishwashers","","","","3","0","0","0"),
+("24","Cleaning Tools & Brushes","cleaning-tools-&-brushes","","","","3","0","0","0"),
+("25","Repellents","repellents","","","","3","0","0","0"),
+("26","Milk & Milk Products","milk-&-milk-products","","","","4","0","0","0"),
+("27","Bread & Eggs","bread-&-eggs","","","","4","0","0","0"),
+("28","Paneer & Curd","paneer-&-curd","","","","4","0","0","0"),
+("29","Butter & Cheese","butter-&-cheese","","","","4","0","0","0"),
+("30","Breakfast Cereal & Mixes","breakfast-cereal-&-mixes","","","","4","0","0","0"),
+("31","Jams, Honey & Spreads","jams,-honey-&-spreads","","","","4","0","0","0"),
+("32","Biscuits & Cookies","biscuits-&-cookies","","","","5","0","0","0"),
+("33","Namkeen & Snacks","namkeen-&-snacks","","","","5","0","0","0"),
+("34","Chips & Crisps","chips-&-crisps","","","","5","0","0","0"),
+("35","Chocolates & Candies","chocolates-&-candies","","","","5","0","0","0"),
+("36","Sweets","sweets","","","","5","0","0","0"),
+("37","Noodles & Vermicelli","noodles-&-vermicelli","","","","6","0","0","0"),
+("39","Sauces & Ketchups","sauces-&-ketchups","","","","6","0","0","0"),
+("40","Pasta & Soups","pasta-&-soups","","","","6","0","0","0"),
+("41","Canned & Frozen Food","canned-&-frozen-food","","","","6","0","0","0"),
+("42","Diapers & Wipes","diapers-&-wipes","","","","11","0","0","0"),
+("43","Baby Skin & Hair Care","baby-skin-&-hair-care","","","","11","0","0","0"),
+("44","Bath & Body","bath-&-body","5d88517463122bath-&-body.jpeg","5d88517468b37bath-&-body.jpeg","","12","0","0","0"),
+("45","Hair Care","hair-care","","","","12","0","0","0"),
+("46","Spices","spices","","","","1","0","0","0"),
+("47","Pet Care","pet-care","5becdd1616049pet-care.jpeg","","","","0","0","0"),
+("48","test","test","","","ddd","11","0","0","0"),
+("49","Offers","offers","5e3e384eaf0bdoffers.png","","","","1","0","0"),
+("52","Todays Offer","todays-offer","5e41418b2d3dftodays-offer.png","","","49","0","0","0"),
+("53","Fresh Vegitables","fresh-vegitables","","","","","0","0","0"),
+("54","Food Order","food-order","5e7caf1303369food-order.jpeg","5e7caf13047a6food-order.jpeg","Food Order Online","","1","1","0"),
+("55","PRAKESH","prakesh","5e7cafa45bc40prakesh.jpeg","","PRAKESH HOTEL","54","0","0","0"),
+("56","Fruits (Local Produce)","fruits-(local-produce)","","","","","0","0","0"),
+("57","Bolts","bolts","5e8acff2eb09cbolts.jpeg","","","","0","0","1"),
+("58","MS Bolts","ms-bolts","5e8ae4d56506ems-bolts.jpeg","","","57","0","0","0"),
+("63","Hair color","hair-color","5ea43d9685d39hair-color.jpeg","","","12","0","0","0");
+
+
+
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lastName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mobileNumber` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `apiKey` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `registrationKey` longtext COLLATE utf8_unicode_ci,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` longtext COLLATE utf8_unicode_ci,
+  `userPic` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `userType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `isActive` tinyint(1) NOT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:json_array)',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_8D93D64955E247B2` (`mobileNumber`),
+  UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`),
+  UNIQUE KEY `UNIQ_8D93D649800A1141` (`apiKey`),
+  UNIQUE KEY `UNIQ_8D93D6493256010B` (`userPic`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+INSERT INTO user VALUES
+("3","Sumanth","Shetty","9900886644","admin@grocbay.com","","","$2y$13$t/41H44RBv9ckNdzDuY2JeP1bTcTzn01O6m6ZxBhS3QT5jTjUgRFC","test","","Admin","1","[\"ROLE_ADMIN\"]"),
+("5","John","D","9876543210","john@grocbay.com","","","$2y$13$bw7IQgMVyCGocpZJIbqgwOe51Ze9w3WC14NwgyCNChuzrV0FLMjAy","Wristcode technolgies .5th Floor Raj Towers,Near udupi city bustand,Udupi","","Delivery","1","[\"ROLE_ADMIN\"]");
+
+
+
+
+CREATE TABLE `wallet` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `user` int(100) NOT NULL DEFAULT '0',
+  `postpaid` varchar(100) NOT NULL DEFAULT '0',
+  `prepaid` varchar(100) NOT NULL DEFAULT '0',
+  `ref` varchar(100) NOT NULL DEFAULT '-',
+  `status` varchar(100) NOT NULL DEFAULT '0',
+  `date` varchar(100) NOT NULL DEFAULT '-',
+  `duration` varchar(100) DEFAULT '10',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO wallet VALUES
+("1","75","0","7460","75","0","13-11-2019","0"),
+("2","77","0","-15870","77","0","19-11-2019","0"),
+("3","47","0","50","47","0","28-11-2019","0"),
+("4","152","0","200","152","0","06-01-2020","0"),
+("5","455","0","-800","455","0","26-03-2020","0"),
+("6","105","0","100","105","0","28-03-2020","0"),
+("7","411","0","100","411","0","30-03-2020","0"),
+("8","157","0","400","157","0","03-04-2020","0"),
+("9","116","0","3590","116","0","29-04-2020","0"),
+("10","772","0","110000","772","0","29-04-2020","0"),
+("11","923","0","-2750","923","0","05-05-2020","0");
+
+
+
+
+CREATE TABLE `wallet_due` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `user` varchar(100) NOT NULL DEFAULT '',
+  `ref` varchar(100) NOT NULL DEFAULT '',
+  `balance` varchar(100) NOT NULL DEFAULT '',
+  `duedate` varchar(100) NOT NULL DEFAULT '',
+  `status` varchar(100) NOT NULL DEFAULT '0',
+  `note` varchar(100) NOT NULL DEFAULT '',
+  `paid` varchar(100) NOT NULL DEFAULT '-',
+  `date` varchar(100) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+
+
+CREATE TABLE `wallet_logs` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `ref` varchar(100) DEFAULT '0',
+  `credit` varchar(100) DEFAULT '0',
+  `debit` varchar(100) DEFAULT '0',
+  `date` varchar(100) DEFAULT '-',
+  `balance` varchar(100) DEFAULT '0',
+  `note` varchar(300) DEFAULT '-',
+  `type` varchar(100) DEFAULT '0' COMMENT '0 for prepaid 1 for postpaid',
+  `status` varchar(100) DEFAULT NULL,
+  `dateTime` varchar(100) NOT NULL DEFAULT '',
+  `mode` varchar(100) DEFAULT 'online',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO wallet_logs VALUES
+("1","75","10000","0","13-11-2019","10000","Added By MarketBhaav","0","0","11-51 am","cash"),
+("2","75","0","480.0","13-11-2019","9520","154545","0","0","11-52 am","wallet"),
+("3","77","2000","0","19-11-2019","2000","Added By MarketBhaav","0","0","04-25 pm","cash"),
+("4","77","0","220.0","19-11-2019","1780","154545","0","0","16-42 pm","wallet"),
+("5","77","0","1650.0","19-11-2019","130","154545","0","0","18-33 pm","wallet"),
+("6","75","0","120.0","26-11-2019","9400","154545","0","0","10-20 am","wallet"),
+("7","47","50","0","28-11-2019","50","Added By MarketBhaav","0","0","10-27 pm","cash"),
+("8","152","100","0","06-01-2020","100","Added By MarketBhaav","0","0","07-34 pm","cash"),
+("9","77","0","500","25-01-2020","-370","154545","cod","0","15-21 pm","cod"),
+("10","77","0","500","25-01-2020","-870","154545","cod","0","15-30 pm","cod"),
+("11","77","0","500","25-01-2020","-1370","154545","cod","0","15-38 pm","cod"),
+("12","77","0","500","25-01-2020","-1870","154545","cod","0","15-47 pm","cod"),
+("13","77","0","500","25-01-2020","-2370","154545","cod","0","16-08 pm","cod"),
+("14","77","0","500","25-01-2020","-2870","154545","cod","0","16-37 pm","cod"),
+("15","77","0","500","25-01-2020","-3370","154545","cod","0","16-46 pm","cod"),
+("16","77","0","500","25-01-2020","-3870","154545","cod","0","16-52 pm","cod"),
+("17","77","0","500","25-01-2020","-4370","154545","cod","0","17-08 pm","cod"),
+("18","77","0","500","25-01-2020","-4870","154545","cod","0","17-08 pm","cod"),
+("19","77","0","500","25-01-2020","-5370","154545","cod","0","17-18 pm","cod"),
+("20","77","0","500","25-01-2020","-5870","154545","cod","0","17-51 pm","cod"),
+("21","77","0","500","25-01-2020","-6370","154545","cod","0","17-51 pm","cod"),
+("22","77","0","500","25-01-2020","-6870","154545","cod","0","17-52 pm","cod"),
+("23","77","0","500","25-01-2020","-7370","154545","cod","0","17-53 pm","cod"),
+("24","77","0","500","25-01-2020","-7870","154545","cod","0","17-57 pm","cod"),
+("25","77","0","500","25-01-2020","-8370","154545","cod","0","17-57 pm","cod"),
+("26","75","0","440.0","27-01-2020","8960","154545","0","0","13-02 pm","wallet"),
+("27","77","0","500","27-01-2020","-8870","154545","cod","0","13-06 pm","cod"),
+("28","77","0","500","27-01-2020","-9370","154545","cod","0","13-10 pm","cod"),
+("29","77","0","500","27-01-2020","-9870","154545","cod","0","13-16 pm","cod"),
+("30","77","0","500","27-01-2020","-10370","154545","cod","0","13-26 pm","cod"),
+("31","77","0","500","27-01-2020","-10870","154545","cod","0","13-27 pm","cod"),
+("32","77","0","500","27-01-2020","-11370","154545","cod","0","13-29 pm","cod"),
+("33","77","0","500","28-01-2020","-11870","154545","cod","0","12-00 pm","cod"),
+("34","75","0","500","03-02-2020","8460","154545","cod","0","12-40 pm","cod"),
+("35","77","0","500","04-02-2020","-12370","154545","cod","0","15-26 pm","cod"),
+("36","77","0","500","05-02-2020","-12870","154545","cod","0","16-35 pm","cod"),
+("37","77","0","500","05-02-2020","-13370","154545","cod","0","16-51 pm","cod"),
+("38","77","0","500","05-02-2020","-13870","154545","cod","0","18-05 pm","cod"),
+("39","75","0","500","06-02-2020","7960","154545","cod","0","14-32 pm","cod"),
+("40","75","0","500","06-02-2020","7460","154545","cod","0","14-32 pm","cod"),
+("41","77","0","500","07-02-2020","-14370","154545","cod","0","16-29 pm","cod"),
+("42","77","0","500","07-02-2020","-14870","154545","cod","0","16-37 pm","cod"),
+("43","77","0","500","07-02-2020","-15370","154545","cod","0","16-55 pm","cod"),
+("44","77","0","500","10-02-2020","-15870","154545","cod","0","15-20 pm","cod"),
+("45","152","100","0","18-02-2020","200","Added By MarketBhaav","0","0","11-28 am","cash"),
+("46","455","100","0","26-03-2020","100","Added By MarketBhaav","0","0","11-49 am","cash"),
+("47","455","100","0","26-03-2020","200","Added By MarketBhaav","0","0","11-50 am","online"),
+("48","455","0","500","26-03-2020","-300","154545","cod","0","12-13 pm","cod"),
+("49","455","0","500","26-03-2020","-800","154545","cod","0","19-16 pm","cod"),
+("50","105","100","0","28-03-2020","100","Added By MarketBhaav","0","0","10-50 am","cash"),
+("51","411","100","0","30-03-2020","100","Added By MarketBhaav","0","0","04-36 pm","cash"),
+("52","157","100","0","03-04-2020","100","Added By MarketBhaav","0","0","01-26 pm","cash"),
+("53","157","0","500","03-04-2020","-400","154545","cod","0","13-28 pm","cod"),
+("54","157","500","0","08-04-2020","100","Added By MarketBhaav","0","0","09-27 am","cash"),
+("55","157","100","0","10-04-2020","200","Added By MarketBhaav","0","0","12-25 pm","cash"),
+("56","157","100","0","19-04-2020","300","Added By MarketBhaav","0","0","07-32 pm","cash"),
+("57","157","100","0","19-04-2020","400","Added By MarketBhaav","0","0","07-32 pm","cash"),
+("58","116","3500","0","29-04-2020","3500","Added By MarketBhaav","0","0","12-12 pm","cash"),
+("59","772","45000","0","29-04-2020","45000","Added By MarketBhaav","0","0","12-16 pm","cash"),
+("60","772","65000","0","29-04-2020","110000","Added By MarketBhaav","0","0","12-17 pm","cash"),
+("61","116","250","0","29-04-2020","3750","Added By MarketBhaav","0","0","05-25 pm","cash"),
+("62","116","0","160.0","01-05-2020","3590","154545","0","0","16-42 pm","wallet"),
+("63","923","250","0","05-05-2020","250","Added By MarketBhaav","0","0","09-19 am","card"),
+("64","923","0","500","05-05-2020","-250","154545","cod","0","10-27 am","sod"),
+("65","923","0","500","05-05-2020","-750","154545","cod","0","10-42 am","sod"),
+("66","923","0","500","05-05-2020","-1250","154545","cod","0","10-48 am","cod"),
+("67","923","0","500","05-05-2020","-1750","154545","cod","0","12-51 pm","online payment"),
+("68","923","0","500","07-05-2020","-2250","154545","cod","0","16-40 pm","sod"),
+("69","923","0","500","08-05-2020","-2750","154545","cod","0","22-11 pm","cod");
+
+

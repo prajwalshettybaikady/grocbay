@@ -1,0 +1,1545 @@
+Return-Path: <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>
+Delivered-To: info@grocbay.com
+Received: from srvcl.crypracks.com
+	by srvcl.crypracks.com with LMTP
+	id 8uA8N9JrBF+XQAAAYUfyRA
+	(envelope-from <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>)
+	for <info@grocbay.com>; Tue, 07 Jul 2020 08:34:26 -0400
+Return-path: <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>
+Envelope-to: info@grocbay.com
+Delivery-date: Tue, 07 Jul 2020 08:34:26 -0400
+Received: from o81.email.fmsend.net ([192.254.127.57]:45714)
+	by srvcl.crypracks.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.93)
+	(envelope-from <bounces+9950705-ac48-info=grocbay.com@fmdkim.freshchat.com>)
+	id 1jsmnn-0004EA-L7
+	for info@grocbay.com; Tue, 07 Jul 2020 08:34:26 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=freshchat.com; 
+	h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; 
+	s=cd6qgs3; bh=9QeiD42SuTCL+JCYUy5I/AdLcZJ+r2qk792pCNJgOMk=; b=BY
+	ot4dJHypAuDAPzU/cgaS2B0i5Tudkcrq3RYCdHcIKZIUrLZKGJAw+ZmHuqrbjnSH
+	oqb1EidcHXWhxTX6LqwgzkSjlmVKcaWdXrAKcRR/RiO5z8d4ZW9snZqz9j1RFKdh
+	YfP3B0rWmcpRTuw6RjecpXDzud0giku83uwfSRSVM=
+Received: by filter1002p1las1.sendgrid.net with SMTP id filter1002p1las1-27386-5F046BA5-1F
+        2020-07-07 12:33:41.467034655 +0000 UTC m=+653695.021732965
+Received: from OTk1MDcwNQ (unknown)
+	by ismtpd0029p1iad2.sendgrid.net (SG) with HTTP id X3f6ob87QEGnGaDgHKKsrg
+	Tue, 07 Jul 2020 12:33:41.348 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=bb06b9c82f9f40ace21b617ae902b3da241ad6aaf64041b8463f8a458924
+Date: Tue, 07 Jul 2020 12:33:41 +0000 (UTC)
+From: "Abi from Freshchat" <hello@freshchat.com>
+Mime-Version: 1.0
+Reply-to: "Abi from Freshchat" <reply-gbgai.degfb.bddde.de9a0c84-96cc-4f43-accc-dea1554dbdb5@freshworks.rply-to.email>
+To: Jason Shetty <info@grocbay.com>
+Message-ID: <3280cd29-f5dc-47af-ae3e-0cf7fb5f5f84.campaign-consumer2@email.freshmarketer.com>
+Subject: =?UTF-8?B?8J+To0p1bmUgVXBkYXRlczogTXVsdGlsaW5ndWFsIEN1c3RvbSBGbG93cywgTElORSBpbnRlZ3JhdGlvbiwgYW5kIG1vcmUuLi4=?=
+X-IP-POOL: premium
+List-unsubscribe: <https://freshworks.freshmarketer.com/mas/api/v1/subscription-preferences?fm_digest=FACE0C22FBF697675D0F05B1A32179A1F05745805BF4529F800DD7CF91FA4A5B1FB8B62F49BA684228D29E14C58494E65A5A9FD582B795BAC3563A2ACF8B2DE74EDA3522824661B9AE04FAF0D394C4192F1CC7C38D271A3FF7610416BB3BA11B>
+X-SG-EID: +c1VLeeL7fzWE3pTN4fh/NssKiBljp5HZCDMQaKEON4+EsDrVSc4accI6BZVInkkNWL1jbEtSnbXUC
+ XKdevafkKv3ysypHy4ITucsFB+mpniSt17GPceqBUaOyq0ObzaQBs4fyUBlw5S9Kk+Yemlm3yKp0ER
+ r8FSf/+oB1fmoclxgmg/mlL51xRqAHFNCChPiCsmV/G/6mGnYN55U7rdwk7TP4pry/k10UStgiuc/1
+ w=
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7ILD6t1loCRpcIe42pWhoNm+qkokpAXWzmQk1xJfRyCy4Bs6FpXRsh6xVZ
+ 6DFOJeYUWzp5v6yesbLsZPSD9qvOpxw96gBzMncLBZRLdwS1z/7f1cgUCBSC1aynlOU5xg6DEGZ4H2
+ L67UxcN/ffQ8zGot3z5F0iUwzHdJ3Pw2RWWTB5hIvDI2B+2eDwPEYAClLk4EPKR3SMbTLXuAoKVJm1
+ 42sMBoUK1S4XXmawm4ylv66Ow3Wl5PzZHbvKXrxQMHAUxJ3aFgfOFG916BXrr1RwJeD2HBWwf6DzTt
+ 9H+XsyIFAl9htz8Wc72pxB4d0iaLChDGi94eLJQ/JlNlOpFa82Emf0zn3TkvaUps1WsvmE9PSMjonC
+ txTbqqKsWs0j3I/GfVa/qvqzKlr3bcRrzGJggehR/qumloADPNDvABOCg1jpBRFTcfG8B7nmzFggJY
+ AgUME9A8tXIOeoBVWrOd3pBW4TWd1ud4qj/yoGJnmmqB0DvvRu3DF2NfiSl0lXcAtZ6SJZKBBNpz0e
+ KT+yTyLwlVBU5BuzkwgS4Qpt1Jwi42qrPLRk1SfmCziidL9LTQKkWJ+tNCSQsJV6Op1/XCnDXmElR+
+ S8FwfWwUB+nne2Yq
+X-Spam-Status: No, score=1.1
+X-Spam-Score: 11
+X-Spam-Bar: +
+X-Ham-Report: Spam detection software, running on the system "srvcl.crypracks.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  A list of all that we shipped in June! Freshchat June Updates
+    Multilingual Custom Flows You can now create custom flows in 35 different
+    languages. Sell and support in local and global markets, with Mu [...] 
+ Content analysis details:   (1.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: freshworks.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [192.254.127.57 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.0 T_KAM_HTML_FONT_INVALID BODY: Test for Invalidly Named or
+                             Formatted Colors in HTML
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  1.1 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.2 KAM_HUGEIMGSRC         Message contains many image tags with huge http
+                             urls
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+X-Spam-Flag: NO
+
+--bb06b9c82f9f40ace21b617ae902b3da241ad6aaf64041b8463f8a458924
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+A list of all that we shipped in June! Freshchat June Updates Multilingual =
+Custom Flows You can now create custom flows in 35 different languages. Sel=
+l and support in local and global markets, with Multilingual Custom Flows. =
+Learn More LINE Integration You can now integrate LINE Messenger with your =
+Freshchat account and engage your customers on one of the everyday messagin=
+g apps that they use. Learn More IntelliAssign Round-robin IntelliAssign no=
+w supports a new logic for assignment - Round-robin. Learn More Placeholder=
+s Personalise your conversations with placeholders and improve your custome=
+r engagement game! Learn More Placeholders for Advanced Automations We've a=
+dded a unique set of placeholders for Advanced Automations to make your wor=
+kflow automations easier. Learn More Meetings (iOS, Android, and React Nati=
+ve SDK) Now you can share your schedule and enable customers and prospects =
+to book meetings with you from your mobile app. Product Updates | Help Cent=
+re | Release Notes =C2=A9 2020 Freshworks Inc. All rights reserved. Message=
+ sent by Freshworks Inc at Delaware Street, Suite 201, San Mateo, Californi=
+a, USA. Manage your email preferences here. Powered by Freshmarketer=
+
+--bb06b9c82f9f40ace21b617ae902b3da241ad6aaf64041b8463f8a458924
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+ <head>=20
+  <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsP=
+erInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->=20
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">=
+=20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width">=20
+  <!--[if !mso]><!-->=20
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">=20
+  <!--<![endif]-->=20
+  <title></title>=20
+  <!--[if !mso]><!-->=20
+  <link href=3D"https://fonts.googleapis.com/css?family=3DRoboto" rel=3D"st=
+ylesheet" type=3D"text/css">=20
+  <link href=3D"https://fonts.googleapis.com/css?family=3DMontserrat" rel=
+=3D"stylesheet" type=3D"text/css">=20
+  <!--<![endif]-->=20
+  <style type=3D"text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		table,
+		td,
+		tr {
+			vertical-align: top;
+			border-collapse: collapse;
+		}
+
+		* {
+			line-height: inherit;
+		}
+
+		a[x-apple-data-detectors=3Dtrue] {
+			color: inherit !important;
+			text-decoration: none !important;
+		}
+	</style>=20
+  <style type=3D"text/css" id=3D"media-query">
+		@media (max-width: 670px) {
+
+			.block-grid,
+			.col {
+				min-width: 320px !important;
+				max-width: 100% !important;
+				display: block !important;
+			}
+
+			.block-grid {
+				width: 100% !important;
+			}
+
+			.col {
+				width: 100% !important;
+			}
+
+			.col>div {
+				margin: 0 auto;
+			}
+
+			img.fullwidth,
+			img.fullwidthOnMobile {
+				max-width: 100% !important;
+			}
+
+			.no-stack .col {
+				min-width: 0 !important;
+				display: table-cell !important;
+			}
+
+			.no-stack.two-up .col {
+				width: 50% !important;
+			}
+
+			.no-stack .col.num4 {
+				width: 33% !important;
+			}
+
+			.no-stack .col.num8 {
+				width: 66% !important;
+			}
+
+			.no-stack .col.num4 {
+				width: 33% !important;
+			}
+
+			.no-stack .col.num3 {
+				width: 25% !important;
+			}
+
+			.no-stack .col.num6 {
+				width: 50% !important;
+			}
+
+			.no-stack .col.num9 {
+				width: 75% !important;
+			}
+
+			.video-block {
+				max-width: none !important;
+			}
+
+			.mobile_hide {
+				min-height: 0px;
+				max-height: 0px;
+				max-width: 0px;
+				display: none;
+				overflow: hidden;
+				font-size: 0px;
+			}
+
+			.desktop_hide {
+				display: block !important;
+				max-height: none !important;
+			}
+		}
+	</style>=20
+ </head>=20
+ <body class=3D"clean-body" style=3D"margin: 0; padding: 0; -webkit-text-si=
+ze-adjust: 100%; background-color: #E2E2E2;">=20
+  <div style=3D"display:none">
+    A list of all that we shipped in June!=20
+  </div>=20
+  <!--[if IE]><div class=3D"ie-browser"><![endif]-->=20
+  <table class=3D"nl-container" style=3D"table-layout: fixed; vertical-alig=
+n: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collaps=
+e: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color=
+: #E2E2E2; width: 100%;" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" width=3D"100%" bgcolor=3D"#E2E2E2" valign=3D"top">=20
+   <tbody>=20
+    <tr style=3D"vertical-align: top;" valign=3D"top">=20
+     <td style=3D"word-break: break-word; vertical-align: top;" valign=3D"t=
+op">=20
+      <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr><td align=3D"center" style=3D"background-color:#E=
+2E2E2"><![endif]-->=20
+      <div style=3D"background-image:url('https://gallery.freshmarketer.com=
+/f987a607-0b87-352d-9216-f4c9dd1d76b2/files/549be3ad-8899-4449-b378-ab63ab3=
+cda77/Rectangle 3.png');background-position:top left;background-repeat:no-r=
+epeat;background-color:transparent;">=20
+       <div class=3D"block-grid mixed-two-up no-stack" style=3D"Margin: 0 a=
+uto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wr=
+ap: break-word; word-break: break-word; background-color: transparent;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:transparent;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-image:url('https://gallery.fre=
+shmarketer.com/f987a607-0b87-352d-9216-f4c9dd1d76b2/files/549be3ad-8899-444=
+9-b378-ab63ab3cda77/Rectangle 3.png');background-position:top left;backgrou=
+nd-repeat:no-repeat;background-color:transparent;"><tr><td align=3D"center"=
+><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:650=
+px"><tr class=3D"layout-full-width" style=3D"background-color:transparent">=
+<![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"216" style=3D"ba=
+ckground-color:transparent;width:216px; border-top: 0px solid transparent; =
+border-left: 0px solid transparent; border-bottom: 0px solid transparent; b=
+order-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-ri=
+ght: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif=
+]-->=20
+         <div class=3D"col num4" style=3D"display: table-cell; vertical-ali=
+gn: top; max-width: 320px; min-width: 216px; width: 216px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <div class=3D"img-container left fixedwidth" align=3D"left" sty=
+le=3D"padding-right: 0px;padding-left: 10px;">=20
+             <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr style=3D"line-height:0px"><td style=3D"padding-ri=
+ght: 0px;padding-left: 10px;" align=3D"left"><![endif]-->=20
+             <div style=3D"font-size:1px;line-height:30px">
+               &nbsp;=20
+             </div>=20
+             <img class=3D"left fixedwidth" border=3D"0" src=3D"https://gal=
+lery.freshmarketer.com/f987a607-0b87-352d-9216-f4c9dd1d76b2/files/1b5516a4-=
+56c1-4a7a-8639-98bb597d184b/freshchat-dark-bg.png" alt=3D"Image" title=3D"I=
+mage" style=3D"text-decoration: none; -ms-interpolation-mode: bicubic; heig=
+ht: auto; border: 0; width: 100%; max-width: 140px; display: block;" width=
+=3D"140">=20
+             <div style=3D"font-size:1px;line-height:20px">
+               &nbsp;=20
+             </div>=20
+             <!--[if mso]></td></tr></table><![endif]-->=20
+            </div>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td><td align=3D"center" width=3D"433" style=
+=3D"background-color:transparent;width:433px; border-top: 0px solid transpa=
+rent; border-left: 0px solid transparent; border-bottom: 0px solid transpar=
+ent; border-right: 0px solid transparent;" valign=3D"top"><table width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padd=
+ing-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><!=
+[endif]-->=20
+         <div class=3D"col num8" style=3D"display: table-cell; vertical-ali=
+gn: top; min-width: 320px; max-width: 432px; width: 433px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, sans-seri=
+f"><![endif]-->=20
+            <div style=3D"color:#555555;font-family:Montserrat, Trebuchet M=
+S, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line=
+-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding=
+-left:10px;">=20
+             <div style=3D"font-family: Montserrat, Trebuchet MS, Lucida Gr=
+ande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; font-size: 12px=
+; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">=20
+              <p style=3D"font-size: 12px; line-height: 1.2; word-break: br=
+eak-word; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans=
+ Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 14px; margi=
+n: 0;"><br></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-image:url('https://gallery.freshmarketer.com=
+/f987a607-0b87-352d-9216-f4c9dd1d76b2/files/549be3ad-8899-4449-b378-ab63ab3=
+cda77/Rectangle 3.png');background-position:top left;background-repeat:no-r=
+epeat;background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #F6F8FB;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#F6F8FB;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-image:url('https://gallery.fre=
+shmarketer.com/f987a607-0b87-352d-9216-f4c9dd1d76b2/files/549be3ad-8899-444=
+9-b378-ab63ab3cda77/Rectangle 3.png');background-position:top left;backgrou=
+nd-repeat:no-repeat;background-color:#F6F8FB;"><tr><td align=3D"center"><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:650px">=
+<tr class=3D"layout-full-width" style=3D"background-color:#F6F8FB"><![endif=
+]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#F6F8FB;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->=
+=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <div class=3D"img-container center fixedwidth fullwidthOnMobile=
+" align=3D"center" style=3D"padding-right: 0px;padding-left: 0px;">=20
+             <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr style=3D"line-height:0px"><td style=3D"padding-ri=
+ght: 0px;padding-left: 0px;" align=3D"center"><![endif]-->=20
+             <img class=3D"center fixedwidth fullwidthOnMobile" align=3D"ce=
+nter" border=3D"0" src=3D"https://gallery.freshmarketer.com/f987a607-0b87-3=
+52d-9216-f4c9dd1d76b2/files/24f1b7f4-b50b-4ec2-9532-34ca4ac036fb/Fchat_June=
+_PD_Banner.jpg" alt=3D"Image" title=3D"Image" style=3D"text-decoration: non=
+e; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; m=
+ax-width: 650px; display: block;" width=3D"650">=20
+             <!--[if mso]></td></tr></table><![endif]-->=20
+            </div>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #ffffff;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#ffffff;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+#ffffff"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#ffffff;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->=
+=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 30px; padding-left: 30=
+px; padding-top: 35px; padding-bottom: 15px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:35px;padding-right:30px;p=
+adding-bottom:15px;padding-left:30px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.5; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"line-height: 1.5; text-align: center; font-size: =
+24px; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 36px; margin: 0;"><span style=3D"font-size=
+: 24px;"><strong>Freshchat June Updates</strong></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #FFFFFF;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#FFFFFF;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+#FFFFFF"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#FFFFFF;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->=
+=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <table class=3D"divider" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"table-layout: fixed; vertical-align: top=
+; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-tex=
+t-size-adjust: 100%;" role=3D"presentation" valign=3D"top">=20
+             <tbody>=20
+              <tr style=3D"vertical-align: top;" valign=3D"top">=20
+               <td class=3D"divider_inner" style=3D"word-break: break-word;=
+ vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-botto=
+m: 5px; padding-left: 5px;" valign=3D"top">=20
+                <table class=3D"divider_content" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"25%" style=3D"table-layout: fixed; vertic=
+al-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #DADADA; height: 0px;=
+ width: 25%;" align=3D"center" role=3D"presentation" height=3D"0" valign=3D=
+"top">=20
+                 <tbody>=20
+                  <tr style=3D"vertical-align: top;" valign=3D"top">=20
+                   <td style=3D"word-break: break-word; vertical-align: top=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" height=3D"0"=
+ valign=3D"top"><span></span></td>=20
+                  </tr>=20
+                 </tbody>=20
+                </table> </td>=20
+              </tr>=20
+             </tbody>=20
+            </table>=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 15px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.2; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 14px;">=20
+              <p style=3D"line-height: 1.2; text-align: center; font-size: =
+18px; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 22px; margin: 0;"><span style=3D"font-size=
+: 18px;"><strong>Multilingual Custom Flows</strong></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 30px; padding-left: 30=
+px; padding-top: 10px; padding-bottom: 25px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:10px;padding-right:30px;p=
+adding-bottom:25px;padding-left:30px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.5; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"line-height: 1.5; font-size: 15px; word-break: br=
+eak-word; text-align: center; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 23px; margin: 0;"><span style=3D"font-size=
+: 15px;">You can now create custom flows in 35 different languages. Sell an=
+d support in local and global markets, with Multilingual Custom Flows. </sp=
+an></p>=20
+              <p style=3D"line-height: 1.5; font-size: 14px; word-break: br=
+eak-word; text-align: center; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;"><a style=3D"text-decoration: underline; color: #0068A5;" href=3D"h=
+ttp://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ENTGP9rRXn=
+arS5s8vbEpSmeYkGb06vdNjHFloH7hxEAtsBDp3zI3pb3ndMZ-2FweRdG-2B1FaE8YdyxtKOjcZ=
+R2rPWv41-2Fe5CJ24205EcEliuDbA4I-2FIrqJIFC3MOVHpGYXJLbVzSGSslSb0aU-2F-2BjB41=
+5ES5WISFD-2Bb1e04hHCxW8b81qq-2B4VFz8-2B2C8QlCBRrLwoq-2Bk7qd-2Bfy2cf6bAR484K=
+U1Iq0Nd3Cs80us5jWROOE4e9RaggB6BQyqMLTnUqTqnWJwEoz88rU1DRb4f2bNtSwd6fVPIB-2F=
+NFixOyeK-2FxEADyaxyRCrFTLqZ1iP1myi7hc2JBd3DC8xTXyv3E0sQwJY-3DAmnj_RYEeg99Ap=
+79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbcir19GK0YHUsqYt0RT=
+2Kg122QmgX4c4Ogdr03V4d-2F9qERJ-2FZvtcs2HboSDDg86lBaWrdOsh-2F-2FaQtLd7PNTJjj=
+ipymn1D6HlbxueSEvuMJKBEBXBRyM-2FQQIK1HpJyaXugYTKV-2Bkf-2FFC1kat4HyGm9S2s1cS=
+jqR-2Fw-2BhAqaGkPDtjO35Qu2qhiZoWbh2UGbLJ-2FD8U1NogHvSRGXpa1WkN2KZ-2FN6sPzYW=
+tCfnGgqkzJmkPieW-2FaesW-2F3qUXFGnNIroFwqINHVIk0zL97ZucasUCqSAhZSBnQqchy3YVk=
+98uqTqrQn6YkwXHwufoZezT301ZVVl35Z5rd8K7lLcicub3ApuDUgpN4N3FtwL3BaGfLSRXYUMS=
+ggRzw3Qf4J5Di8p61cnz2j5sTU6UM0cVchy6EZgDCvIHFty9r2wVACOON3Elu2lGR4oECpmTlx-=
+2B9ULfcAt-2B3SQHFkpi6Ykf5Dp5NIryBKIF28OSCF58Zi78CAReEDzhjzDWgLfcvB-2BigYCLO=
+48tVPDkCSK6JWf7F56AyohGpEn-2FtXHuTq-2F833KkBqaH-2FkZ04dCoKe2mWuBvqZvoS9xvs2=
+hZRKGT-2B6x8PRLBRg084v4x5LGHI28eR010JxhWM616X4PvBLHjA1rrLlY07p9dXyZyTwf8TW9=
+dMqEGk-2FHWFxuVKWWG5AEZ0t-2BtA3jrqCq8P0wovPSHsMdC9yke1-2F2TaZImtLd9d9JWyNWF=
+eEYyT4ZEDNkR-2FXcGA1ksSL5WEwtXl3cspVnO7u6gkGBLbquark7oUP9CugGYyMqPOi4g-3D-3=
+D" target=3D"_blank" rel=3D"noopener">Learn More</a></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <div class=3D"img-container center fullwidthOnMobile fixedwidth=
+" align=3D"center" style=3D"padding-right: 40px;padding-left: 40px;">=20
+             <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr style=3D"line-height:0px"><td style=3D"padding-ri=
+ght: 40px;padding-left: 40px;" align=3D"center"><![endif]-->=20
+             <img class=3D"center fullwidthOnMobile fixedwidth" align=3D"ce=
+nter" border=3D"0" src=3D"https://gallery.freshmarketer.com/f987a607-0b87-3=
+52d-9216-f4c9dd1d76b2/files/17e4d49d-eaf2-48cc-a821-c8f6527a1777/Multilingu=
+alCustomBot.png" alt=3D"Image" title=3D"Image" style=3D"text-decoration: no=
+ne; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; =
+max-width: 570px; display: block;" width=3D"570">=20
+             <div style=3D"font-size:1px;line-height:25px">
+               &nbsp;=20
+             </div>=20
+             <!--[if mso]></td></tr></table><![endif]-->=20
+            </div>=20
+            <table class=3D"divider" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"table-layout: fixed; vertical-align: top=
+; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-tex=
+t-size-adjust: 100%;" role=3D"presentation" valign=3D"top">=20
+             <tbody>=20
+              <tr style=3D"vertical-align: top;" valign=3D"top">=20
+               <td class=3D"divider_inner" style=3D"word-break: break-word;=
+ vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-botto=
+m: 5px; padding-left: 5px;" valign=3D"top">=20
+                <table class=3D"divider_content" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"25%" style=3D"table-layout: fixed; vertic=
+al-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #DADADA; height: 0px;=
+ width: 25%;" align=3D"center" role=3D"presentation" height=3D"0" valign=3D=
+"top">=20
+                 <tbody>=20
+                  <tr style=3D"vertical-align: top;" valign=3D"top">=20
+                   <td style=3D"word-break: break-word; vertical-align: top=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" height=3D"0"=
+ valign=3D"top"><span></span></td>=20
+                  </tr>=20
+                 </tbody>=20
+                </table> </td>=20
+              </tr>=20
+             </tbody>=20
+            </table>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #FFFFFF;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#FFFFFF;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+#FFFFFF"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#FFFFFF;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->=
+=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 15px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.2; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 14px;">=20
+              <p style=3D"line-height: 1.2; text-align: center; font-size: =
+18px; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 22px; margin: 0;"><span style=3D"font-size=
+: 18px;"><strong>LINE Integration</strong></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 30px; padding-left: 30=
+px; padding-top: 10px; padding-bottom: 25px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:10px;padding-right:30px;p=
+adding-bottom:25px;padding-left:30px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.5; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;">You can now integrate LINE Messenger with your Freshchat account a=
+nd engage your customers on one of the everyday messaging apps that they us=
+e.&nbsp;</span></p>=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;"><a style=3D"text-decoration: underline; color: #0068A5;" href=3D"h=
+ttp://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ENTGP9rRXn=
+arS5s8vbEpSmeYkGb06vdNjHFloH7hxEAtsBDp3zI3pb3ndMZ-2FweRdIgy9xRdgYc5USoNpDbB=
+lbfq83BUSsvxwg6eMUdRCjevnrbB1XnbqxPFVqAQaeMJpT4KCor9oZxBk-2F3CnvitVz9aVOWJa=
+Jd53ro1DRfy-2FGKdGUUGXE0f-2BFPl7m3sxY5C0BopcXJhdIuUpz1pYK4LFKrMPH-2BMOCD1-2=
+BxKivPvLPsKzt-2BeoR36ffwS5COOjhW2ggMi-2FBjxLKS89VkdG6Lji-2BPRP-2FXJfmkI5sQx=
+LfAuj4vdmGlCod3BfxKsDcFvj0XqC-2BQ-3D-3DoNa__RYEeg99Ap79leT7lYKY4eVge8RBBZ6Z=
+OPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbcir19GK0YHUsqYt0RT2Kg122QmgX4c4Ogdr03V4d=
+-2F9qERJ-2FZvtcs2HboSDDg86lBaWrdOsh-2F-2FaQtLd7PNTJjjipymn1D6HlbxueSEvuMJKB=
+EBXBRyM-2FQQIK1HpJyaXugYTKV-2Bkf-2FFC1kat4HyGm9S2s1cSjqR-2Fw-2BhAqaGkPDtjO3=
+5Qu2qhiZoWbh2UGbLJ-2FD8U1NogHvSRGXpa1WkN2KZ-2FN6sPzYWtCfnGgqkzJmkPieW-2Faes=
+W-2F3qUXFGnNIroFwqINHVIk0zL97ZucasUCqSAhZSBnQqchy3YVk98uqTqrQn6YkwXHwufoZez=
+T301ZVVl35Z5rd8K7lLcicub3ApuDUgpN4N3FtwL3BaGfLSRXYUMSggRzw3Qf4J5Di8p61cnz2j=
+5sTU6UM0cVchy6EZgDCvIHFty9r2wVACOON3Elu2lGR4oECpmTlx-2B9ULfcAt-2B3SQHFkpi6Y=
+kf5Dp5NIryBKIF28OSCF58Zi78CAReEDzhjzDWgLfcvB-2BigYCLO48tVPDkCSK6JWf7F56Ayoh=
+GpEn-2FtXHuTq-2F833KkBqaH-2FkZ04dCoKe2mWuBvqZvoS9xvs2hZRKGT-2B6x8PRLBRg084v=
+4x5LGHI28eR010JxhWM616X4PvBLHjA1rrLlY07pHGtL1WvT10lxYzpi6xEhtnnK0331ZYTpCLc=
+lKUXUh5aZZlEY4diGwFN2892HQ2r95G6ri8pdaE1Byw2VtbfUvY1WuTpWmyh7taAtQ-2FSY5X9n=
+Nmyq0pMlDRDfvdTrIRDEzg-2Fn4GihKGDavpTTrYkfbQ-3D-3D" target=3D"_blank" rel=
+=3D"noopener">Learn More</a></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <div class=3D"img-container center fullwidthOnMobile fixedwidth=
+" align=3D"center" style=3D"padding-right: 40px;padding-left: 40px;">=20
+             <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr style=3D"line-height:0px"><td style=3D"padding-ri=
+ght: 40px;padding-left: 40px;" align=3D"center"><![endif]-->=20
+             <img class=3D"center fullwidthOnMobile fixedwidth" align=3D"ce=
+nter" border=3D"0" src=3D"https://gallery.freshmarketer.com/f987a607-0b87-3=
+52d-9216-f4c9dd1d76b2/files/db47564b-7207-4d9c-b7cc-1eb89bdc34f4/Fchat_LINE=
+.png" alt=3D"Image" title=3D"Image" style=3D"text-decoration: none; -ms-int=
+erpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: =
+570px; display: block;" width=3D"570">=20
+             <div style=3D"font-size:1px;line-height:25px">
+               &nbsp;=20
+             </div>=20
+             <!--[if mso]></td></tr></table><![endif]-->=20
+            </div>=20
+            <table class=3D"divider" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"table-layout: fixed; vertical-align: top=
+; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-tex=
+t-size-adjust: 100%;" role=3D"presentation" valign=3D"top">=20
+             <tbody>=20
+              <tr style=3D"vertical-align: top;" valign=3D"top">=20
+               <td class=3D"divider_inner" style=3D"word-break: break-word;=
+ vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-botto=
+m: 5px; padding-left: 5px;" valign=3D"top">=20
+                <table class=3D"divider_content" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"25%" style=3D"table-layout: fixed; vertic=
+al-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #DADADA; height: 0px;=
+ width: 25%;" align=3D"center" role=3D"presentation" height=3D"0" valign=3D=
+"top">=20
+                 <tbody>=20
+                  <tr style=3D"vertical-align: top;" valign=3D"top">=20
+                   <td style=3D"word-break: break-word; vertical-align: top=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" height=3D"0"=
+ valign=3D"top"><span></span></td>=20
+                  </tr>=20
+                 </tbody>=20
+                </table> </td>=20
+              </tr>=20
+             </tbody>=20
+            </table>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #FFFFFF;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#FFFFFF;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+#FFFFFF"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#FFFFFF;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->=
+=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 15px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.2; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 14px;">=20
+              <p style=3D"line-height: 1.2; text-align: center; font-size: =
+18px; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 22px; margin: 0;"><span style=3D"font-size=
+: 18px;"><strong>IntelliAssign Round-robin</strong></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 30px; padding-left: 30=
+px; padding-top: 10px; padding-bottom: 25px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:10px;padding-right:30px;p=
+adding-bottom:25px;padding-left:30px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.5; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;">IntelliAssign now supports a new logic for assignment - Round-robi=
+n.&nbsp;</span></p>=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;"><a style=3D"text-decoration: underline; color: #0068A5;" href=3D"h=
+ttp://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ENTGP9rRXn=
+arS5s8vbEpSmeYkGb06vdNjHFloH7hxEAtsBDp3zI3pb3ndMZ-2FweRdO993ojuYFbg1ZvMLFeA=
+qszCOPv-2Fn8aSkxCDvriAqZDR7t-2BmE4qZqRQmvZN1ZtHsdLPDTJlfTpm20FMN-2BCXzGrR9Y=
+eMunTdzGhtmKX6L9SbM2l54W9ZuB4RBPA1bRC8pSrf4mw-2F62FU7IVZHXrf9-2BM-2FrouoBRE=
+JSiLY96oKmbGI5qCREMCGRgojtHrWeElT3qn1g1R0roSpaZx4RCiPZqIyTNAiFptpgXBnLpt7BI=
+dENfJSTfE7lqaduJhg42AVzrg-3D-3DLepf_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS=
+1bbtGB0I-2BQLevdOzi2l9BnAwbcir19GK0YHUsqYt0RT2Kg122QmgX4c4Ogdr03V4d-2F9qERJ=
+-2FZvtcs2HboSDDg86lBaWrdOsh-2F-2FaQtLd7PNTJjjipymn1D6HlbxueSEvuMJKBEBXBRyM-=
+2FQQIK1HpJyaXugYTKV-2Bkf-2FFC1kat4HyGm9S2s1cSjqR-2Fw-2BhAqaGkPDtjO35Qu2qhiZ=
+oWbh2UGbLJ-2FD8U1NogHvSRGXpa1WkN2KZ-2FN6sPzYWtCfnGgqkzJmkPieW-2FaesW-2F3qUX=
+FGnNIroFwqINHVIk0zL97ZucasUCqSAhZSBnQqchy3YVk98uqTqrQn6YkwXHwufoZezT301ZVVl=
+35Z5rd8K7lLcicub3ApuDUgpN4N3FtwL3BaGfLSRXYUMSggRzw3Qf4J5Di8p61cnz2j5sTU6UM0=
+cVchy6EZgDCvIHFty9r2wVACOON3Elu2lGR4oECpmTlx-2B9ULfcAt-2B3SQHFkpi6Ykf5Dp5NI=
+ryBKIF28OSCF58Zi78CAReEDzhjzDWgLfcvB-2BigYCLO48tVPDkCSK6JWf7F56AyohGpEn-2Ft=
+XHuTq-2F833KkBqaH-2FkZ04dCoKe2mWuBvqZvoS9xvs2hZRKGT-2B6x8PRLBRg084v4x5LGHI2=
+8eR010JxhWM616X4PvBLHjA1rrLlY07pFhw7yLK5tjqXt-2FDZZCsVNbV24fl0Zhwo11QQRU1vy=
+BXvmjjNZ9lfEjVsNZvgTOPrP6JuaSqsc-2B1lv7lgTY1F6vmENWNYSlB3x1CNasvyanJ6NNCW4G=
+7Wj5pc0RBGVXZZOdAUQaHtZw0S6bzbIPATwg-3D-3D" target=3D"_blank" rel=3D"noopen=
+er">Learn More</a></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <div class=3D"img-container center fullwidthOnMobile fixedwidth=
+" align=3D"center" style=3D"padding-right: 40px;padding-left: 40px;">=20
+             <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr style=3D"line-height:0px"><td style=3D"padding-ri=
+ght: 40px;padding-left: 40px;" align=3D"center"><![endif]-->=20
+             <img class=3D"center fullwidthOnMobile fixedwidth" align=3D"ce=
+nter" border=3D"0" src=3D"https://gallery.freshmarketer.com/f987a607-0b87-3=
+52d-9216-f4c9dd1d76b2/files/65acbd74-edfb-43a0-ad67-f9e794edb6d6/IntelliAss=
+ign_RR.png" alt=3D"Image" title=3D"Image" style=3D"text-decoration: none; -=
+ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-w=
+idth: 570px; display: block;" width=3D"570">=20
+             <div style=3D"font-size:1px;line-height:25px">
+               &nbsp;=20
+             </div>=20
+             <!--[if mso]></td></tr></table><![endif]-->=20
+            </div>=20
+            <table class=3D"divider" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"table-layout: fixed; vertical-align: top=
+; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-tex=
+t-size-adjust: 100%;" role=3D"presentation" valign=3D"top">=20
+             <tbody>=20
+              <tr style=3D"vertical-align: top;" valign=3D"top">=20
+               <td class=3D"divider_inner" style=3D"word-break: break-word;=
+ vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-botto=
+m: 5px; padding-left: 5px;" valign=3D"top">=20
+                <table class=3D"divider_content" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"25%" style=3D"table-layout: fixed; vertic=
+al-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #DADADA; height: 0px;=
+ width: 25%;" align=3D"center" role=3D"presentation" height=3D"0" valign=3D=
+"top">=20
+                 <tbody>=20
+                  <tr style=3D"vertical-align: top;" valign=3D"top">=20
+                   <td style=3D"word-break: break-word; vertical-align: top=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" height=3D"0"=
+ valign=3D"top"><span></span></td>=20
+                  </tr>=20
+                 </tbody>=20
+                </table> </td>=20
+              </tr>=20
+             </tbody>=20
+            </table>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #FFFFFF;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#FFFFFF;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+#FFFFFF"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#FFFFFF;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->=
+=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 15px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.2; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 14px;">=20
+              <p style=3D"line-height: 1.2; text-align: center; font-size: =
+18px; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 22px; margin: 0;"><span style=3D"font-size=
+: 18px;"><strong>Placeholders</strong></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 30px; padding-left: 30=
+px; padding-top: 10px; padding-bottom: 25px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:10px;padding-right:30px;p=
+adding-bottom:25px;padding-left:30px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.5; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;">Personalise your conversations with placeholders and improve your =
+customer engagement game!</span></p>=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;"><a style=3D"text-decoration: underline; color: #0068A5;" href=3D"h=
+ttp://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ENTGP9rRXn=
+arS5s8vbEpSmeYkGb06vdNjHFloH7hxEAtsBDp3zI3pb3ndMZ-2FweRdP7jQYBJcJEym-2F-2B0=
+B-2B1qu-2FsyFgdSzgPsbGNSceCcxXYkDh2GYqd5d2EuxXigNz8YaRymRcqqM33wqDurQlsnuL-=
+2Bv-2BjgTZgBKEC-2BU9-2F3XAYTLnk7FiJUJ5XeWxVGqZYFWa-2F-2FXlidjblc3HDaF-2Brie=
+Kds0nKUg9oc0XShQvcdZ0oaj3GkLIQflMsCyyDelU5rbYGWOX4QqYrMN4JbKfdqQA3g4xqWVRoS=
+Ow6fNQ5NTU0FKkOA56mpx7Ll4bO7vfHEB-2FQ-3D-3DekFP_RYEeg99Ap79leT7lYKY4eVge8RB=
+BZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbcir19GK0YHUsqYt0RT2Kg122QmgX4c4Ogdr0=
+3V4d-2F9qERJ-2FZvtcs2HboSDDg86lBaWrdOsh-2F-2FaQtLd7PNTJjjipymn1D6HlbxueSEvu=
+MJKBEBXBRyM-2FQQIK1HpJyaXugYTKV-2Bkf-2FFC1kat4HyGm9S2s1cSjqR-2Fw-2BhAqaGkPD=
+tjO35Qu2qhiZoWbh2UGbLJ-2FD8U1NogHvSRGXpa1WkN2KZ-2FN6sPzYWtCfnGgqkzJmkPieW-2=
+FaesW-2F3qUXFGnNIroFwqINHVIk0zL97ZucasUCqSAhZSBnQqchy3YVk98uqTqrQn6YkwXHwuf=
+oZezT301ZVVl35Z5rd8K7lLcicub3ApuDUgpN4N3FtwL3BaGfLSRXYUMSggRzw3Qf4J5Di8p61c=
+nz2j5sTU6UM0cVchy6EZgDCvIHFty9r2wVACOON3Elu2lGR4oECpmTlx-2B9ULfcAt-2B3SQHFk=
+pi6Ykf5Dp5NIryBKIF28OSCF58Zi78CAReEDzhjzDWgLfcvB-2BigYCLO48tVPDkCSK6JWf7F56=
+AyohGpEn-2FtXHuTq-2F833KkBqaH-2FkZ04dCoKe2mWuBvqZvoS9xvs2hZRKGT-2B6x8PRLBRg=
+084v4x5LGHI28eR010JxhWM616X4PvBLHjA1rrLlY07p8LCiRQJ4IJ6N-2FkIX0lc9KIH0-2FwQ=
+r3fSiHjUgrH8Y-2FCMuKlmM827hCM0yq73Dkg-2FG7aDwjbs3EG5PGikvpwUHkUnouP8O6BJm0z=
+rq7W9myIMtU81K3KhL9s0o-2BOFn73q6jhT6-2B-2FSYdzHfGTjT7-2BNPBA-3D-3D" target=
+=3D"_blank" rel=3D"noopener">Learn More</a></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <div class=3D"img-container center fullwidthOnMobile fixedwidth=
+" align=3D"center" style=3D"padding-right: 40px;padding-left: 40px;">=20
+             <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr style=3D"line-height:0px"><td style=3D"padding-ri=
+ght: 40px;padding-left: 40px;" align=3D"center"><![endif]-->=20
+             <img class=3D"center fullwidthOnMobile fixedwidth" align=3D"ce=
+nter" border=3D"0" src=3D"https://gallery.freshmarketer.com/f987a607-0b87-3=
+52d-9216-f4c9dd1d76b2/files/5962ea6b-6141-4d6c-95f6-f0090949c7a4/Fchat_Plac=
+eholder.png" alt=3D"Image" title=3D"Image" style=3D"text-decoration: none; =
+-ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-=
+width: 570px; display: block;" width=3D"570">=20
+             <div style=3D"font-size:1px;line-height:25px">
+               &nbsp;=20
+             </div>=20
+             <!--[if mso]></td></tr></table><![endif]-->=20
+            </div>=20
+            <table class=3D"divider" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"table-layout: fixed; vertical-align: top=
+; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-tex=
+t-size-adjust: 100%;" role=3D"presentation" valign=3D"top">=20
+             <tbody>=20
+              <tr style=3D"vertical-align: top;" valign=3D"top">=20
+               <td class=3D"divider_inner" style=3D"word-break: break-word;=
+ vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-botto=
+m: 5px; padding-left: 5px;" valign=3D"top">=20
+                <table class=3D"divider_content" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"25%" style=3D"table-layout: fixed; vertic=
+al-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #DADADA; height: 0px;=
+ width: 25%;" align=3D"center" role=3D"presentation" height=3D"0" valign=3D=
+"top">=20
+                 <tbody>=20
+                  <tr style=3D"vertical-align: top;" valign=3D"top">=20
+                   <td style=3D"word-break: break-word; vertical-align: top=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" height=3D"0"=
+ valign=3D"top"><span></span></td>=20
+                  </tr>=20
+                 </tbody>=20
+                </table> </td>=20
+              </tr>=20
+             </tbody>=20
+            </table>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #FFFFFF;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#FFFFFF;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+#FFFFFF"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#FFFFFF;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->=
+=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 15px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.2; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 14px;">=20
+              <p style=3D"line-height: 1.2; text-align: center; font-size: =
+18px; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 22px; margin: 0;"><span style=3D"font-size=
+: 18px;"><strong>Placeholders for Advanced Automations</strong></span></p>=
+=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 30px; padding-left: 30=
+px; padding-top: 10px; padding-bottom: 25px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:10px;padding-right:30px;p=
+adding-bottom:25px;padding-left:30px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.5; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;">We've added a unique set of placeholders for Advanced Automations =
+to make your workflow automations easier.</span></p>=20
+              <p style=3D"text-align: center; line-height: 1.5; word-break:=
+ break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; font-=
+size: 14px; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;"><a style=3D"text-decoration: underline; color: #0068A5;" href=3D"h=
+ttp://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ENTGP9rRXn=
+arS5s8vbEpSmeYkGb06vdNjHFloH7hxEAtsBDp3zI3pb3ndMZ-2FweRdL92Ax5CsjWzKUNdMuSW=
+aosAyY5bAdiWddu8v9mDUn8CEcszkvJDJK5XSL0gZHd7UIEIBM1-2Btfzs7tckp2D-2BgjUZQyQ=
+JyUholERoiBHYf91LqIpklDPtC6JNRcRToDt31-2FP-2BWIkrP8mmQLVsYb-2FmM8FKfj0oRUsr=
+2DxAP815tlCKqcI3lY5AY6o2avoAN4BgH69GnJVinWzwtAN935HkvYNVUe6QpB-2FXdxYAiHXYU=
+w1ca3K7EN5rUMN2Lz1GzaARsc0S1dU6sTZrKi5N0f0BUpQKrr92Es03aNfm9om3-2BkuNkMPw_R=
+YEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbcir19GK0YH=
+UsqYt0RT2Kg122QmgX4c4Ogdr03V4d-2F9qERJ-2FZvtcs2HboSDDg86lBaWrdOsh-2F-2FaQtL=
+d7PNTJjjipymn1D6HlbxueSEvuMJKBEBXBRyM-2FQQIK1HpJyaXugYTKV-2Bkf-2FFC1kat4HyG=
+m9S2s1cSjqR-2Fw-2BhAqaGkPDtjO35Qu2qhiZoWbh2UGbLJ-2FD8U1NogHvSRGXpa1WkN2KZ-2=
+FN6sPzYWtCfnGgqkzJmkPieW-2FaesW-2F3qUXFGnNIroFwqINHVIk0zL97ZucasUCqSAhZSBnQ=
+qchy3YVk98uqTqrQn6YkwXHwufoZezT301ZVVl35Z5rd8K7lLcicub3ApuDUgpN4N3FtwL3BaGf=
+LSRXYUMSggRzw3Qf4J5Di8p61cnz2j5sTU6UM0cVchy6EZgDCvIHFty9r2wVACOON3Elu2lGR4o=
+ECpmTlx-2B9ULfcAt-2B3SQHFkpi6Ykf5Dp5NIryBKIF28OSCF58Zi78CAReEDzhjzDWgLfcvB-=
+2BigYCLO48tVPDkCSK6JWf7F56AyohGpEn-2FtXHuTq-2F833KkBqaH-2FkZ04dCoKe2mWuBvqZ=
+voS9xvs2hZRKGT-2B6x8PRLBRg084v4x5LGHI28eR010JxhWM616X4PvBLHjA1rrLlY07po7JiT=
+1y6GuyGqCLLVER7LWrzMt3RZd1vu3KmqtEirJbeTNg4vaKzqaij-2BG5zooNFLQiPAiH8tQHkHo=
+J1bgq5vSawlwJMvPuPmQ-2FlS-2FIz9Tlu-2Bxa4-2BRhTYuoljAQMZ6L2RZBPHZsT0jMeEtuS6=
+BY-2BeA-3D-3D" target=3D"_blank" rel=3D"noopener">Learn More</a></span></p>=
+=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <table class=3D"divider" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"table-layout: fixed; vertical-align: top=
+; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-tex=
+t-size-adjust: 100%;" role=3D"presentation" valign=3D"top">=20
+             <tbody>=20
+              <tr style=3D"vertical-align: top;" valign=3D"top">=20
+               <td class=3D"divider_inner" style=3D"word-break: break-word;=
+ vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-botto=
+m: 5px; padding-left: 5px;" valign=3D"top">=20
+                <table class=3D"divider_content" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"25%" style=3D"table-layout: fixed; vertic=
+al-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #DADADA; height: 0px;=
+ width: 25%;" align=3D"center" role=3D"presentation" height=3D"0" valign=3D=
+"top">=20
+                 <tbody>=20
+                  <tr style=3D"vertical-align: top;" valign=3D"top">=20
+                   <td style=3D"word-break: break-word; vertical-align: top=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" height=3D"0"=
+ valign=3D"top"><span></span></td>=20
+                  </tr>=20
+                 </tbody>=20
+                </table> </td>=20
+              </tr>=20
+             </tbody>=20
+            </table>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: #FFFFFF;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:#FFFFFF;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+#FFFFFF"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:#FFFFFF;width:650px; border-top: 0px solid transparent; bord=
+er-left: 0px solid transparent; border-bottom: 0px solid transparent; borde=
+r-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right:=
+ 0px; padding-left: 0px; padding-top:5px; padding-bottom:25px;"><![endif]--=
+>=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:25px; padding-right: 0px; =
+padding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 15px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.2; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 14px;">=20
+              <p style=3D"line-height: 1.2; text-align: center; font-size: =
+18px; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 22px; margin: 0;"><span style=3D"font-size=
+: 18px;"><strong>Meetings (iOS, Android, and React Native SDK)</strong></sp=
+an></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 30px; padding-left: 30=
+px; padding-top: 10px; padding-bottom: 25px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#091e42;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:10px;padding-right:30px;p=
+adding-bottom:25px;padding-left:30px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; line-height: 1.5; font-size: 12px; color: #091e42; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"line-height: 1.5; font-size: 15px; word-break: br=
+eak-word; text-align: center; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 23px; margin: 0;"><span style=3D"font-size=
+: 15px;"><span style=3D"color: #091e42; font-size: 15px;">Now you can share=
+ your schedule and enable customers and prospects to book meetings with you=
+ from your mobile app.</span></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <div class=3D"img-container center fullwidthOnMobile fixedwidth=
+" align=3D"center" style=3D"padding-right: 40px;padding-left: 40px;">=20
+             <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr style=3D"line-height:0px"><td style=3D"padding-ri=
+ght: 40px;padding-left: 40px;" align=3D"center"><![endif]-->=20
+             <img class=3D"center fullwidthOnMobile fixedwidth" align=3D"ce=
+nter" border=3D"0" src=3D"https://gallery.freshmarketer.com/f987a607-0b87-3=
+52d-9216-f4c9dd1d76b2/files/ca5e5622-c2e9-44c7-9b20-b49b9457dbf9/Calendar-i=
+OS-walkthrough-1.png" alt=3D"Image" title=3D"Image" style=3D"text-decoratio=
+n: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 1=
+00%; max-width: 570px; display: block;" width=3D"570">=20
+             <div style=3D"font-size:1px;line-height:25px">
+               &nbsp;=20
+             </div>=20
+             <!--[if mso]></td></tr></table><![endif]-->=20
+            </div>=20
+            <table class=3D"divider" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"table-layout: fixed; vertical-align: top=
+; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-tex=
+t-size-adjust: 100%;" role=3D"presentation" valign=3D"top">=20
+             <tbody>=20
+              <tr style=3D"vertical-align: top;" valign=3D"top">=20
+               <td class=3D"divider_inner" style=3D"word-break: break-word;=
+ vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; padding-top: 0px; padding-right: 10px; padding-bott=
+om: 10px; padding-left: 10px;" valign=3D"top">=20
+                <table class=3D"divider_content" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"25%" style=3D"table-layout: fixed; vertic=
+al-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #DADADA; height: 0px;=
+ width: 25%;" align=3D"center" role=3D"presentation" height=3D"0" valign=3D=
+"top">=20
+                 <tbody>=20
+                  <tr style=3D"vertical-align: top;" valign=3D"top">=20
+                   <td style=3D"word-break: break-word; vertical-align: top=
+; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" height=3D"0"=
+ valign=3D"top"><span></span></td>=20
+                  </tr>=20
+                 </tbody>=20
+                </table> </td>=20
+              </tr>=20
+             </tbody>=20
+            </table>=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: transparent;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:transparent;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+transparent"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:transparent;width:650px; border-top: 0px solid transparent; =
+border-left: 0px solid transparent; border-bottom: 0px solid transparent; b=
+order-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-ri=
+ght: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif=
+]-->=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; p=
+adding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#7C7C7C;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-family: 'Roboto', Tahoma, Verdana, Segoe, s=
+ans-serif; font-size: 12px; line-height: 1.5; color: #7C7C7C; mso-line-heig=
+ht-alt: 18px;">=20
+              <p style=3D"font-size: 14px; line-height: 1.5; text-align: ce=
+nter; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 21px; margin: 0;"><span style=3D"font-size=
+: 14px;"><u><a style=3D"text-decoration: none; color: #7C7C7C;" href=3D"htt=
+p://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3CJ8h8jTuvT01=
+Y0La5g-2BUaJ0EP39ylDDOsJKVo8botbmB-2FbyNG0f9ktDMpgwIEXIlrSDUnEgbRSJ3IdfRJMe=
+690lXTTiSByVGt6lI-2BiMZwc73GdBt9BBD9A-2F4LRwO7q3hZ7XR6eNH2Mv22uRo1MkJiB7feA=
+9tikGsl6n8AjO7xA5R30jDwt93UUNSBJL1JQcsdoOjeJIwh6T4R0iunjl6dyoUKHglhYq2QCn5v=
+D9PVV9YVVeuhrCvqxPOyiYhLeg0TPhypwY0gOuY-2BdnMLGjNC7g1KnuR2acE257CxHDpqe-2BN=
+IPA_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbcir19=
+GK0YHUsqYt0RT2Kg122QmgX4c4Ogdr03V4d-2F9qERJ-2FZvtcs2HboSDDg86lBaWrdOsh-2F-2=
+FaQtLd7PNTJjjipymn1D6HlbxueSEvuMJKBEBXBRyM-2FQQIK1HpJyaXugYTKV-2Bkf-2FFC1ka=
+t4HyGm9S2s1cSjqR-2Fw-2BhAqaGkPDtjO35Qu2qhiZoWbh2UGbLJ-2FD8U1NogHvSRGXpa1WkN=
+2KZ-2FN6sPzYWtCfnGgqkzJmkPieW-2FaesW-2F3qUXFGnNIroFwqINHVIk0zL97ZucasUCqSAh=
+ZSBnQqchy3YVk98uqTqrQn6YkwXHwufoZezT301ZVVl35Z5rd8K7lLcicub3ApuDUgpN4N3FtwL=
+3BaGfLSRXYUMSggRzw3Qf4J5Di8p61cnz2j5sTU6UM0cVchy6EZgDCvIHFty9r2wVACOON3Elu2=
+lGR4oECpmTlx-2B9ULfcAt-2B3SQHFkpi6Ykf5Dp5NIryBKIF28OSCF58Zi78CAReEDzhjzDWgL=
+fcvB-2BigYCLO48tVPDkCSK6JWf7F56AyohGpEn-2FtXHuTq-2F833KkBqaH-2FkZ04dCoKe2mW=
+uBvqZvoS9xvs2hZRKGT-2B6x8PRLBRg084v4x5LGHI28eR010JxhWM616X4PvBLHjA1rrLlY07p=
+D5JAxt9TUFf3DjiBoirvCeJWqvoiPhAls-2FvyxyKKoa-2FDiAxyAj7k2wrmuC9AS-2B-2FqqD5=
+TCon2h7vCXAMrg-2FAC-2FS-2F7u849VoDNIOS0hDNnlkbpXuz2UjaalPaZ-2Be6kzWhhW6-2F6=
+TaXAsdcnScr8f9XvGA-3D-3D" target=3D"_blank" rel=3D"noopener">Product Update=
+s</a></u> &nbsp;|&nbsp; <u><a style=3D"text-decoration: none; color: #7C7C7=
+C;" href=3D"http://fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAAD=
+lH3ENTGP9rRXnarS5s8vbEpSmAO-2FuIS0MxaGS873Mizpw5pOjqAia0qORSTxNm9mAgDp32iJe=
+vP6jcfytxSftcIIxeU5a4-2BucBadNzHciHtF4-2FmusYth5rizZ47GQJec-2FT0-2BuJnsq5sk=
+uUg5Wtd9nhHRWsOul62zVTaQy18uLmECxN6FQQ7O-2FUrxBYlGmTpfAosrNESOsvHh1nvpMKVb8=
+yH2jStjp7-2Fisl5EyJVU-2BWjawtb9-2FxEs4BiAaOCjuMorOVv8STa4SwxJqFYRqWd-2BU4fc=
+8-3D1r44_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwb=
+cir19GK0YHUsqYt0RT2Kg122QmgX4c4Ogdr03V4d-2F9qERJ-2FZvtcs2HboSDDg86lBaWrdOsh=
+-2F-2FaQtLd7PNTJjjipymn1D6HlbxueSEvuMJKBEBXBRyM-2FQQIK1HpJyaXugYTKV-2Bkf-2F=
+FC1kat4HyGm9S2s1cSjqR-2Fw-2BhAqaGkPDtjO35Qu2qhiZoWbh2UGbLJ-2FD8U1NogHvSRGXp=
+a1WkN2KZ-2FN6sPzYWtCfnGgqkzJmkPieW-2FaesW-2F3qUXFGnNIroFwqINHVIk0zL97ZucasU=
+CqSAhZSBnQqchy3YVk98uqTqrQn6YkwXHwufoZezT301ZVVl35Z5rd8K7lLcicub3ApuDUgpN4N=
+3FtwL3BaGfLSRXYUMSggRzw3Qf4J5Di8p61cnz2j5sTU6UM0cVchy6EZgDCvIHFty9r2wVACOON=
+3Elu2lGR4oECpmTlx-2B9ULfcAt-2B3SQHFkpi6Ykf5Dp5NIryBKIF28OSCF58Zi78CAReEDzhj=
+zDWgLfcvB-2BigYCLO48tVPDkCSK6JWf7F56AyohGpEn-2FtXHuTq-2F833KkBqaH-2FkZ04dCo=
+Ke2mWuBvqZvoS9xvs2hZRKGT-2B6x8PRLBRg084v4x5LGHI28eR010JxhWM616X4PvBLHjA1rrL=
+lY07p1Kg6QfsqTT2XJXjJkkK1wEw717XEdJiWJDM4g3-2B2qRZmuXfMxHkey91rvgWxb5c8A0br=
+pqB8pGIoSOVSxrcYGkZweh-2Bt0BSqbl3WTr9woFjl9Ayb6Mh4LgF06I1z2XMHyZN7AeNIYrquL=
+fCPOA9N0Q-3D-3D" target=3D"_blank" rel=3D"noopener">Help Centre</a></u> |&n=
+bsp; <u><a style=3D"text-decoration: none; color: #7C7C7C;" href=3D"http://=
+fmtrack1.freshchat.com/ls/click?upn=3DChgKqXKfaeCJvxAAADlH3ENTGP9rRXnarS5s8=
+vbEpSkPjKBmRLY2c3uO0s1DZpVEj8NX7frLbczfWJ9vLaZkFKb5jeyQp7qNpxd356yOqXFFtTf5=
+dFZPV6nQgWvLdpZRGP5buEv7o6x6fV3vsNEfwEx6rmVT88ERb5v5fmP2ntfvLh-2B2javUtil30=
+ovZuUGWK0cZGbICCm-2BSKf2nBR4W5vPrw-2BQ1PsfmPlUZP82XQezdcj5gvUycrkZ61x-2FqSH=
+InL5b3EOXy1jGPgFvda-2F-2Bqe8VKowMuw-2BgW8ZbKIA50RcL-2FF76evBt2YzheHQeSJfa4U=
+P8p_RYEeg99Ap79leT7lYKY4eVge8RBBZ6ZOPI0fZbS1bbtGB0I-2BQLevdOzi2l9BnAwbcir19=
+GK0YHUsqYt0RT2Kg122QmgX4c4Ogdr03V4d-2F9qERJ-2FZvtcs2HboSDDg86lBaWrdOsh-2F-2=
+FaQtLd7PNTJjjipymn1D6HlbxueSEvuMJKBEBXBRyM-2FQQIK1HpJyaXugYTKV-2Bkf-2FFC1ka=
+t4HyGm9S2s1cSjqR-2Fw-2BhAqaGkPDtjO35Qu2qhiZoWbh2UGbLJ-2FD8U1NogHvSRGXpa1WkN=
+2KZ-2FN6sPzYWtCfnGgqkzJmkPieW-2FaesW-2F3qUXFGnNIroFwqINHVIk0zL97ZucasUCqSAh=
+ZSBnQqchy3YVk98uqTqrQn6YkwXHwufoZezT301ZVVl35Z5rd8K7lLcicub3ApuDUgpN4N3FtwL=
+3BaGfLSRXYUMSggRzw3Qf4J5Di8p61cnz2j5sTU6UM0cVchy6EZgDCvIHFty9r2wVACOON3Elu2=
+lGR4oECpmTlx-2B9ULfcAt-2B3SQHFkpi6Ykf5Dp5NIryBKIF28OSCF58Zi78CAReEDzhjzDWgL=
+fcvB-2BigYCLO48tVPDkCSK6JWf7F56AyohGpEn-2FtXHuTq-2F833KkBqaH-2FkZ04dCoKe2mW=
+uBvqZvoS9xvs2hZRKGT-2B6x8PRLBRg084v4x5LGHI28eR010JxhWM616X4PvBLHjA1rrLlY07p=
+gf-2FWnyV48hrVKH5-2BjLGSEe-2B8nS5eVVQNoo7Si55APfMXAwEHzlCO0VmIPqYOzo4RywHfA=
+sPi0OJSQddTeDyQ4ZyqHUb-2FK8Yc67vbKSJgtVX3ACEuayW9eC5-2BTHIBYphiBtTRKedoZ17Z=
+u1dwN1dPWg-3D-3D" target=3D"_blank" rel=3D"noopener">Release Notes</a></u><=
+/span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#7c7c7c;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-size: 12px; line-height: 1.2; font-family: =
+'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #7c7c7c; mso-line-heig=
+ht-alt: 14px;">=20
+              <p style=3D"font-size: 14px; line-height: 1.2; text-align: ce=
+nter; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 17px; margin: 0;">=C2=A9&nbsp;2020 Freshwo=
+rks Inc. All rights reserved.</p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <div style=3D"background-color:#F6F8FB;">=20
+       <div class=3D"block-grid " style=3D"Margin: 0 auto; min-width: 320px=
+; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-=
+break: break-word; background-color: transparent;">=20
+        <div style=3D"border-collapse: collapse;display: table;width: 100%;=
+background-color:transparent;">=20
+         <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"background-color:#F6F8FB;"><tr><td align=
+=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"width:650px"><tr class=3D"layout-full-width" style=3D"background-color:=
+transparent"><![endif]-->=20
+         <!--[if (mso)|(IE)]><td align=3D"center" width=3D"650" style=3D"ba=
+ckground-color:transparent;width:650px; border-top: 0px solid transparent; =
+border-left: 0px solid transparent; border-bottom: 0px solid transparent; b=
+order-right: 0px solid transparent;" valign=3D"top"><table width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-ri=
+ght: 0px; padding-left: 0px; padding-top:10px; padding-bottom:10px;"><![end=
+if]-->=20
+         <div class=3D"col num12" style=3D"min-width: 320px; max-width: 650=
+px; display: table-cell; vertical-align: top; width: 650px;">=20
+          <div style=3D"width:100% !important;">=20
+           <!--[if (!mso)&(!IE)]><!-->=20
+           <div style=3D"border-top:0px solid transparent; border-left:0px =
+solid transparent; border-bottom:0px solid transparent; border-right:0px so=
+lid transparent; padding-top:10px; padding-bottom:10px; padding-right: 0px;=
+ padding-left: 0px;">=20
+            <!--<![endif]-->=20
+            <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tr><td style=3D"padding-right: 10px; padding-left: 10=
+px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, =
+sans-serif"><![endif]-->=20
+            <div style=3D"color:#7c7c7c;font-family:'Roboto', Tahoma, Verda=
+na, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;p=
+adding-bottom:10px;padding-left:10px;">=20
+             <div style=3D"font-size: 10px; line-height: 1.2; font-family: =
+'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #7c7c7c; mso-line-heig=
+ht-alt: 12px;">=20
+              <p style=3D"font-size: 12px; line-height: 1.2; text-align: ce=
+nter; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 14px; margin: 0;"><span style=3D"font-size=
+: 12px; color: color: #555555;">Message sent by Freshworks Inc at Delaware =
+Street, Suite 201, San Mateo, California, USA.</span></p>=20
+              <p style=3D"font-size: 10px; line-height: 1.2; text-align: ce=
+nter; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 12px; margin: 0;">&nbsp;</p>=20
+              <p style=3D"font-size: 12px; line-height: 1.2; text-align: ce=
+nter; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, =
+sans-serif; mso-line-height-alt: 14px; margin: 0;"><span style=3D"font-size=
+: 12px;">Manage your email preferences <a style=3D"text-decoration: underli=
+ne; color: #0000FF;" href=3D"https://freshworks.freshmarketer.com/mas/api/v=
+1/subscription-preferences?fm_digest=3D936E02C9FC45AD59CBAE40F75405D0321E61=
+B34CD0A9EA8B841B50F8BC8E228FE208E9472E12EFEB8B91BD6A9D0B5C68B9FF54395386502=
+65694204984A44540644D7DD4C77A05927AF6CFF6B35E80217BBA8084E40F7C3244D2B3CF7D=
+9EC1EC512F79FB26F7475FA6E957855810F83A1976B4145A507669B6D23DE696F4512D226BD=
+8BDF939A97A0DD7CC98A1A7E5C6803F961B12EABF9BC34900BC6AD853F17A8A017EC4DA32D0=
+7C8AE58A84B4DCFD" target=3D"_blank" rel=3D"noopener" clicktracking=3D"off">=
+here</a></span><span style=3D"font-size: 12px;">.</span><span style=3D"font=
+-size: 12px; color: #555555;"><br></span></p>=20
+             </div>=20
+            </div>=20
+            <!--[if mso]></td></tr></table><![endif]-->=20
+            <!--[if (!mso)&(!IE)]><!-->=20
+           </div>=20
+           <!--<![endif]-->=20
+          </div>=20
+         </div>=20
+         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->=20
+         <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-=
+->=20
+        </div>=20
+       </div>=20
+      </div>=20
+      <!--[if (mso)|(IE)]></td></tr></table><![endif]--> </td>=20
+    </tr>=20
+   </tbody>=20
+  </table>=20
+  <!--[if (IE)]></div><![endif]-->=20
+  <div style=3D"text-align:center;font-size:13px;margin:10px 0;">=20
+   <a clicktracking=3D"off" href=3D"https://www.freshworks.com/marketing-au=
+tomation/?utm_source=3DFreshworks Inc&amp;utm_medium=3Demail&amp;utm_campai=
+gn=3Dpoweredbyfm&amp;utm_content=3Dfooterlink" style=3D"text-decoration:non=
+e;color:#adadad;">Powered by Freshmarketer</a>=20
+  </div>=20=20
+=20
+<img src=3D"http://fmtrack1.freshchat.com/wf/open?upn=3DQFWB4BCTtzCIRKos7Yr=
+rfN6kkY1TVGiaF4XIkvq4n6x33fI5eS4USrpI2aDUeWN1CVcyUrgHLAqWu9sb-2Fv8CW4rwY-2B=
+4ZSg-2FhODjqjx5eDA7WNHzsawemjslAdnJASGPktYVxi1czJaS813Eke0PVXRXLdOWHhhf0XLh=
+oedbpOnPGvdhi1f5JgpzZeuONVtB0dC-2ByvMZJmrNxRHGLf3CLYJPv3KVS7jKkSVEbpkTRhAUH=
+BYAP7QmeU513qLYRJ-2FN3eMjvY6ZPERaJ6KEGg90dyaBVYArtIbpv9xs1bq0o0RUs6u66-2Bew=
+Lvv39h3IujY9SdbbFs78bDQvjf51bBQNHgNOn8hxrQt7Sx6qxvS7Mdammpa2x6clQ5gqwqbc5OA=
+KYQxuVoqETqTnIoyxBtH-2BbelSydZ8WbGBwck-2BbBCgsKDvVRNUDrBi5ahHNeEbDb2pSv3gHd=
+ilRsoaK0ft5YsUr93QYhdjueDIp8KjngSINcqwCP5C8n3BwB0DnsKRc5bqtwBSJL9qDXZO-2Bh2=
+L4Xxao2bgJvVLdh1rdQRHq0AqCqge6Pz41IS1S93cI59tCpxQuCecEE0qLAega4JlDoVEEAkfvl=
+R8z6raPqO9w6tav1PDV-2F3DAPmbRTa36NeBV9PrBzyIuLiWf7N-2FPYXjkoTG3gbY-2BUx97mL=
+FCQJN8EtJiBdpCnw-2FvD7p27nrCOlPhej176jW49xFfw3o9QDKhxge8KbxZ1t-2FnBfciyM2J3=
+bF7oPoHMaLkYE-2BWbf5K7-2B11xJEZsIC1jv-2BrKhB3IyQkWpEysRpVXM3otJ4aXSaNFlt-2F=
+84ozZf2kx0nnZd9O45KVxzQC6lInzbWgfzW0507P3UJ0hw-3D-3D" alt=3D"" width=3D"1" =
+height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !importa=
+nt;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !impor=
+tant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !impo=
+rtant;padding-bottom:0 !important;padding-right:0 !important;padding-left:0=
+ !important;"/>
+</body>
+</html>
+
+--bb06b9c82f9f40ace21b617ae902b3da241ad6aaf64041b8463f8a458924--

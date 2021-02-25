@@ -1,0 +1,981 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" media="all" href="/assets/css/star/rating.css"/>
+{% endblock %}
+{% block body %}
+
+<!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+      
+<!-- Modal -->
+<div id="edit" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit {{ customer.username|upper }}  </h4>
+      </div>
+      <div class="modal-body">
+<form method="post" action="{{ path('save_customer')}}">
+  <div class="form-row">
+    <div class="col-12">
+      <label>First Name</label>
+      <input type="text" class="form-control" placeholder="User Name" value="{{ customer.username}}" name="name">
+            <input type="hidden" class="form-control" placeholder="User Name" value="{{ customer.id}}" name="id">
+
+    </div>
+
+  </div><br>
+   <div class="form-group">
+            <label>Email</label>
+      <input type="email" class="form-control" placeholder="Email" value="{{ customer.email}}" name="email">
+    </div>
+      <div class="form-group">
+            <label>Gst</label>
+      <input type="text" class="form-control" placeholder="Gst Number" value="{{ customer.gst}}" name="gst">
+    </div>
+       <div class="form-group">
+            <label>Mobile Number</label>
+      <input type="text" class="form-control" placeholder="Mobile Number" value="{{ customer.mobileNumber}}" required name="mobile">
+    </div>
+</div>
+      <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+
+    <div class="row">
+            <!-- Column -->
+            <div class="col-lg-3 col-xlg-3 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+
+                        <center class="m-t-30">
+                            <h4 class="card-title m-t-10">{{ customer.username|upper }}</h4>
+                             <input type="hidden" id="userID" value="{{ customer.id }}" >
+
+                            <h6 class="card-subtitle">{{ customer.mobileNumber }}</h6>
+                            <div class="row text-center justify-content-md-center">
+                                <div class="col-4"><a href="javascript:void(0)" class="link"><i class="fa fa-shopping-cart"></i> <font class="font-medium">{{ customer.customerOrder|length }}</font></a></div>
+                                <div class="col-4"><a href="javascript:void(0)" class="link"><i class="fa fa-star-o"></i> <font class="font-medium">{{ customer.restaurantRatings|length }}</font></a></div>
+                            </div>
+                                                        <a href="#edit"  data-toggle="modal" data-target="#edit"> <i class="fa fa-edit"></i>edit</a>
+
+                        </center>
+                    </div>
+                    <div>
+                        <hr> 
+                    </div>
+                    <div class="card-body"> 
+                        <small class="text-muted">Primary Email address </small>
+                        <h6>{{ customer.email }}</h6>  <hr>
+                           <small class="text-muted">Gst Number </small>
+                        <h6>{{ customer.gst }}</h6>  <hr>
+                         <small class="text-muted" style="color:#e91e63 !important;font-weight:bold;">Wallet Balance</small>
+                        <h6>{% for wallet in balance %}{{ wallet.prepaid }} {% endfor %}</h6>  
+<hr>    
+        <small class="text-muted" style="color:#e91e63 !important;font-weight:bold;">Loyalty Points</small>
+                        <h6>{% for wallet in balance %}{{ wallet.loyalty }} {% endfor %}</h6>  
+<hr>    
+
+                <small class="text-muted" style="color:#e91e63 !important;font-weight:bold;">Ip Address</small>
+                <h6>{{ customer.ip }}</h6>  <hr>
+
+                <small class="text-muted" style="color:#e91e63 !important;font-weight:bold;">Device</small>
+                <h6>{{ customer.device }}</h6>  <hr>
+
+                <small class="text-muted" style="color:#e91e63 !important;font-weight:bold;">Channel</small>
+                <h6>{{ customer.channel }}</h6>  <hr>
+
+                <small class="text-muted" style="color:#e91e63 !important;font-weight:bold;">Registered Date</small>
+                <h6>{{ customer.createdDate }}</h6>  <hr>
+
+            {#                <small class="text-muted" style="color:#e91e63  !important;font-weight:bold;">Postpaid Balance</small>
+                        <h6>{% for wallet in balance %}{{ wallet.postpaid }} {% endfor %}</h6>  
+<hr>
+  <span data-toggle="modal" data-target="#setings" style="font-size: 10px;/* font-weight:bold; */color:#fff;background: #9d498a;color: #fff;cursor: pointer;padding: 6px;border-radius: 4px;text-align: center;">Change Credit Duration</span>
+ {% for wallet in balance %}
+  {% if wallet.status == 0 %}
+   <span  style="font-size: 10px;/* font-weight:bold; */color:#fff;background: #9d498a;color: #fff;cursor: pointer;padding: 6px;border-radius: 4px;text-align: center;" id="blockP">Block</span>
+
+{% else %}
+      <span  style="font-size: 10px;/* font-weight:bold; */color:#fff;background:green;color: #fff;cursor: pointer;padding: 6px;border-radius: 4px;text-align: center;" id="unblockP">unblock</span>
+{% endif %}
+{% endfor %} #}
+                    </div>
+                </div>
+            </div>
+    
+    
+                                
+                             
+
+
+{# modal  1 for add postpaid credits#}
+
+
+<!-- Trigger the modal with a button -->
+
+<!-- Modal -->
+<div id="setings" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <small class="text-muted" style="color:#e91e63  !important;font-weight:bold;">Current Balance : {% for wallet in balance %}{{ wallet.postpaid }} {% endfor %}</small>
+
+        <h4 class="modal-title">Settings</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <form>
+<div class="form-group">
+<div class="row">
+<label>Duration For Credits</label>
+<select class="form-control" id="settingsDrop">
+    <option value="10">10 Days</option>
+    <option value="15">15 Days</option>
+     <option value="20">20 Days</option>
+      <option value="25">25 Days</option>
+       <option value="30">30 Days</option>
+        <option value="35">35 Days</option>
+         <option value="40">40 Days</option>
+          <option value="45">45 Days</option>
+          <option value="50">50 Days</option>
+          <option value="60">60 Days</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+<button type="button" class="btn btn-success" id="settingsSave">Save</button>&nbsp;
+
+</div>
+</div>
+
+
+
+</form>
+
+<div class="form-group">
+<div class="row">
+</div>
+</div>
+
+</div>
+</div>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+</div>
+</div>
+    
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-9 col-xlg-9 col-md-8">
+                <div class="card">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs profile-tab" role="tablist">
+                       
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#prepaid" role="tab">Wallet</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#loyalty" role="tab">Loyalty</a> </li>
+                      {#   <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#postpaid" role="tab">Postpaid</a> </li>
+                          <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#reccive" role="tab">Receive Payments</a> </li> #}
+                           <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews</a> </li> -->
+                         <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#latest-orders" role="tab">Order History</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#customer-address" role="tab">Address</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#membership-logs" role="tab">Membership History</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#customer-logs" role="tab">Logs</a> </li>
+                    </ul>
+
+                    {# prepaid start #}
+     <div class="tab-content">
+                        <div class="tab-pane active" id="prepaid" role="tabpanel">
+                            <div class="card-body">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#add-prepaid-credits">Add Credits</button>
+                                    <div class="table-responsive m-t-10">
+                                        <table id="myTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Date</th>
+                                                     <th>Description</th>
+                                                    <th>Debit</th>
+                                                    <th>Credit</th>
+                                                    <th>Available Balance</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             {% for wallet in prepaid %}
+                                             {% if wallet.debit == 0  and wallet.credit == 0 %}
+                                             {% else %}
+                                                <tr>
+                                                <th>{{ wallet.id }}</th>
+                                               <th>{{ wallet.date }} at {{ wallet.dateTime }}</th>
+                                                <th>{{ wallet.note }}</th>
+                                                <th>{{ wallet.debit }}</th>
+                                                <th>{{ wallet.credit }}</th>
+                                                <th>{{ wallet.balance }}</th>
+                                            </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+<!-- start of loyalty -->
+    <div class="tab-pane" id="loyalty" role="tabpanel">
+                            <div class="card-body">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#add-loyalty-points">Add Loyalty Points</button>
+                                    <div class="table-responsive m-t-10">
+                                        <table id="myTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Date</th>
+                                                     <th>Description</th>
+                                                    <th>Debit</th>
+                                                    <th>Credit</th>
+                                                    <th>Available Points</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             {% for wallet in loyaltyData %}
+                                             {% if wallet.debit == 0  and wallet.credit == 0 %}
+                                             {% else %}
+                                                <tr>
+                                                <th>{{ wallet.id }}</th>
+                                               <th>{{ wallet.date }} at {{ wallet.dateTime }}</th>
+                                                <th>{{ wallet.note }}</th>
+                                                <th>{{ wallet.debit }}</th>
+                                                <th>{{ wallet.credit }}</th>
+                                                <th>{{ wallet.balance }}</th>
+                                            </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+<!-- end of loyalty -->
+                    {# end prepaid #}
+{# modal  for add postpaid credits#}
+
+<!-- Trigger the modal with a button -->
+<div id="add-loyalty-points" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <small class="text-muted" style="color:#e91e63  !important;font-weight:bold;">Current Points : {% for wallet in balance %}{{ wallet.loyalty }} {% endfor %}</small>
+
+        <h4 class="modal-title">Add Points</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <form>
+<div class="form-group">
+<div class="row">
+<label>No. Of Points</label>
+<input type="text" name="credits" placeholder="100 credits" required="" class="form-control" id="lprepaidcredit">
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+<label>Note *</label>
+<textarea name="credits" placeholder="Added By Admin" required="" class="form-control" id="lwalletnote">Added by Admin</textarea>
+</div>
+</div>
+<div class="form-group">
+<div class="row">
+<label>Payment Mode</label>
+<select class="form-control" required="" name="duration" id="lprepaidmode">
+    <option value="cash">Cash</option>
+    <option value="card">Card</option>
+    <option value="online">Online Payment</option>
+   </select>
+</div>
+</div>
+
+
+
+<input class="form-control" type="hidden" id="lprepaidnotes">
+
+
+<div class="form-group">
+<div class="row">
+<button class="btn btn-success" type="button" id="addloyalty">Add Credit</button>
+</div>
+</div>
+
+        </form>
+
+    
+      </div>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{# prepaid #}
+<!-- Modal -->
+<div id="add-prepaid-credits" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <small class="text-muted" style="color:#e91e63  !important;font-weight:bold;">Current Balance : {% for wallet in balance %}{{ wallet.prepaid }} {% endfor %}</small>
+
+        <h4 class="modal-title">Add Credits</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <form>
+<div class="form-group">
+<div class="row">
+<label>No. Of Credits</label>
+<input type="text" name="credits" placeholder="100 credits" required="" class="form-control" id="prepaidcredit">
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+<label>Note *</label>
+<textarea name="credits" placeholder="Added By Admin" required="" class="form-control" id="walletnote">Added by Admin</textarea>
+</div>
+</div>
+<div class="form-group">
+<div class="row">
+<label>Payment Mode</label>
+<select class="form-control" required="" name="duration" id="prepaidmode">
+    <option value="cash">Cash</option>
+    <option value="card">Card</option>
+    <option value="online">Online Payment</option>
+   </select>
+</div>
+</div>
+
+
+
+<input class="form-control" type="hidden" id="prepaidnotes">
+
+
+<div class="form-group">
+<div class="row">
+<button class="btn btn-success" type="button" id="addcredit">Add Credit</button>
+</div>
+</div>
+
+        </form>
+
+    
+      </div>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{# end of modal 1 #}
+
+{# modal     for recive postpaid credits#}
+
+
+
+                       {# postpaid start #}
+                        <div class="tab-pane " id="postpaid" role="tabpanel">
+                            <div class="card-body">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#add-credits">Add Credits</button>
+
+                             
+
+
+{# modal  1 for add postpaid credits#}
+
+
+<!-- Trigger the modal with a button -->
+
+<!-- Modal -->
+<div id="add-credits" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <small class="text-muted" style="color:#e91e63  !important;font-weight:bold;">Current Balance : {% for wallet in balance %}{{ wallet.postpaid }} {% endfor %}</small>
+
+        <h4 class="modal-title">Add Credits</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <form>
+<div class="form-group">
+<div class="row">
+<label>No. Of Credits</label>
+<input type="text" name="credits" placeholder="100 credits" required="" class="form-control" id="pocredits">
+</div>
+</div>
+{# <div class="form-group">
+<div class="row">
+<label>Payment Mode</label>
+<select class="form-control" required="" name="duration" id="pomode">
+    <option value="cash">Cash</option>
+    <option value="card">Card</option>
+    <option value="online">Online Payment</option>
+   </select>
+</div>
+</div> #}
+
+{# <div class="form-group">
+<div class="row">
+<label>Credit Duration</label>
+<select class="form-control" required="" name="duration" id="poduration">
+    <option value="15">15 Days</option>
+    <option value="20">20 Days</option>
+    <option value="25">25 Days</option>
+    <option value="30">30 Days</option>
+
+</select>
+</div>
+</div> #}
+<div class="form-group">
+<div class="row">
+<button class="btn btn-success" type="button" id="poadd">Add Credit</button>
+</div>
+</div>
+
+        </form>
+      </div>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{# end of modal 1 #}
+
+{# modal 2 for recive postpaid credits#}
+
+
+<!-- Trigger the modal with a button -->
+
+
+
+
+
+
+
+                                    <div class="table-responsive m-t-10">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Date</th>
+                                                     <th>Description</th>
+                                                    <th>Debit</th>
+                                                    <th>Credit</th>
+                                                    <th>Available Balance</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             {% for wallet in postpaid|reverse %}
+                                                <tr>
+                                                <th>{{ wallet.id }}</th>
+                                               <th>{{ wallet.date }} at {{ wallet.dateTime }}</th>
+                                                <th>{{ wallet.note }}</th>
+                                                <th>{{ wallet.debit }}</th>
+                                                <th>{{ wallet.credit }}</th>
+                                                <th>{{ wallet.balance }}</th>
+                                            </tr>
+                                        {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+                    {# end postpaid #}
+                    <!-- Tab panes -->
+                        <div class="tab-pane" id="latest-orders" role="tabpanel">
+                            <div class="card-body">
+                                    <div class="table-responsive m-t-10">
+                                        <table id="myTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Number</th>
+                                                    <th>Order Date</th>
+                                                    <th>Status</th>
+                                                    <th>Order Amount</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for order in customer.customerOrder|reverse %}
+                                                    <tr>
+                                                        <td>{{ order.id }}</td>
+                                                        <td>{{ order.orderDate|date('d F Y') }}</td>
+                                                        <td>{{ order.orderStatus }}</td>
+                                                        <td>{{ order.orderAmount }}</td>
+                                                        <td>  
+                                                            <a href="{{ path('restaurant_orders_panel_update',{'id':order.id}) }}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+  <!--second tab-->
+                        <div class="tab-pane" id="reccive" role="tabpanel">
+                            <div class="card-body">
+                                   <button class="btn btn-primary"  data-toggle="modal" data-target="#reccive-payment">Reccive Payments</button>
+
+                                <div class="table-responsive m-t-10">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Date</th>
+                                                    <th>Due Balance</th>
+                                                    <th>Due Duration</th>
+                                                    <th>Paid Balance</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                             {% for wallet in due|reverse %}
+                                                <tr>
+                                                <th>{{ wallet.id }}</th>
+                                               <th>{{ wallet.date }}</th>
+                                                <th><a href="#">
+                                                    {% if wallet.balance <  0 %}
+
+                                                       Payement Reccived
+                                                         {% else %}
+                                                            {{ wallet.balance }}
+                                                    {% endif %}
+                                                    </a></th>
+                                                <th>{{ wallet.duedate }} Days</th>
+                                                <th>{{ wallet.paid }}</th>
+                                                 <th>
+
+    {% if wallet.status == 0 %}
+         <span style="font-weight:bold;color:red;font-size:14px;">Pending</span> 
+    {% else %}
+         <span  style="font-weight:bold;color:green;font-size:14px;">Paid</span> 
+    {% endif %}
+ </th>
+                                            </tr>
+                                        {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <!--second tab-->
+                        <div class="tab-pane" id="reviews" role="tabpanel">
+                            <div class="card-body">
+                                <table class="table table-hovered">
+                                    <tr>
+                                        <th>Restaurant</th>
+                                        <th>Ratings</th>
+                                        <th>Reviews</th>
+                                    </tr>
+                                {% for rating in customer.restaurantRatings %}
+                                    <tr>
+                                        <td>{{ rating.restaurant.restaurantName }}</td>
+                                        <td>
+                                            <div class="rating-wrap text-left margin-top-10">
+                                                <div class="star-ratings-sprite pull-left">
+                                                    <span style="width:{{ rating.ratings * 20 }}%" class="star-ratings-sprite-rating"></span>
+                                                </div>
+                                                <span class="star-count pull-left margin-left-5">({{rating.ratings}})</span>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </td>
+                                        <td>{{ rating.reviews }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="customer-address" role="tabpanel">
+                            <div class="card-body">
+                                <div class="table-responsive m-t-10">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Type</th>
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for address in customer.billingAddress %}
+                                            <tr>
+                                                <td>
+                                                    {% if address.addressType == "Home" %}
+                                                        <a href="javascipt:;"><i class="fa fa-home"> Home</i></a>
+                                                    {% elseif address.addressType == "Work" %}
+                                                        <a href="javascipt:;"><i class="fa fa-building"></i> Work</a>
+                                                    {% else %}
+                                                        <a href="javascipt:;"><i class="fa fa-universal-access"></i> Others</a>
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ address.fullName }}</td>
+                                                <td>{{ address.address }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="membership-logs" role="tabpanel">
+                            <div class="card-body">
+                                <div class="table-responsive m-t-10">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Purchased Date</th>
+                                                <th>Expiry Date</th>
+                                                <th>Login Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                      {% for mem in membership %}                                   
+                                             <tr>
+                                                <td>{{ mem.name }} - {{ mem.duration }} Month </td>
+                                                <td>{{ mem.purchased_date }}</td>
+                                                <td>{{ mem.expiry_date }}</td>
+                                                <td>{% if mem.status == 0 %} Activated {% elseif mem.status == 2  %}Hold{% else %}Deactivated {% endif %}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="customer-logs" role="tabpanel">
+                            <div class="card-body">
+                                <div class="table-responsive m-t-10">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>IP Address</th>
+                                                <th>Device</th>
+                                                <th>Channel</th>
+                                                <th>Login Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for logs in cutomerlogs %}
+                                            <tr>
+                                                <td>{{ logs.ip }}</td>
+                                                <td>{{ logs.device }}</td>
+                                                <td>{{ logs.channel }}</td>
+                                                <td>{{ logs.created_date }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <!-- Row -->
+
+
+<!-- Modal -->
+<div id="reccive-payment" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <small class="text-muted" style="color:#e91e63  !important;font-weight:bold;">Current Balance : {% for wallet in balance %}{{ wallet.postpaid }} {% endfor %}</small>
+
+        <h4 class="modal-title">Reccive Payments</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+        <form>
+<div class="form-group">
+<div class="row">
+<label>Select Credit</label>
+<select class="form-control" required="" name="duration" id="rid">
+      {% for wallet in due %}
+        {% if wallet.status == 0 %}
+    <option value="{{ wallet.id }}">{{ wallet.balance }} on {{ wallet.date }}</option>
+
+        {% endif %}
+{% endfor %}
+   </select>
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+<label>Reccived Amount</label>
+<input type="text" class="form-control" placeholder="1000" id="ramount">
+</textarea>
+</div>
+</div>
+
+<div class="form-group">
+<div class="row">
+<label>Payment Mode</label>
+<select class="form-control" required="" name="duration" id="rmode">
+    <option value="cash">Cash</option>
+    <option value="card">Card</option>
+    <option value="online">Online Payment</option>
+   </select>
+</div>
+</div>
+
+
+
+
+
+<div class="form-group">
+<div class="row">
+<button class="btn btn-success" type="submit" id="radd">Reccive Payment</button>
+</div>
+</div>
+
+        </form>
+      </div>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{# end of modal 2 #}
+
+     
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+{% endblock %}
+
+
+ 
+{% block scripts %}
+<script type="text/javascript">
+  //to add prepaid
+        $('#addcredit').click(function(){
+          var credits=parseInt($('#prepaidcredit').val());
+          var mode=$('#prepaidmode').val();
+          var notes=$('#prepaidnotes').val();
+          var userID=$('#userID').val();
+          var walletnote=$('#walletnote').val();
+          
+if(isNaN(credits))
+{
+    alert('Please enter valid Credits');
+}
+else
+{
+    var url='{{ path('add_credit_to_wallet') }}';
+ 
+    var data={"userID":userID,"mode":mode,"credits":credits,"note":walletnote};
+
+ajax(url,data,location.reload());
+}
+});
+$('#radd').click(function(){
+var credits=parseInt($('#ramount').val());
+var mode=$('#rmode').val();
+var id=$('#rid').val();
+var userID=$('#userID').val();
+if(credits<1 || isNaN(credits))
+{
+    alert('Please enter valid amount');
+}
+else
+{
+    var url='{{ path('reccive_postpaid_payments') }}';
+ 
+    var data={"userID":userID,"mode":mode,"credits":credits,"id":id};
+
+ajax(url,data,location.reload());
+}
+}); 
+//to add loyalty
+        $('#addloyalty').click(function(){
+          var credits=parseInt($('#lprepaidcredit').val());
+          var mode=$('#lprepaidmode').val();
+          var notes=$('#lprepaidnotes').val();
+          var userID=$('#userID').val();
+          var walletnote=$('#lwalletnote').val();
+          
+if(isNaN(credits))
+{
+    alert('Please enter valid Points');
+}
+else
+{
+    var url='{{ path('add_credit_to_loyalty') }}';
+ 
+    var data={"userID":userID,"mode":mode,"credits":credits,"note":walletnote};
+// alert(url)
+ ajax(url,data,location.reload());
+}
+});
+$('#radd').click(function(){
+var credits=parseInt($('#ramount').val());
+var mode=$('#rmode').val();
+var id=$('#rid').val();
+var userID=$('#userID').val();
+if(credits<1 || isNaN(credits))
+{
+    alert('Please enter valid amount');
+}
+else
+{
+    var url='{{ path('reccive_postpaid_payments') }}';
+ 
+    var data={"userID":userID,"mode":mode,"credits":credits,"id":id};
+
+ajax(url,data,location.reload());
+}
+});
+addloyalty
+//to add postpaid
+ $('#poadd').click(function(){
+          var credits=parseInt($('#pocredits').val());
+          var mode='dummy';
+          var duration='15';
+          var userID=$('#userID').val();
+if(credits==0 || isNaN(credits))
+{
+    alert('Please enter valid Credits');
+}
+else
+{
+    var url='{{ path('add_credit_to_wallet_postpaid') }}';
+ 
+    var data={"userID":userID,"mode":'null',"credits":credits,"note":'Credit From Marketbhaav',"duration":duration};
+// console.log()
+ajax(url,data,location.reload());
+}
+ });
+ //to add postpaid
+ $('#settingsSave').click(function(){
+          var drop=$('#settingsDrop').val();
+          
+          var userID=$('#userID').val();
+
+
+    var url='{{ path('add_duration_postpaid') }}';
+ 
+    var data={"userID":userID,"drop":drop};
+    // alert(data)
+// console.log()
+ajax(url,data,alert('Credit Duration changed to '+drop+' Days'));
+
+ });
+
+// blockP
+ //to add postpaid
+ $('#blockP').click(function(){
+          
+          var userID=$('#userID').val();
+      
+
+
+    var url='{{ path('block_duration_postpaid') }}';
+ 
+    var data={"userID":userID,"status":'1'};
+    // alert(data)
+// console.log()
+ajax(url,data,location.reload());
+
+ });
+ $('#unblockP').click(function(){
+          
+          var userID=$('#userID').val();
+      
+
+
+    var url='{{ path('block_duration_postpaid') }}';
+ 
+    var data={"userID":userID,"status":'0'};
+    // alert(data)
+// console.log()
+ajax(url,data,location.reload());
+
+ });
+function ajax(url,data,output)
+ {
+
+$.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: function (data, dataType) {
+output;
+location.reload();
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert('Error : ' + errorThrown);
+    }
+});
+}
+ </script>
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable(
+            {
+                "aaSorting": [[0, 'desc']],
+            }
+        );
+    });
+
+
+
+</script>
+{% endblock %}

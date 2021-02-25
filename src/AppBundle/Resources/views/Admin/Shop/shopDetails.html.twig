@@ -1,0 +1,164 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Shop Details | About | Privacy Policy | Refund Policy
+
+                    </h4>
+                </div>
+                <div class="card-body">
+                 
+<form method="post" action="{{ path('update_shop_details') }}">
+  {% for res in data %}
+    <div class="form-row">
+  <div class="form-group col-md-4">
+      <label for="mid">Currency Format*</label>
+ <SELECT class="form-control" id="mid"   name="currency" value="{{ res.currencyFormat }}">
+  <option value="₹" {% if res.currencyFormat == '₹' %} selected {% endif %} >INR</option>
+  <option value="AED" {% if res.currencyFormat == 'AED' %} selected {% endif %}>AED</option>
+ </SELECT>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="mkey">Country Code</label>
+ <select class="form-control" id="mkey" placeholder="Country Code"  name="country" value="{{ res.countryCode }}">
+   <option value="+91" {% if res.countryCode == '+91' %} selected {% endif %} >+91</option>
+  <option value="+971" {% if res.countryCode == '+971' %} selected {% endif %}>+971</option>
+ </select>
+    </div>
+        <div class="form-group col-md-4">
+      <label for="mkey">SMS Senderid</label>
+ <input type="text" class="form-control" id="mkey" placeholder="Senderid"  name="sms" value="{{ res.sms }}">
+    </div>
+  </div>
+      <div class="form-row">
+  <div class="form-group col-md-6">
+      <label for="mid">SMS api Key*</label>
+ <input type="text" class="form-control" id="mid" placeholder="SMS api Key"  name="apiKey" value="{{ res.apiKey }}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="mkey">Firebase</label>
+ <input type="text" class="form-control" id="mkey" placeholder="Firebase"  name="firebase" value="{{ res.firebase }}">
+    </div>
+     
+  </div>
+
+    <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="fb">Facebook</label>
+     <input type="text" class="form-control " id="fb" placeholder="Facebook link"  name="facebook" value="{{ res.facebook_url }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="inputPassword4">Instagram</label>
+ <input type="text" class="form-control" id="fb" placeholder="Instagram link"  name="instagram" value="{{ res.instagram_url }}">
+    </div>
+</div>
+    <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="fb">Youtube</label>
+     <input type="text" class="form-control" id="fb" placeholder="Youtube link"  name="youtube" value="{{ res.youtube_url }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="inputPassword4">Twitter</label>
+ <input type="text" class="form-control" id="fb" placeholder="Twitter link"  name="twitter" value="{{ res.twitter_url }}">
+    </div>
+</div>
+   <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="fb">Play Store </label>
+     <input type="text" class="form-control" id="fb" placeholder="google play store link"  name="play_store" value="{{ res.play_store }}">
+    </div>
+<div class="form-group col-md-6">
+      <label for="inputPassword4">App Store</label>
+ <input type="text" class="form-control" id="fb" placeholder="apple store link"  name="app_store" value="{{ res.apple_store }}">
+    </div>
+</div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Number Format</label>
+            <select class="form-control" id="numberformat" name="numberformat" placeholder="Number Format" value="{{ res.number_format }}">
+<option value="1" {% if res.number_format == '1' %} selected {% endif %} >Round ( Eg : 4.00 )</option>
+
+                <option value="0" {% if res.number_format == '0' %} selected {% endif %}>Round For Decimals (Eg : 4.50)</option>
+            </select>
+        </div>
+    </div>
+
+{% endfor %}
+  <button type="submit" class="btn btn-primary">Save</button>
+
+</form>
+</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+    
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+    
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+    
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+    
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+    
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+        
+</script>
+ <script>
+        $(document).ready(function() {
+            $('.privacy').richText();
+        });
+        $(document).ready(function() {
+            $('.description').richText();
+        });
+        $(document).ready(function() {
+            $('.terms').richText();
+        });
+         $(document).ready(function() {
+            $('.return').richText();
+        });
+           $(document).ready(function() {
+            $('.refund').richText();
+        });
+             $(document).ready(function() {
+            $('.wallet').richText();
+        });
+        </script>
+{% endblock %}

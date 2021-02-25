@@ -1,0 +1,74 @@
+web_set_featured_restaurant:
+    path:     /admin/set-featured
+    defaults: { _controller: "AppBundle:WebApi:setFeaturedRestaurant" }
+    methods:  [GET, POST]
+web_getneworder:
+    path:     /getneworder/{id}
+    defaults: { _controller: "AppBundle:WebApi:getneworder" }
+    methods:  [GET, POST]
+web_getnewpikup:
+    path:     /getnewpickup/{id}
+    defaults: { _controller: "AppBundle:WebApi:getnewpickup" }
+    methods:  [GET, POST]
+web_getnewexpress:
+    path:     /getnewexpress/{id}
+    defaults: { _controller: "AppBundle:WebApi:getnewExpress" }
+    methods:  [GET, POST]
+web_getShopDetails: 
+    path:     /get-shop-details/{id}
+    defaults: { _controller: "AppBundle:WebApi:getShopDetails" }
+    methods:  [GET, POST]
+web_get_pending_delayed_order_count:
+    path:     /admin/get-order-count
+    defaults: { _controller: "AppBundle:WebApi:getOrderCount" }
+    methods:  [GET, POST]
+web_get_order_report_from_range:
+    path:     /admin/range/get-order-report
+    defaults: { _controller: "AppBundle:WebApi:getOrderReport" }
+    methods:  [GET, POST]
+
+web_get_dash_stats:
+    path:     /admin/get-dash-stats
+    defaults: { _controller: "AppBundle:WebApi:getDashStats" }
+    methods:  [GET, POST]
+
+web_get_dash_top_stats:
+    path:     /admin/get-top-stats
+    defaults: { _controller: "AppBundle:WebApi:getTopDashStats" }
+    methods:  [GET, POST]
+
+web_get_dash_monthly_stats:
+    path:     /admin/get-monthly-stats
+    defaults: { _controller: "AppBundle:WebApi:getMonthlyDashStats" }
+    methods:  [GET, POST]
+
+web_get_delivery_boy_pay_pending_list:
+    path:     /admin/delivery-boy/get-pay-pending/list
+    defaults: { _controller: "AppBundle:WebApi:getDeliveryPayPendingList" }
+    methods:  [GET, POST]
+
+web_get_restaurant_pay_pending_list:
+    path:     /admin/restaurant/get-pay-pending/list
+    defaults: { _controller: "AppBundle:WebApi:getRestaurantPayPendingList" }
+    methods:  [GET, POST]
+
+web_pay_delivery_boy_pay_pending_list:
+    path:     /admin/delivery-boy/pay-pending
+    defaults: { _controller: "AppBundle:WebApi:payPendingDeliveryBill" }
+    methods:  [GET, POST]
+
+web_pay_restaurant_pay_pending_list:
+    path:     /admin/restaurant/pay-pending
+    defaults: { _controller: "AppBundle:WebApi:payPendingRestaurantBill" }
+    methods:  [GET, POST]
+
+web_remove_restaurant_review:
+    path:     /admin/remove-review
+    defaults: { _controller: "AppBundle:WebApi:removeRestaurantReview" }
+    methods:  [GET, POST]
+
+web_get_customer_list:
+    path:     /admin/customer-list
+    defaults: { _controller: "AppBundle:WebApi:customerList" }
+    methods:  [GET, POST]
+

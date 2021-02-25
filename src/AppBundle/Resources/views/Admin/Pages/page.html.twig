@@ -1,0 +1,51 @@
+{% extends "@AppBundle/Admin/base.html.twig" %}
+{% block body %}
+            <div class="card card-outline-info">
+                <div class="card-header">
+                  
+                </div>
+                <div class="card-body">
+                 
+<form method="post" action="{{ path('update_page_details') }}">
+   <div id="basic" class="row layout-spacing layout-top-spacing">
+                        <div class="col-lg-12">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>{{ heading }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <input type="hidden" name="type" value="{{ type }}">
+                                            <textarea class="form-control data" id="data" placeholder="about shop"  name="data" rows="15">{{ data }}</textarea>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+
+
+</form>
+</div>
+</div>
+
+
+
+
+
+
+    
+{% endblock %}
+
+{% block scripts %}
+
+<script>    
+     $(document).ready(function() {
+            $('.data').richText();
+        });
+        </script>
+{% endblock %}

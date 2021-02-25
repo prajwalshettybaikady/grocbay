@@ -1,0 +1,219 @@
+{% extends '@AppBundle/Admin/base.html.twig' %}
+
+{% block body %}
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-13" ).datepicker({
+                  dateFormat:"dd-mm-yy",
+            });
+
+         });
+      </script>
+      <style type="text/css">
+
+   #map {
+        height: 100%;
+      }
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+      </style>
+  
+      
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+                <div class="card-body">
+                    
+                    <h2>Manage Delivery Location | ({% for res in data %} {{ res.title }} )</h2>
+
+
+<div id="map" style=" border: 2px solid #3872ac;"></div>
+</div>
+<form method="post"  action="{{ path('update_location') }}" class="container">
+
+  <div class="row dis"  style="">
+     <div class="col-12">
+      Name Of The Location  * <br>
+    <input type="text" name="location"  required placeholder="enter name of location"  class="form-control"  value="{{ res.title  }}" />
+        <input type="hidden" name="id"  required placeholder="enter name of location"  class="form-control"  value="{{ res.id  }}" />
+
+  </div><hr>
+   <div class="col-6" style="margin-top:20px;">
+      Minimum Order Amount (Regular User)<br>
+    <input type="number" name="minnormal" required placeholder="Minimum order amount"  class="form-control" 
+    <input type="text" name="location"  required placeholder="enter name of location"  class="form-control"  value="{{ res.minimum_order_amount_normal  }}"  />
+  </div>
+   <div class="col-6" style="margin-top:20px;">
+      Delivery Charge  (Regular User)<br>
+    <input type="number" name="delnormal"  placeholder="delivery Charge"  class="form-control" value="{{ res.delivery_charge_normal  }}" />
+  </div>
+<hr >
+   <div class="col-6" style="margin-top:20px;">
+      Minimum Order Amount (Prime User)<br>
+    <input type="text" name="minprime"  placeholder="Minimum Order Amount"  class="form-control"  value="{{ res.minimum_order_amount_prime }}" />
+  </div>
+   <div class="col-6" style="margin-top:20px;">
+      Delivery Charge  (Prime User)<br>
+    <input type="text" name="delprime"  placeholder="Delivery Charge"  class="form-control"   value="{{ res.delivery_charge_prime }}"/>
+  </div>
+
+ <div class="col-4" style="margin-top:20px;">
+      Minimum Order Amount (Express Delivery)<br>
+    <input type="text" name="minexpress" required placeholder="Minimum Order Amount"  class="form-control"   value="{{ res.minimum_order_amount_express }}"/>
+  </div>
+   <div class="col-4" style="margin-top:20px;">
+      Delivery Charge  (Express Delivery)<br>
+    <input type="text" name="delexpress"  required placeholder="Delivery Charge"  class="form-control"  value="{{ res.delivery_charge_express }}"/>
+  </div>
+   <div class="col-4" style="margin-top:20px;">
+    Duration (Express Delivery)<br>
+    <input type="text" name="duration"  required placeholder="Delivery Duration"  class="form-control"  value="{{ res.duration }}"/>
+  </div>
+
+  <div class="col-12">
+    <input type="hidden" name="vertices" id="vertices"  class="form-control" required="" value="{{ res.value }}" /><br>
+  </div>
+
+    <div class="col-4">
+          <button type="submit" class="btn btn-primary " id="save" style="margin-bottom:10px;">Update</button><br>
+
+
+  </div>
+  </div>
+</form>
+</div>
+</div>
+</div>
+ {% endfor %}
+{# end modal #}
+{% endblock %}
+
+{% block scripts %}
+
+    
+    <style type="text/css">
+ #tool{
+  width:100%;
+  display:block;
+}
+#map {
+    height: 500px;
+    width:100%;
+    margin-right: 10px;
+    padding: 0px;
+}
+#info{ 
+  width:100%;
+  float: left;
+  height: 270px;
+  overflow: scroll;
+}
+button.undo {
+    border: navajowhite;
+    background: #fff;
+}
+    </style>
+    <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqpNRcHCA-YkFDmY4v_TmOAeUltT3-ezY&callback=initMap">
+    </script>
+    {% for row in data %}
+   <!-- {{ row.title }}kjj -->
+<!-- {{ row.value|e('js')|raw }} -->
+    <script type="text/javascript">
+ // This example creates a simple polygon representing the Bermuda Triangle.
+
+      function initMap() {
+                var triangleCoords = {{ row.value|raw }};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: {lat: triangleCoords[0].lat, lng: triangleCoords[0].lng},
+          mapTypeId: 'terrain'
+        });
+  {% set mcount = 0 %}
+ {% for rows in datas %}
+var singida{{ mcount }} = {{ rows.value|raw }};
+
+
+var polygon1 = new google.maps.Polygon({
+    path: singida{{ mcount }},
+    geodesic: false,
+    strokeColor: '#000',
+    strokeOpacity: 1.0,
+    strokeWeight: 1,
+    content: "AREA_3",
+    map: map
+});
+  {% set mcount = mcount + 1 %}
+
+{% endfor %}
+
+        // Define the LatLng coordinates for the polygon's path.
+        var triangleCoords = {{ row.value|raw }};
+        // Construct the polygon.
+        var bermudaTriangle = new google.maps.Polygon({
+          paths: triangleCoords,
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35,
+          editable: true,
+      clickable: true,
+
+        });
+        bermudaTriangle.setMap(map);
+ //create the polygon
+        var polygon = new google.maps.Polygon(bermudaTriangle);
+        polygon.setMap(map);    
+
+        //google.maps.event.addListener(polygon, "dragend", getPolygonCoords);
+        google.maps.event.addListener(polygon.getPath(), "insert_at", getPolygonCoords);
+        //google.maps.event.addListener(polygon.getPath(), "remove_at", getPolygonCoords);
+        google.maps.event.addListener(polygon.getPath(), "set_at", getPolygonCoords);
+
+        function getPolygonCoords() {
+            var coordinates_poly = polygon.getPath().getArray();
+            var newCoordinates_poly = [];
+            for (var i = 0; i < coordinates_poly.length; i++){
+                lat_poly = coordinates_poly[i].lat();
+                lng_poly = coordinates_poly[i].lng();
+
+                latlng_poly = [lat_poly, lng_poly];
+                newCoordinates_poly.push(latlng_poly);
+            }
+
+            var str_coordinates_poly = JSON.stringify(polygon.getPath().getArray());
+
+            document.getElementById('vertices').value = str_coordinates_poly;
+        }
+
+      }
+
+
+</script>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends '@AppBundle/'~ myExtend ~'/base.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card card-outline-info">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">
+                    {{ menuItem.itemName }}
+                    <a href="{{ path('restaurant_edit_menu_item',{'id':menuItem.id})}}" class="pull-right btn btn-primary btn-sm">Edit this item</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        {% if menuItem.itemFeaturedImage != null %}
+                            <img src="/uploads/items/images/{{ menuItem.itemFeaturedImage }}" alt="{{ menuItem.itemName }} featured image" class="img-responsive">
+                        {% else %}
+                            <a href="javascript:;"><img src="https://dummyimage.com/200x200&text=Image+not+available!"></a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-9">
+                        <h5>Category : <small>
+                            {% if menuItem.category == null %}
+                                <a href="javascript:;" class="btn btn-xs btn-danger">Not assigned</a>
+                            {% else %}
+                                <a href="javascript:;" class="btn btn-xs btn-info">{{ menuItem.category.categoryName }}</a>
+                            {% endif %}
+                        </small></h5>
+                        <h5 class="m-t-10">Regular price : {{ menuItem.regularPrice }}</h5>
+                        <h5 class="m-t-10">Sale price : {{ menuItem.salePrice }}</h5>
+                        {% for variation in menuItem.priceVariation %}
+                            <strong>{{ variation.variationName }}: </strong>{{variation.price}}<br>
+                        {% endfor %}
+                    </div>
+                </div>
+                <h4 class="m-t-20">Extra Packages
+                    {% if flag %}
+                    <a href="{{ path('restaurant_view_single_menu_item',{'id':menuItem.id}) }}" class="btn btn-secondary btn-sm">Add new package</a>
+                    {% endif %}
+                </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_start(form) }}
+                        {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                        <div class="form-group">
+                            {{ form_label(form.packageName, "Package name") }}
+                            {{ form_row(form.packageName,{'attr':{'class':'form-control','placeholder':'eg : Toppings'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.pricingType, "Selection type") }}
+                            {{ form_row(form.pricingType,{'attr':{'class':'form-control'}}) }}
+                        </div>
+                            
+                        <h3 class="card-title">Add items
+                        
+                        <span class="pull-right">
+                                <a href="javascript:;" class="btn btn-primary btn-sm" onclick="addNewItem()">Add new item</a>
+                            </span>
+                        </h3>
+                        <hr>
+                        {% form_theme form '@AppBundle/Themes/td_widget.html.twig' %}
+                        <div class="prototype" data-prototype="<tr>{{ form_widget(form.packageExtras.vars.prototype)|e }}<td><button type='button' onclick='removeItem(this)' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button></td></tr>"></div>
+                        <div class="table-responsive">
+                            
+                                <table class="table table-hovered " id="item">
+                                    
+                                    <thead>
+                                        <tr>
+                                            <th>Display Label</th>
+                                            <th>Price</th>
+                                            <th>Priority</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="itemTable">
+                                        {% set i = 1 %}
+                                        {% for widget in form.packageExtras %}
+                                        <tr>
+                                            {{ form_row(widget.typeName) }}
+                                            {{ form_row(widget.price) }}
+                                            {{ form_row(widget.priority) }}
+                                            <td>{% if i != 1 %}<button type='button' onclick='removeItem(this)' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>{% endif %}</td>
+                                        </tr>
+                                        {% set i = 2 %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                            <button type="button" class="btn btn-inverse">Cancel</button>
+                        </div>
+                        {{ form_widget(form._token) }}
+                        {{ form_end(form,{'render_rest':false}) }}
+                    </div>
+                    <div class="col-md-6">
+                        <div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+                            {% set indec = 1 %}
+                            {% for package in extraPackages %}
+                            <div class="card card-outline-info">
+                                <div class="card-header" role="tab" id="heading{{package.id}}">
+                                    <h5 class="mb-0">
+                                        <a class=" text-white"data-toggle="collapse" data-parent="#accordion2" href="#collapse{{package.id}}" aria-expanded="true" aria-controls="collapse{{package.id}}">
+                                        {{ package.packageName }}
+                                        </a>
+                                        <a href="{{ path('restaurant_view_single_menu_item',{'id':menuItem.id,'editId':package.id}) }}" class="btn btn-primary btn-sm pull-right">Edit</a>
+                                    </h5>
+                                </div>
+                                <div id="collapse{{package.id}}" class="collapse {{ (indec == 1)?'show':'' }}" role="tabpanel" aria-labelledby="heading{{package.id}}">
+                                    <div class="card-body">
+                                        <table class="table table-hovered">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                            </tr>
+                                            {% for extra in package.packageExtras %}
+                                                <tr>
+                                                    <td>{{ extra.typeName }}</td>
+                                                    <td>{{ extra.price }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                        <a href="{{ path('restaurant_view_single_menu_item',{'id':menuItem.id,'deleteId':package.id}) }}" class="btn btn-danger btn-xs">delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% set indec = 2 %}
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#item').DataTable();
+    });
+</script>
+<script>
+    $indexMesure=1;
+    $(document).ready(function() {
+        $collectionHolder = $('#itemTable');
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $indexMesure = $collectionHolder.find(':input').length;
+
+    });
+
+    function addNewItem(){
+            // Get the ul that holds the collection of tags
+        $collectionHolder = $('#itemTable');
+
+        var $newFormLi="";
+        var $holder=$('div.prototype');
+        // Get the data-prototype explained earlier
+        var prototype = $holder.data('prototype');
+
+        // get the new index
+        var index = $indexMesure;
+        $indexMesure= $indexMesure + 1;
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+        
+        // Display the form in the page in an li, before the "Add a tag" link li
+        $newFormLi = $('#itemTable').prepend(newForm);
+
+    }
+
+    function removeItem(obj){
+        $(obj).parent().parent().remove();
+    }
+</script>
+{% endblock %}

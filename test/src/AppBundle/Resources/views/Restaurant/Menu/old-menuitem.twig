@@ -1,0 +1,554 @@
+{% extends "@AppBundle/"~ myExtend ~"/base.html.twig" %}
+
+{% block styles %}
+
+
+<link href="/assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+<style type="text/css">
+table#priceVar th {
+    font-size:10px;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Item Update Panel <a href="{{ path('manage_restaurant_add_stock') }}" class="btn btn-success btn-sm" style="float:right;"> Add Stock</a></h4>
+ 
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                            <div class="form-body">
+                                <h3 class="card-title">Primary Info</h3>
+
+                                <hr>
+                                <div class="row p-t-20">
+                                  <div class="col-md-3">
+                                        <div class="row">
+                                            {% form_theme form '@AppBundle/Themes/file.html.twig' %}
+                                            <div class="form-group">
+                                                {{ form_label(form.itemFeaturedImageFile, "Featured image",{'label_attr':{'class':'m-l-20'}}) }}
+                                                {% set menuItemPic = "" %}
+                                                {% if menuItem.itemFeaturedImage != null %}
+                                                    {% set menuItemPic = '/uploads/items/images/'~ menuItem.itemFeaturedImage %}
+                                                {% endif %}
+                                                {{ form_row(form.itemFeaturedImageFile,{'attr':{'data-default-file':menuItemPic}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% form_theme form '@AppBundle/Themes/widget.html.twig' %}
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    {{ form_label(form.itemName, "Item Name") }}
+                                                    {{ form_row(form.itemName,{'attr':{'class':'form-control','placeholder':'Item Name','maxlength':'30'}}) }}
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+{% set arr= menuItem.category|split(',') %}
+
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Category</label>
+<div class="card" style="Height:250px;overflow-x:auto">
+     <div class="panel-group" id="accordion">
+
+{% for ca in category %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#a{{ ca.id }}">{{ ca.category_name }}</a>
+        </h4>
+      </div>
+      <div id="a{{ ca.id }}" class="panel-collapse collapse">
+        <div class="panel-body">
+{% for sub in ca.SubCategory %}
+
+<div >
+      <label class="checkbox"><input type="checkbox" value="{{ sub.id }}" name="category[]" {% if sub.id in arr %} checked {% endif %}
+/>{{ sub.categoryName }}</label>
+    </div>
+    {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  </div> 
+</div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                  
+                                
+                                    
+                                            <!--/span-->
+                                        </div>
+                                       
+                                        
+                                </div>
+                                <!--/row-->
+                             
+                                   <div class="">
+                                         <div class="row">
+                                            <div class="col-md-6">
+                                                     <div class="form-group">
+                                                    {{ form_label(form.vegType, "Product Type") }}
+                                                    {{ form_row(form.vegType,{'attr':{'class':'form-control'}}) }}
+                                                </div>  
+                                            </div>
+                                             <div class="col-md-6">
+                                                   <div class="form-group">
+                                                    <label>Select Brand</label>
+                                                <select class="form-control select" id="appbundle_menuitem_brand" name="appbundle_menuitem[brand]" required="required">
+                                                  {% for res in brands  %}
+                                                 <option value="{{ res.id }}" {% if res.id == form.vars.value.brand  %} selected {% endif %}>{{ res.categoryName }}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                            <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    {{ form_label(form.alert, "Stock Notify") }}
+                                                    {{ form_row(form.alert,{'attr':{'class':'form-control','placeholder':'Stock Notify','value':'10',}}) }}
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                    {{ form_label(form.duration, "Return Duration") }}
+                                                    {{ form_row(form.duration,{'attr':{'class':'form-control'}}) }}
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+
+                                  <div class="row">
+                                            <div class="col-md-6">
+                                                {{ form_label(form.isActive, "Item Active Status") }}
+                                                {{ form_row(form.isActive,{'attr':{'placeholder':'Doe',"data-on-text":"Active","data-off-text":"Inactive","class":"c"}}) }}
+                                            </div>
+                                      
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    {{ form_label(form.salesTax, "Gst") }}
+                                                    {{ form_row(form.salesTax,{'attr':{'class':'form-control','placeholder':'Tax'}}) }}
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{ form_label(form.itemDescription, "Item description") }}
+                                        {{ form_row(form.itemDescription,{'attr':{'class':'form-control','placeholder':'Doe'}}) }}
+                                    </div>
+                                </div>
+                                   <div class="row">
+                                    <div class="col-md-12">
+                                        {{ form_label(form.itemShortDescription, "Item Short description") }}
+                                        {{ form_row(form.itemShortDescription,{'attr':{'class':'form-control','placeholder':'Doe'}}) }}
+                                    </div>
+                                </div>  
+                            </div>
+
+                            
+                            <h3 class="card-title">Price variation
+                            
+                            <span class="pull-right">
+                                    <a href="javascript:;" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#variation">Add new variant</a>
+                                </span>
+                            </h3>
+                            <hr>
+                         
+                            <div class="table-responsive">
+                                
+                                    <table class="table table-hovered "  id="priceVar">
+                                        
+                                        <thead>
+                                            <tr>
+                                            <th>Variation Name</th>
+                                              <th>SKU</th>
+                                               <th>Barcode</th>
+                                               <th>MRP</th>
+                                                <th>Dis. Price</th>
+                                                 <th>Membership. Price</th>
+                                                <th>Priority</th>
+                                                <th>Min.OQ</th>
+                                                <th>Max.OQ</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="priceVariationTable">
+                                            {% set count = 1 %}
+                                         {% for res in variation %}
+                                         <tr>
+                                            <td><input type="hidden" name="id[]" value="{{ res.id }}" class="0{{count}}"><input type="hidden" name="variation[]" value="{{ res.variationName }}" class="1{{count}}"><span class="var{{count}}">{{ res.variationName }}</span></td>
+                                            <td><input type="hidden" name="sku[]" value="{{ res.sku }}" class="2{{count}}"><span class="sku{{count}}">{{ res.sku }}</span></td>
+                                            <td><input type="hidden" name="barcode[]" value="{{ res.barcode }}"  class="3{{count}}"><span class="barcode{{count}}">{{ res.barcode }}</span></td>
+                                            <td><input type="hidden" name="mrp[]" value="{{ res.mrp }}"  class="4{{count}}"><span class="mrp{{count}}">{{ res.mrp }}</span></td>
+                                            <td><input type="hidden" name="price[]" value="{{ res.price }}"  class="5{{count}}"><span class="price{{count}}">{{ res.price }}</span></td>
+                                            <td><input type="hidden" name="membership[]" value="{{ res.membership_price }}"  class="6{{count}}"><span class="membership{{count}}">{{ res.membership_price }}</span></td>
+                                            <td><input type="hidden" name="priority[]" value="{{ res.priority }}"  class="7{{count}}"><span class="priority{{count}}">{{ res.priority }}</span></td>
+                                            <td><input type="hidden" name="min[]" value="{{ res.minItem }}"  class="8{{count}}"><span class="min{{count}}">{{ res.minItem }}</span></td>
+                                            <td><input type="hidden" name="max[]" value="{{ res.maxItem }}"  class="9{{count}}"><input type="hidden" name="hsn[]" value="{{ res.hsn }}"  class="10{{count}}"><span class="max{{count}}">{{ res.maxItem }}</span></td>
+                                            <td><button type="button"  class="btn btn-danger btn-sm" data-toggle="modal" data-target="#edit{{count}}"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" onclick="removeVariant(this)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
+    <div id="edit{{count}}" class="modal" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+       <form>
+
+
+   
+       <label for="variation_name">Variation Name *</label>
+    <input type="text" class="form-control" id="variation_name{{ count}}" placeholder="1 Kg" value="{{ res.variationName }}">
+    <div class=""><br>
+    <div class="form-row">
+
+    <div class="form-group col-4">
+      <label for="priority">Priority</label>
+      <input type="number" class="form-control" id="priority{{ count}}" placeholder="priority"  value="{{ res.priority }}">
+    </div>
+        <div class="form-group col-4">
+      <label for="priority">SKU </label>
+      <input type="text" class="form-control" id="sku{{ count}}" placeholder="SKU"  value="{{ res.sku }}">
+    </div>
+      <div class="form-group col-4">
+      <label for="priority">HSN </label>
+      <input type="text" class="form-control" id="hsn{{ count}}" placeholder="HSN"  value="{{ res.hsn }}">
+    </div>
+    </div>
+  </div>
+      <div class="form-group">
+      <label for="barcode">barcode </label>
+      <input type="text" class="form-control" id="barcode{{ count}}" placeholder="barcode"  value="{{ res.barcode }}">
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="min">Minimum Order Quantity </label>
+      <input type="text" class="form-control" id="min{{ count}}" placeholder="minimum order Quantity" value="{{res.minItem}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="priority">Maximum Order Quantity</label>
+      <input type="number" class="form-control" id="max{{ count}}" placeholder="Maximum Order Quantity" value="{{res.maxItem}}">
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="mrp">Mrp *</label>
+      <input type="text" class="form-control" id="mrp{{ count}}" placeholder="mrp"  value="{{ res.mrp }}">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="price">Discounted Price *</label>
+      <input type="number" class="form-control" id="price{{ count}}" placeholder="price"  value="{{ res.price }}">
+    </div>
+        <div class="form-group col-md-4">
+      <label for="price">Membership Price *</label>
+      <input type="number" class="form-control" id="membership{{ count}}" placeholder="price"  value="{{ res.membership_price }}">
+    </div>
+  </div>
+  
+
+  <button type="button" class="btn btn-primary" id="addvar{{ count}}">Save</button>
+</form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+$('#addvar{{ count}}').click(function(){
+var image=$('#image');
+var variation=$('#variation_name{{ count}}').val();
+var priority=$('#priority{{ count}}').val();
+var barcode=$('#barcode{{ count}}').val();
+var min=$('#min{{ count}}').val();
+var max=$('#max{{ count}}').val();
+var mrp=$('#mrp{{ count}}').val();
+var price=$('#price{{ count}}').val();
+var membership=$('#membership{{ count}}').val();
+var sku=$('#sku{{ count}}').val();
+var hsn=$('#hsn{{ count}}').val();
+
+if(variation=='' || mrp == '')
+{
+    alert('please enter variation name or valid price!');
+    return false;
+}
+$('.var{{count}}').html(variation);
+$('.priority{{count}}').html(priority);
+$('.barcode{{count}}').html(barcode);
+$('.min{{count}}').html(min);
+$('.max{{count}}').html(max);
+$('.mrp{{count}}').html(mrp);
+$('.price{{count}}').html(price);
+$('.membership{{count}}').html(membership);
+$('.sku{{count}}').html(sku);
+$('.hsn{{count}}').html(hsn);
+
+$('.1{{count}}').val(variation);
+$('.2{{count}}').val(sku);
+$('.3{{count}}').val(barcode);
+$('.4{{count}}').val(mrp);
+$('.5{{count}}').val(price);
+$('.6{{count}}').val(membership);
+$('.7{{count}}').val(priority);
+$('.8{{count}}').val(min);
+$('.9{{count}}').val(max);
+$('.10{{count}}').val(hsn);
+
+$('#edit{{count}}').fadeOut();
+
+$('.modal-backdrop').fadeOut();
+
+$('.modal-open').css({'overflow': 'visible'});
+});
+</script>
+                                            {% set count = count +1 %}
+                                        </tr>
+                                         {% endfor %}
+                                        </tbody>
+                                    </table>
+                                
+                            </div>
+
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                <button type="button" class="btn btn-inverse">Cancel</button>
+                            </div>
+                        {{ form_widget(form._token) }}
+                        {{ form_end(form,{'render_rest':false}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row -->
+        <!-- Modal -->
+<div id="variation" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+       <form>
+
+
+   
+       <label for="variation_name">Variation Name *</label>
+    <input type="text" class="form-control" id="variation_name" placeholder="1 Kg">
+    <div class=""><br>
+    <div class="form-row">
+
+    <div class="form-group col-4">
+      <label for="priority">Priority</label>
+      <input type="number" class="form-control" id="priority" placeholder="priority">
+    </div>
+        <div class="form-group col-4">
+      <label for="priority">SKU </label>
+      <input type="text" class="form-control" id="sku" placeholder="SKU">
+    </div>
+       <div class="form-group col-4">
+      <label for="priority">HSN </label>
+      <input type="text" class="form-control" id="hsn{{ count}}" placeholder="HSN"  value="">
+    </div>
+    </div>
+  </div>
+      <div class="form-group">
+      <label for="barcode">barcode </label>
+      <input type="text" class="form-control" id="barcode" placeholder="barcode">
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="min">Minimum Order Quantity </label>
+      <input type="text" class="form-control" id="min" placeholder="minimum order Quantity" value="1">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="priority">Maximum Order Quantity</label>
+      <input type="number" class="form-control" id="max" placeholder="Maximum Order Quantity" value="10">
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="mrp">Mrp *</label>
+      <input type="text" class="form-control" id="mrp" placeholder="mrp">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="price">Discounted Price *</label>
+      <input type="number" class="form-control" id="price" placeholder="price">
+    </div>
+        <div class="form-group col-md-4">
+      <label for="price">Membership Price *</label>
+      <input type="number" class="form-control" id="membership" placeholder="price">
+    </div>
+  </div>
+  
+
+  <button type="button" class="btn btn-primary" id="addvar">Add</button>
+</form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+
+<script src="/assets/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="/assets/plugins/moment/moment.js"></script>
+<script src="/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script src="/assets/js/colorpicker.js"></script>
+
+<script>
+$('#addvar').click(function(){
+var image=$('#image');
+var variation=$('#variation_name').val();
+var priority=$('#priority').val();
+var barcode=$('#barcode').val();
+var min=$('#min').val();
+var max=$('#max').val();
+var mrp=$('#mrp').val();
+var price=$('#price').val();
+var membership=$('#membership').val();
+var sku=$('#sku').val();
+var hsn=$('#hsn').val();
+
+if(variation=='' || mrp == '')
+{
+    alert('please enter variation name or valid price!');
+    return false;
+}
+ // var x = $("#image");
+ //      y = x.clone();
+ //  x.attr("id", "fileOld");
+ //  y.insertAfter(".n");
+// priceVariationTable
+$('#priceVariationTable').append('<tr><td><input type="hidden" name="variation[]" value="'+variation+'">'+variation+'</td><td><input type="hidden" name="hsn[]" value="'+hsn+'"><input type="hidden" name="sku[]" value="'+sku+'">'+sku+'</td><td><input type="hidden" name="barcode[]" value="'+barcode+'">'+barcode+'</td><td><input type="hidden" name="mrp[]" value="'+mrp+'">'+mrp+'</td><td><input type="hidden" name="price[]" value="'+price+'">'+price+'</td><td><input type="hidden" name="membership[]" value="'+membership+'">'+membership+'</td><td><input type="hidden" name="priority[]" value="'+priority+'">'+priority+'</td><td><input type="hidden" name="min[]" value="'+min+'">'+min+'</td><td><input type="hidden" name="max[]" value="'+max+'">'+max+'</td><td><button type="button" onclick="removeVariant(this)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td></tr>');
+var variation=$('#variation_name').val('');
+var priority=$('#priority').val('0');
+var barcode=$('#barcode').val('');
+
+var mrp=$('#mrp').val(0);
+var price=$('#price').val(0);
+var membership=$('#membership').val(0);
+var sku=$('#sku').val('');
+});
+
+        $indexMesure=1;
+        $(".c").bootstrapSwitch();
+        $(document).ready(function() {
+
+
+
+            $collectionHolder = $('#priceVariationTable');
+    
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $indexMesure = $collectionHolder.find(':input').length;
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+    
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+    
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+    
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+    
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+    
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+
+    function addNewPriceVeriation(){
+        $('#priceVar').attr('style','');
+            // Get the ul that holds the collection of tags
+        $collectionHolder = $('#priceVariationTable');
+
+        var $newFormLi="";
+        var $holder=$('div.prototype');
+        // Get the data-prototype explained earlier
+        var prototype = $holder.data('prototype');
+
+        // get the new index
+        var index = $indexMesure;
+        $indexMesure= $indexMesure + 1;
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+        
+        // Display the form in the page in an li, before the "Add a tag" link li
+        $newFormLi = $('#priceVariationTable').prepend(newForm);
+
+    }
+
+    function removeVariant(obj){
+        $(obj).parent().parent().remove();
+    }
+</script>
+
+{% endblock %}
